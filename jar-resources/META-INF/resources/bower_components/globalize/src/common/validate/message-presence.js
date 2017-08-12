@@ -1,11 +1,11 @@
 define([
-	"../validate"
-], function( validate ) {
+    "../validate"
+], function (validate) {
 
-return function( path, value ) {
-	path = path.join( "/" );
-	validate( "E_MISSING_MESSAGE", "Missing required message content `{path}`.",
-		value !== undefined, { path: path } );
-};
+    return function (path, value) {
+        path = path.join("/");
+        validate("E_MISSING_MESSAGE", "Missing required message content `{path}`.",
+            value !== undefined, {path: path});
+    };
 
 });

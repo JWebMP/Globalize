@@ -1,7 +1,7 @@
-define(function() {
+define(function () {
 
-return function( stringOrArray ) {
-	return Array.isArray( stringOrArray ) ? stringOrArray : stringOrArray ? [ stringOrArray ] : [];
-};
+    return function (stringOrArray) {
+        return Array.isArray(stringOrArray) ? stringOrArray : stringOrArray ? [stringOrArray] : [];
+    };
 
 });

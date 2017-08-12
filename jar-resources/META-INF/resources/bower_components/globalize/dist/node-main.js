@@ -11,17 +11,17 @@
  */
 
 // Core
-module.exports = require( "./globalize" );
+module.exports = require("./globalize");
 
 // Extent core with the following modules
-require( "./globalize/message" );
-require( "./globalize/number" );
-require( "./globalize/plural" );
+require("./globalize/message");
+require("./globalize/number");
+require("./globalize/plural");
 
 // Load after globalize/number
-require( "./globalize/currency" );
-require( "./globalize/date" );
+require("./globalize/currency");
+require("./globalize/date");
 
 // Load after globalize/number and globalize/plural
-require( "./globalize/relative-time" );
-require( "./globalize/unit" );
+require("./globalize/relative-time");
+require("./globalize/unit");

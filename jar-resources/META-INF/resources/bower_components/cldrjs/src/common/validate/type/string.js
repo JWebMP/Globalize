@@ -1,9 +1,9 @@
 define([
-	"../type"
-], function( validateType ) {
+    "../type"
+], function (validateType) {
 
-	return function( value, name ) {
-		validateType( value, name, typeof value === "string", "a string" );
-	};
+    return function (value, name) {
+        validateType(value, name, typeof value === "string", "a string");
+    };
 
 });

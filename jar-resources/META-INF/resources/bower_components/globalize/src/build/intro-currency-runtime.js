@@ -13,31 +13,31 @@
  * Globalize Runtime v@VERSION @DATE Released under the MIT license
  * http://git.io/TrdQbw
  */
-(function( root, factory ) {
+(function (root, factory) {
 
-	// UMD returnExports
-	if ( typeof define === "function" && define.amd ) {
+    // UMD returnExports
+    if (typeof define === "function" && define.amd) {
 
-		// AMD
-		define([
-			"../globalize-runtime",
-			"./number"
-		], factory );
-	} else if ( typeof exports === "object" ) {
+        // AMD
+        define([
+            "../globalize-runtime",
+            "./number"
+        ], factory);
+    } else if (typeof exports === "object") {
 
-		// Node, CommonJS
-		module.exports = factory(
-			require( "../globalize-runtime" ),
-			require( "./number" )
-		);
-	} else {
+        // Node, CommonJS
+        module.exports = factory(
+            require("../globalize-runtime"),
+            require("./number")
+        );
+    } else {
 
-		// Extend global
-		factory( root.Globalize );
-	}
-}(this, function( Globalize ) {
+        // Extend global
+        factory(root.Globalize);
+    }
+}(this, function (Globalize) {
 
-var formatMessage = Globalize._formatMessage,
-	runtimeKey = Globalize._runtimeKey,
-	validateParameterPresence = Globalize._validateParameterPresence,
-	validateParameterTypeNumber = Globalize._validateParameterTypeNumber;
+    var formatMessage = Globalize._formatMessage,
+        runtimeKey = Globalize._runtimeKey,
+        validateParameterPresence = Globalize._validateParameterPresence,
+        validateParameterTypeNumber = Globalize._validateParameterTypeNumber;

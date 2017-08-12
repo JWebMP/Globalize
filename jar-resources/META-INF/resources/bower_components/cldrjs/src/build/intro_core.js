@@ -12,17 +12,17 @@
  * CLDR JavaScript Library v@VERSION @DATE MIT license © Rafael Xavier
  * http://git.io/h4lmVg
  */
-(function( root, factory ) {
+(function (root, factory) {
 
-	if ( typeof define === "function" && define.amd ) {
-		// AMD.
-		define( factory );
-	} else if ( typeof module === "object" && typeof module.exports === "object" ) {
-		// Node. CommonJS.
-		module.exports = factory();
-	} else {
-		// Global
-		root.Cldr = factory();
-	}
+    if (typeof define === "function" && define.amd) {
+        // AMD.
+        define(factory);
+    } else if (typeof module === "object" && typeof module.exports === "object") {
+        // Node. CommonJS.
+        module.exports = factory();
+    } else {
+        // Global
+        root.Cldr = factory();
+    }
 
-}( this, function() {
+}(this, function () {

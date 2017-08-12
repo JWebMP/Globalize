@@ -1,17 +1,18 @@
 {
-	"boss": true,
-	"curly": true,
-	"eqeqeq": true,
-	"eqnull": true,
-	"expr": true,
-	"immed": true,
-	"noarg": true,
-	"onevar": false,
-	"quotmark": "double",
-	"smarttabs": true,
-	"trailing": true,
-	"undef": true,
-	"unused": true,
-
-	"predef": [ "define" ]
+  "boss": true,
+  "curly": true,
+  "eqeqeq": true,
+  "eqnull": true,
+  "expr": true,
+  "immed": true,
+  "noarg": true,
+  "onevar": false,
+  "quotmark": "double",
+  "smarttabs": true,
+  "trailing": true,
+  "undef": true,
+  "unused": true,
+  "predef": [
+    "define"
+  ]
 }

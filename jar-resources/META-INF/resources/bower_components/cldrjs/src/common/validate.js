@@ -1,11 +1,11 @@
 define([
-	"./create_error"
-], function( createError ) {
+    "./create_error"
+], function (createError) {
 
-	return function( code, check, attributes ) {
-		if ( !check ) {
-			throw createError( code, attributes );
-		}
-	};
+    return function (code, check, attributes) {
+        if (!check) {
+            throw createError(code, attributes);
+        }
+    };
 
 });

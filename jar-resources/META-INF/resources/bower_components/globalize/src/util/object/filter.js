@@ -1,16 +1,16 @@
-define(function() {
+define(function () {
 
-return function( object, testRe ) {
-	var key,
-		copy = {};
+    return function (object, testRe) {
+        var key,
+            copy = {};
 
-	for ( key in object ) {
-		if ( testRe.test( key ) ) {
-			copy[ key ] = object[ key ];
-		}
-	}
+        for (key in object) {
+            if (testRe.test(key)) {
+                copy[key] = object[key];
+            }
+        }
 
-	return copy;
-};
+        return copy;
+    };
 
 });

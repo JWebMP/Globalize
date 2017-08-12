@@ -13,30 +13,30 @@
  * Globalize Runtime v@VERSION @DATE Released under the MIT license
  * http://git.io/TrdQbw
  */
-(function( root, factory ) {
+(function (root, factory) {
 
-	// UMD returnExports
-	if ( typeof define === "function" && define.amd ) {
+    // UMD returnExports
+    if (typeof define === "function" && define.amd) {
 
-		// AMD
-		define([
-			"../globalize-runtime"
-		], factory );
-	} else if ( typeof exports === "object" ) {
+        // AMD
+        define([
+            "../globalize-runtime"
+        ], factory);
+    } else if (typeof exports === "object") {
 
-		// Node, CommonJS
-		module.exports = factory( require( "../globalize-runtime" ) );
-	} else {
+        // Node, CommonJS
+        module.exports = factory(require("../globalize-runtime"));
+    } else {
 
-		// Extend global
-		factory( root.Globalize );
-	}
-}(this, function( Globalize ) {
+        // Extend global
+        factory(root.Globalize);
+    }
+}(this, function (Globalize) {
 
-var createError = Globalize._createError,
-	regexpEscape = Globalize._regexpEscape,
-	runtimeKey = Globalize._runtimeKey,
-	stringPad = Globalize._stringPad,
-	validateParameterType = Globalize._validateParameterType,
-	validateParameterPresence = Globalize._validateParameterPresence,
-	validateParameterTypeString = Globalize._validateParameterTypeString;
+    var createError = Globalize._createError,
+        regexpEscape = Globalize._regexpEscape,
+        runtimeKey = Globalize._runtimeKey,
+        stringPad = Globalize._stringPad,
+        validateParameterType = Globalize._validateParameterType,
+        validateParameterPresence = Globalize._validateParameterPresence,
+        validateParameterTypeString = Globalize._validateParameterTypeString;

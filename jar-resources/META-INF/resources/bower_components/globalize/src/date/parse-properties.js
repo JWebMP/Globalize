@@ -1,16 +1,16 @@
-define(function() {
+define(function () {
 
-/**
- * parseProperties( cldr )
- *
- * @cldr [Cldr instance].
- *
- * Return parser properties.
- */
-return function( cldr ) {
-	return {
-		preferredTimeData: cldr.supplemental.timeData.preferred()
-	};
-};
+    /**
+     * parseProperties( cldr )
+     *
+     * @cldr [Cldr instance].
+     *
+     * Return parser properties.
+     */
+    return function (cldr) {
+        return {
+            preferredTimeData: cldr.supplemental.timeData.preferred()
+        };
+    };
 
 });

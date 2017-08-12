@@ -21,34 +21,33 @@ import za.co.mmagon.jwebswing.PageConfigurator;
 import za.co.mmagon.jwebswing.plugins.PluginInformation;
 
 /**
- *
  * @author GedMarc
  */
 @PluginInformation(pluginName = "Globalize",
-                   pluginUniqueName = "globalize",
-                   pluginDescription = "A JavaScript library for internationalization and localization that leverages the official Unicode CLDR JSON data ",
-                   pluginVersion = "1.2.2",
-                   pluginDependancyUniqueIDs = "jquery",
-                   pluginCategories = "internalization, globalization, globalize",
-                   pluginSubtitle = "A JavaScript library for internationalization and localization that leverage the official Unicode CLDR JSON data. The library works both for the browser and as a Node.js module.",
-                   pluginGitUrl = "https://github.com/globalizejs/globalize",
-                   pluginSourceUrl = "https://github.com/GedMarc/JWebSwing-GlobalizePlugin",
-                   pluginWikiUrl = "https://github.com/GedMarc/JWebSwing-GlobalizePlugin/wiki",
-                   pluginOriginalHomepage = "https://github.com/globalizejs/globalize",
-                   pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/GlobalizePlugin.jar/download",
-                   pluginIconUrl = "bower_components/globalize/icon.png",
-                   pluginIconImageUrl = "bower_components/globalize/example.png",
-                   pluginLastUpdatedDate = "2017/03/04"
+		pluginUniqueName = "globalize",
+		pluginDescription = "A JavaScript library for internationalization and localization that leverages the official Unicode CLDR JSON data ",
+		pluginVersion = "1.2.2",
+		pluginDependancyUniqueIDs = "jquery",
+		pluginCategories = "internalization, globalization, globalize",
+		pluginSubtitle = "A JavaScript library for internationalization and localization that leverage the official Unicode CLDR JSON data. The library works both for the browser and as a Node.js module.",
+		pluginGitUrl = "https://github.com/globalizejs/globalize",
+		pluginSourceUrl = "https://github.com/GedMarc/JWebSwing-GlobalizePlugin",
+		pluginWikiUrl = "https://github.com/GedMarc/JWebSwing-GlobalizePlugin/wiki",
+		pluginOriginalHomepage = "https://github.com/globalizejs/globalize",
+		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/GlobalizePlugin.jar/download",
+		pluginIconUrl = "bower_components/globalize/icon.png",
+		pluginIconImageUrl = "bower_components/globalize/example.png",
+		pluginLastUpdatedDate = "2017/03/04"
 )
 public class GlobalizePageConfigurator extends PageConfigurator
 {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Override
-    public Page configure(Page page)
-    {
-        return page;
-    }
+	@Override
+	public Page configure(Page page)
+	{
+		return page;
+	}
 
 }

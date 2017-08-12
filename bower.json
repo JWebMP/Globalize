@@ -17,7 +17,7 @@
     "tests"
   ],
   "dependencies": {
-	"globalize": "^1.1.1",
-	"globalize-languages": "*"
+    "globalize": "^1.1.1",
+    "globalize-languages": "*"
   }
 }

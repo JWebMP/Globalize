@@ -13,20 +13,20 @@
  * Globalize Runtime v@VERSION @DATE Released under the MIT license
  * http://git.io/TrdQbw
  */
-(function( root, factory ) {
+(function (root, factory) {
 
-	// UMD returnExports
-	if ( typeof define === "function" && define.amd ) {
+    // UMD returnExports
+    if (typeof define === "function" && define.amd) {
 
-		// AMD
-		define( factory );
-	} else if ( typeof exports === "object" ) {
+        // AMD
+        define(factory);
+    } else if (typeof exports === "object") {
 
-		// Node, CommonJS
-		module.exports = factory();
-	} else {
+        // Node, CommonJS
+        module.exports = factory();
+    } else {
 
-		// Globalize
-		root.Globalize = factory();
-	}
-}( this, function() {
+        // Globalize
+        root.Globalize = factory();
+    }
+}(this, function () {

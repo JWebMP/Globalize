@@ -1,11 +1,11 @@
 define([
-	"../create-error"
-], function( createError ) {
+    "../create-error"
+], function (createError) {
 
-return function( feature ) {
-	return createError( "E_UNSUPPORTED", "Unsupported {feature}.", {
-		feature: feature
-	});
-};
+    return function (feature) {
+        return createError("E_UNSUPPORTED", "Unsupported {feature}.", {
+            feature: feature
+        });
+    };
 
 });

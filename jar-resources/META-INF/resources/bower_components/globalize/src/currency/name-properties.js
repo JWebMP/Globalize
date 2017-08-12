@@ -1,22 +1,22 @@
 define([
-	"./code-properties",
-	"../util/object/filter"
-], function( currencyCodeProperties, objectFilter ) {
+    "./code-properties",
+    "../util/object/filter"
+], function (currencyCodeProperties, objectFilter) {
 
-/**
- * nameProperties( currency, cldr )
- *
- * Return number pattern with the appropriate currency code in as literal.
- */
-return function( currency, cldr ) {
-	var properties = currencyCodeProperties( currency, cldr );
+    /**
+     * nameProperties( currency, cldr )
+     *
+     * Return number pattern with the appropriate currency code in as literal.
+     */
+    return function (currency, cldr) {
+        var properties = currencyCodeProperties(currency, cldr);
 
-	properties.displayNames = objectFilter( cldr.main([
-		"numbers/currencies",
-		currency
-	]), /^displayName/ );
+        properties.displayNames = objectFilter(cldr.main([
+            "numbers/currencies",
+            currency
+        ]), /^displayName/);
 
-	return properties;
-};
+        return properties;
+    };
 
 });

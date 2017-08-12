@@ -1,7 +1,7 @@
-(function($) {
+(function ($) {
     var culture, cultures = Globalize.cultures,
-    en = cultures.en,
-    standard = en.calendars.standard;
+        en = cultures.en,
+        standard = en.calendars.standard;
 
     culture = cultures["ar"] = $.extend(true, {}, en, {
         name: "ar",
@@ -12,7 +12,7 @@
         numberFormat: {
             pattern: ["n-"],
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 symbol: "ر.س.‏"
             }
         },
@@ -21,17 +21,17 @@
                 name: "UmAlQura",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -182,7 +182,7 @@
                     ],
                     minDate: -2198707200000,
                     maxDate: 1873411199999,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var days = hday - 1,
                             gyear = hyear - 1318;
                         if (gyear < 0 || gyear >= this._yearInfo.length) return null;
@@ -200,7 +200,7 @@
                         gdate.setDate(gdate.getDate() + days);
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         // Date's ticks in javascript are always from the GMT time,
                         // but we are interested in the hijri date in the same timezone,
                         // not what the hijri date was at GMT time, so we adjust for the offset.
@@ -209,7 +209,8 @@
                         var hyear = 0,
                             hmonth = 1;
                         // find the earliest gregorian date in the array that is greater than or equal to the given date
-                        while (ticks > this._yearInfo[++hyear][1]) { }
+                        while (ticks > this._yearInfo[++hyear][1]) {
+                        }
                         if (ticks !== this._yearInfo[hyear][1]) {
                             hyear--;
                         }
@@ -239,17 +240,17 @@
                 name: "Hijri",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -272,7 +273,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -282,9 +283,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -317,7 +318,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -328,7 +329,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -337,17 +338,17 @@
                 name: "Gregorian_MiddleEastFrench",
                 firstDay: 6,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -361,17 +362,17 @@
                 name: "Gregorian_Arabic",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""],
-                    namesAbbr: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""]
+                    names: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""],
+                    namesAbbr: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -383,16 +384,16 @@
             Gregorian_Localized: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM, yyyy",
@@ -407,17 +408,17 @@
                 name: "Gregorian_TransliteratedFrench",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -442,7 +443,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "лв."
@@ -453,17 +454,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["неделя","понеделник","вторник","сряда","четвъртък","петък","събота"],
-                    namesAbbr: ["нед","пон","вт","ср","четв","пет","съб"],
-                    namesShort: ["н","п","в","с","ч","п","с"]
+                    names: ["неделя", "понеделник", "вторник", "сряда", "четвъртък", "петък", "събота"],
+                    namesAbbr: ["нед", "пон", "вт", "ср", "четв", "пет", "съб"],
+                    namesShort: ["н", "п", "в", "с", "ч", "п", "с"]
                 },
                 months: {
-                    names: ["януари","февруари","март","април","май","юни","юли","август","септември","октомври","ноември","декември",""],
-                    namesAbbr: ["ян","февр","март","апр","май","юни","юли","авг","септ","окт","ноември","дек",""]
+                    names: ["януари", "февруари", "март", "април", "май", "юни", "юли", "август", "септември", "октомври", "ноември", "декември", ""],
+                    namesAbbr: ["ян", "февр", "март", "апр", "май", "юни", "юли", "авг", "септ", "окт", "ноември", "дек", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"след новата ера","start":null,"offset":0}],
+                eras: [{"name": "след новата ера", "start": null, "offset": 0}],
                 patterns: {
                     d: "d.M.yyyy 'г.'",
                     D: "dd MMMM yyyy 'г.'",
@@ -491,7 +492,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -501,17 +502,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["diumenge","dilluns","dimarts","dimecres","dijous","divendres","dissabte"],
-                    namesAbbr: ["dg.","dl.","dt.","dc.","dj.","dv.","ds."],
-                    namesShort: ["dg","dl","dt","dc","dj","dv","ds"]
+                    names: ["diumenge", "dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte"],
+                    namesAbbr: ["dg.", "dl.", "dt.", "dc.", "dj.", "dv.", "ds."],
+                    namesShort: ["dg", "dl", "dt", "dc", "dj", "dv", "ds"]
                 },
                 months: {
-                    names: ["gener","febrer","març","abril","maig","juny","juliol","agost","setembre","octubre","novembre","desembre",""],
-                    namesAbbr: ["gen","feb","març","abr","maig","juny","jul","ag","set","oct","nov","des",""]
+                    names: ["gener", "febrer", "març", "abril", "maig", "juny", "juliol", "agost", "setembre", "octubre", "novembre", "desembre", ""],
+                    namesAbbr: ["gen", "feb", "març", "abr", "maig", "juny", "jul", "ag", "set", "oct", "nov", "des", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, d' / 'MMMM' / 'yyyy",
@@ -533,27 +534,27 @@
         language: "zh-Hans",
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             },
             currency: {
-                pattern: ["$-n","$n"],
+                pattern: ["$-n", "$n"],
                 symbol: "¥"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
-                    namesAbbr: ["周日","周一","周二","周三","周四","周五","周六"],
-                    namesShort: ["日","一","二","三","四","五","六"]
+                    names: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+                    namesAbbr: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+                    namesShort: ["日", "一", "二", "三", "四", "五", "六"]
                 },
                 months: {
-                    names: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""],
-                    namesAbbr: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""]
+                    names: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""],
+                    namesAbbr: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""]
                 },
-                AM: ["上午","上午","上午"],
-                PM: ["下午","下午","下午"],
-                eras: [{"name":"公元","start":null,"offset":0}],
+                AM: ["上午", "上午", "上午"],
+                PM: ["下午", "下午", "下午"],
+                eras: [{"name": "公元", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/M/d",
                     D: "yyyy'年'M'月'd'日'",
@@ -577,12 +578,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "Kč"
@@ -593,21 +594,21 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["neděle","pondělí","úterý","středa","čtvrtek","pátek","sobota"],
-                    namesAbbr: ["ne","po","út","st","čt","pá","so"],
-                    namesShort: ["ne","po","út","st","čt","pá","so"]
+                    names: ["neděle", "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota"],
+                    namesAbbr: ["ne", "po", "út", "st", "čt", "pá", "so"],
+                    namesShort: ["ne", "po", "út", "st", "čt", "pá", "so"]
                 },
                 months: {
-                    names: ["leden","únor","březen","duben","květen","červen","červenec","srpen","září","říjen","listopad","prosinec",""],
-                    namesAbbr: ["1","2","3","4","5","6","7","8","9","10","11","12",""]
+                    names: ["leden", "únor", "březen", "duben", "květen", "červen", "červenec", "srpen", "září", "říjen", "listopad", "prosinec", ""],
+                    namesAbbr: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", ""]
                 },
                 monthsGenitive: {
-                    names: ["ledna","února","března","dubna","května","června","července","srpna","září","října","listopadu","prosince",""],
-                    namesAbbr: ["1","2","3","4","5","6","7","8","9","10","11","12",""]
+                    names: ["ledna", "února", "března", "dubna", "května", "června", "července", "srpna", "září", "října", "listopadu", "prosince", ""],
+                    namesAbbr: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", ""]
                 },
-                AM: ["dop.","dop.","DOP."],
-                PM: ["odp.","odp.","ODP."],
-                eras: [{"name":"n. l.","start":null,"offset":0}],
+                AM: ["dop.", "dop.", "DOP."],
+                PM: ["odp.", "odp.", "ODP."],
+                eras: [{"name": "n. l.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d.M.yyyy",
                     D: "d. MMMM yyyy",
@@ -635,7 +636,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "kr."
@@ -646,13 +647,13 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["søndag","mandag","tirsdag","onsdag","torsdag","fredag","lørdag"],
-                    namesAbbr: ["sø","ma","ti","on","to","fr","lø"],
-                    namesShort: ["sø","ma","ti","on","to","fr","lø"]
+                    names: ["søndag", "mandag", "tirsdag", "onsdag", "torsdag", "fredag", "lørdag"],
+                    namesAbbr: ["sø", "ma", "ti", "on", "to", "fr", "lø"],
+                    namesShort: ["sø", "ma", "ti", "on", "to", "fr", "lø"]
                 },
                 months: {
-                    names: ["januar","februar","marts","april","maj","juni","juli","august","september","oktober","november","december",""],
-                    namesAbbr: ["jan","feb","mar","apr","maj","jun","jul","aug","sep","okt","nov","dec",""]
+                    names: ["januar", "februar", "marts", "april", "maj", "juni", "juli", "august", "september", "oktober", "november", "december", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
@@ -679,12 +680,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -695,17 +696,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],
-                    namesAbbr: ["So","Mo","Di","Mi","Do","Fr","Sa"],
-                    namesShort: ["So","Mo","Di","Mi","Do","Fr","Sa"]
+                    names: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
+                    namesAbbr: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+                    namesShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"]
                 },
                 months: {
-                    names: ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember",""],
-                    namesAbbr: ["Jan","Feb","Mrz","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez",""]
+                    names: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember", ""],
+                    namesAbbr: ["Jan", "Feb", "Mrz", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"n. Chr.","start":null,"offset":0}],
+                eras: [{"name": "n. Chr.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd.MM.yyyy",
                     D: "dddd, d. MMMM yyyy",
@@ -729,12 +730,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -744,21 +745,21 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Κυριακή","Δευτέρα","Τρίτη","Τετάρτη","Πέμπτη","Παρασκευή","Σάββατο"],
-                    namesAbbr: ["Κυρ","Δευ","Τρι","Τετ","Πεμ","Παρ","Σαβ"],
-                    namesShort: ["Κυ","Δε","Τρ","Τε","Πε","Πα","Σά"]
+                    names: ["Κυριακή", "Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο"],
+                    namesAbbr: ["Κυρ", "Δευ", "Τρι", "Τετ", "Πεμ", "Παρ", "Σαβ"],
+                    namesShort: ["Κυ", "Δε", "Τρ", "Τε", "Πε", "Πα", "Σά"]
                 },
                 months: {
-                    names: ["Ιανουάριος","Φεβρουάριος","Μάρτιος","Απρίλιος","Μάιος","Ιούνιος","Ιούλιος","Αύγουστος","Σεπτέμβριος","Οκτώβριος","Νοέμβριος","Δεκέμβριος",""],
-                    namesAbbr: ["Ιαν","Φεβ","Μαρ","Απρ","Μαϊ","Ιουν","Ιουλ","Αυγ","Σεπ","Οκτ","Νοε","Δεκ",""]
+                    names: ["Ιανουάριος", "Φεβρουάριος", "Μάρτιος", "Απρίλιος", "Μάιος", "Ιούνιος", "Ιούλιος", "Αύγουστος", "Σεπτέμβριος", "Οκτώβριος", "Νοέμβριος", "Δεκέμβριος", ""],
+                    namesAbbr: ["Ιαν", "Φεβ", "Μαρ", "Απρ", "Μαϊ", "Ιουν", "Ιουλ", "Αυγ", "Σεπ", "Οκτ", "Νοε", "Δεκ", ""]
                 },
                 monthsGenitive: {
-                    names: ["Ιανουαρίου","Φεβρουαρίου","Μαρτίου","Απριλίου","Μαΐου","Ιουνίου","Ιουλίου","Αυγούστου","Σεπτεμβρίου","Οκτωβρίου","Νοεμβρίου","Δεκεμβρίου",""],
-                    namesAbbr: ["Ιαν","Φεβ","Μαρ","Απρ","Μαϊ","Ιουν","Ιουλ","Αυγ","Σεπ","Οκτ","Νοε","Δεκ",""]
+                    names: ["Ιανουαρίου", "Φεβρουαρίου", "Μαρτίου", "Απριλίου", "Μαΐου", "Ιουνίου", "Ιουλίου", "Αυγούστου", "Σεπτεμβρίου", "Οκτωβρίου", "Νοεμβρίου", "Δεκεμβρίου", ""],
+                    namesAbbr: ["Ιαν", "Φεβ", "Μαρ", "Απρ", "Μαϊ", "Ιουν", "Ιουλ", "Αυγ", "Σεπ", "Οκτ", "Νοε", "Δεκ", ""]
                 },
-                AM: ["πμ","πμ","ΠΜ"],
-                PM: ["μμ","μμ","ΜΜ"],
-                eras: [{"name":"μ.Χ.","start":null,"offset":0}],
+                AM: ["πμ", "πμ", "ΠΜ"],
+                PM: ["μμ", "μμ", "ΜΜ"],
+                eras: [{"name": "μ.Χ.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d/M/yyyy",
                     D: "dddd, d MMMM yyyy",
@@ -784,7 +785,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -794,17 +795,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -832,7 +833,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -843,13 +844,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["sunnuntai","maanantai","tiistai","keskiviikko","torstai","perjantai","lauantai"],
-                    namesAbbr: ["su","ma","ti","ke","to","pe","la"],
-                    namesShort: ["su","ma","ti","ke","to","pe","la"]
+                    names: ["sunnuntai", "maanantai", "tiistai", "keskiviikko", "torstai", "perjantai", "lauantai"],
+                    namesAbbr: ["su", "ma", "ti", "ke", "to", "pe", "la"],
+                    namesShort: ["su", "ma", "ti", "ke", "to", "pe", "la"]
                 },
                 months: {
-                    names: ["tammikuu","helmikuu","maaliskuu","huhtikuu","toukokuu","kesäkuu","heinäkuu","elokuu","syyskuu","lokakuu","marraskuu","joulukuu",""],
-                    namesAbbr: ["tammi","helmi","maalis","huhti","touko","kesä","heinä","elo","syys","loka","marras","joulu",""]
+                    names: ["tammikuu", "helmikuu", "maaliskuu", "huhtikuu", "toukokuu", "kesäkuu", "heinäkuu", "elokuu", "syyskuu", "lokakuu", "marraskuu", "joulukuu", ""],
+                    namesAbbr: ["tammi", "helmi", "maalis", "huhti", "touko", "kesä", "heinä", "elo", "syys", "loka", "marras", "joulu", ""]
                 },
                 AM: null,
                 PM: null,
@@ -880,7 +881,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -890,17 +891,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd d MMMM yyyy",
@@ -923,25 +924,25 @@
         isRTL: true,
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "₪"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["יום ראשון","יום שני","יום שלישי","יום רביעי","יום חמישי","יום שישי","שבת"],
-                    namesAbbr: ["יום א","יום ב","יום ג","יום ד","יום ה","יום ו","שבת"],
-                    namesShort: ["א","ב","ג","ד","ה","ו","ש"]
+                    names: ["יום ראשון", "יום שני", "יום שלישי", "יום רביעי", "יום חמישי", "יום שישי", "שבת"],
+                    namesAbbr: ["יום א", "יום ב", "יום ג", "יום ד", "יום ה", "יום ו", "שבת"],
+                    namesShort: ["א", "ב", "ג", "ד", "ה", "ו", "ש"]
                 },
                 months: {
-                    names: ["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר",""],
-                    namesAbbr: ["ינו","פבר","מרץ","אפר","מאי","יונ","יול","אוג","ספט","אוק","נוב","דצמ",""]
+                    names: ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר", ""],
+                    namesAbbr: ["ינו", "פבר", "מרץ", "אפר", "מאי", "יונ", "יול", "אוג", "ספט", "אוק", "נוב", "דצמ", ""]
                 },
-                eras: [{"name":"לספירה","start":null,"offset":0}],
+                eras: [{"name": "לספירה", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd dd MMMM yyyy",
@@ -957,15 +958,15 @@
                 name: "Hebrew",
                 '/': " ",
                 days: {
-                    names: ["יום ראשון","יום שני","יום שלישי","יום רביעי","יום חמישי","יום שישי","שבת"],
-                    namesAbbr: ["א","ב","ג","ד","ה","ו","ש"],
-                    namesShort: ["א","ב","ג","ד","ה","ו","ש"]
+                    names: ["יום ראשון", "יום שני", "יום שלישי", "יום רביעי", "יום חמישי", "יום שישי", "שבת"],
+                    namesAbbr: ["א", "ב", "ג", "ד", "ה", "ו", "ש"],
+                    namesShort: ["א", "ב", "ג", "ד", "ה", "ו", "ש"]
                 },
                 months: {
-                    names: ["תשרי","חשון","כסלו","טבת","שבט","אדר","אדר ב","ניסן","אייר","סיון","תמוז","אב","אלול"],
-                    namesAbbr: ["תשרי","חשון","כסלו","טבת","שבט","אדר","אדר ב","ניסן","אייר","סיון","תמוז","אב","אלול"]
+                    names: ["תשרי", "חשון", "כסלו", "טבת", "שבט", "אדר", "אדר ב", "ניסן", "אייר", "סיון", "תמוז", "אב", "אלול"],
+                    namesAbbr: ["תשרי", "חשון", "כסלו", "טבת", "שבט", "אדר", "אדר ב", "ניסן", "אייר", "סיון", "תמוז", "אב", "אלול"]
                 },
-                eras: [{"name":"C.E.","start":null,"offset":0}],
+                eras: [{"name": "C.E.", "start": null, "offset": 0}],
                 twoDigitYearMax: 5790,
                 patterns: {
                     d: "dd MMMM yyyy",
@@ -994,7 +995,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "Ft"
@@ -1005,17 +1006,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["vasárnap","hétfő","kedd","szerda","csütörtök","péntek","szombat"],
-                    namesAbbr: ["V","H","K","Sze","Cs","P","Szo"],
-                    namesShort: ["V","H","K","Sze","Cs","P","Szo"]
+                    names: ["vasárnap", "hétfő", "kedd", "szerda", "csütörtök", "péntek", "szombat"],
+                    namesAbbr: ["V", "H", "K", "Sze", "Cs", "P", "Szo"],
+                    namesShort: ["V", "H", "K", "Sze", "Cs", "P", "Szo"]
                 },
                 months: {
-                    names: ["január","február","március","április","május","június","július","augusztus","szeptember","október","november","december",""],
-                    namesAbbr: ["jan.","febr.","márc.","ápr.","máj.","jún.","júl.","aug.","szept.","okt.","nov.","dec.",""]
+                    names: ["január", "február", "március", "április", "május", "június", "július", "augusztus", "szeptember", "október", "november", "december", ""],
+                    namesAbbr: ["jan.", "febr.", "márc.", "ápr.", "máj.", "jún.", "júl.", "aug.", "szept.", "okt.", "nov.", "dec.", ""]
                 },
-                AM: ["de.","de.","DE."],
-                PM: ["du.","du.","DU."],
-                eras: [{"name":"i.sz.","start":null,"offset":0}],
+                AM: ["de.", "de.", "DE."],
+                PM: ["du.", "du.", "DU."],
+                eras: [{"name": "i.sz.", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy.MM.dd.",
                     D: "yyyy. MMMM d.",
@@ -1039,12 +1040,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 decimals: 0,
                 ',': ".",
                 '.': ",",
@@ -1056,13 +1057,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["sunnudagur","mánudagur","þriðjudagur","miðvikudagur","fimmtudagur","föstudagur","laugardagur"],
-                    namesAbbr: ["sun.","mán.","þri.","mið.","fim.","fös.","lau."],
-                    namesShort: ["su","má","þr","mi","fi","fö","la"]
+                    names: ["sunnudagur", "mánudagur", "þriðjudagur", "miðvikudagur", "fimmtudagur", "föstudagur", "laugardagur"],
+                    namesAbbr: ["sun.", "mán.", "þri.", "mið.", "fim.", "fös.", "lau."],
+                    namesShort: ["su", "má", "þr", "mi", "fi", "fö", "la"]
                 },
                 months: {
-                    names: ["janúar","febrúar","mars","apríl","maí","júní","júlí","ágúst","september","október","nóvember","desember",""],
-                    namesAbbr: ["jan.","feb.","mar.","apr.","maí","jún.","júl.","ágú.","sep.","okt.","nóv.","des.",""]
+                    names: ["janúar", "febrúar", "mars", "apríl", "maí", "júní", "júlí", "ágúst", "september", "október", "nóvember", "desember", ""],
+                    namesAbbr: ["jan.", "feb.", "mar.", "apr.", "maí", "jún.", "júl.", "ágú.", "sep.", "okt.", "nóv.", "des.", ""]
                 },
                 AM: null,
                 PM: null,
@@ -1089,12 +1090,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-$ n","$ n"],
+                pattern: ["-$ n", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -1104,17 +1105,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["domenica","lunedì","martedì","mercoledì","giovedì","venerdì","sabato"],
-                    namesAbbr: ["dom","lun","mar","mer","gio","ven","sab"],
-                    namesShort: ["do","lu","ma","me","gi","ve","sa"]
+                    names: ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"],
+                    namesAbbr: ["dom", "lun", "mar", "mer", "gio", "ven", "sab"],
+                    namesShort: ["do", "lu", "ma", "me", "gi", "ve", "sa"]
                 },
                 months: {
-                    names: ["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre",""],
-                    namesAbbr: ["gen","feb","mar","apr","mag","giu","lug","ago","set","ott","nov","dic",""]
+                    names: ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre", ""],
+                    namesAbbr: ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd d MMMM yyyy",
@@ -1136,10 +1137,10 @@
         language: "ja",
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             },
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 decimals: 0,
                 symbol: "¥"
             }
@@ -1147,17 +1148,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["日曜日","月曜日","火曜日","水曜日","木曜日","金曜日","土曜日"],
-                    namesAbbr: ["日","月","火","水","木","金","土"],
-                    namesShort: ["日","月","火","水","木","金","土"]
+                    names: ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"],
+                    namesAbbr: ["日", "月", "火", "水", "木", "金", "土"],
+                    namesShort: ["日", "月", "火", "水", "木", "金", "土"]
                 },
                 months: {
-                    names: ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月",""],
-                    namesAbbr: ["1","2","3","4","5","6","7","8","9","10","11","12",""]
+                    names: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月", ""],
+                    namesAbbr: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", ""]
                 },
-                AM: ["午前","午前","午前"],
-                PM: ["午後","午後","午後"],
-                eras: [{"name":"西暦","start":null,"offset":0}],
+                AM: ["午前", "午前", "午前"],
+                PM: ["午後", "午後", "午後"],
+                eras: [{"name": "西暦", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/MM/dd",
                     D: "yyyy'年'M'月'd'日'",
@@ -1172,17 +1173,25 @@
             Japanese: $.extend(true, {}, standard, {
                 name: "Japanese",
                 days: {
-                    names: ["日曜日","月曜日","火曜日","水曜日","木曜日","金曜日","土曜日"],
-                    namesAbbr: ["日","月","火","水","木","金","土"],
-                    namesShort: ["日","月","火","水","木","金","土"]
+                    names: ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"],
+                    namesAbbr: ["日", "月", "火", "水", "木", "金", "土"],
+                    namesShort: ["日", "月", "火", "水", "木", "金", "土"]
                 },
                 months: {
-                    names: ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月",""],
-                    namesAbbr: ["1","2","3","4","5","6","7","8","9","10","11","12",""]
+                    names: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月", ""],
+                    namesAbbr: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", ""]
                 },
-                AM: ["午前","午前","午前"],
-                PM: ["午後","午後","午後"],
-                eras: [{"name":"平成","start":null,"offset":1867},{"name":"昭和","start":-1812153600000,"offset":1911},{"name":"大正","start":-1357603200000,"offset":1925},{"name":"明治","start":60022080000,"offset":1988}],
+                AM: ["午前", "午前", "午前"],
+                PM: ["午後", "午後", "午後"],
+                eras: [{"name": "平成", "start": null, "offset": 1867}, {
+                    "name": "昭和",
+                    "start": -1812153600000,
+                    "offset": 1911
+                }, {"name": "大正", "start": -1357603200000, "offset": 1925}, {
+                    "name": "明治",
+                    "start": 60022080000,
+                    "offset": 1988
+                }],
                 twoDigitYearMax: 99,
                 patterns: {
                     d: "gg y/M/d",
@@ -1205,7 +1214,7 @@
         language: "ko",
         numberFormat: {
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 decimals: 0,
                 symbol: "₩"
             }
@@ -1214,17 +1223,17 @@
             standard: $.extend(true, {}, standard, {
                 '/': "-",
                 days: {
-                    names: ["일요일","월요일","화요일","수요일","목요일","금요일","토요일"],
-                    namesAbbr: ["일","월","화","수","목","금","토"],
-                    namesShort: ["일","월","화","수","목","금","토"]
+                    names: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"],
+                    namesAbbr: ["일", "월", "화", "수", "목", "금", "토"],
+                    namesShort: ["일", "월", "화", "수", "목", "금", "토"]
                 },
                 months: {
-                    names: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월",""],
-                    namesAbbr: ["1","2","3","4","5","6","7","8","9","10","11","12",""]
+                    names: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월", ""],
+                    namesAbbr: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", ""]
                 },
-                AM: ["오전","오전","오전"],
-                PM: ["오후","오후","오후"],
-                eras: [{"name":"서기","start":null,"offset":0}],
+                AM: ["오전", "오전", "오전"],
+                PM: ["오후", "오후", "오후"],
+                eras: [{"name": "서기", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy-MM-dd",
                     D: "yyyy'년' M'월' d'일' dddd",
@@ -1240,17 +1249,17 @@
                 name: "Korean",
                 '/': "-",
                 days: {
-                    names: ["일요일","월요일","화요일","수요일","목요일","금요일","토요일"],
-                    namesAbbr: ["일","월","화","수","목","금","토"],
-                    namesShort: ["일","월","화","수","목","금","토"]
+                    names: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"],
+                    namesAbbr: ["일", "월", "화", "수", "목", "금", "토"],
+                    namesShort: ["일", "월", "화", "수", "목", "금", "토"]
                 },
                 months: {
-                    names: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월",""],
-                    namesAbbr: ["1","2","3","4","5","6","7","8","9","10","11","12",""]
+                    names: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월", ""],
+                    namesAbbr: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", ""]
                 },
-                AM: ["오전","오전","오전"],
-                PM: ["오후","오후","오후"],
-                eras: [{"name":"단기","start":null,"offset":-2333}],
+                AM: ["오전", "오전", "오전"],
+                PM: ["오후", "오후", "오후"],
+                eras: [{"name": "단기", "start": null, "offset": -2333}],
                 twoDigitYearMax: 4362,
                 patterns: {
                     d: "gg yyyy-MM-dd",
@@ -1279,7 +1288,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -1290,13 +1299,13 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["zondag","maandag","dinsdag","woensdag","donderdag","vrijdag","zaterdag"],
-                    namesAbbr: ["zo","ma","di","wo","do","vr","za"],
-                    namesShort: ["zo","ma","di","wo","do","vr","za"]
+                    names: ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"],
+                    namesAbbr: ["zo", "ma", "di", "wo", "do", "vr", "za"],
+                    namesShort: ["zo", "ma", "di", "wo", "do", "vr", "za"]
                 },
                 months: {
-                    names: ["januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december",""],
-                    namesAbbr: ["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec",""]
+                    names: ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december", ""],
+                    namesAbbr: ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
@@ -1327,7 +1336,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': " ",
                 '.': ",",
                 symbol: "kr"
@@ -1338,13 +1347,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["søndag","mandag","tirsdag","onsdag","torsdag","fredag","lørdag"],
-                    namesAbbr: ["sø","ma","ti","on","to","fr","lø"],
-                    namesShort: ["sø","ma","ti","on","to","fr","lø"]
+                    names: ["søndag", "mandag", "tirsdag", "onsdag", "torsdag", "fredag", "lørdag"],
+                    namesAbbr: ["sø", "ma", "ti", "on", "to", "fr", "lø"],
+                    namesShort: ["sø", "ma", "ti", "on", "to", "fr", "lø"]
                 },
                 months: {
-                    names: ["januar","februar","mars","april","mai","juni","juli","august","september","oktober","november","desember",""],
-                    namesAbbr: ["jan","feb","mar","apr","mai","jun","jul","aug","sep","okt","nov","des",""]
+                    names: ["januar", "februar", "mars", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "mai", "jun", "jul", "aug", "sep", "okt", "nov", "des", ""]
                 },
                 AM: null,
                 PM: null,
@@ -1371,12 +1380,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "zł"
@@ -1387,17 +1396,17 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["niedziela","poniedziałek","wtorek","środa","czwartek","piątek","sobota"],
-                    namesAbbr: ["N","Pn","Wt","Śr","Cz","Pt","So"],
-                    namesShort: ["N","Pn","Wt","Śr","Cz","Pt","So"]
+                    names: ["niedziela", "poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota"],
+                    namesAbbr: ["N", "Pn", "Wt", "Śr", "Cz", "Pt", "So"],
+                    namesShort: ["N", "Pn", "Wt", "Śr", "Cz", "Pt", "So"]
                 },
                 months: {
-                    names: ["styczeń","luty","marzec","kwiecień","maj","czerwiec","lipiec","sierpień","wrzesień","październik","listopad","grudzień",""],
-                    namesAbbr: ["sty","lut","mar","kwi","maj","cze","lip","sie","wrz","paź","lis","gru",""]
+                    names: ["styczeń", "luty", "marzec", "kwiecień", "maj", "czerwiec", "lipiec", "sierpień", "wrzesień", "październik", "listopad", "grudzień", ""],
+                    namesAbbr: ["sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paź", "lis", "gru", ""]
                 },
                 monthsGenitive: {
-                    names: ["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","września","października","listopada","grudnia",""],
-                    namesAbbr: ["sty","lut","mar","kwi","maj","cze","lip","sie","wrz","paź","lis","gru",""]
+                    names: ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września", "października", "listopada", "grudnia", ""],
+                    namesAbbr: ["sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paź", "lis", "gru", ""]
                 },
                 AM: null,
                 PM: null,
@@ -1424,12 +1433,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-$ n","$ n"],
+                pattern: ["-$ n", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "R$"
@@ -1438,17 +1447,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"],
-                    namesAbbr: ["dom","seg","ter","qua","qui","sex","sáb"],
-                    namesShort: ["D","S","T","Q","Q","S","S"]
+                    names: ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"],
+                    namesAbbr: ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"],
+                    namesShort: ["D", "S", "T", "Q", "Q", "S", "S"]
                 },
                 months: {
-                    names: ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro",""],
-                    namesAbbr: ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez",""]
+                    names: ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro", ""],
+                    namesAbbr: ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, d' de 'MMMM' de 'yyyy",
@@ -1471,11 +1480,11 @@
         numberFormat: {
             ',': "'",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': "'"
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 ',': "'",
                 symbol: "fr."
             }
@@ -1484,17 +1493,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["dumengia","glindesdi","mardi","mesemna","gievgia","venderdi","sonda"],
-                    namesAbbr: ["du","gli","ma","me","gie","ve","so"],
-                    namesShort: ["du","gli","ma","me","gie","ve","so"]
+                    names: ["dumengia", "glindesdi", "mardi", "mesemna", "gievgia", "venderdi", "sonda"],
+                    namesAbbr: ["du", "gli", "ma", "me", "gie", "ve", "so"],
+                    namesShort: ["du", "gli", "ma", "me", "gie", "ve", "so"]
                 },
                 months: {
-                    names: ["schaner","favrer","mars","avrigl","matg","zercladur","fanadur","avust","settember","october","november","december",""],
-                    namesAbbr: ["schan","favr","mars","avr","matg","zercl","fan","avust","sett","oct","nov","dec",""]
+                    names: ["schaner", "favrer", "mars", "avrigl", "matg", "zercladur", "fanadur", "avust", "settember", "october", "november", "december", ""],
+                    namesAbbr: ["schan", "favr", "mars", "avr", "matg", "zercl", "fan", "avust", "sett", "oct", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"s. Cr.","start":null,"offset":0}],
+                eras: [{"name": "s. Cr.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, d MMMM yyyy",
@@ -1518,12 +1527,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "lei"
@@ -1534,13 +1543,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["duminică","luni","marţi","miercuri","joi","vineri","sâmbătă"],
-                    namesAbbr: ["D","L","Ma","Mi","J","V","S"],
-                    namesShort: ["D","L","Ma","Mi","J","V","S"]
+                    names: ["duminică", "luni", "marţi", "miercuri", "joi", "vineri", "sâmbătă"],
+                    namesAbbr: ["D", "L", "Ma", "Mi", "J", "V", "S"],
+                    namesShort: ["D", "L", "Ma", "Mi", "J", "V", "S"]
                 },
                 months: {
-                    names: ["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie",""],
-                    namesAbbr: ["ian.","feb.","mar.","apr.","mai.","iun.","iul.","aug.","sep.","oct.","nov.","dec.",""]
+                    names: ["ianuarie", "februarie", "martie", "aprilie", "mai", "iunie", "iulie", "august", "septembrie", "octombrie", "noiembrie", "decembrie", ""],
+                    namesAbbr: ["ian.", "feb.", "mar.", "apr.", "mai.", "iun.", "iul.", "aug.", "sep.", "oct.", "nov.", "dec.", ""]
                 },
                 AM: null,
                 PM: null,
@@ -1567,12 +1576,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n$","n$"],
+                pattern: ["-n$", "n$"],
                 ',': " ",
                 '.': ",",
                 symbol: "р."
@@ -1583,17 +1592,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["воскресенье","понедельник","вторник","среда","четверг","пятница","суббота"],
-                    namesAbbr: ["Вс","Пн","Вт","Ср","Чт","Пт","Сб"],
-                    namesShort: ["Вс","Пн","Вт","Ср","Чт","Пт","Сб"]
+                    names: ["воскресенье", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота"],
+                    namesAbbr: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+                    namesShort: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"]
                 },
                 months: {
-                    names: ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь",""],
-                    namesAbbr: ["янв","фев","мар","апр","май","июн","июл","авг","сен","окт","ноя","дек",""]
+                    names: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь", ""],
+                    namesAbbr: ["янв", "фев", "мар", "апр", "май", "июн", "июл", "авг", "сен", "окт", "ноя", "дек", ""]
                 },
                 monthsGenitive: {
-                    names: ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря",""],
-                    namesAbbr: ["янв","фев","мар","апр","май","июн","июл","авг","сен","окт","ноя","дек",""]
+                    names: ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря", ""],
+                    namesAbbr: ["янв", "фев", "мар", "апр", "май", "июн", "июл", "авг", "сен", "окт", "ноя", "дек", ""]
                 },
                 AM: null,
                 PM: null,
@@ -1620,12 +1629,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "kn"
@@ -1636,17 +1645,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["nedjelja","ponedjeljak","utorak","srijeda","četvrtak","petak","subota"],
-                    namesAbbr: ["ned","pon","uto","sri","čet","pet","sub"],
-                    namesShort: ["ne","po","ut","sr","če","pe","su"]
+                    names: ["nedjelja", "ponedjeljak", "utorak", "srijeda", "četvrtak", "petak", "subota"],
+                    namesAbbr: ["ned", "pon", "uto", "sri", "čet", "pet", "sub"],
+                    namesShort: ["ne", "po", "ut", "sr", "če", "pe", "su"]
                 },
                 months: {
-                    names: ["siječanj","veljača","ožujak","travanj","svibanj","lipanj","srpanj","kolovoz","rujan","listopad","studeni","prosinac",""],
-                    namesAbbr: ["sij","vlj","ožu","tra","svi","lip","srp","kol","ruj","lis","stu","pro",""]
+                    names: ["siječanj", "veljača", "ožujak", "travanj", "svibanj", "lipanj", "srpanj", "kolovoz", "rujan", "listopad", "studeni", "prosinac", ""],
+                    namesAbbr: ["sij", "vlj", "ožu", "tra", "svi", "lip", "srp", "kol", "ruj", "lis", "stu", "pro", ""]
                 },
                 monthsGenitive: {
-                    names: ["siječnja","veljače","ožujka","travnja","svibnja","lipnja","srpnja","kolovoza","rujna","listopada","studenog","prosinca",""],
-                    namesAbbr: ["sij","vlj","ožu","tra","svi","lip","srp","kol","ruj","lis","stu","pro",""]
+                    names: ["siječnja", "veljače", "ožujka", "travnja", "svibnja", "lipnja", "srpnja", "kolovoza", "rujna", "listopada", "studenog", "prosinca", ""],
+                    namesAbbr: ["sij", "vlj", "ožu", "tra", "svi", "lip", "srp", "kol", "ruj", "lis", "stu", "pro", ""]
                 },
                 AM: null,
                 PM: null,
@@ -1672,12 +1681,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -1688,21 +1697,21 @@
                 '/': ". ",
                 firstDay: 1,
                 days: {
-                    names: ["nedeľa","pondelok","utorok","streda","štvrtok","piatok","sobota"],
-                    namesAbbr: ["ne","po","ut","st","št","pi","so"],
-                    namesShort: ["ne","po","ut","st","št","pi","so"]
+                    names: ["nedeľa", "pondelok", "utorok", "streda", "štvrtok", "piatok", "sobota"],
+                    namesAbbr: ["ne", "po", "ut", "st", "št", "pi", "so"],
+                    namesShort: ["ne", "po", "ut", "st", "št", "pi", "so"]
                 },
                 months: {
-                    names: ["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december",""],
-                    namesAbbr: ["1","2","3","4","5","6","7","8","9","10","11","12",""]
+                    names: ["január", "február", "marec", "apríl", "máj", "jún", "júl", "august", "september", "október", "november", "december", ""],
+                    namesAbbr: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", ""]
                 },
                 monthsGenitive: {
-                    names: ["januára","februára","marca","apríla","mája","júna","júla","augusta","septembra","októbra","novembra","decembra",""],
-                    namesAbbr: ["1","2","3","4","5","6","7","8","9","10","11","12",""]
+                    names: ["januára", "februára", "marca", "apríla", "mája", "júna", "júla", "augusta", "septembra", "októbra", "novembra", "decembra", ""],
+                    namesAbbr: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"n. l.","start":null,"offset":0}],
+                eras: [{"name": "n. l.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d. M. yyyy",
                     D: "d. MMMM yyyy",
@@ -1730,7 +1739,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n$","n$"],
+                pattern: ["-n$", "n$"],
                 ',': ".",
                 '.': ",",
                 symbol: "Lek"
@@ -1741,16 +1750,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["e diel","e hënë","e martë","e mërkurë","e enjte","e premte","e shtunë"],
-                    namesAbbr: ["Die","Hën","Mar","Mër","Enj","Pre","Sht"],
-                    namesShort: ["Di","Hë","Ma","Më","En","Pr","Sh"]
+                    names: ["e diel", "e hënë", "e martë", "e mërkurë", "e enjte", "e premte", "e shtunë"],
+                    namesAbbr: ["Die", "Hën", "Mar", "Mër", "Enj", "Pre", "Sht"],
+                    namesShort: ["Di", "Hë", "Ma", "Më", "En", "Pr", "Sh"]
                 },
                 months: {
-                    names: ["janar","shkurt","mars","prill","maj","qershor","korrik","gusht","shtator","tetor","nëntor","dhjetor",""],
-                    namesAbbr: ["Jan","Shk","Mar","Pri","Maj","Qer","Kor","Gsh","Sht","Tet","Nën","Dhj",""]
+                    names: ["janar", "shkurt", "mars", "prill", "maj", "qershor", "korrik", "gusht", "shtator", "tetor", "nëntor", "dhjetor", ""],
+                    namesAbbr: ["Jan", "Shk", "Mar", "Pri", "Maj", "Qer", "Kor", "Gsh", "Sht", "Tet", "Nën", "Dhj", ""]
                 },
-                AM: ["PD","pd","PD"],
-                PM: ["MD","md","MD"],
+                AM: ["PD", "pd", "PD"],
+                PM: ["MD", "md", "MD"],
                 patterns: {
                     d: "yyyy-MM-dd",
                     D: "yyyy-MM-dd",
@@ -1777,7 +1786,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "kr"
@@ -1788,13 +1797,13 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["söndag","måndag","tisdag","onsdag","torsdag","fredag","lördag"],
-                    namesAbbr: ["sö","må","ti","on","to","fr","lö"],
-                    namesShort: ["sö","må","ti","on","to","fr","lö"]
+                    names: ["söndag", "måndag", "tisdag", "onsdag", "torsdag", "fredag", "lördag"],
+                    namesAbbr: ["sö", "må", "ti", "on", "to", "fr", "lö"],
+                    namesShort: ["sö", "må", "ti", "on", "to", "fr", "lö"]
                 },
                 months: {
-                    names: ["januari","februari","mars","april","maj","juni","juli","augusti","september","oktober","november","december",""],
-                    namesAbbr: ["jan","feb","mar","apr","maj","jun","jul","aug","sep","okt","nov","dec",""]
+                    names: ["januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti", "september", "oktober", "november", "december", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
@@ -1819,7 +1828,7 @@
         language: "th",
         numberFormat: {
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 symbol: "฿"
             }
         },
@@ -1828,15 +1837,15 @@
                 name: "ThaiBuddhist",
                 firstDay: 1,
                 days: {
-                    names: ["อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์"],
-                    namesAbbr: ["อา.","จ.","อ.","พ.","พฤ.","ศ.","ส."],
-                    namesShort: ["อ","จ","อ","พ","พ","ศ","ส"]
+                    names: ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์"],
+                    namesAbbr: ["อา.", "จ.", "อ.", "พ.", "พฤ.", "ศ.", "ส."],
+                    namesShort: ["อ", "จ", "อ", "พ", "พ", "ศ", "ส"]
                 },
                 months: {
-                    names: ["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม",""],
-                    namesAbbr: ["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.",""]
+                    names: ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม", ""],
+                    namesAbbr: ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.", ""]
                 },
-                eras: [{"name":"พ.ศ.","start":null,"offset":-543}],
+                eras: [{"name": "พ.ศ.", "start": null, "offset": -543}],
                 twoDigitYearMax: 2572,
                 patterns: {
                     d: "d/M/yyyy",
@@ -1852,13 +1861,13 @@
             Gregorian_Localized: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์"],
-                    namesAbbr: ["อา.","จ.","อ.","พ.","พฤ.","ศ.","ส."],
-                    namesShort: ["อ","จ","อ","พ","พ","ศ","ส"]
+                    names: ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์"],
+                    namesAbbr: ["อา.", "จ.", "อ.", "พ.", "พฤ.", "ศ.", "ส."],
+                    namesShort: ["อ", "จ", "อ", "พ", "พ", "ศ", "ส"]
                 },
                 months: {
-                    names: ["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม",""],
-                    namesAbbr: ["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.",""]
+                    names: ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม", ""],
+                    namesAbbr: ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.", ""]
                 },
                 patterns: {
                     d: "d/M/yyyy",
@@ -1883,12 +1892,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-%n","%n"],
+                pattern: ["-%n", "%n"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "TL"
@@ -1899,13 +1908,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"],
-                    namesAbbr: ["Paz","Pzt","Sal","Çar","Per","Cum","Cmt"],
-                    namesShort: ["Pz","Pt","Sa","Ça","Pe","Cu","Ct"]
+                    names: ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"],
+                    namesAbbr: ["Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"],
+                    namesShort: ["Pz", "Pt", "Sa", "Ça", "Pe", "Cu", "Ct"]
                 },
                 months: {
-                    names: ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık",""],
-                    namesAbbr: ["Oca","Şub","Mar","Nis","May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara",""]
+                    names: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık", ""],
+                    namesAbbr: ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara", ""]
                 },
                 AM: null,
                 PM: null,
@@ -1931,7 +1940,7 @@
         isRTL: true,
         numberFormat: {
             currency: {
-                pattern: ["$n-","$n"],
+                pattern: ["$n-", "$n"],
                 symbol: "Rs"
             }
         },
@@ -1939,13 +1948,13 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["اتوار","پير","منگل","بدھ","جمعرات","جمعه","هفته"],
-                    namesAbbr: ["اتوار","پير","منگل","بدھ","جمعرات","جمعه","هفته"],
-                    namesShort: ["ا","پ","م","ب","ج","ج","ه"]
+                    names: ["اتوار", "پير", "منگل", "بدھ", "جمعرات", "جمعه", "هفته"],
+                    namesAbbr: ["اتوار", "پير", "منگل", "بدھ", "جمعرات", "جمعه", "هفته"],
+                    namesShort: ["ا", "پ", "م", "ب", "ج", "ج", "ه"]
                 },
                 months: {
-                    names: ["جنوری","فروری","مارچ","اپریل","مئی","جون","جولائی","اگست","ستمبر","اکتوبر","نومبر","دسمبر",""],
-                    namesAbbr: ["جنوری","فروری","مارچ","اپریل","مئی","جون","جولائی","اگست","ستمبر","اکتوبر","نومبر","دسمبر",""]
+                    names: ["جنوری", "فروری", "مارچ", "اپریل", "مئی", "جون", "جولائی", "اگست", "ستمبر", "اکتوبر", "نومبر", "دسمبر", ""],
+                    namesAbbr: ["جنوری", "فروری", "مارچ", "اپریل", "مئی", "جون", "جولائی", "اگست", "ستمبر", "اکتوبر", "نومبر", "دسمبر", ""]
                 },
                 patterns: {
                     d: "dd/MM/yyyy",
@@ -1959,15 +1968,15 @@
                 name: "Hijri",
                 firstDay: 1,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -1988,7 +1997,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -1998,9 +2007,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -2033,7 +2042,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -2044,7 +2053,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -2075,13 +2084,13 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"],
-                    namesAbbr: ["Minggu","Sen","Sel","Rabu","Kamis","Jumat","Sabtu"],
-                    namesShort: ["M","S","S","R","K","J","S"]
+                    names: ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"],
+                    namesAbbr: ["Minggu", "Sen", "Sel", "Rabu", "Kamis", "Jumat", "Sabtu"],
+                    namesShort: ["M", "S", "S", "R", "K", "J", "S"]
                 },
                 months: {
-                    names: ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember",""],
-                    namesAbbr: ["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agust","Sep","Okt","Nop","Des",""]
+                    names: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember", ""],
+                    namesAbbr: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agust", "Sep", "Okt", "Nop", "Des", ""]
                 },
                 AM: null,
                 PM: null,
@@ -2108,12 +2117,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n$","n$"],
+                pattern: ["-n$", "n$"],
                 ',': " ",
                 '.': ",",
                 symbol: "₴"
@@ -2124,17 +2133,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["неділя","понеділок","вівторок","середа","четвер","п'ятниця","субота"],
-                    namesAbbr: ["Нд","Пн","Вт","Ср","Чт","Пт","Сб"],
-                    namesShort: ["Нд","Пн","Вт","Ср","Чт","Пт","Сб"]
+                    names: ["неділя", "понеділок", "вівторок", "середа", "четвер", "п'ятниця", "субота"],
+                    namesAbbr: ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+                    namesShort: ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"]
                 },
                 months: {
-                    names: ["Січень","Лютий","Березень","Квітень","Травень","Червень","Липень","Серпень","Вересень","Жовтень","Листопад","Грудень",""],
-                    namesAbbr: ["Січ","Лют","Бер","Кві","Тра","Чер","Лип","Сер","Вер","Жов","Лис","Гру",""]
+                    names: ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень", ""],
+                    namesAbbr: ["Січ", "Лют", "Бер", "Кві", "Тра", "Чер", "Лип", "Сер", "Вер", "Жов", "Лис", "Гру", ""]
                 },
                 monthsGenitive: {
-                    names: ["січня","лютого","березня","квітня","травня","червня","липня","серпня","вересня","жовтня","листопада","грудня",""],
-                    namesAbbr: ["січ","лют","бер","кві","тра","чер","лип","сер","вер","жов","лис","гру",""]
+                    names: ["січня", "лютого", "березня", "квітня", "травня", "червня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня", ""],
+                    namesAbbr: ["січ", "лют", "бер", "кві", "тра", "чер", "лип", "сер", "вер", "жов", "лис", "гру", ""]
                 },
                 AM: null,
                 PM: null,
@@ -2165,7 +2174,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "р."
@@ -2176,17 +2185,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["нядзеля","панядзелак","аўторак","серада","чацвер","пятніца","субота"],
-                    namesAbbr: ["нд","пн","аў","ср","чц","пт","сб"],
-                    namesShort: ["нд","пн","аў","ср","чц","пт","сб"]
+                    names: ["нядзеля", "панядзелак", "аўторак", "серада", "чацвер", "пятніца", "субота"],
+                    namesAbbr: ["нд", "пн", "аў", "ср", "чц", "пт", "сб"],
+                    namesShort: ["нд", "пн", "аў", "ср", "чц", "пт", "сб"]
                 },
                 months: {
-                    names: ["Студзень","Люты","Сакавік","Красавік","Май","Чэрвень","Ліпень","Жнівень","Верасень","Кастрычнік","Лістапад","Снежань",""],
-                    namesAbbr: ["Сту","Лют","Сак","Кра","Май","Чэр","Ліп","Жні","Вер","Кас","Ліс","Сне",""]
+                    names: ["Студзень", "Люты", "Сакавік", "Красавік", "Май", "Чэрвень", "Ліпень", "Жнівень", "Верасень", "Кастрычнік", "Лістапад", "Снежань", ""],
+                    namesAbbr: ["Сту", "Лют", "Сак", "Кра", "Май", "Чэр", "Ліп", "Жні", "Вер", "Кас", "Ліс", "Сне", ""]
                 },
                 monthsGenitive: {
-                    names: ["студзеня","лютага","сакавіка","красавіка","мая","чэрвеня","ліпеня","жніўня","верасня","кастрычніка","лістапада","снежня",""],
-                    namesAbbr: ["Сту","Лют","Сак","Кра","Май","Чэр","Ліп","Жні","Вер","Кас","Ліс","Сне",""]
+                    names: ["студзеня", "лютага", "сакавіка", "красавіка", "мая", "чэрвеня", "ліпеня", "жніўня", "верасня", "кастрычніка", "лістапада", "снежня", ""],
+                    namesAbbr: ["Сту", "Лют", "Сак", "Кра", "Май", "Чэр", "Ліп", "Жні", "Вер", "Кас", "Ліс", "Сне", ""]
                 },
                 AM: null,
                 PM: null,
@@ -2213,12 +2222,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -2229,13 +2238,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["nedelja","ponedeljek","torek","sreda","četrtek","petek","sobota"],
-                    namesAbbr: ["ned","pon","tor","sre","čet","pet","sob"],
-                    namesShort: ["ne","po","to","sr","če","pe","so"]
+                    names: ["nedelja", "ponedeljek", "torek", "sreda", "četrtek", "petek", "sobota"],
+                    namesAbbr: ["ned", "pon", "tor", "sre", "čet", "pet", "sob"],
+                    namesShort: ["ne", "po", "to", "sr", "če", "pe", "so"]
                 },
                 months: {
-                    names: ["januar","februar","marec","april","maj","junij","julij","avgust","september","oktober","november","december",""],
-                    namesAbbr: ["jan","feb","mar","apr","maj","jun","jul","avg","sep","okt","nov","dec",""]
+                    names: ["januar", "februar", "marec", "april", "maj", "junij", "julij", "avgust", "september", "oktober", "november", "december", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "avg", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
@@ -2262,12 +2271,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 symbol: "kr"
             }
@@ -2277,16 +2286,16 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["pühapäev","esmaspäev","teisipäev","kolmapäev","neljapäev","reede","laupäev"],
-                    namesAbbr: ["P","E","T","K","N","R","L"],
-                    namesShort: ["P","E","T","K","N","R","L"]
+                    names: ["pühapäev", "esmaspäev", "teisipäev", "kolmapäev", "neljapäev", "reede", "laupäev"],
+                    namesAbbr: ["P", "E", "T", "K", "N", "R", "L"],
+                    namesShort: ["P", "E", "T", "K", "N", "R", "L"]
                 },
                 months: {
-                    names: ["jaanuar","veebruar","märts","aprill","mai","juuni","juuli","august","september","oktoober","november","detsember",""],
-                    namesAbbr: ["jaan","veebr","märts","apr","mai","juuni","juuli","aug","sept","okt","nov","dets",""]
+                    names: ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember", ""],
+                    namesAbbr: ["jaan", "veebr", "märts", "apr", "mai", "juuni", "juuli", "aug", "sept", "okt", "nov", "dets", ""]
                 },
-                AM: ["EL","el","EL"],
-                PM: ["PL","pl","PL"],
+                AM: ["EL", "el", "EL"],
+                PM: ["PL", "pl", "PL"],
                 patterns: {
                     d: "d.MM.yyyy",
                     D: "d. MMMM yyyy'. a.'",
@@ -2310,12 +2319,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-$ n","$ n"],
+                pattern: ["-$ n", "$ n"],
                 ',': " ",
                 '.': ",",
                 symbol: "Ls"
@@ -2326,17 +2335,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["svētdiena","pirmdiena","otrdiena","trešdiena","ceturtdiena","piektdiena","sestdiena"],
-                    namesAbbr: ["sv","pr","ot","tr","ce","pk","se"],
-                    namesShort: ["sv","pr","ot","tr","ce","pk","se"]
+                    names: ["svētdiena", "pirmdiena", "otrdiena", "trešdiena", "ceturtdiena", "piektdiena", "sestdiena"],
+                    namesAbbr: ["sv", "pr", "ot", "tr", "ce", "pk", "se"],
+                    namesShort: ["sv", "pr", "ot", "tr", "ce", "pk", "se"]
                 },
                 months: {
-                    names: ["janvāris","februāris","marts","aprīlis","maijs","jūnijs","jūlijs","augusts","septembris","oktobris","novembris","decembris",""],
-                    namesAbbr: ["jan","feb","mar","apr","mai","jūn","jūl","aug","sep","okt","nov","dec",""]
+                    names: ["janvāris", "februāris", "marts", "aprīlis", "maijs", "jūnijs", "jūlijs", "augusts", "septembris", "oktobris", "novembris", "decembris", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "mai", "jūn", "jūl", "aug", "sep", "okt", "nov", "dec", ""]
                 },
                 monthsGenitive: {
-                    names: ["janvārī","februārī","martā","aprīlī","maijā","jūnijā","jūlijā","augustā","septembrī","oktobrī","novembrī","decembrī",""],
-                    namesAbbr: ["jan","feb","mar","apr","mai","jūn","jūl","aug","sep","okt","nov","dec",""]
+                    names: ["janvārī", "februārī", "martā", "aprīlī", "maijā", "jūnijā", "jūlijā", "augustā", "septembrī", "oktobrī", "novembrī", "decembrī", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "mai", "jūn", "jūl", "aug", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
@@ -2363,12 +2372,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "Lt"
@@ -2379,17 +2388,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["sekmadienis","pirmadienis","antradienis","trečiadienis","ketvirtadienis","penktadienis","šeštadienis"],
-                    namesAbbr: ["Sk","Pr","An","Tr","Kt","Pn","Št"],
-                    namesShort: ["S","P","A","T","K","Pn","Š"]
+                    names: ["sekmadienis", "pirmadienis", "antradienis", "trečiadienis", "ketvirtadienis", "penktadienis", "šeštadienis"],
+                    namesAbbr: ["Sk", "Pr", "An", "Tr", "Kt", "Pn", "Št"],
+                    namesShort: ["S", "P", "A", "T", "K", "Pn", "Š"]
                 },
                 months: {
-                    names: ["sausis","vasaris","kovas","balandis","gegužė","birželis","liepa","rugpjūtis","rugsėjis","spalis","lapkritis","gruodis",""],
-                    namesAbbr: ["Sau","Vas","Kov","Bal","Geg","Bir","Lie","Rgp","Rgs","Spl","Lap","Grd",""]
+                    names: ["sausis", "vasaris", "kovas", "balandis", "gegužė", "birželis", "liepa", "rugpjūtis", "rugsėjis", "spalis", "lapkritis", "gruodis", ""],
+                    namesAbbr: ["Sau", "Vas", "Kov", "Bal", "Geg", "Bir", "Lie", "Rgp", "Rgs", "Spl", "Lap", "Grd", ""]
                 },
                 monthsGenitive: {
-                    names: ["sausio","vasario","kovo","balandžio","gegužės","birželio","liepos","rugpjūčio","rugsėjo","spalio","lapkričio","gruodžio",""],
-                    namesAbbr: ["Sau","Vas","Kov","Bal","Geg","Bir","Lie","Rgp","Rgs","Spl","Lap","Grd",""]
+                    names: ["sausio", "vasario", "kovo", "balandžio", "gegužės", "birželio", "liepos", "rugpjūčio", "rugsėjo", "spalio", "lapkričio", "gruodžio", ""],
+                    namesAbbr: ["Sau", "Vas", "Kov", "Bal", "Geg", "Bir", "Lie", "Rgp", "Rgs", "Spl", "Lap", "Grd", ""]
                 },
                 AM: null,
                 PM: null,
@@ -2415,16 +2424,16 @@
         numberFormat: {
             ',': " ",
             '.': ",",
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,0],
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 0],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
-                groupSizes: [3,0],
+                pattern: ["-n $", "n $"],
+                groupSizes: [3, 0],
                 ',': " ",
                 '.': ";",
                 symbol: "т.р."
@@ -2434,17 +2443,17 @@
             standard: $.extend(true, {}, standard, {
                 '/': ".",
                 days: {
-                    names: ["Яш","Душанбе","Сешанбе","Чоршанбе","Панҷшанбе","Ҷумъа","Шанбе"],
-                    namesAbbr: ["Яш","Дш","Сш","Чш","Пш","Ҷм","Шн"],
-                    namesShort: ["Яш","Дш","Сш","Чш","Пш","Ҷм","Шн"]
+                    names: ["Яш", "Душанбе", "Сешанбе", "Чоршанбе", "Панҷшанбе", "Ҷумъа", "Шанбе"],
+                    namesAbbr: ["Яш", "Дш", "Сш", "Чш", "Пш", "Ҷм", "Шн"],
+                    namesShort: ["Яш", "Дш", "Сш", "Чш", "Пш", "Ҷм", "Шн"]
                 },
                 months: {
-                    names: ["Январ","Феврал","Март","Апрел","Май","Июн","Июл","Август","Сентябр","Октябр","Ноябр","Декабр",""],
-                    namesAbbr: ["Янв","Фев","Мар","Апр","Май","Июн","Июл","Авг","Сен","Окт","Ноя","Дек",""]
+                    names: ["Январ", "Феврал", "Март", "Апрел", "Май", "Июн", "Июл", "Август", "Сентябр", "Октябр", "Ноябр", "Декабр", ""],
+                    namesAbbr: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек", ""]
                 },
                 monthsGenitive: {
-                    names: ["январи","феврали","марти","апрели","маи","июни","июли","августи","сентябри","октябри","ноябри","декабри",""],
-                    namesAbbr: ["Янв","Фев","Мар","Апр","Май","Июн","Июл","Авг","Сен","Окт","Ноя","Дек",""]
+                    names: ["январи", "феврали", "марти", "апрели", "маи", "июни", "июли", "августи", "сентябри", "октябри", "ноябри", "декабри", ""],
+                    namesAbbr: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек", ""]
                 },
                 AM: null,
                 PM: null,
@@ -2470,7 +2479,7 @@
         numberFormat: {
             pattern: ["n-"],
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 '.': "/",
                 symbol: "ريال"
             }
@@ -2480,17 +2489,17 @@
                 name: "Gregorian_TransliteratedFrench",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ق.ظ","ق.ظ","ق.ظ"],
-                PM: ["ب.ظ","ب.ظ","ب.ظ"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ق.ظ", "ق.ظ", "ق.ظ"],
+                PM: ["ب.ظ", "ب.ظ", "ب.ظ"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -2502,16 +2511,16 @@
             Gregorian_Localized: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["يكشنبه","دوشنبه","سه شنبه","چهارشنبه","پنجشنبه","جمعه","شنبه"],
-                    namesAbbr: ["يكشنبه","دوشنبه","سه شنبه","چهارشنبه","پنجشنبه","جمعه","شنبه"],
-                    namesShort: ["ی","د","س","چ","پ","ج","ش"]
+                    names: ["يكشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنجشنبه", "جمعه", "شنبه"],
+                    namesAbbr: ["يكشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنجشنبه", "جمعه", "شنبه"],
+                    namesShort: ["ی", "د", "س", "چ", "پ", "ج", "ش"]
                 },
                 months: {
-                    names: ["ژانويه","فوريه","مارس","آوريل","مى","ژوئن","ژوئيه","اوت","سپتامبر","اُكتبر","نوامبر","دسامبر",""],
-                    namesAbbr: ["ژانويه","فوريه","مارس","آوريل","مى","ژوئن","ژوئيه","اوت","سپتامبر","اُكتبر","نوامبر","دسامبر",""]
+                    names: ["ژانويه", "فوريه", "مارس", "آوريل", "مى", "ژوئن", "ژوئيه", "اوت", "سپتامبر", "اُكتبر", "نوامبر", "دسامبر", ""],
+                    namesAbbr: ["ژانويه", "فوريه", "مارس", "آوريل", "مى", "ژوئن", "ژوئيه", "اوت", "سپتامبر", "اُكتبر", "نوامبر", "دسامبر", ""]
                 },
-                AM: ["ق.ظ","ق.ظ","ق.ظ"],
-                PM: ["ب.ظ","ب.ظ","ب.ظ"],
+                AM: ["ق.ظ", "ق.ظ", "ق.ظ"],
+                PM: ["ب.ظ", "ب.ظ", "ب.ظ"],
                 patterns: {
                     d: "yyyy/MM/dd",
                     D: "yyyy/MM/dd",
@@ -2526,17 +2535,17 @@
                 name: "Hijri",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ق.ظ","ق.ظ","ق.ظ"],
-                PM: ["ب.ظ","ب.ظ","ب.ظ"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ق.ظ", "ق.ظ", "ق.ظ"],
+                PM: ["ب.ظ", "ب.ظ", "ب.ظ"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -2559,7 +2568,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -2569,9 +2578,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -2604,7 +2613,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -2615,7 +2624,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -2624,17 +2633,17 @@
                 name: "Gregorian_TransliteratedEnglish",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["أ","ا","ث","أ","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["أ", "ا", "ث", "أ", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","ابريل","مايو","يونيو","يوليو","اغسطس","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "ابريل", "مايو", "يونيو", "يوليو", "اغسطس", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ق.ظ","ق.ظ","ق.ظ"],
-                PM: ["ب.ظ","ب.ظ","ب.ظ"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ق.ظ", "ق.ظ", "ق.ظ"],
+                PM: ["ب.ظ", "ب.ظ", "ب.ظ"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -2659,7 +2668,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "₫"
@@ -2669,16 +2678,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Chủ Nhật","Thứ Hai","Thứ Ba","Thứ Tư","Thứ Năm","Thứ Sáu","Thứ Bảy"],
-                    namesAbbr: ["CN","Hai","Ba","Tư","Năm","Sáu","Bảy"],
-                    namesShort: ["C","H","B","T","N","S","B"]
+                    names: ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"],
+                    namesAbbr: ["CN", "Hai", "Ba", "Tư", "Năm", "Sáu", "Bảy"],
+                    namesShort: ["C", "H", "B", "T", "N", "S", "B"]
                 },
                 months: {
-                    names: ["Tháng Giêng","Tháng Hai","Tháng Ba","Tháng Tư","Tháng Năm","Tháng Sáu","Tháng Bảy","Tháng Tám","Tháng Chín","Tháng Mười","Tháng Mười Một","Tháng Mười Hai",""],
-                    namesAbbr: ["Thg1","Thg2","Thg3","Thg4","Thg5","Thg6","Thg7","Thg8","Thg9","Thg10","Thg11","Thg12",""]
+                    names: ["Tháng Giêng", "Tháng Hai", "Tháng Ba", "Tháng Tư", "Tháng Năm", "Tháng Sáu", "Tháng Bảy", "Tháng Tám", "Tháng Chín", "Tháng Mười", "Tháng Mười Một", "Tháng Mười Hai", ""],
+                    namesAbbr: ["Thg1", "Thg2", "Thg3", "Thg4", "Thg5", "Thg6", "Thg7", "Thg8", "Thg9", "Thg10", "Thg11", "Thg12", ""]
                 },
-                AM: ["SA","sa","SA"],
-                PM: ["CH","ch","CH"],
+                AM: ["SA", "sa", "SA"],
+                PM: ["CH", "ch", "CH"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM yyyy",
@@ -2698,7 +2707,7 @@
         language: "hy",
         numberFormat: {
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 symbol: "դր."
             }
         },
@@ -2707,13 +2716,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Կիրակի","Երկուշաբթի","Երեքշաբթի","Չորեքշաբթի","Հինգշաբթի","ՈՒրբաթ","Շաբաթ"],
-                    namesAbbr: ["Կիր","Երկ","Երք","Չրք","Հնգ","ՈՒր","Շբթ"],
-                    namesShort: ["Կ","Ե","Ե","Չ","Հ","Ո","Շ"]
+                    names: ["Կիրակի", "Երկուշաբթի", "Երեքշաբթի", "Չորեքշաբթի", "Հինգշաբթի", "ՈՒրբաթ", "Շաբաթ"],
+                    namesAbbr: ["Կիր", "Երկ", "Երք", "Չրք", "Հնգ", "ՈՒր", "Շբթ"],
+                    namesShort: ["Կ", "Ե", "Ե", "Չ", "Հ", "Ո", "Շ"]
                 },
                 months: {
-                    names: ["Հունվար","Փետրվար","Մարտ","Ապրիլ","Մայիս","Հունիս","Հուլիս","Օգոստոս","Սեպտեմբեր","Հոկտեմբեր","Նոյեմբեր","Դեկտեմբեր",""],
-                    namesAbbr: ["ՀՆՎ","ՓՏՎ","ՄՐՏ","ԱՊՐ","ՄՅՍ","ՀՆՍ","ՀԼՍ","ՕԳՍ","ՍԵՊ","ՀՈԿ","ՆՈՅ","ԴԵԿ",""]
+                    names: ["Հունվար", "Փետրվար", "Մարտ", "Ապրիլ", "Մայիս", "Հունիս", "Հուլիս", "Օգոստոս", "Սեպտեմբեր", "Հոկտեմբեր", "Նոյեմբեր", "Դեկտեմբեր", ""],
+                    namesAbbr: ["ՀՆՎ", "ՓՏՎ", "ՄՐՏ", "ԱՊՐ", "ՄՅՍ", "ՀՆՍ", "ՀԼՍ", "ՕԳՍ", "ՍԵՊ", "ՀՈԿ", "ՆՈՅ", "ԴԵԿ", ""]
                 },
                 AM: null,
                 PM: null,
@@ -2739,12 +2748,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "man."
@@ -2755,17 +2764,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Bazar","Bazar ertəsi","Çərşənbə axşamı","Çərşənbə","Cümə axşamı","Cümə","Şənbə"],
-                    namesAbbr: ["B","Be","Ça","Ç","Ca","C","Ş"],
-                    namesShort: ["B","Be","Ça","Ç","Ca","C","Ş"]
+                    names: ["Bazar", "Bazar ertəsi", "Çərşənbə axşamı", "Çərşənbə", "Cümə axşamı", "Cümə", "Şənbə"],
+                    namesAbbr: ["B", "Be", "Ça", "Ç", "Ca", "C", "Ş"],
+                    namesShort: ["B", "Be", "Ça", "Ç", "Ca", "C", "Ş"]
                 },
                 months: {
-                    names: ["Yanvar","Fevral","Mart","Aprel","May","İyun","İyul","Avgust","Sentyabr","Oktyabr","Noyabr","Dekabr",""],
-                    namesAbbr: ["Yan","Fev","Mar","Apr","May","İyun","İyul","Avg","Sen","Okt","Noy","Dek",""]
+                    names: ["Yanvar", "Fevral", "Mart", "Aprel", "May", "İyun", "İyul", "Avgust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr", ""],
+                    namesAbbr: ["Yan", "Fev", "Mar", "Apr", "May", "İyun", "İyul", "Avg", "Sen", "Okt", "Noy", "Dek", ""]
                 },
                 monthsGenitive: {
-                    names: ["yanvar","fevral","mart","aprel","may","iyun","iyul","avgust","sentyabr","oktyabr","noyabr","dekabr",""],
-                    namesAbbr: ["Yan","Fev","Mar","Apr","May","İyun","İyul","Avg","Sen","Okt","Noy","Dek",""]
+                    names: ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentyabr", "oktyabr", "noyabr", "dekabr", ""],
+                    namesAbbr: ["Yan", "Fev", "Mar", "Apr", "May", "İyun", "İyul", "Avg", "Sen", "Okt", "Noy", "Dek", ""]
                 },
                 AM: null,
                 PM: null,
@@ -2796,7 +2805,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -2806,17 +2815,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["igandea","astelehena","asteartea","asteazkena","osteguna","ostirala","larunbata"],
-                    namesAbbr: ["ig.","al.","as.","az.","og.","or.","lr."],
-                    namesShort: ["ig","al","as","az","og","or","lr"]
+                    names: ["igandea", "astelehena", "asteartea", "asteazkena", "osteguna", "ostirala", "larunbata"],
+                    namesAbbr: ["ig.", "al.", "as.", "az.", "og.", "or.", "lr."],
+                    namesShort: ["ig", "al", "as", "az", "og", "or", "lr"]
                 },
                 months: {
-                    names: ["urtarrila","otsaila","martxoa","apirila","maiatza","ekaina","uztaila","abuztua","iraila","urria","azaroa","abendua",""],
-                    namesAbbr: ["urt.","ots.","mar.","api.","mai.","eka.","uzt.","abu.","ira.","urr.","aza.","abe.",""]
+                    names: ["urtarrila", "otsaila", "martxoa", "apirila", "maiatza", "ekaina", "uztaila", "abuztua", "iraila", "urria", "azaroa", "abendua", ""],
+                    namesAbbr: ["urt.", "ots.", "mar.", "api.", "mai.", "eka.", "uzt.", "abu.", "ira.", "urr.", "aza.", "abe.", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/MM/dd",
                     D: "dddd, yyyy.'eko' MMMM'k 'd",
@@ -2843,7 +2852,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -2854,21 +2863,21 @@
                 '/': ". ",
                 firstDay: 1,
                 days: {
-                    names: ["njedźela","póndźela","wutora","srjeda","štwórtk","pjatk","sobota"],
-                    namesAbbr: ["nje","pón","wut","srj","štw","pja","sob"],
-                    namesShort: ["n","p","w","s","š","p","s"]
+                    names: ["njedźela", "póndźela", "wutora", "srjeda", "štwórtk", "pjatk", "sobota"],
+                    namesAbbr: ["nje", "pón", "wut", "srj", "štw", "pja", "sob"],
+                    namesShort: ["n", "p", "w", "s", "š", "p", "s"]
                 },
                 months: {
-                    names: ["januar","februar","měrc","apryl","meja","junij","julij","awgust","september","oktober","nowember","december",""],
-                    namesAbbr: ["jan","feb","měr","apr","mej","jun","jul","awg","sep","okt","now","dec",""]
+                    names: ["januar", "februar", "měrc", "apryl", "meja", "junij", "julij", "awgust", "september", "oktober", "nowember", "december", ""],
+                    namesAbbr: ["jan", "feb", "měr", "apr", "mej", "jun", "jul", "awg", "sep", "okt", "now", "dec", ""]
                 },
                 monthsGenitive: {
-                    names: ["januara","februara","měrca","apryla","meje","junija","julija","awgusta","septembra","oktobra","nowembra","decembra",""],
-                    namesAbbr: ["jan","feb","měr","apr","mej","jun","jul","awg","sep","okt","now","dec",""]
+                    names: ["januara", "februara", "měrca", "apryla", "meje", "junija", "julija", "awgusta", "septembra", "oktobra", "nowembra", "decembra", ""],
+                    namesAbbr: ["jan", "feb", "měr", "apr", "mej", "jun", "jul", "awg", "sep", "okt", "now", "dec", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"po Chr.","start":null,"offset":0}],
+                eras: [{"name": "po Chr.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d. M. yyyy",
                     D: "dddd, 'dnja' d. MMMM yyyy",
@@ -2896,7 +2905,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "ден."
@@ -2907,13 +2916,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["недела","понеделник","вторник","среда","четврток","петок","сабота"],
-                    namesAbbr: ["нед","пон","втр","срд","чет","пет","саб"],
-                    namesShort: ["не","по","вт","ср","че","пе","са"]
+                    names: ["недела", "понеделник", "вторник", "среда", "четврток", "петок", "сабота"],
+                    namesAbbr: ["нед", "пон", "втр", "срд", "чет", "пет", "саб"],
+                    namesShort: ["не", "по", "вт", "ср", "че", "пе", "са"]
                 },
                 months: {
-                    names: ["јануари","февруари","март","април","мај","јуни","јули","август","септември","октомври","ноември","декември",""],
-                    namesAbbr: ["јан","фев","мар","апр","мај","јун","јул","авг","сеп","окт","ное","дек",""]
+                    names: ["јануари", "февруари", "март", "април", "мај", "јуни", "јули", "август", "септември", "октомври", "ноември", "декември", ""],
+                    namesAbbr: ["јан", "фев", "мар", "апр", "мај", "јун", "јул", "авг", "сеп", "окт", "ное", "дек", ""]
                 },
                 AM: null,
                 PM: null,
@@ -2938,23 +2947,23 @@
         language: "tn",
         numberFormat: {
             percent: {
-                pattern: ["-%n","%n"]
+                pattern: ["-%n", "%n"]
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "R"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Latshipi","Mosupologo","Labobedi","Laboraro","Labone","Labotlhano","Lamatlhatso"],
-                    namesAbbr: ["Ltp.","Mos.","Lbd.","Lbr.","Lbn.","Lbt.","Lmt."],
-                    namesShort: ["Lp","Ms","Lb","Lr","Ln","Lt","Lm"]
+                    names: ["Latshipi", "Mosupologo", "Labobedi", "Laboraro", "Labone", "Labotlhano", "Lamatlhatso"],
+                    namesAbbr: ["Ltp.", "Mos.", "Lbd.", "Lbr.", "Lbn.", "Lbt.", "Lmt."],
+                    namesShort: ["Lp", "Ms", "Lb", "Lr", "Ln", "Lt", "Lm"]
                 },
                 months: {
-                    names: ["Ferikgong","Tlhakole","Mopitloe","Moranang","Motsheganong","Seetebosigo","Phukwi","Phatwe","Lwetse","Diphalane","Ngwanatsele","Sedimothole",""],
-                    namesAbbr: ["Fer.","Tlhak.","Mop.","Mor.","Motsh.","Seet.","Phukw.","Phatw.","Lwets.","Diph.","Ngwan.","Sed.",""]
+                    names: ["Ferikgong", "Tlhakole", "Mopitloe", "Moranang", "Motsheganong", "Seetebosigo", "Phukwi", "Phatwe", "Lwetse", "Diphalane", "Ngwanatsele", "Sedimothole", ""],
+                    namesAbbr: ["Fer.", "Tlhak.", "Mop.", "Mor.", "Motsh.", "Seet.", "Phukw.", "Phatw.", "Lwets.", "Diph.", "Ngwan.", "Sed.", ""]
                 },
                 patterns: {
                     d: "yyyy/MM/dd",
@@ -2977,21 +2986,21 @@
         language: "xh",
         numberFormat: {
             percent: {
-                pattern: ["-%n","%n"]
+                pattern: ["-%n", "%n"]
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "R"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["iCawa","uMvulo","uLwesibini","uLwesithathu","uLwesine","uLwesihlanu","uMgqibelo"],
-                    namesShort: ["Ca","Mv","Lb","Lt","Ln","Lh","Mg"]
+                    names: ["iCawa", "uMvulo", "uLwesibini", "uLwesithathu", "uLwesine", "uLwesihlanu", "uMgqibelo"],
+                    namesShort: ["Ca", "Mv", "Lb", "Lt", "Ln", "Lh", "Mg"]
                 },
                 months: {
-                    names: ["Mqungu","Mdumba","Kwindla","Tshazimpuzi","Canzibe","Silimela","Khala","Thupha","Msintsi","Dwarha","Nkanga","Mnga",""]
+                    names: ["Mqungu", "Mdumba", "Kwindla", "Tshazimpuzi", "Canzibe", "Silimela", "Khala", "Thupha", "Msintsi", "Dwarha", "Nkanga", "Mnga", ""]
                 },
                 patterns: {
                     d: "yyyy/MM/dd",
@@ -3014,22 +3023,22 @@
         language: "zu",
         numberFormat: {
             percent: {
-                pattern: ["-%n","%n"]
+                pattern: ["-%n", "%n"]
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "R"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["iSonto","uMsombuluko","uLwesibili","uLwesithathu","uLwesine","uLwesihlanu","uMgqibelo"],
-                    namesAbbr: ["Son.","Mso.","Bi.","Tha.","Ne.","Hla.","Mgq."]
+                    names: ["iSonto", "uMsombuluko", "uLwesibili", "uLwesithathu", "uLwesine", "uLwesihlanu", "uMgqibelo"],
+                    namesAbbr: ["Son.", "Mso.", "Bi.", "Tha.", "Ne.", "Hla.", "Mgq."]
                 },
                 months: {
-                    names: ["uMasingana","uNhlolanja","uNdasa","uMbaso","uNhlaba","uNhlangulana","uNtulikazi","uNcwaba","uMandulo","uMfumfu","uLwezi","uZibandlela",""],
-                    namesAbbr: ["Mas.","Nhlo.","Nda.","Mba.","Nhla.","Nhlang.","Ntu.","Ncwa.","Man.","Mfu.","Lwe.","Zib.",""]
+                    names: ["uMasingana", "uNhlolanja", "uNdasa", "uMbaso", "uNhlaba", "uNhlangulana", "uNtulikazi", "uNcwaba", "uMandulo", "uMfumfu", "uLwezi", "uZibandlela", ""],
+                    namesAbbr: ["Mas.", "Nhlo.", "Nda.", "Mba.", "Nhla.", "Nhlang.", "Ntu.", "Ncwa.", "Man.", "Mfu.", "Lwe.", "Zib.", ""]
                 },
                 patterns: {
                     d: "yyyy/MM/dd",
@@ -3052,23 +3061,23 @@
         language: "af",
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "R"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Sondag","Maandag","Dinsdag","Woensdag","Donderdag","Vrydag","Saterdag"],
-                    namesAbbr: ["Son","Maan","Dins","Woen","Dond","Vry","Sat"],
-                    namesShort: ["So","Ma","Di","Wo","Do","Vr","Sa"]
+                    names: ["Sondag", "Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrydag", "Saterdag"],
+                    namesAbbr: ["Son", "Maan", "Dins", "Woen", "Dond", "Vry", "Sat"],
+                    namesShort: ["So", "Ma", "Di", "Wo", "Do", "Vr", "Sa"]
                 },
                 months: {
-                    names: ["Januarie","Februarie","Maart","April","Mei","Junie","Julie","Augustus","September","Oktober","November","Desember",""],
-                    namesAbbr: ["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Aug","Sep","Okt","Nov","Des",""]
+                    names: ["Januarie", "Februarie", "Maart", "April", "Mei", "Junie", "Julie", "Augustus", "September", "Oktober", "November", "Desember", ""],
+                    namesAbbr: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Des", ""]
                 },
                 patterns: {
                     d: "yyyy/MM/dd",
@@ -3097,7 +3106,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "Lari"
@@ -3108,13 +3117,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["კვირა","ორშაბათი","სამშაბათი","ოთხშაბათი","ხუთშაბათი","პარასკევი","შაბათი"],
-                    namesAbbr: ["კვირა","ორშაბათი","სამშაბათი","ოთხშაბათი","ხუთშაბათი","პარასკევი","შაბათი"],
-                    namesShort: ["კ","ო","ს","ო","ხ","პ","შ"]
+                    names: ["კვირა", "ორშაბათი", "სამშაბათი", "ოთხშაბათი", "ხუთშაბათი", "პარასკევი", "შაბათი"],
+                    namesAbbr: ["კვირა", "ორშაბათი", "სამშაბათი", "ოთხშაბათი", "ხუთშაბათი", "პარასკევი", "შაბათი"],
+                    namesShort: ["კ", "ო", "ს", "ო", "ხ", "პ", "შ"]
                 },
                 months: {
-                    names: ["იანვარი","თებერვალი","მარტი","აპრილი","მაისი","ივნისი","ივლისი","აგვისტო","სექტემბერი","ოქტომბერი","ნოემბერი","დეკემბერი",""],
-                    namesAbbr: ["იან","თებ","მარ","აპრ","მაის","ივნ","ივლ","აგვ","სექ","ოქტ","ნოემ","დეკ",""]
+                    names: ["იანვარი", "თებერვალი", "მარტი", "აპრილი", "მაისი", "ივნისი", "ივლისი", "აგვისტო", "სექტემბერი", "ოქტომბერი", "ნოემბერი", "დეკემბერი", ""],
+                    namesAbbr: ["იან", "თებ", "მარ", "აპრ", "მაის", "ივნ", "ივლ", "აგვ", "სექ", "ოქტ", "ნოემ", "დეკ", ""]
                 },
                 AM: null,
                 PM: null,
@@ -3141,12 +3150,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "kr."
@@ -3157,13 +3166,13 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["sunnudagur","mánadagur","týsdagur","mikudagur","hósdagur","fríggjadagur","leygardagur"],
-                    namesAbbr: ["sun","mán","týs","mik","hós","frí","leyg"],
-                    namesShort: ["su","má","tý","mi","hó","fr","ley"]
+                    names: ["sunnudagur", "mánadagur", "týsdagur", "mikudagur", "hósdagur", "fríggjadagur", "leygardagur"],
+                    namesAbbr: ["sun", "mán", "týs", "mik", "hós", "frí", "leyg"],
+                    namesShort: ["su", "má", "tý", "mi", "hó", "fr", "ley"]
                 },
                 months: {
-                    names: ["januar","februar","mars","apríl","mai","juni","juli","august","september","oktober","november","desember",""],
-                    namesAbbr: ["jan","feb","mar","apr","mai","jun","jul","aug","sep","okt","nov","des",""]
+                    names: ["januar", "februar", "mars", "apríl", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "mai", "jun", "jul", "aug", "sep", "okt", "nov", "des", ""]
                 },
                 AM: null,
                 PM: null,
@@ -3187,13 +3196,13 @@
         nativeName: "हिंदी",
         language: "hi",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "रु"
             }
         },
@@ -3202,16 +3211,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["रविवार","सोमवार","मंगलवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"],
-                    namesAbbr: ["रवि.","सोम.","मंगल.","बुध.","गुरु.","शुक्र.","शनि."],
-                    namesShort: ["र","स","म","ब","ग","श","श"]
+                    names: ["रविवार", "सोमवार", "मंगलवार", "बुधवार", "गुरुवार", "शुक्रवार", "शनिवार"],
+                    namesAbbr: ["रवि.", "सोम.", "मंगल.", "बुध.", "गुरु.", "शुक्र.", "शनि."],
+                    namesShort: ["र", "स", "म", "ब", "ग", "श", "श"]
                 },
                 months: {
-                    names: ["जनवरी","फरवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितम्बर","अक्तूबर","नवम्बर","दिसम्बर",""],
-                    namesAbbr: ["जनवरी","फरवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितम्बर","अक्तूबर","नवम्बर","दिसम्बर",""]
+                    names: ["जनवरी", "फरवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितम्बर", "अक्तूबर", "नवम्बर", "दिसम्बर", ""],
+                    namesAbbr: ["जनवरी", "फरवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितम्बर", "अक्तूबर", "नवम्बर", "दिसम्बर", ""]
                 },
-                AM: ["पूर्वाह्न","पूर्वाह्न","पूर्वाह्न"],
-                PM: ["अपराह्न","अपराह्न","अपराह्न"],
+                AM: ["पूर्वाह्न", "पूर्वाह्न", "पूर्वाह्न"],
+                PM: ["अपराह्न", "अपराह्न", "अपराह्न"],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "dd MMMM yyyy",
@@ -3232,10 +3241,10 @@
         language: "mt",
         numberFormat: {
             percent: {
-                pattern: ["-%n","%n"]
+                pattern: ["-%n", "%n"]
             },
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 symbol: "€"
             }
         },
@@ -3243,13 +3252,13 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Il-Ħadd","It-Tnejn","It-Tlieta","L-Erbgħa","Il-Ħamis","Il-Ġimgħa","Is-Sibt"],
-                    namesAbbr: ["Ħad","Tne","Tli","Erb","Ħam","Ġim","Sib"],
-                    namesShort: ["I","I","I","L","I","I","I"]
+                    names: ["Il-Ħadd", "It-Tnejn", "It-Tlieta", "L-Erbgħa", "Il-Ħamis", "Il-Ġimgħa", "Is-Sibt"],
+                    namesAbbr: ["Ħad", "Tne", "Tli", "Erb", "Ħam", "Ġim", "Sib"],
+                    namesShort: ["I", "I", "I", "L", "I", "I", "I"]
                 },
                 months: {
-                    names: ["Jannar","Frar","Marzu","April","Mejju","Ġunju","Lulju","Awissu","Settembru","Ottubru","Novembru","Diċembru",""],
-                    namesAbbr: ["Jan","Fra","Mar","Apr","Mej","Ġun","Lul","Awi","Set","Ott","Nov","Diċ",""]
+                    names: ["Jannar", "Frar", "Marzu", "April", "Mejju", "Ġunju", "Lulju", "Awissu", "Settembru", "Ottubru", "Novembru", "Diċembru", ""],
+                    namesAbbr: ["Jan", "Fra", "Mar", "Apr", "Mej", "Ġun", "Lul", "Awi", "Set", "Ott", "Nov", "Diċ", ""]
                 },
                 patterns: {
                     d: "dd/MM/yyyy",
@@ -3274,12 +3283,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-%n","%n"],
+                pattern: ["-%n", "%n"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': " ",
                 '.': ",",
                 symbol: "kr"
@@ -3290,17 +3299,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["sotnabeaivi","vuossárga","maŋŋebárga","gaskavahkku","duorastat","bearjadat","lávvardat"],
-                    namesAbbr: ["sotn","vuos","maŋ","gask","duor","bear","láv"],
-                    namesShort: ["s","m","d","g","d","b","l"]
+                    names: ["sotnabeaivi", "vuossárga", "maŋŋebárga", "gaskavahkku", "duorastat", "bearjadat", "lávvardat"],
+                    namesAbbr: ["sotn", "vuos", "maŋ", "gask", "duor", "bear", "láv"],
+                    namesShort: ["s", "m", "d", "g", "d", "b", "l"]
                 },
                 months: {
-                    names: ["ođđajagemánnu","guovvamánnu","njukčamánnu","cuoŋománnu","miessemánnu","geassemánnu","suoidnemánnu","borgemánnu","čakčamánnu","golggotmánnu","skábmamánnu","juovlamánnu",""],
-                    namesAbbr: ["ođđj","guov","njuk","cuo","mies","geas","suoi","borg","čakč","golg","skáb","juov",""]
+                    names: ["ođđajagemánnu", "guovvamánnu", "njukčamánnu", "cuoŋománnu", "miessemánnu", "geassemánnu", "suoidnemánnu", "borgemánnu", "čakčamánnu", "golggotmánnu", "skábmamánnu", "juovlamánnu", ""],
+                    namesAbbr: ["ođđj", "guov", "njuk", "cuo", "mies", "geas", "suoi", "borg", "čakč", "golg", "skáb", "juov", ""]
                 },
                 monthsGenitive: {
-                    names: ["ođđajagimánu","guovvamánu","njukčamánu","cuoŋománu","miessemánu","geassemánu","suoidnemánu","borgemánu","čakčamánu","golggotmánu","skábmamánu","juovlamánu",""],
-                    namesAbbr: ["ođđj","guov","njuk","cuo","mies","geas","suoi","borg","čakč","golg","skáb","juov",""]
+                    names: ["ođđajagimánu", "guovvamánu", "njukčamánu", "cuoŋománu", "miessemánu", "geassemánu", "suoidnemánu", "borgemánu", "čakčamánu", "golggotmánu", "skábmamánu", "juovlamánu", ""],
+                    namesAbbr: ["ođđj", "guov", "njuk", "cuo", "mies", "geas", "suoi", "borg", "čakč", "golg", "skáb", "juov", ""]
                 },
                 AM: null,
                 PM: null,
@@ -3325,7 +3334,7 @@
         language: "ga",
         numberFormat: {
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 symbol: "€"
             }
         },
@@ -3333,16 +3342,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Dé Domhnaigh","Dé Luain","Dé Máirt","Dé Céadaoin","Déardaoin","Dé hAoine","Dé Sathairn"],
-                    namesAbbr: ["Domh","Luan","Máir","Céad","Déar","Aoi","Sath"],
-                    namesShort: ["Do","Lu","Má","Cé","De","Ao","Sa"]
+                    names: ["Dé Domhnaigh", "Dé Luain", "Dé Máirt", "Dé Céadaoin", "Déardaoin", "Dé hAoine", "Dé Sathairn"],
+                    namesAbbr: ["Domh", "Luan", "Máir", "Céad", "Déar", "Aoi", "Sath"],
+                    namesShort: ["Do", "Lu", "Má", "Cé", "De", "Ao", "Sa"]
                 },
                 months: {
-                    names: ["Eanáir","Feabhra","Márta","Aibreán","Bealtaine","Meitheamh","Iúil","Lúnasa","Meán Fómhair","Deireadh Fómhair","Samhain","Nollaig",""],
-                    namesAbbr: ["Ean","Feabh","Már","Aib","Bealt","Meith","Iúil","Lún","M.Fómh","D.Fómh","Samh","Noll",""]
+                    names: ["Eanáir", "Feabhra", "Márta", "Aibreán", "Bealtaine", "Meitheamh", "Iúil", "Lúnasa", "Meán Fómhair", "Deireadh Fómhair", "Samhain", "Nollaig", ""],
+                    namesAbbr: ["Ean", "Feabh", "Már", "Aib", "Bealt", "Meith", "Iúil", "Lún", "M.Fómh", "D.Fómh", "Samh", "Noll", ""]
                 },
-                AM: ["r.n.","r.n.","R.N."],
-                PM: ["i.n.","i.n.","I.N."],
+                AM: ["r.n.", "r.n.", "R.N."],
+                PM: ["i.n.", "i.n.", "I.N."],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "d MMMM yyyy",
@@ -3372,13 +3381,13 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"],
-                    namesAbbr: ["Ahad","Isnin","Sel","Rabu","Khamis","Jumaat","Sabtu"],
-                    namesShort: ["A","I","S","R","K","J","S"]
+                    names: ["Ahad", "Isnin", "Selasa", "Rabu", "Khamis", "Jumaat", "Sabtu"],
+                    namesAbbr: ["Ahad", "Isnin", "Sel", "Rabu", "Khamis", "Jumaat", "Sabtu"],
+                    namesShort: ["A", "I", "S", "R", "K", "J", "S"]
                 },
                 months: {
-                    names: ["Januari","Februari","Mac","April","Mei","Jun","Julai","Ogos","September","Oktober","November","Disember",""],
-                    namesAbbr: ["Jan","Feb","Mac","Apr","Mei","Jun","Jul","Ogos","Sept","Okt","Nov","Dis",""]
+                    names: ["Januari", "Februari", "Mac", "April", "Mei", "Jun", "Julai", "Ogos", "September", "Oktober", "November", "Disember", ""],
+                    namesAbbr: ["Jan", "Feb", "Mac", "Apr", "Mei", "Jun", "Jul", "Ogos", "Sept", "Okt", "Nov", "Dis", ""]
                 },
                 AM: null,
                 PM: null,
@@ -3405,12 +3414,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 ',': " ",
                 '.': "-",
                 symbol: "Т"
@@ -3421,13 +3430,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Жексенбі","Дүйсенбі","Сейсенбі","Сәрсенбі","Бейсенбі","Жұма","Сенбі"],
-                    namesAbbr: ["Жк","Дс","Сс","Ср","Бс","Жм","Сн"],
-                    namesShort: ["Жк","Дс","Сс","Ср","Бс","Жм","Сн"]
+                    names: ["Жексенбі", "Дүйсенбі", "Сейсенбі", "Сәрсенбі", "Бейсенбі", "Жұма", "Сенбі"],
+                    namesAbbr: ["Жк", "Дс", "Сс", "Ср", "Бс", "Жм", "Сн"],
+                    namesShort: ["Жк", "Дс", "Сс", "Ср", "Бс", "Жм", "Сн"]
                 },
                 months: {
-                    names: ["қаңтар","ақпан","наурыз","сәуір","мамыр","маусым","шілде","тамыз","қыркүйек","қазан","қараша","желтоқсан",""],
-                    namesAbbr: ["Қаң","Ақп","Нау","Сәу","Мам","Мау","Шіл","Там","Қыр","Қаз","Қар","Жел",""]
+                    names: ["қаңтар", "ақпан", "наурыз", "сәуір", "мамыр", "маусым", "шілде", "тамыз", "қыркүйек", "қазан", "қараша", "желтоқсан", ""],
+                    namesAbbr: ["Қаң", "Ақп", "Нау", "Сәу", "Мам", "Мау", "Шіл", "Там", "Қыр", "Қаз", "Қар", "Жел", ""]
                 },
                 AM: null,
                 PM: null,
@@ -3454,12 +3463,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': "-",
                 symbol: "сом"
@@ -3470,13 +3479,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Жекшемби","Дүйшөмбү","Шейшемби","Шаршемби","Бейшемби","Жума","Ишемби"],
-                    namesAbbr: ["Жш","Дш","Шш","Шр","Бш","Жм","Иш"],
-                    namesShort: ["Жш","Дш","Шш","Шр","Бш","Жм","Иш"]
+                    names: ["Жекшемби", "Дүйшөмбү", "Шейшемби", "Шаршемби", "Бейшемби", "Жума", "Ишемби"],
+                    namesAbbr: ["Жш", "Дш", "Шш", "Шр", "Бш", "Жм", "Иш"],
+                    namesShort: ["Жш", "Дш", "Шш", "Шр", "Бш", "Жм", "Иш"]
                 },
                 months: {
-                    names: ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь",""],
-                    namesAbbr: ["Янв","Фев","Мар","Апр","Май","Июн","Июл","Авг","Сен","Окт","Ноя","Дек",""]
+                    names: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь", ""],
+                    namesAbbr: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек", ""]
                 },
                 AM: null,
                 PM: null,
@@ -3507,13 +3516,13 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Jumapili","Jumatatu","Jumanne","Jumatano","Alhamisi","Ijumaa","Jumamosi"],
-                    namesAbbr: ["Jumap.","Jumat.","Juman.","Jumat.","Alh.","Iju.","Jumam."],
-                    namesShort: ["P","T","N","T","A","I","M"]
+                    names: ["Jumapili", "Jumatatu", "Jumanne", "Jumatano", "Alhamisi", "Ijumaa", "Jumamosi"],
+                    namesAbbr: ["Jumap.", "Jumat.", "Juman.", "Jumat.", "Alh.", "Iju.", "Jumam."],
+                    namesShort: ["P", "T", "N", "T", "A", "I", "M"]
                 },
                 months: {
-                    names: ["Januari","Februari","Machi","Aprili","Mei","Juni","Julai","Agosti","Septemba","Oktoba","Novemba","Decemba",""],
-                    namesAbbr: ["Jan","Feb","Mac","Apr","Mei","Jun","Jul","Ago","Sep","Okt","Nov","Dec",""]
+                    names: ["Januari", "Februari", "Machi", "Aprili", "Mei", "Juni", "Julai", "Agosti", "Septemba", "Oktoba", "Novemba", "Decemba", ""],
+                    namesAbbr: ["Jan", "Feb", "Mac", "Apr", "Mei", "Jun", "Jul", "Ago", "Sep", "Okt", "Nov", "Dec", ""]
                 }
             })
         }
@@ -3528,12 +3537,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n$","n$"],
+                pattern: ["-n$", "n$"],
                 ',': " ",
                 '.': ",",
                 symbol: "m."
@@ -3544,13 +3553,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Duşenbe","Sişenbe","Çarşenbe","Penşenbe","Anna","Şenbe","Ýekşenbe"],
-                    namesAbbr: ["Db","Sb","Çb","Pb","An","Şb","Ýb"],
-                    namesShort: ["D","S","Ç","P","A","Ş","Ý"]
+                    names: ["Duşenbe", "Sişenbe", "Çarşenbe", "Penşenbe", "Anna", "Şenbe", "Ýekşenbe"],
+                    namesAbbr: ["Db", "Sb", "Çb", "Pb", "An", "Şb", "Ýb"],
+                    namesShort: ["D", "S", "Ç", "P", "A", "Ş", "Ý"]
                 },
                 months: {
-                    names: ["Ýanwar","Fewral","Mart","Aprel","Maý","lýun","lýul","Awgust","Sentýabr","Oktýabr","Noýabr","Dekabr",""],
-                    namesAbbr: ["Ýan","Few","Mart","Apr","Maý","lýun","lýul","Awg","Sen","Okt","Not","Dek",""]
+                    names: ["Ýanwar", "Fewral", "Mart", "Aprel", "Maý", "lýun", "lýul", "Awgust", "Sentýabr", "Oktýabr", "Noýabr", "Dekabr", ""],
+                    namesAbbr: ["Ýan", "Few", "Mart", "Apr", "Maý", "lýun", "lýul", "Awg", "Sen", "Okt", "Not", "Dek", ""]
                 },
                 AM: null,
                 PM: null,
@@ -3576,12 +3585,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 decimals: 0,
                 ',': " ",
                 '.': ",",
@@ -3592,13 +3601,13 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["yakshanba","dushanba","seshanba","chorshanba","payshanba","juma","shanba"],
-                    namesAbbr: ["yak.","dsh.","sesh.","chr.","psh.","jm.","sh."],
-                    namesShort: ["ya","d","s","ch","p","j","sh"]
+                    names: ["yakshanba", "dushanba", "seshanba", "chorshanba", "payshanba", "juma", "shanba"],
+                    namesAbbr: ["yak.", "dsh.", "sesh.", "chr.", "psh.", "jm.", "sh."],
+                    namesShort: ["ya", "d", "s", "ch", "p", "j", "sh"]
                 },
                 months: {
-                    names: ["yanvar","fevral","mart","aprel","may","iyun","iyul","avgust","sentyabr","oktyabr","noyabr","dekabr",""],
-                    namesAbbr: ["yanvar","fevral","mart","aprel","may","iyun","iyul","avgust","sentyabr","oktyabr","noyabr","dekabr",""]
+                    names: ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentyabr", "oktyabr", "noyabr", "dekabr", ""],
+                    namesAbbr: ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentyabr", "oktyabr", "noyabr", "dekabr", ""]
                 },
                 AM: null,
                 PM: null,
@@ -3625,12 +3634,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "р."
@@ -3641,17 +3650,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Якшәмбе","Дүшәмбе","Сишәмбе","Чәршәмбе","Пәнҗешәмбе","Җомга","Шимбә"],
-                    namesAbbr: ["Якш","Дүш","Сиш","Чәрш","Пәнҗ","Җом","Шим"],
-                    namesShort: ["Я","Д","С","Ч","П","Җ","Ш"]
+                    names: ["Якшәмбе", "Дүшәмбе", "Сишәмбе", "Чәршәмбе", "Пәнҗешәмбе", "Җомга", "Шимбә"],
+                    namesAbbr: ["Якш", "Дүш", "Сиш", "Чәрш", "Пәнҗ", "Җом", "Шим"],
+                    namesShort: ["Я", "Д", "С", "Ч", "П", "Җ", "Ш"]
                 },
                 months: {
-                    names: ["Гыйнвар","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь",""],
-                    namesAbbr: ["Гыйн.","Фев.","Мар.","Апр.","Май","Июнь","Июль","Авг.","Сен.","Окт.","Нояб.","Дек.",""]
+                    names: ["Гыйнвар", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь", ""],
+                    namesAbbr: ["Гыйн.", "Фев.", "Мар.", "Апр.", "Май", "Июнь", "Июль", "Авг.", "Сен.", "Окт.", "Нояб.", "Дек.", ""]
                 },
                 monthsGenitive: {
-                    names: ["Гыйнварның","Февральнең","Мартның","Апрельнең","Майның","Июньнең","Июльнең","Августның","Сентябрьның","Октябрьның","Ноябрьның","Декабрьның",""],
-                    namesAbbr: ["Гыйн.-ның","Фев.-нең","Мар.-ның","Апр.-нең","Майның","Июньнең","Июльнең","Авг.-ның","Сен.-ның","Окт.-ның","Нояб.-ның","Дек.-ның",""]
+                    names: ["Гыйнварның", "Февральнең", "Мартның", "Апрельнең", "Майның", "Июньнең", "Июльнең", "Августның", "Сентябрьның", "Октябрьның", "Ноябрьның", "Декабрьның", ""],
+                    namesAbbr: ["Гыйн.-ның", "Фев.-нең", "Мар.-ның", "Апр.-нең", "Майның", "Июньнең", "Июльнең", "Авг.-ның", "Сен.-ның", "Окт.-ның", "Нояб.-ның", "Дек.-ның", ""]
                 },
                 AM: null,
                 PM: null,
@@ -3675,14 +3684,14 @@
         nativeName: "বাংলা",
         language: "bn",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                pattern: ["-%n","%n"],
-                groupSizes: [3,2]
+                pattern: ["-%n", "%n"],
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "টা"
             }
         },
@@ -3692,16 +3701,16 @@
                 ':': ".",
                 firstDay: 1,
                 days: {
-                    names: ["রবিবার","সোমবার","মঙ্গলবার","বুধবার","বৃহস্পতিবার","শুক্রবার","শনিবার"],
-                    namesAbbr: ["রবি.","সোম.","মঙ্গল.","বুধ.","বৃহস্পতি.","শুক্র.","শনি."],
-                    namesShort: ["র","স","ম","ব","ব","শ","শ"]
+                    names: ["রবিবার", "সোমবার", "মঙ্গলবার", "বুধবার", "বৃহস্পতিবার", "শুক্রবার", "শনিবার"],
+                    namesAbbr: ["রবি.", "সোম.", "মঙ্গল.", "বুধ.", "বৃহস্পতি.", "শুক্র.", "শনি."],
+                    namesShort: ["র", "স", "ম", "ব", "ব", "শ", "শ"]
                 },
                 months: {
-                    names: ["জানুয়ারী","ফেব্রুয়ারী","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগস্ট","সেপ্টেম্বর","অক্টোবর","নভেম্বর","ডিসেম্বর",""],
-                    namesAbbr: ["জানু.","ফেব্রু.","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগ.","সেপ্টে.","অক্টো.","নভে.","ডিসে.",""]
+                    names: ["জানুয়ারী", "ফেব্রুয়ারী", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগস্ট", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর", ""],
+                    namesAbbr: ["জানু.", "ফেব্রু.", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগ.", "সেপ্টে.", "অক্টো.", "নভে.", "ডিসে.", ""]
                 },
-                AM: ["পুর্বাহ্ন","পুর্বাহ্ন","পুর্বাহ্ন"],
-                PM: ["অপরাহ্ন","অপরাহ্ন","অপরাহ্ন"],
+                AM: ["পুর্বাহ্ন", "পুর্বাহ্ন", "পুর্বাহ্ন"],
+                PM: ["অপরাহ্ন", "অপরাহ্ন", "অপরাহ্ন"],
                 patterns: {
                     d: "dd-MM-yy",
                     D: "dd MMMM yyyy",
@@ -3721,13 +3730,13 @@
         nativeName: "ਪੰਜਾਬੀ",
         language: "pa",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "ਰੁ"
             }
         },
@@ -3736,16 +3745,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["ਐਤਵਾਰ","ਸੋਮਵਾਰ","ਮੰਗਲਵਾਰ","ਬੁੱਧਵਾਰ","ਵੀਰਵਾਰ","ਸ਼ੁੱਕਰਵਾਰ","ਸ਼ਨਿੱਚਰਵਾਰ"],
-                    namesAbbr: ["ਐਤ.","ਸੋਮ.","ਮੰਗਲ.","ਬੁੱਧ.","ਵੀਰ.","ਸ਼ੁਕਰ.","ਸ਼ਨਿੱਚਰ."],
-                    namesShort: ["ਐ","ਸ","ਮ","ਬ","ਵ","ਸ਼","ਸ਼"]
+                    names: ["ਐਤਵਾਰ", "ਸੋਮਵਾਰ", "ਮੰਗਲਵਾਰ", "ਬੁੱਧਵਾਰ", "ਵੀਰਵਾਰ", "ਸ਼ੁੱਕਰਵਾਰ", "ਸ਼ਨਿੱਚਰਵਾਰ"],
+                    namesAbbr: ["ਐਤ.", "ਸੋਮ.", "ਮੰਗਲ.", "ਬੁੱਧ.", "ਵੀਰ.", "ਸ਼ੁਕਰ.", "ਸ਼ਨਿੱਚਰ."],
+                    namesShort: ["ਐ", "ਸ", "ਮ", "ਬ", "ਵ", "ਸ਼", "ਸ਼"]
                 },
                 months: {
-                    names: ["ਜਨਵਰੀ","ਫ਼ਰਵਰੀ","ਮਾਰਚ","ਅਪ੍ਰੈਲ","ਮਈ","ਜੂਨ","ਜੁਲਾਈ","ਅਗਸਤ","ਸਤੰਬਰ","ਅਕਤੂਬਰ","ਨਵੰਬਰ","ਦਸੰਬਰ",""],
-                    namesAbbr: ["ਜਨਵਰੀ","ਫ਼ਰਵਰੀ","ਮਾਰਚ","ਅਪ੍ਰੈਲ","ਮਈ","ਜੂਨ","ਜੁਲਾਈ","ਅਗਸਤ","ਸਤੰਬਰ","ਅਕਤੂਬਰ","ਨਵੰਬਰ","ਦਸੰਬਰ",""]
+                    names: ["ਜਨਵਰੀ", "ਫ਼ਰਵਰੀ", "ਮਾਰਚ", "ਅਪ੍ਰੈਲ", "ਮਈ", "ਜੂਨ", "ਜੁਲਾਈ", "ਅਗਸਤ", "ਸਤੰਬਰ", "ਅਕਤੂਬਰ", "ਨਵੰਬਰ", "ਦਸੰਬਰ", ""],
+                    namesAbbr: ["ਜਨਵਰੀ", "ਫ਼ਰਵਰੀ", "ਮਾਰਚ", "ਅਪ੍ਰੈਲ", "ਮਈ", "ਜੂਨ", "ਜੁਲਾਈ", "ਅਗਸਤ", "ਸਤੰਬਰ", "ਅਕਤੂਬਰ", "ਨਵੰਬਰ", "ਦਸੰਬਰ", ""]
                 },
-                AM: ["ਸਵੇਰ","ਸਵੇਰ","ਸਵੇਰ"],
-                PM: ["ਸ਼ਾਮ","ਸ਼ਾਮ","ਸ਼ਾਮ"],
+                AM: ["ਸਵੇਰ", "ਸਵੇਰ", "ਸਵੇਰ"],
+                PM: ["ਸ਼ਾਮ", "ਸ਼ਾਮ", "ਸ਼ਾਮ"],
                 patterns: {
                     d: "dd-MM-yy",
                     D: "dd MMMM yyyy dddd",
@@ -3765,13 +3774,13 @@
         nativeName: "ગુજરાતી",
         language: "gu",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "રૂ"
             }
         },
@@ -3780,16 +3789,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["રવિવાર","સોમવાર","મંગળવાર","બુધવાર","ગુરુવાર","શુક્રવાર","શનિવાર"],
-                    namesAbbr: ["રવિ","સોમ","મંગળ","બુધ","ગુરુ","શુક્ર","શનિ"],
-                    namesShort: ["ર","સ","મ","બ","ગ","શ","શ"]
+                    names: ["રવિવાર", "સોમવાર", "મંગળવાર", "બુધવાર", "ગુરુવાર", "શુક્રવાર", "શનિવાર"],
+                    namesAbbr: ["રવિ", "સોમ", "મંગળ", "બુધ", "ગુરુ", "શુક્ર", "શનિ"],
+                    namesShort: ["ર", "સ", "મ", "બ", "ગ", "શ", "શ"]
                 },
                 months: {
-                    names: ["જાન્યુઆરી","ફેબ્રુઆરી","માર્ચ","એપ્રિલ","મે","જૂન","જુલાઈ","ઑગસ્ટ","સપ્ટેમ્બર","ઑક્ટ્બર","નવેમ્બર","ડિસેમ્બર",""],
-                    namesAbbr: ["જાન્યુ","ફેબ્રુ","માર્ચ","એપ્રિલ","મે","જૂન","જુલાઈ","ઑગસ્ટ","સપ્ટે","ઑક્ટો","નવે","ડિસે",""]
+                    names: ["જાન્યુઆરી", "ફેબ્રુઆરી", "માર્ચ", "એપ્રિલ", "મે", "જૂન", "જુલાઈ", "ઑગસ્ટ", "સપ્ટેમ્બર", "ઑક્ટ્બર", "નવેમ્બર", "ડિસેમ્બર", ""],
+                    namesAbbr: ["જાન્યુ", "ફેબ્રુ", "માર્ચ", "એપ્રિલ", "મે", "જૂન", "જુલાઈ", "ઑગસ્ટ", "સપ્ટે", "ઑક્ટો", "નવે", "ડિસે", ""]
                 },
-                AM: ["પૂર્વ મધ્યાહ્ન","પૂર્વ મધ્યાહ્ન","પૂર્વ મધ્યાહ્ન"],
-                PM: ["ઉત્તર મધ્યાહ્ન","ઉત્તર મધ્યાહ્ન","ઉત્તર મધ્યાહ્ન"],
+                AM: ["પૂર્વ મધ્યાહ્ન", "પૂર્વ મધ્યાહ્ન", "પૂર્વ મધ્યાહ્ન"],
+                PM: ["ઉત્તર મધ્યાહ્ન", "ઉત્તર મધ્યાહ્ન", "ઉત્તર મધ્યાહ્ન"],
                 patterns: {
                     d: "dd-MM-yy",
                     D: "dd MMMM yyyy",
@@ -3809,13 +3818,13 @@
         nativeName: "ଓଡ଼ିଆ",
         language: "or",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "ଟ"
             }
         },
@@ -3823,15 +3832,15 @@
             standard: $.extend(true, {}, standard, {
                 '/': "-",
                 days: {
-                    names: ["ରବିବାର","ସୋମବାର","ମଙ୍ଗଳବାର","ବୁଧବାର","ଗୁରୁବାର","ଶୁକ୍ରବାର","ଶନିବାର"],
-                    namesAbbr: ["ରବି.","ସୋମ.","ମଙ୍ଗଳ.","ବୁଧ.","ଗୁରୁ.","ଶୁକ୍ର.","ଶନି."],
-                    namesShort: ["ର","ସୋ","ମ","ବୁ","ଗୁ","ଶୁ","ଶ"]
+                    names: ["ରବିବାର", "ସୋମବାର", "ମଙ୍ଗଳବାର", "ବୁଧବାର", "ଗୁରୁବାର", "ଶୁକ୍ରବାର", "ଶନିବାର"],
+                    namesAbbr: ["ରବି.", "ସୋମ.", "ମଙ୍ଗଳ.", "ବୁଧ.", "ଗୁରୁ.", "ଶୁକ୍ର.", "ଶନି."],
+                    namesShort: ["ର", "ସୋ", "ମ", "ବୁ", "ଗୁ", "ଶୁ", "ଶ"]
                 },
                 months: {
-                    names: ["ଜାନୁୟାରୀ","ଫ୍ରେବୃୟାରୀ","ମାର୍ଚ୍ଚ","ଏପ୍ରିଲ୍‌","ମେ","ଜୁନ୍‌","ଜୁଲାଇ","ଅଗଷ୍ଟ","ସେପ୍ଟେମ୍ବର","ଅକ୍ଟୋବର","ନଭେମ୍ବର","(ଡିସେମ୍ବର",""],
-                    namesAbbr: ["ଜାନୁୟାରୀ","ଫ୍ରେବୃୟାରୀ","ମାର୍ଚ୍ଚ","ଏପ୍ରିଲ୍‌","ମେ","ଜୁନ୍‌","ଜୁଲାଇ","ଅଗଷ୍ଟ","ସେପ୍ଟେମ୍ବର","ଅକ୍ଟୋବର","ନଭେମ୍ବର","(ଡିସେମ୍ବର",""]
+                    names: ["ଜାନୁୟାରୀ", "ଫ୍ରେବୃୟାରୀ", "ମାର୍ଚ୍ଚ", "ଏପ୍ରିଲ୍‌", "ମେ", "ଜୁନ୍‌", "ଜୁଲାଇ", "ଅଗଷ୍ଟ", "ସେପ୍ଟେମ୍ବର", "ଅକ୍ଟୋବର", "ନଭେମ୍ବର", "(ଡିସେମ୍ବର", ""],
+                    namesAbbr: ["ଜାନୁୟାରୀ", "ଫ୍ରେବୃୟାରୀ", "ମାର୍ଚ୍ଚ", "ଏପ୍ରିଲ୍‌", "ମେ", "ଜୁନ୍‌", "ଜୁଲାଇ", "ଅଗଷ୍ଟ", "ସେପ୍ଟେମ୍ବର", "ଅକ୍ଟୋବର", "ନଭେମ୍ବର", "(ଡିସେମ୍ବର", ""]
                 },
-                eras: [{"name":"ଖ୍ରୀଷ୍ଟାବ୍ଦ","start":null,"offset":0}],
+                eras: [{"name": "ଖ୍ରୀଷ୍ଟାବ୍ଦ", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd-MM-yy",
                     D: "dd MMMM yyyy",
@@ -3851,13 +3860,13 @@
         nativeName: "தமிழ்",
         language: "ta",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "ரூ"
             }
         },
@@ -3866,16 +3875,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["ஞாயிற்றுக்கிழமை","திங்கள்கிழமை","செவ்வாய்கிழமை","புதன்கிழமை","வியாழக்கிழமை","வெள்ளிக்கிழமை","சனிக்கிழமை"],
-                    namesAbbr: ["ஞாயிறு","திங்கள்","செவ்வாய்","புதன்","வியாழன்","வெள்ளி","சனி"],
-                    namesShort: ["ஞா","தி","செ","பு","வி","வெ","ச"]
+                    names: ["ஞாயிற்றுக்கிழமை", "திங்கள்கிழமை", "செவ்வாய்கிழமை", "புதன்கிழமை", "வியாழக்கிழமை", "வெள்ளிக்கிழமை", "சனிக்கிழமை"],
+                    namesAbbr: ["ஞாயிறு", "திங்கள்", "செவ்வாய்", "புதன்", "வியாழன்", "வெள்ளி", "சனி"],
+                    namesShort: ["ஞா", "தி", "செ", "பு", "வி", "வெ", "ச"]
                 },
                 months: {
-                    names: ["ஜனவரி","பிப்ரவரி","மார்ச்","ஏப்ரல்","மே","ஜூன்","ஜூலை","ஆகஸ்ட்","செப்டம்பர்","அக்டோபர்","நவம்பர்","டிசம்பர்",""],
-                    namesAbbr: ["ஜனவரி","பிப்ரவரி","மார்ச்","ஏப்ரல்","மே","ஜூன்","ஜூலை","ஆகஸ்ட்","செப்டம்பர்","அக்டோபர்","நவம்பர்","டிசம்பர்",""]
+                    names: ["ஜனவரி", "பிப்ரவரி", "மார்ச்", "ஏப்ரல்", "மே", "ஜூன்", "ஜூலை", "ஆகஸ்ட்", "செப்டம்பர்", "அக்டோபர்", "நவம்பர்", "டிசம்பர்", ""],
+                    namesAbbr: ["ஜனவரி", "பிப்ரவரி", "மார்ச்", "ஏப்ரல்", "மே", "ஜூன்", "ஜூலை", "ஆகஸ்ட்", "செப்டம்பர்", "அக்டோபர்", "நவம்பர்", "டிசம்பர்", ""]
                 },
-                AM: ["காலை","காலை","காலை"],
-                PM: ["மாலை","மாலை","மாலை"],
+                AM: ["காலை", "காலை", "காலை"],
+                PM: ["மாலை", "மாலை", "மாலை"],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "dd MMMM yyyy",
@@ -3896,13 +3905,13 @@
         nativeName: "తెలుగు",
         language: "te",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "రూ"
             }
         },
@@ -3911,16 +3920,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["ఆదివారం","సోమవారం","మంగళవారం","బుధవారం","గురువారం","శుక్రవారం","శనివారం"],
-                    namesAbbr: ["ఆది.","సోమ.","మంగళ.","బుధ.","గురు.","శుక్ర.","శని."],
-                    namesShort: ["ఆ","సో","మం","బు","గు","శు","శ"]
+                    names: ["ఆదివారం", "సోమవారం", "మంగళవారం", "బుధవారం", "గురువారం", "శుక్రవారం", "శనివారం"],
+                    namesAbbr: ["ఆది.", "సోమ.", "మంగళ.", "బుధ.", "గురు.", "శుక్ర.", "శని."],
+                    namesShort: ["ఆ", "సో", "మం", "బు", "గు", "శు", "శ"]
                 },
                 months: {
-                    names: ["జనవరి","ఫిబ్రవరి","మార్చి","ఏప్రిల్","మే","జూన్","జూలై","ఆగస్టు","సెప్టెంబర్","అక్టోబర్","నవంబర్","డిసెంబర్",""],
-                    namesAbbr: ["జనవరి","ఫిబ్రవరి","మార్చి","ఏప్రిల్","మే","జూన్","జూలై","ఆగస్టు","సెప్టెంబర్","అక్టోబర్","నవంబర్","డిసెంబర్",""]
+                    names: ["జనవరి", "ఫిబ్రవరి", "మార్చి", "ఏప్రిల్", "మే", "జూన్", "జూలై", "ఆగస్టు", "సెప్టెంబర్", "అక్టోబర్", "నవంబర్", "డిసెంబర్", ""],
+                    namesAbbr: ["జనవరి", "ఫిబ్రవరి", "మార్చి", "ఏప్రిల్", "మే", "జూన్", "జూలై", "ఆగస్టు", "సెప్టెంబర్", "అక్టోబర్", "నవంబర్", "డిసెంబర్", ""]
                 },
-                AM: ["పూర్వాహ్న","పూర్వాహ్న","పూర్వాహ్న"],
-                PM: ["అపరాహ్న","అపరాహ్న","అపరాహ్న"],
+                AM: ["పూర్వాహ్న", "పూర్వాహ్న", "పూర్వాహ్న"],
+                PM: ["అపరాహ్న", "అపరాహ్న", "అపరాహ్న"],
                 patterns: {
                     d: "dd-MM-yy",
                     D: "dd MMMM yyyy",
@@ -3940,13 +3949,13 @@
         nativeName: "ಕನ್ನಡ",
         language: "kn",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "ರೂ"
             }
         },
@@ -3955,16 +3964,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["ಭಾನುವಾರ","ಸೋಮವಾರ","ಮಂಗಳವಾರ","ಬುಧವಾರ","ಗುರುವಾರ","ಶುಕ್ರವಾರ","ಶನಿವಾರ"],
-                    namesAbbr: ["ಭಾನು.","ಸೋಮ.","ಮಂಗಳ.","ಬುಧ.","ಗುರು.","ಶುಕ್ರ.","ಶನಿ."],
-                    namesShort: ["ರ","ಸ","ಮ","ಬ","ಗ","ಶ","ಶ"]
+                    names: ["ಭಾನುವಾರ", "ಸೋಮವಾರ", "ಮಂಗಳವಾರ", "ಬುಧವಾರ", "ಗುರುವಾರ", "ಶುಕ್ರವಾರ", "ಶನಿವಾರ"],
+                    namesAbbr: ["ಭಾನು.", "ಸೋಮ.", "ಮಂಗಳ.", "ಬುಧ.", "ಗುರು.", "ಶುಕ್ರ.", "ಶನಿ."],
+                    namesShort: ["ರ", "ಸ", "ಮ", "ಬ", "ಗ", "ಶ", "ಶ"]
                 },
                 months: {
-                    names: ["ಜನವರಿ","ಫೆಬ್ರವರಿ","ಮಾರ್ಚ್","ಎಪ್ರಿಲ್","ಮೇ","ಜೂನ್","ಜುಲೈ","ಆಗಸ್ಟ್","ಸೆಪ್ಟಂಬರ್","ಅಕ್ಟೋಬರ್","ನವೆಂಬರ್","ಡಿಸೆಂಬರ್",""],
-                    namesAbbr: ["ಜನವರಿ","ಫೆಬ್ರವರಿ","ಮಾರ್ಚ್","ಎಪ್ರಿಲ್","ಮೇ","ಜೂನ್","ಜುಲೈ","ಆಗಸ್ಟ್","ಸೆಪ್ಟಂಬರ್","ಅಕ್ಟೋಬರ್","ನವೆಂಬರ್","ಡಿಸೆಂಬರ್",""]
+                    names: ["ಜನವರಿ", "ಫೆಬ್ರವರಿ", "ಮಾರ್ಚ್", "ಎಪ್ರಿಲ್", "ಮೇ", "ಜೂನ್", "ಜುಲೈ", "ಆಗಸ್ಟ್", "ಸೆಪ್ಟಂಬರ್", "ಅಕ್ಟೋಬರ್", "ನವೆಂಬರ್", "ಡಿಸೆಂಬರ್", ""],
+                    namesAbbr: ["ಜನವರಿ", "ಫೆಬ್ರವರಿ", "ಮಾರ್ಚ್", "ಎಪ್ರಿಲ್", "ಮೇ", "ಜೂನ್", "ಜುಲೈ", "ಆಗಸ್ಟ್", "ಸೆಪ್ಟಂಬರ್", "ಅಕ್ಟೋಬರ್", "ನವೆಂಬರ್", "ಡಿಸೆಂಬರ್", ""]
                 },
-                AM: ["ಪೂರ್ವಾಹ್ನ","ಪೂರ್ವಾಹ್ನ","ಪೂರ್ವಾಹ್ನ"],
-                PM: ["ಅಪರಾಹ್ನ","ಅಪರಾಹ್ನ","ಅಪರಾಹ್ನ"],
+                AM: ["ಪೂರ್ವಾಹ್ನ", "ಪೂರ್ವಾಹ್ನ", "ಪೂರ್ವಾಹ್ನ"],
+                PM: ["ಅಪರಾಹ್ನ", "ಅಪರಾಹ್ನ", "ಅಪರಾಹ್ನ"],
                 patterns: {
                     d: "dd-MM-yy",
                     D: "dd MMMM yyyy",
@@ -3984,14 +3993,14 @@
         nativeName: "മലയാളം",
         language: "ml",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                pattern: ["-%n","%n"],
-                groupSizes: [3,2]
+                pattern: ["-%n", "%n"],
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "ക"
             }
         },
@@ -4001,13 +4010,13 @@
                 ':': ".",
                 firstDay: 1,
                 days: {
-                    names: ["ഞായറാഴ്ച","തിങ്കളാഴ്ച","ചൊവ്വാഴ്ച","ബുധനാഴ്ച","വ്യാഴാഴ്ച","വെള്ളിയാഴ്ച","ശനിയാഴ്ച"],
-                    namesAbbr: ["ഞായർ.","തിങ്കൾ.","ചൊവ്വ.","ബുധൻ.","വ്യാഴം.","വെള്ളി.","ശനി."],
-                    namesShort: ["ഞ","ത","ച","ബ","വ","വെ","ശ"]
+                    names: ["ഞായറാഴ്ച", "തിങ്കളാഴ്ച", "ചൊവ്വാഴ്ച", "ബുധനാഴ്ച", "വ്യാഴാഴ്ച", "വെള്ളിയാഴ്ച", "ശനിയാഴ്ച"],
+                    namesAbbr: ["ഞായർ.", "തിങ്കൾ.", "ചൊവ്വ.", "ബുധൻ.", "വ്യാഴം.", "വെള്ളി.", "ശനി."],
+                    namesShort: ["ഞ", "ത", "ച", "ബ", "വ", "വെ", "ശ"]
                 },
                 months: {
-                    names: ["ജനുവരി","ഫെബ്റുവരി","മാറ്ച്ച്","ഏപ്റില്","മെയ്","ജൂണ്","ജൂലൈ","ഓഗസ്ററ്","സെപ്ററംബറ്","ഒക്ടോബറ്","നവംബറ്","ഡിസംബറ്",""],
-                    namesAbbr: ["ജനുവരി","ഫെബ്റുവരി","മാറ്ച്ച്","ഏപ്റില്","മെയ്","ജൂണ്","ജൂലൈ","ഓഗസ്ററ്","സെപ്ററംബറ്","ഒക്ടോബറ്","നവംബറ്","ഡിസംബറ്",""]
+                    names: ["ജനുവരി", "ഫെബ്റുവരി", "മാറ്ച്ച്", "ഏപ്റില്", "മെയ്", "ജൂണ്", "ജൂലൈ", "ഓഗസ്ററ്", "സെപ്ററംബറ്", "ഒക്ടോബറ്", "നവംബറ്", "ഡിസംബറ്", ""],
+                    namesAbbr: ["ജനുവരി", "ഫെബ്റുവരി", "മാറ്ച്ച്", "ഏപ്റില്", "മെയ്", "ജൂണ്", "ജൂലൈ", "ഓഗസ്ററ്", "സെപ്ററംബറ്", "ഒക്ടോബറ്", "നവംബറ്", "ഡിസംബറ്", ""]
                 },
                 patterns: {
                     d: "dd-MM-yy",
@@ -4028,14 +4037,14 @@
         nativeName: "অসমীয়া",
         language: "as",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,2]
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","n$"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "n$"],
+                groupSizes: [3, 2],
                 symbol: "ট"
             }
         },
@@ -4044,17 +4053,17 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["সোমবাৰ","মঙ্গলবাৰ","বুধবাৰ","বৃহস্পতিবাৰ","শুক্রবাৰ","শনিবাৰ","ৰবিবাৰ"],
-                    namesAbbr: ["সোম.","মঙ্গল.","বুধ.","বৃহ.","শুক্র.","শনি.","ৰবি."],
-                    namesShort: ["সো","ম","বু","বৃ","শু","শ","র"]
+                    names: ["সোমবাৰ", "মঙ্গলবাৰ", "বুধবাৰ", "বৃহস্পতিবাৰ", "শুক্রবাৰ", "শনিবাৰ", "ৰবিবাৰ"],
+                    namesAbbr: ["সোম.", "মঙ্গল.", "বুধ.", "বৃহ.", "শুক্র.", "শনি.", "ৰবি."],
+                    namesShort: ["সো", "ম", "বু", "বৃ", "শু", "শ", "র"]
                 },
                 months: {
-                    names: ["জানুৱাৰী","ফেব্রুৱাৰী","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগষ্ট","চেপ্টেম্বর","অক্টোবর","নবেম্বর","ডিচেম্বর",""],
-                    namesAbbr: ["জানু","ফেব্রু","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগষ্ট","চেপ্টে","অক্টো","নবে","ডিচে",""]
+                    names: ["জানুৱাৰী", "ফেব্রুৱাৰী", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগষ্ট", "চেপ্টেম্বর", "অক্টোবর", "নবেম্বর", "ডিচেম্বর", ""],
+                    namesAbbr: ["জানু", "ফেব্রু", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগষ্ট", "চেপ্টে", "অক্টো", "নবে", "ডিচে", ""]
                 },
-                AM: ["ৰাতিপু","ৰাতিপু","ৰাতিপু"],
-                PM: ["আবেলি","আবেলি","আবেলি"],
-                eras: [{"name":"খ্রীষ্টাব্দ","start":null,"offset":0}],
+                AM: ["ৰাতিপু", "ৰাতিপু", "ৰাতিপু"],
+                PM: ["আবেলি", "আবেলি", "আবেলি"],
+                eras: [{"name": "খ্রীষ্টাব্দ", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "yyyy,MMMM dd, dddd",
@@ -4075,13 +4084,13 @@
         nativeName: "मराठी",
         language: "mr",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "रु"
             }
         },
@@ -4090,16 +4099,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["रविवार","सोमवार","मंगळवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"],
-                    namesAbbr: ["रवि.","सोम.","मंगळ.","बुध.","गुरु.","शुक्र.","शनि."],
-                    namesShort: ["र","स","म","ब","ग","श","श"]
+                    names: ["रविवार", "सोमवार", "मंगळवार", "बुधवार", "गुरुवार", "शुक्रवार", "शनिवार"],
+                    namesAbbr: ["रवि.", "सोम.", "मंगळ.", "बुध.", "गुरु.", "शुक्र.", "शनि."],
+                    namesShort: ["र", "स", "म", "ब", "ग", "श", "श"]
                 },
                 months: {
-                    names: ["जानेवारी","फेब्रुवारी","मार्च","एप्रिल","मे","जून","जुलै","ऑगस्ट","सप्टेंबर","ऑक्टोबर","नोव्हेंबर","डिसेंबर",""],
-                    namesAbbr: ["जाने.","फेब्रु.","मार्च","एप्रिल","मे","जून","जुलै","ऑगस्ट","सप्टें.","ऑक्टो.","नोव्हें.","डिसें.",""]
+                    names: ["जानेवारी", "फेब्रुवारी", "मार्च", "एप्रिल", "मे", "जून", "जुलै", "ऑगस्ट", "सप्टेंबर", "ऑक्टोबर", "नोव्हेंबर", "डिसेंबर", ""],
+                    namesAbbr: ["जाने.", "फेब्रु.", "मार्च", "एप्रिल", "मे", "जून", "जुलै", "ऑगस्ट", "सप्टें.", "ऑक्टो.", "नोव्हें.", "डिसें.", ""]
                 },
-                AM: ["म.पू.","म.पू.","म.पू."],
-                PM: ["म.नं.","म.नं.","म.नं."],
+                AM: ["म.पू.", "म.पू.", "म.पू."],
+                PM: ["म.नं.", "म.नं.", "म.नं."],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "dd MMMM yyyy",
@@ -4119,13 +4128,13 @@
         nativeName: "संस्कृत",
         language: "sa",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "रु"
             }
         },
@@ -4133,16 +4142,16 @@
             standard: $.extend(true, {}, standard, {
                 '/': "-",
                 days: {
-                    names: ["रविवासरः","सोमवासरः","मङ्गलवासरः","बुधवासरः","गुरुवासरः","शुक्रवासरः","शनिवासरः"],
-                    namesAbbr: ["रविवासरः","सोमवासरः","मङ्गलवासरः","बुधवासरः","गुरुवासरः","शुक्रवासरः","शनिवासरः"],
-                    namesShort: ["र","स","म","ब","ग","श","श"]
+                    names: ["रविवासरः", "सोमवासरः", "मङ्गलवासरः", "बुधवासरः", "गुरुवासरः", "शुक्रवासरः", "शनिवासरः"],
+                    namesAbbr: ["रविवासरः", "सोमवासरः", "मङ्गलवासरः", "बुधवासरः", "गुरुवासरः", "शुक्रवासरः", "शनिवासरः"],
+                    namesShort: ["र", "स", "म", "ब", "ग", "श", "श"]
                 },
                 months: {
-                    names: ["जनवरी","फरवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितम्बर","अक्तूबर","नवम्बर","दिसम्बर",""],
-                    namesAbbr: ["जनवरी","फरवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितम्बर","अक्तूबर","नवम्बर","दिसम्बर",""]
+                    names: ["जनवरी", "फरवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितम्बर", "अक्तूबर", "नवम्बर", "दिसम्बर", ""],
+                    namesAbbr: ["जनवरी", "फरवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितम्बर", "अक्तूबर", "नवम्बर", "दिसम्बर", ""]
                 },
-                AM: ["पूर्वाह्न","पूर्वाह्न","पूर्वाह्न"],
-                PM: ["अपराह्न","अपराह्न","अपराह्न"],
+                AM: ["पूर्वाह्न", "पूर्वाह्न", "पूर्वाह्न"],
+                PM: ["अपराह्न", "अपराह्न", "अपराह्न"],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "dd MMMM yyyy dddd",
@@ -4169,7 +4178,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n$","n$"],
+                pattern: ["-n$", "n$"],
                 ',': " ",
                 '.': ",",
                 symbol: "₮"
@@ -4180,17 +4189,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Ням","Даваа","Мягмар","Лхагва","Пүрэв","Баасан","Бямба"],
-                    namesAbbr: ["Ня","Да","Мя","Лх","Пү","Ба","Бя"],
-                    namesShort: ["Ня","Да","Мя","Лх","Пү","Ба","Бя"]
+                    names: ["Ням", "Даваа", "Мягмар", "Лхагва", "Пүрэв", "Баасан", "Бямба"],
+                    namesAbbr: ["Ня", "Да", "Мя", "Лх", "Пү", "Ба", "Бя"],
+                    namesShort: ["Ня", "Да", "Мя", "Лх", "Пү", "Ба", "Бя"]
                 },
                 months: {
-                    names: ["1 дүгээр сар","2 дугаар сар","3 дугаар сар","4 дүгээр сар","5 дугаар сар","6 дугаар сар","7 дугаар сар","8 дугаар сар","9 дүгээр сар","10 дугаар сар","11 дүгээр сар","12 дугаар сар",""],
-                    namesAbbr: ["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII",""]
+                    names: ["1 дүгээр сар", "2 дугаар сар", "3 дугаар сар", "4 дүгээр сар", "5 дугаар сар", "6 дугаар сар", "7 дугаар сар", "8 дугаар сар", "9 дүгээр сар", "10 дугаар сар", "11 дүгээр сар", "12 дугаар сар", ""],
+                    namesAbbr: ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", ""]
                 },
                 monthsGenitive: {
-                    names: ["1 дүгээр сарын","2 дугаар сарын","3 дугаар сарын","4 дүгээр сарын","5 дугаар сарын","6 дугаар сарын","7 дугаар сарын","8 дугаар сарын","9 дүгээр сарын","10 дугаар сарын","11 дүгээр сарын","12 дугаар сарын",""],
-                    namesAbbr: ["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII",""]
+                    names: ["1 дүгээр сарын", "2 дугаар сарын", "3 дугаар сарын", "4 дүгээр сарын", "5 дугаар сарын", "6 дугаар сарын", "7 дугаар сарын", "8 дугаар сарын", "9 дүгээр сарын", "10 дугаар сарын", "11 дүгээр сарын", "12 дугаар сарын", ""],
+                    namesAbbr: ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", ""]
                 },
                 AM: null,
                 PM: null,
@@ -4214,14 +4223,14 @@
         nativeName: "བོད་ཡིག",
         language: "bo",
         numberFormat: {
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,0]
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 0]
             },
             currency: {
-                pattern: ["$-n","$n"],
-                groupSizes: [3,0],
+                pattern: ["$-n", "$n"],
+                groupSizes: [3, 0],
                 symbol: "¥"
             }
         },
@@ -4229,17 +4238,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["གཟའ་ཉི་མ།","གཟའ་ཟླ་བ།","གཟའ་མིག་དམར།","གཟའ་ལྷག་པ།","གཟའ་ཕུར་བུ།","གཟའ་པ་སངས།","གཟའ་སྤེན་པ།"],
-                    namesAbbr: ["ཉི་མ།","ཟླ་བ།","མིག་དམར།","ལྷག་པ།","ཕུར་བུ།","པ་སངས།","སྤེན་པ།"],
-                    namesShort: ["༧","༡","༢","༣","༤","༥","༦"]
+                    names: ["གཟའ་ཉི་མ།", "གཟའ་ཟླ་བ།", "གཟའ་མིག་དམར།", "གཟའ་ལྷག་པ།", "གཟའ་ཕུར་བུ།", "གཟའ་པ་སངས།", "གཟའ་སྤེན་པ།"],
+                    namesAbbr: ["ཉི་མ།", "ཟླ་བ།", "མིག་དམར།", "ལྷག་པ།", "ཕུར་བུ།", "པ་སངས།", "སྤེན་པ།"],
+                    namesShort: ["༧", "༡", "༢", "༣", "༤", "༥", "༦"]
                 },
                 months: {
-                    names: ["སྤྱི་ཟླ་དང་པོ།","སྤྱི་ཟླ་གཉིས་པ།","སྤྱི་ཟླ་གསུམ་པ།","སྤྱི་ཟླ་བཞི་པ།","སྤྱི་ཟླ་ལྔ་པ།","སྤྱི་ཟླ་དྲུག་པ།","སྤྱི་ཟླ་བདུན་པ།","སྤྱི་ཟླ་བརྒྱད་པ།","སྤྱི་ཟླ་དགུ་པ།","སྤྱི་ཟླ་བཅུ་པོ།","སྤྱི་ཟླ་བཅུ་གཅིག་པ།","སྤྱི་ཟླ་བཅུ་གཉིས་པ།",""],
-                    namesAbbr: ["ཟླ་ ༡","ཟླ་ ༢","ཟླ་ ༣","ཟླ་ ༤","ཟླ་ ༥","ཟླ་ ༦","ཟླ་ ༧","ཟླ་ ༨","ཟླ་ ༩","ཟླ་ ༡༠","ཟླ་ ༡༡","ཟླ་ ༡༢",""]
+                    names: ["སྤྱི་ཟླ་དང་པོ།", "སྤྱི་ཟླ་གཉིས་པ།", "སྤྱི་ཟླ་གསུམ་པ།", "སྤྱི་ཟླ་བཞི་པ།", "སྤྱི་ཟླ་ལྔ་པ།", "སྤྱི་ཟླ་དྲུག་པ།", "སྤྱི་ཟླ་བདུན་པ།", "སྤྱི་ཟླ་བརྒྱད་པ།", "སྤྱི་ཟླ་དགུ་པ།", "སྤྱི་ཟླ་བཅུ་པོ།", "སྤྱི་ཟླ་བཅུ་གཅིག་པ།", "སྤྱི་ཟླ་བཅུ་གཉིས་པ།", ""],
+                    namesAbbr: ["ཟླ་ ༡", "ཟླ་ ༢", "ཟླ་ ༣", "ཟླ་ ༤", "ཟླ་ ༥", "ཟླ་ ༦", "ཟླ་ ༧", "ཟླ་ ༨", "ཟླ་ ༩", "ཟླ་ ༡༠", "ཟླ་ ༡༡", "ཟླ་ ༡༢", ""]
                 },
-                AM: ["སྔ་དྲོ","སྔ་དྲོ","སྔ་དྲོ"],
-                PM: ["ཕྱི་དྲོ","ཕྱི་དྲོ","ཕྱི་དྲོ"],
-                eras: [{"name":"སྤྱི་ལོ","start":null,"offset":0}],
+                AM: ["སྔ་དྲོ", "སྔ་དྲོ", "སྔ་དྲོ"],
+                PM: ["ཕྱི་དྲོ", "ཕྱི་དྲོ", "ཕྱི་དྲོ"],
+                eras: [{"name": "སྤྱི་ལོ", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/M/d",
                     D: "yyyy'ལོའི་ཟླ' M'ཚེས' d",
@@ -4261,10 +4270,10 @@
         language: "cy",
         numberFormat: {
             percent: {
-                pattern: ["-%n","%n"]
+                pattern: ["-%n", "%n"]
             },
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 symbol: "£"
             }
         },
@@ -4272,16 +4281,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Dydd Sul","Dydd Llun","Dydd Mawrth","Dydd Mercher","Dydd Iau","Dydd Gwener","Dydd Sadwrn"],
-                    namesAbbr: ["Sul","Llun","Maw","Mer","Iau","Gwe","Sad"],
-                    namesShort: ["Su","Ll","Ma","Me","Ia","Gw","Sa"]
+                    names: ["Dydd Sul", "Dydd Llun", "Dydd Mawrth", "Dydd Mercher", "Dydd Iau", "Dydd Gwener", "Dydd Sadwrn"],
+                    namesAbbr: ["Sul", "Llun", "Maw", "Mer", "Iau", "Gwe", "Sad"],
+                    namesShort: ["Su", "Ll", "Ma", "Me", "Ia", "Gw", "Sa"]
                 },
                 months: {
-                    names: ["Ionawr","Chwefror","Mawrth","Ebrill","Mai","Mehefin","Gorffennaf","Awst","Medi","Hydref","Tachwedd","Rhagfyr",""],
-                    namesAbbr: ["Ion","Chwe","Maw","Ebr","Mai","Meh","Gor","Aws","Med","Hyd","Tach","Rhag",""]
+                    names: ["Ionawr", "Chwefror", "Mawrth", "Ebrill", "Mai", "Mehefin", "Gorffennaf", "Awst", "Medi", "Hydref", "Tachwedd", "Rhagfyr", ""],
+                    namesAbbr: ["Ion", "Chwe", "Maw", "Ebr", "Mai", "Meh", "Gor", "Aws", "Med", "Hyd", "Tach", "Rhag", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM yyyy",
@@ -4303,13 +4312,13 @@
         language: "km",
         numberFormat: {
             pattern: ["- n"],
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,0]
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 0]
             },
             currency: {
-                pattern: ["-n$","n$"],
+                pattern: ["-n$", "n$"],
                 symbol: "៛"
             }
         },
@@ -4317,17 +4326,17 @@
             standard: $.extend(true, {}, standard, {
                 '/': "-",
                 days: {
-                    names: ["ថ្ងៃអាទិត្យ","ថ្ងៃច័ន្ទ","ថ្ងៃអង្គារ","ថ្ងៃពុធ","ថ្ងៃព្រហស្បតិ៍","ថ្ងៃសុក្រ","ថ្ងៃសៅរ៍"],
-                    namesAbbr: ["អាទិ.","ច.","អ.","ពុ","ព្រហ.","សុ.","ស."],
-                    namesShort: ["អា","ច","អ","ពុ","ព្","សុ","ស"]
+                    names: ["ថ្ងៃអាទិត្យ", "ថ្ងៃច័ន្ទ", "ថ្ងៃអង្គារ", "ថ្ងៃពុធ", "ថ្ងៃព្រហស្បតិ៍", "ថ្ងៃសុក្រ", "ថ្ងៃសៅរ៍"],
+                    namesAbbr: ["អាទិ.", "ច.", "អ.", "ពុ", "ព្រហ.", "សុ.", "ស."],
+                    namesShort: ["អា", "ច", "អ", "ពុ", "ព្", "សុ", "ស"]
                 },
                 months: {
-                    names: ["មករា","កុម្ភៈ","មិនា","មេសា","ឧសភា","មិថុនា","កក្កដា","សីហា","កញ្ញា","តុលា","វិច្ឆិកា","ធ្នូ",""],
-                    namesAbbr: ["១","២","៣","៤","៥","៦","៧","៨","៩","១០","១១","១២",""]
+                    names: ["មករា", "កុម្ភៈ", "មិនា", "មេសា", "ឧសភា", "មិថុនា", "កក្កដា", "សីហា", "កញ្ញា", "តុលា", "វិច្ឆិកា", "ធ្នូ", ""],
+                    namesAbbr: ["១", "២", "៣", "៤", "៥", "៦", "៧", "៨", "៩", "១០", "១១", "១២", ""]
                 },
-                AM: ["ព្រឹក","ព្រឹក","ព្រឹក"],
-                PM: ["ល្ងាច","ល្ងាច","ល្ងាច"],
-                eras: [{"name":"មុនគ.ស.","start":null,"offset":0}],
+                AM: ["ព្រឹក", "ព្រឹក", "ព្រឹក"],
+                PM: ["ល្ងាច", "ល្ងាច", "ល្ងាច"],
+                eras: [{"name": "មុនគ.ស.", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy-MM-dd",
                     D: "d MMMM yyyy",
@@ -4342,17 +4351,17 @@
             Gregorian_TransliteratedEnglish: $.extend(true, {}, standard, {
                 name: "Gregorian_TransliteratedEnglish",
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["أ","ا","ث","أ","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["أ", "ا", "ث", "أ", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","ابريل","مايو","يونيو","يوليو","اغسطس","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "ابريل", "مايو", "يونيو", "يوليو", "اغسطس", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ព្រឹក","ព្រឹក","ព្រឹក"],
-                PM: ["ល្ងាច","ល្ងាច","ល្ងាច"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ព្រឹក", "ព្រឹក", "ព្រឹក"],
+                PM: ["ល្ងាច", "ល្ងាច", "ល្ងាច"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "H:mm tt",
@@ -4371,29 +4380,29 @@
         language: "lo",
         numberFormat: {
             pattern: ["(n)"],
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                groupSizes: [3,0]
+                groupSizes: [3, 0]
             },
             currency: {
-                pattern: ["(n$)","n$"],
-                groupSizes: [3,0],
+                pattern: ["(n$)", "n$"],
+                groupSizes: [3, 0],
                 symbol: "₭"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["ວັນອາທິດ","ວັນຈັນ","ວັນອັງຄານ","ວັນພຸດ","ວັນພະຫັດ","ວັນສຸກ","ວັນເສົາ"],
-                    namesAbbr: ["ອາທິດ","ຈັນ","ອັງຄານ","ພຸດ","ພະຫັດ","ສຸກ","ເສົາ"],
-                    namesShort: ["ອ","ຈ","ອ","ພ","ພ","ສ","ເ"]
+                    names: ["ວັນອາທິດ", "ວັນຈັນ", "ວັນອັງຄານ", "ວັນພຸດ", "ວັນພະຫັດ", "ວັນສຸກ", "ວັນເສົາ"],
+                    namesAbbr: ["ອາທິດ", "ຈັນ", "ອັງຄານ", "ພຸດ", "ພະຫັດ", "ສຸກ", "ເສົາ"],
+                    namesShort: ["ອ", "ຈ", "ອ", "ພ", "ພ", "ສ", "ເ"]
                 },
                 months: {
-                    names: ["ມັງກອນ","ກຸມພາ","ມີນາ","ເມສາ","ພຶດສະພາ","ມິຖຸນາ","ກໍລະກົດ","ສິງຫາ","ກັນຍາ","ຕຸລາ","ພະຈິກ","ທັນວາ",""],
-                    namesAbbr: ["ມັງກອນ","ກຸມພາ","ມີນາ","ເມສາ","ພຶດສະພາ","ມິຖຸນາ","ກໍລະກົດ","ສິງຫາ","ກັນຍາ","ຕຸລາ","ພະຈິກ","ທັນວາ",""]
+                    names: ["ມັງກອນ", "ກຸມພາ", "ມີນາ", "ເມສາ", "ພຶດສະພາ", "ມິຖຸນາ", "ກໍລະກົດ", "ສິງຫາ", "ກັນຍາ", "ຕຸລາ", "ພະຈິກ", "ທັນວາ", ""],
+                    namesAbbr: ["ມັງກອນ", "ກຸມພາ", "ມີນາ", "ເມສາ", "ພຶດສະພາ", "ມິຖຸນາ", "ກໍລະກົດ", "ສິງຫາ", "ກັນຍາ", "ຕຸລາ", "ພະຈິກ", "ທັນວາ", ""]
                 },
-                AM: ["ເຊົ້າ","ເຊົ້າ","ເຊົ້າ"],
-                PM: ["ແລງ","ແລງ","ແລງ"],
+                AM: ["ເຊົ້າ", "ເຊົ້າ", "ເຊົ້າ"],
+                PM: ["ແລງ", "ແລງ", "ແລງ"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM yyyy",
@@ -4421,7 +4430,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -4431,17 +4440,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["domingo","luns","martes","mércores","xoves","venres","sábado"],
-                    namesAbbr: ["dom","luns","mar","mér","xov","ven","sáb"],
-                    namesShort: ["do","lu","ma","mé","xo","ve","sá"]
+                    names: ["domingo", "luns", "martes", "mércores", "xoves", "venres", "sábado"],
+                    namesAbbr: ["dom", "luns", "mar", "mér", "xov", "ven", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mé", "xo", "ve", "sá"]
                 },
                 months: {
-                    names: ["xaneiro","febreiro","marzo","abril","maio","xuño","xullo","agosto","setembro","outubro","novembro","decembro",""],
-                    namesAbbr: ["xan","feb","mar","abr","maio","xuñ","xull","ago","set","out","nov","dec",""]
+                    names: ["xaneiro", "febreiro", "marzo", "abril", "maio", "xuño", "xullo", "agosto", "setembro", "outubro", "novembro", "decembro", ""],
+                    namesAbbr: ["xan", "feb", "mar", "abr", "maio", "xuñ", "xull", "ago", "set", "out", "nov", "dec", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -4462,13 +4471,13 @@
         nativeName: "कोंकणी",
         language: "kok",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "रु"
             }
         },
@@ -4477,16 +4486,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["आयतार","सोमार","मंगळार","बुधवार","बिरेस्तार","सुक्रार","शेनवार"],
-                    namesAbbr: ["आय.","सोम.","मंगळ.","बुध.","बिरे.","सुक्र.","शेन."],
-                    namesShort: ["आ","स","म","ब","ब","स","श"]
+                    names: ["आयतार", "सोमार", "मंगळार", "बुधवार", "बिरेस्तार", "सुक्रार", "शेनवार"],
+                    namesAbbr: ["आय.", "सोम.", "मंगळ.", "बुध.", "बिरे.", "सुक्र.", "शेन."],
+                    namesShort: ["आ", "स", "म", "ब", "ब", "स", "श"]
                 },
                 months: {
-                    names: ["जानेवारी","फेब्रुवारी","मार्च","एप्रिल","मे","जून","जुलै","ऑगस्ट","सप्टेंबर","ऑक्टोबर","नोवेम्बर","डिसेंबर",""],
-                    namesAbbr: ["जानेवारी","फेब्रुवारी","मार्च","एप्रिल","मे","जून","जुलै","ऑगस्ट","सप्टेंबर","ऑक्टोबर","नोवेम्बर","डिसेंबर",""]
+                    names: ["जानेवारी", "फेब्रुवारी", "मार्च", "एप्रिल", "मे", "जून", "जुलै", "ऑगस्ट", "सप्टेंबर", "ऑक्टोबर", "नोवेम्बर", "डिसेंबर", ""],
+                    namesAbbr: ["जानेवारी", "फेब्रुवारी", "मार्च", "एप्रिल", "मे", "जून", "जुलै", "ऑगस्ट", "सप्टेंबर", "ऑक्टोबर", "नोवेम्बर", "डिसेंबर", ""]
                 },
-                AM: ["म.पू.","म.पू.","म.पू."],
-                PM: ["म.नं.","म.नं.","म.नं."],
+                AM: ["म.पू.", "म.पू.", "म.पू."],
+                PM: ["म.नं.", "म.नं.", "म.नं."],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "dd MMMM yyyy",
@@ -4508,7 +4517,7 @@
         isRTL: true,
         numberFormat: {
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 symbol: "ل.س.‏"
             }
         },
@@ -4516,16 +4525,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["ܚܕ ܒܫܒܐ","ܬܪܝܢ ܒܫܒܐ","ܬܠܬܐ ܒܫܒܐ","ܐܪܒܥܐ ܒܫܒܐ","ܚܡܫܐ ܒܫܒܐ","ܥܪܘܒܬܐ","ܫܒܬܐ"],
-                    namesAbbr: ["܏ܐ ܏ܒܫ","܏ܒ ܏ܒܫ","܏ܓ ܏ܒܫ","܏ܕ ܏ܒܫ","܏ܗ ܏ܒܫ","܏ܥܪܘܒ","܏ܫܒ"],
-                    namesShort: ["ܐ","ܒ","ܓ","ܕ","ܗ","ܥ","ܫ"]
+                    names: ["ܚܕ ܒܫܒܐ", "ܬܪܝܢ ܒܫܒܐ", "ܬܠܬܐ ܒܫܒܐ", "ܐܪܒܥܐ ܒܫܒܐ", "ܚܡܫܐ ܒܫܒܐ", "ܥܪܘܒܬܐ", "ܫܒܬܐ"],
+                    namesAbbr: ["܏ܐ ܏ܒܫ", "܏ܒ ܏ܒܫ", "܏ܓ ܏ܒܫ", "܏ܕ ܏ܒܫ", "܏ܗ ܏ܒܫ", "܏ܥܪܘܒ", "܏ܫܒ"],
+                    namesShort: ["ܐ", "ܒ", "ܓ", "ܕ", "ܗ", "ܥ", "ܫ"]
                 },
                 months: {
-                    names: ["ܟܢܘܢ ܐܚܪܝ","ܫܒܛ","ܐܕܪ","ܢܝܣܢ","ܐܝܪ","ܚܙܝܪܢ","ܬܡܘܙ","ܐܒ","ܐܝܠܘܠ","ܬܫܪܝ ܩܕܝܡ","ܬܫܪܝ ܐܚܪܝ","ܟܢܘܢ ܩܕܝܡ",""],
-                    namesAbbr: ["܏ܟܢ ܏ܒ","ܫܒܛ","ܐܕܪ","ܢܝܣܢ","ܐܝܪ","ܚܙܝܪܢ","ܬܡܘܙ","ܐܒ","ܐܝܠܘܠ","܏ܬܫ ܏ܐ","܏ܬܫ ܏ܒ","܏ܟܢ ܏ܐ",""]
+                    names: ["ܟܢܘܢ ܐܚܪܝ", "ܫܒܛ", "ܐܕܪ", "ܢܝܣܢ", "ܐܝܪ", "ܚܙܝܪܢ", "ܬܡܘܙ", "ܐܒ", "ܐܝܠܘܠ", "ܬܫܪܝ ܩܕܝܡ", "ܬܫܪܝ ܐܚܪܝ", "ܟܢܘܢ ܩܕܝܡ", ""],
+                    namesAbbr: ["܏ܟܢ ܏ܒ", "ܫܒܛ", "ܐܕܪ", "ܢܝܣܢ", "ܐܝܪ", "ܚܙܝܪܢ", "ܬܡܘܙ", "ܐܒ", "ܐܝܠܘܠ", "܏ܬܫ ܏ܐ", "܏ܬܫ ܏ܒ", "܏ܟܢ ܏ܐ", ""]
                 },
-                AM: ["ܩ.ܛ","ܩ.ܛ","ܩ.ܛ"],
-                PM: ["ܒ.ܛ","ܒ.ܛ","ܒ.ܛ"],
+                AM: ["ܩ.ܛ", "ܩ.ܛ", "ܩ.ܛ"],
+                PM: ["ܒ.ܛ", "ܒ.ܛ", "ܒ.ܛ"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM, yyyy",
@@ -4545,12 +4554,12 @@
         nativeName: "සිංහල",
         language: "si",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["($ n)","$ n"],
+                pattern: ["($ n)", "$ n"],
                 symbol: "රු."
             }
         },
@@ -4559,17 +4568,17 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["ඉරිදා","සඳුදා","අඟහරුවාදා","බදාදා","බ්‍රහස්පතින්දා","සිකුරාදා","සෙනසුරාදා"],
-                    namesAbbr: ["ඉරිදා","සඳුදා","කුජදා","බුදදා","ගුරුදා","කිවිදා","ශනිදා"],
-                    namesShort: ["ඉ","ස","අ","බ","බ්‍ර","සි","සෙ"]
+                    names: ["ඉරිදා", "සඳුදා", "අඟහරුවාදා", "බදාදා", "බ්‍රහස්පතින්දා", "සිකුරාදා", "සෙනසුරාදා"],
+                    namesAbbr: ["ඉරිදා", "සඳුදා", "කුජදා", "බුදදා", "ගුරුදා", "කිවිදා", "ශනිදා"],
+                    namesShort: ["ඉ", "ස", "අ", "බ", "බ්‍ර", "සි", "සෙ"]
                 },
                 months: {
-                    names: ["ජනවාරි","පෙබරවාරි","මාර්තු","අ‌ප්‍රේල්","මැයි","ජූනි","ජූලි","අ‌ගෝස්තු","සැප්තැම්බර්","ඔක්තෝබර්","නොවැම්බර්","දෙසැම්බර්",""],
-                    namesAbbr: ["ජන.","පෙබ.","මාර්තු.","අප්‍රේල්.","මැයි.","ජූනි.","ජූලි.","අගෝ.","සැප්.","ඔක්.","නොවැ.","දෙසැ.",""]
+                    names: ["ජනවාරි", "පෙබරවාරි", "මාර්තු", "අ‌ප්‍රේල්", "මැයි", "ජූනි", "ජූලි", "අ‌ගෝස්තු", "සැප්තැම්බර්", "ඔක්තෝබර්", "නොවැම්බර්", "දෙසැම්බර්", ""],
+                    namesAbbr: ["ජන.", "පෙබ.", "මාර්තු.", "අප්‍රේල්.", "මැයි.", "ජූනි.", "ජූලි.", "අගෝ.", "සැප්.", "ඔක්.", "නොවැ.", "දෙසැ.", ""]
                 },
-                AM: ["පෙ.ව.","පෙ.ව.","පෙ.ව."],
-                PM: ["ප.ව.","ප.ව.","ප.ව."],
-                eras: [{"name":"ක්‍රි.ව.","start":null,"offset":0}],
+                AM: ["පෙ.ව.", "පෙ.ව.", "පෙ.ව."],
+                PM: ["ප.ව.", "ප.ව.", "ප.ව."],
+                eras: [{"name": "ක්‍රි.ව.", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy-MM-dd",
                     D: "yyyy MMMM' මස 'dd' වැනිදා 'dddd",
@@ -4587,21 +4596,21 @@
         nativeName: "Inuktitut",
         language: "iu",
         numberFormat: {
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                groupSizes: [3,0]
+                groupSizes: [3, 0]
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Naattiinguja","Naggajjau","Aippiq","Pingatsiq","Sitammiq","Tallirmiq","Sivataarvik"],
-                    namesAbbr: ["Nat","Nag","Aip","Pi","Sit","Tal","Siv"],
-                    namesShort: ["N","N","A","P","S","T","S"]
+                    names: ["Naattiinguja", "Naggajjau", "Aippiq", "Pingatsiq", "Sitammiq", "Tallirmiq", "Sivataarvik"],
+                    namesAbbr: ["Nat", "Nag", "Aip", "Pi", "Sit", "Tal", "Siv"],
+                    namesShort: ["N", "N", "A", "P", "S", "T", "S"]
                 },
                 months: {
-                    names: ["Jaannuari","Viivvuari","Maatsi","Iipuri","Mai","Juuni","Julai","Aaggiisi","Sitipiri","Utupiri","Nuvipiri","Tisipiri",""],
-                    namesAbbr: ["Jan","Viv","Mas","Ipu","Mai","Jun","Jul","Agi","Sii","Uut","Nuv","Tis",""]
+                    names: ["Jaannuari", "Viivvuari", "Maatsi", "Iipuri", "Mai", "Juuni", "Julai", "Aaggiisi", "Sitipiri", "Utupiri", "Nuvipiri", "Tisipiri", ""],
+                    namesAbbr: ["Jan", "Viv", "Mas", "Ipu", "Mai", "Jun", "Jul", "Agi", "Sii", "Uut", "Nuv", "Tis", ""]
                 },
                 patterns: {
                     d: "d/MM/yyyy",
@@ -4620,32 +4629,32 @@
         language: "am",
         numberFormat: {
             decimals: 1,
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 decimals: 1,
-                groupSizes: [3,0]
+                groupSizes: [3, 0]
             },
             currency: {
-                pattern: ["-$n","$n"],
-                groupSizes: [3,0],
+                pattern: ["-$n", "$n"],
+                groupSizes: [3, 0],
                 symbol: "ETB"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["እሑድ","ሰኞ","ማክሰኞ","ረቡዕ","ሐሙስ","ዓርብ","ቅዳሜ"],
-                    namesAbbr: ["እሑድ","ሰኞ","ማክሰ","ረቡዕ","ሐሙስ","ዓርብ","ቅዳሜ"],
-                    namesShort: ["እ","ሰ","ማ","ረ","ሐ","ዓ","ቅ"]
+                    names: ["እሑድ", "ሰኞ", "ማክሰኞ", "ረቡዕ", "ሐሙስ", "ዓርብ", "ቅዳሜ"],
+                    namesAbbr: ["እሑድ", "ሰኞ", "ማክሰ", "ረቡዕ", "ሐሙስ", "ዓርብ", "ቅዳሜ"],
+                    namesShort: ["እ", "ሰ", "ማ", "ረ", "ሐ", "ዓ", "ቅ"]
                 },
                 months: {
-                    names: ["ጃንዩወሪ","ፌብሩወሪ","ማርች","ኤፕረል","ሜይ","ጁን","ጁላይ","ኦገስት","ሴፕቴምበር","ኦክተውበር","ኖቬምበር","ዲሴምበር",""],
-                    namesAbbr: ["ጃንዩ","ፌብሩ","ማርች","ኤፕረ","ሜይ","ጁን","ጁላይ","ኦገስ","ሴፕቴ","ኦክተ","ኖቬም","ዲሴም",""]
+                    names: ["ጃንዩወሪ", "ፌብሩወሪ", "ማርች", "ኤፕረል", "ሜይ", "ጁን", "ጁላይ", "ኦገስት", "ሴፕቴምበር", "ኦክተውበር", "ኖቬምበር", "ዲሴምበር", ""],
+                    namesAbbr: ["ጃንዩ", "ፌብሩ", "ማርች", "ኤፕረ", "ሜይ", "ጁን", "ጁላይ", "ኦገስ", "ሴፕቴ", "ኦክተ", "ኖቬም", "ዲሴም", ""]
                 },
-                AM: ["ጡዋት","ጡዋት","ጡዋት"],
-                PM: ["ከሰዓት","ከሰዓት","ከሰዓት"],
-                eras: [{"name":"ዓመተ  ምሕረት","start":null,"offset":0}],
+                AM: ["ጡዋት", "ጡዋት", "ጡዋት"],
+                PM: ["ከሰዓት", "ከሰዓት", "ከሰዓት"],
+                eras: [{"name": "ዓመተ  ምሕረት", "start": null, "offset": 0}],
                 patterns: {
                     d: "d/M/yyyy",
                     D: "dddd '፣' MMMM d 'ቀን' yyyy",
@@ -4672,7 +4681,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 symbol: "DZD"
             }
         },
@@ -4681,13 +4690,13 @@
                 '/': "-",
                 firstDay: 6,
                 days: {
-                    names: ["Acer","Arime","Aram","Ahad","Amhadh","Sem","Sedh"],
-                    namesAbbr: ["Ace","Ari","Ara","Aha","Amh","Sem","Sed"],
-                    namesShort: ["Ac","Ar","Ar","Ah","Am","Se","Se"]
+                    names: ["Acer", "Arime", "Aram", "Ahad", "Amhadh", "Sem", "Sedh"],
+                    namesAbbr: ["Ace", "Ari", "Ara", "Aha", "Amh", "Sem", "Sed"],
+                    namesShort: ["Ac", "Ar", "Ar", "Ah", "Am", "Se", "Se"]
                 },
                 months: {
-                    names: ["Yenayer","Furar","Maghres","Yebrir","Mayu","Yunyu","Yulyu","Ghuct","Cutenber","Ktuber","Wambir","Dujanbir",""],
-                    namesAbbr: ["Yen","Fur","Mag","Yeb","May","Yun","Yul","Ghu","Cut","Ktu","Wam","Duj",""]
+                    names: ["Yenayer", "Furar", "Maghres", "Yebrir", "Mayu", "Yunyu", "Yulyu", "Ghuct", "Cutenber", "Ktuber", "Wambir", "Dujanbir", ""],
+                    namesAbbr: ["Yen", "Fur", "Mag", "Yeb", "May", "Yun", "Yul", "Ghu", "Cut", "Ktu", "Wam", "Duj", ""]
                 },
                 AM: null,
                 PM: null,
@@ -4710,30 +4719,30 @@
         nativeName: "नेपाली",
         language: "ne",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,2]
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 symbol: "रु"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["आइतवार","सोमवार","मङ्गलवार","बुधवार","बिहीवार","शुक्रवार","शनिवार"],
-                    namesAbbr: ["आइत","सोम","मङ्गल","बुध","बिही","शुक्र","शनि"],
-                    namesShort: ["आ","सो","म","बु","बि","शु","श"]
+                    names: ["आइतवार", "सोमवार", "मङ्गलवार", "बुधवार", "बिहीवार", "शुक्रवार", "शनिवार"],
+                    namesAbbr: ["आइत", "सोम", "मङ्गल", "बुध", "बिही", "शुक्र", "शनि"],
+                    namesShort: ["आ", "सो", "म", "बु", "बि", "शु", "श"]
                 },
                 months: {
-                    names: ["जनवरी","फेब्रुअरी","मार्च","अप्रिल","मे","जून","जुलाई","अगस्त","सेप्टेम्बर","अक्टोबर","नोभेम्बर","डिसेम्बर",""],
-                    namesAbbr: ["जन","फेब","मार्च","अप्रिल","मे","जून","जुलाई","अग","सेप्ट","अक्ट","नोभ","डिस",""]
+                    names: ["जनवरी", "फेब्रुअरी", "मार्च", "अप्रिल", "मे", "जून", "जुलाई", "अगस्त", "सेप्टेम्बर", "अक्टोबर", "नोभेम्बर", "डिसेम्बर", ""],
+                    namesAbbr: ["जन", "फेब", "मार्च", "अप्रिल", "मे", "जून", "जुलाई", "अग", "सेप्ट", "अक्ट", "नोभ", "डिस", ""]
                 },
-                AM: ["विहानी","विहानी","विहानी"],
-                PM: ["बेलुकी","बेलुकी","बेलुकी"],
-                eras: [{"name":"a.d.","start":null,"offset":0}],
+                AM: ["विहानी", "विहानी", "विहानी"],
+                PM: ["बेलुकी", "बेलुकी", "बेलुकी"],
+                eras: [{"name": "a.d.", "start": null, "offset": 0}],
                 patterns: {
                     Y: "MMMM,yyyy"
                 }
@@ -4754,7 +4763,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -4765,13 +4774,13 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["Snein","Moandei","Tiisdei","Woansdei","Tongersdei","Freed","Sneon"],
-                    namesAbbr: ["Sn","Mo","Ti","Wo","To","Fr","Sn"],
-                    namesShort: ["S","M","T","W","T","F","S"]
+                    names: ["Snein", "Moandei", "Tiisdei", "Woansdei", "Tongersdei", "Freed", "Sneon"],
+                    namesAbbr: ["Sn", "Mo", "Ti", "Wo", "To", "Fr", "Sn"],
+                    namesShort: ["S", "M", "T", "W", "T", "F", "S"]
                 },
                 months: {
-                    names: ["jannewaris","febrewaris","maart","april","maaie","juny","july","augustus","septimber","oktober","novimber","desimber",""],
-                    namesAbbr: ["jann","febr","mrt","apr","maaie","jun","jul","aug","sept","okt","nov","des",""]
+                    names: ["jannewaris", "febrewaris", "maart", "april", "maaie", "juny", "july", "augustus", "septimber", "oktober", "novimber", "desimber", ""],
+                    namesAbbr: ["jann", "febr", "mrt", "apr", "maaie", "jun", "jul", "aug", "sept", "okt", "nov", "des", ""]
                 },
                 AM: null,
                 PM: null,
@@ -4800,12 +4809,12 @@
             ',': "،",
             '.': ",",
             percent: {
-                pattern: ["%n-","%n"],
+                pattern: ["%n-", "%n"],
                 ',': "،",
                 '.': ","
             },
             currency: {
-                pattern: ["$n-","$n"],
+                pattern: ["$n-", "$n"],
                 ',': "٬",
                 '.': "٫",
                 symbol: "؋"
@@ -4816,17 +4825,17 @@
                 name: "Hijri",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["غ.م","غ.م","غ.م"],
-                PM: ["غ.و","غ.و","غ.و"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["غ.م", "غ.م", "غ.م"],
+                PM: ["غ.و", "غ.و", "غ.و"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -4847,7 +4856,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -4857,9 +4866,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -4892,7 +4901,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -4903,7 +4912,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -4911,17 +4920,17 @@
             Gregorian_Localized: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["یکشنبه","دوشنبه","سه‌شنبه","چارشنبه","پنجشنبه","جمعه","شنبه"],
-                    namesAbbr: ["یکشنبه","دوشنبه","سه‌شنبه","چارشنبه","پنجشنبه","جمعه","شنبه"],
-                    namesShort: ["ی","د","س","چ","پ","ج","ش"]
+                    names: ["یکشنبه", "دوشنبه", "سه‌شنبه", "چارشنبه", "پنجشنبه", "جمعه", "شنبه"],
+                    namesAbbr: ["یکشنبه", "دوشنبه", "سه‌شنبه", "چارشنبه", "پنجشنبه", "جمعه", "شنبه"],
+                    namesShort: ["ی", "د", "س", "چ", "پ", "ج", "ش"]
                 },
                 months: {
-                    names: ["سلواغه","كب","ورى","غويى","غبرګولى","چنګا ښزمرى","زمرى","وږى","تله","لړم","لنڈ ۍ","مرغومى",""],
-                    namesAbbr: ["سلواغه","كب","ورى","غويى","غبرګولى","چنګا ښ","زمرى","وږى","تله","لړم","لنڈ ۍ","مرغومى",""]
+                    names: ["سلواغه", "كب", "ورى", "غويى", "غبرګولى", "چنګا ښزمرى", "زمرى", "وږى", "تله", "لړم", "لنڈ ۍ", "مرغومى", ""],
+                    namesAbbr: ["سلواغه", "كب", "ورى", "غويى", "غبرګولى", "چنګا ښ", "زمرى", "وږى", "تله", "لړم", "لنڈ ۍ", "مرغومى", ""]
                 },
-                AM: ["غ.م","غ.م","غ.م"],
-                PM: ["غ.و","غ.و","غ.و"],
-                eras: [{"name":"ل.ه","start":null,"offset":0}],
+                AM: ["غ.م", "غ.م", "غ.م"],
+                PM: ["غ.و", "غ.و", "غ.و"],
+                eras: [{"name": "ل.ه", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/M/d",
                     D: "yyyy, dd, MMMM, dddd",
@@ -4947,15 +4956,15 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Linggo","Lunes","Martes","Mierkoles","Huebes","Biernes","Sabado"],
-                    namesAbbr: ["Lin","Lun","Mar","Mier","Hueb","Bier","Saba"],
-                    namesShort: ["L","L","M","M","H","B","S"]
+                    names: ["Linggo", "Lunes", "Martes", "Mierkoles", "Huebes", "Biernes", "Sabado"],
+                    namesAbbr: ["Lin", "Lun", "Mar", "Mier", "Hueb", "Bier", "Saba"],
+                    namesShort: ["L", "L", "M", "M", "H", "B", "S"]
                 },
                 months: {
-                    names: ["Enero","Pebrero","Marso","Abril","Mayo","Hunyo","Hulyo","Agosto","Septyembre","Oktubre","Nobyembre","Disyembre",""],
-                    namesAbbr: ["En","Peb","Mar","Abr","Mayo","Hun","Hul","Agos","Sept","Okt","Nob","Dis",""]
+                    names: ["Enero", "Pebrero", "Marso", "Abril", "Mayo", "Hunyo", "Hulyo", "Agosto", "Septyembre", "Oktubre", "Nobyembre", "Disyembre", ""],
+                    namesAbbr: ["En", "Peb", "Mar", "Abr", "Mayo", "Hun", "Hul", "Agos", "Sept", "Okt", "Nob", "Dis", ""]
                 },
-                eras: [{"name":"Anno Domini","start":null,"offset":0}]
+                eras: [{"name": "Anno Domini", "start": null, "offset": 0}]
             })
         }
     }, cultures["fil"]);
@@ -4968,7 +4977,7 @@
         isRTL: true,
         numberFormat: {
             currency: {
-                pattern: ["n $-","n $"],
+                pattern: ["n $-", "n $"],
                 symbol: "ރ."
             }
         },
@@ -4976,17 +4985,17 @@
             standard: $.extend(true, {}, standard, {
                 name: "Hijri",
                 days: {
-                    names: ["އާދީއްތަ","ހޯމަ","އަންގާރަ","ބުދަ","ބުރާސްފަތި","ހުކުރު","ހޮނިހިރު"],
-                    namesAbbr: ["އާދީއްތަ","ހޯމަ","އަންގާރަ","ބުދަ","ބުރާސްފަތި","ހުކުރު","ހޮނިހިރު"],
-                    namesShort: ["އާ","ހޯ","އަ","ބު","ބު","ހު","ހޮ"]
+                    names: ["އާދީއްތަ", "ހޯމަ", "އަންގާރަ", "ބުދަ", "ބުރާސްފަތި", "ހުކުރު", "ހޮނިހިރު"],
+                    namesAbbr: ["އާދީއްތަ", "ހޯމަ", "އަންގާރަ", "ބުދަ", "ބުރާސްފަތި", "ހުކުރު", "ހޮނިހިރު"],
+                    namesShort: ["އާ", "ހޯ", "އަ", "ބު", "ބު", "ހު", "ހޮ"]
                 },
                 months: {
-                    names: ["މުޙައްރަމް","ޞަފަރު","ރަބީޢުލްއައްވަލް","ރަބީޢުލްއާޚިރު","ޖުމާދަލްއޫލާ","ޖުމާދަލްއާޚިރާ","ރަޖަބް","ޝަޢްބާން","ރަމަޟާން","ޝައްވާލް","ޛުލްޤަޢިދާ","ޛުލްޙިއްޖާ",""],
-                    namesAbbr: ["މުޙައްރަމް","ޞަފަރު","ރަބީޢުލްއައްވަލް","ރަބީޢުލްއާޚިރު","ޖުމާދަލްއޫލާ","ޖުމާދަލްއާޚިރާ","ރަޖަބް","ޝަޢްބާން","ރަމަޟާން","ޝައްވާލް","ޛުލްޤަޢިދާ","ޛުލްޙިއްޖާ",""]
+                    names: ["މުޙައްރަމް", "ޞަފަރު", "ރަބީޢުލްއައްވަލް", "ރަބީޢުލްއާޚިރު", "ޖުމާދަލްއޫލާ", "ޖުމާދަލްއާޚިރާ", "ރަޖަބް", "ޝަޢްބާން", "ރަމަޟާން", "ޝައްވާލް", "ޛުލްޤަޢިދާ", "ޛުލްޙިއްޖާ", ""],
+                    namesAbbr: ["މުޙައްރަމް", "ޞަފަރު", "ރަބީޢުލްއައްވަލް", "ރަބީޢުލްއާޚިރު", "ޖުމާދަލްއޫލާ", "ޖުމާދަލްއާޚިރާ", "ރަޖަބް", "ޝަޢްބާން", "ރަމަޟާން", "ޝައްވާލް", "ޛުލްޤަޢިދާ", "ޛުލްޙިއްޖާ", ""]
                 },
-                AM: ["މކ","މކ","މކ"],
-                PM: ["މފ","މފ","މފ"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["މކ", "މކ", "މކ"],
+                PM: ["މފ", "މފ", "މފ"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -5009,7 +5018,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -5019,9 +5028,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -5054,7 +5063,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -5065,24 +5074,24 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
             }),
             Gregorian_Localized: $.extend(true, {}, standard, {
                 days: {
-                    names: ["އާދީއްތަ","ހޯމަ","އަންގާރަ","ބުދަ","ބުރާސްފަތި","ހުކުރު","ހޮނިހިރު"],
-                    namesAbbr: ["އާދީއްތަ","ހޯމަ","އަންގާރަ","ބުދަ","ބުރާސްފަތި","ހުކުރު","ހޮނިހިރު"],
-                    namesShort: ["އާ","ހޯ","އަ","ބު","ބު","ހު","ހޮ"]
+                    names: ["އާދީއްތަ", "ހޯމަ", "އަންގާރަ", "ބުދަ", "ބުރާސްފަތި", "ހުކުރު", "ހޮނިހިރު"],
+                    namesAbbr: ["އާދީއްތަ", "ހޯމަ", "އަންގާރަ", "ބުދަ", "ބުރާސްފަތި", "ހުކުރު", "ހޮނިހިރު"],
+                    namesShort: ["އާ", "ހޯ", "އަ", "ބު", "ބު", "ހު", "ހޮ"]
                 },
                 months: {
-                    names: ["ޖަނަވަރީ","ފެބްރުއަރީ","މާޗް","އޭޕްރިލް","މެއި","ޖޫން","ޖުލައި","އޯގަސްޓް","ސެޕްޓެމްބަރ","އޮކްޓޯބަރ","ނޮވެމްބަރ","ޑިސެމްބަރ",""],
-                    namesAbbr: ["ޖަނަވަރީ","ފެބްރުއަރީ","މާޗް","އޭޕްރިލް","މެއި","ޖޫން","ޖުލައި","އޯގަސްޓް","ސެޕްޓެމްބަރ","އޮކްޓޯބަރ","ނޮވެމްބަރ","ޑިސެމްބަރ",""]
+                    names: ["ޖަނަވަރީ", "ފެބްރުއަރީ", "މާޗް", "އޭޕްރިލް", "މެއި", "ޖޫން", "ޖުލައި", "އޯގަސްޓް", "ސެޕްޓެމްބަރ", "އޮކްޓޯބަރ", "ނޮވެމްބަރ", "ޑިސެމްބަރ", ""],
+                    namesAbbr: ["ޖަނަވަރީ", "ފެބްރުއަރީ", "މާޗް", "އޭޕްރިލް", "މެއި", "ޖޫން", "ޖުލައި", "އޯގަސްޓް", "ސެޕްޓެމްބަރ", "އޮކްޓޯބަރ", "ނޮވެމްބަރ", "ޑިސެމްބަރ", ""]
                 },
-                AM: ["މކ","މކ","މކ"],
-                PM: ["މފ","މފ","މފ"],
-                eras: [{"name":"މީލާދީ","start":null,"offset":0}],
+                AM: ["މކ", "މކ", "މކ"],
+                PM: ["މފ", "މފ", "މފ"],
+                eras: [{"name": "މީލާދީ", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yy",
                     D: "ddd, yyyy MMMM dd",
@@ -5103,24 +5112,24 @@
         language: "ha",
         numberFormat: {
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "N"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Lahadi","Litinin","Talata","Laraba","Alhamis","Juma'a","Asabar"],
-                    namesAbbr: ["Lah","Lit","Tal","Lar","Alh","Jum","Asa"],
-                    namesShort: ["L","L","T","L","A","J","A"]
+                    names: ["Lahadi", "Litinin", "Talata", "Laraba", "Alhamis", "Juma'a", "Asabar"],
+                    namesAbbr: ["Lah", "Lit", "Tal", "Lar", "Alh", "Jum", "Asa"],
+                    namesShort: ["L", "L", "T", "L", "A", "J", "A"]
                 },
                 months: {
-                    names: ["Januwaru","Febreru","Maris","Afrilu","Mayu","Yuni","Yuli","Agusta","Satumba","Oktocba","Nuwamba","Disamba",""],
-                    namesAbbr: ["Jan","Feb","Mar","Afr","May","Yun","Yul","Agu","Sat","Okt","Nuw","Dis",""]
+                    names: ["Januwaru", "Febreru", "Maris", "Afrilu", "Mayu", "Yuni", "Yuli", "Agusta", "Satumba", "Oktocba", "Nuwamba", "Disamba", ""],
+                    namesAbbr: ["Jan", "Feb", "Mar", "Afr", "May", "Yun", "Yul", "Agu", "Sat", "Okt", "Nuw", "Dis", ""]
                 },
-                AM: ["Safe","safe","SAFE"],
-                PM: ["Yamma","yamma","YAMMA"],
-                eras: [{"name":"AD","start":null,"offset":0}],
+                AM: ["Safe", "safe", "SAFE"],
+                PM: ["Yamma", "yamma", "YAMMA"],
+                eras: [{"name": "AD", "start": null, "offset": 0}],
                 patterns: {
                     d: "d/M/yyyy"
                 }
@@ -5135,24 +5144,24 @@
         language: "yo",
         numberFormat: {
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "N"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Aiku","Aje","Isegun","Ojo'ru","Ojo'bo","Eti","Abameta"],
-                    namesAbbr: ["Aik","Aje","Ise","Ojo","Ojo","Eti","Aba"],
-                    namesShort: ["A","A","I","O","O","E","A"]
+                    names: ["Aiku", "Aje", "Isegun", "Ojo'ru", "Ojo'bo", "Eti", "Abameta"],
+                    namesAbbr: ["Aik", "Aje", "Ise", "Ojo", "Ojo", "Eti", "Aba"],
+                    namesShort: ["A", "A", "I", "O", "O", "E", "A"]
                 },
                 months: {
-                    names: ["Osu kinni","Osu keji","Osu keta","Osu kerin","Osu karun","Osu kefa","Osu keje","Osu kejo","Osu kesan","Osu kewa","Osu kokanla","Osu keresi",""],
-                    namesAbbr: ["kin.","kej.","ket.","ker.","kar.","kef.","kej.","kej.","kes.","kew.","kok.","ker.",""]
+                    names: ["Osu kinni", "Osu keji", "Osu keta", "Osu kerin", "Osu karun", "Osu kefa", "Osu keje", "Osu kejo", "Osu kesan", "Osu kewa", "Osu kokanla", "Osu keresi", ""],
+                    namesAbbr: ["kin.", "kej.", "ket.", "ker.", "kar.", "kef.", "kej.", "kej.", "kes.", "kew.", "kok.", "ker.", ""]
                 },
-                AM: ["Owuro","owuro","OWURO"],
-                PM: ["Ale","ale","ALE"],
-                eras: [{"name":"AD","start":null,"offset":0}],
+                AM: ["Owuro", "owuro", "OWURO"],
+                PM: ["Ale", "ale", "ALE"],
+                eras: [{"name": "AD", "start": null, "offset": 0}],
                 patterns: {
                     d: "d/M/yyyy"
                 }
@@ -5169,12 +5178,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-%n","%n"],
+                pattern: ["-%n", "%n"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["($ n)","$ n"],
+                pattern: ["($ n)", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "$b"
@@ -5183,16 +5192,16 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["intichaw","killachaw","atipachaw","quyllurchaw","Ch' askachaw","Illapachaw","k'uychichaw"],
-                    namesAbbr: ["int","kil","ati","quy","Ch'","Ill","k'u"],
-                    namesShort: ["d","k","a","m","h","b","k"]
+                    names: ["intichaw", "killachaw", "atipachaw", "quyllurchaw", "Ch' askachaw", "Illapachaw", "k'uychichaw"],
+                    namesAbbr: ["int", "kil", "ati", "quy", "Ch'", "Ill", "k'u"],
+                    namesShort: ["d", "k", "a", "m", "h", "b", "k"]
                 },
                 months: {
-                    names: ["Qulla puquy","Hatun puquy","Pauqar waray","ayriwa","Aymuray","Inti raymi","Anta Sitwa","Qhapaq Sitwa","Uma raymi","Kantaray","Ayamarq'a","Kapaq Raymi",""],
-                    namesAbbr: ["Qul","Hat","Pau","ayr","Aym","Int","Ant","Qha","Uma","Kan","Aya","Kap",""]
+                    names: ["Qulla puquy", "Hatun puquy", "Pauqar waray", "ayriwa", "Aymuray", "Inti raymi", "Anta Sitwa", "Qhapaq Sitwa", "Uma raymi", "Kantaray", "Ayamarq'a", "Kapaq Raymi", ""],
+                    namesAbbr: ["Qul", "Hat", "Pau", "ayr", "Aym", "Int", "Ant", "Qha", "Uma", "Kan", "Aya", "Kap", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -5213,23 +5222,23 @@
         language: "nso",
         numberFormat: {
             percent: {
-                pattern: ["-%n","%n"]
+                pattern: ["-%n", "%n"]
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "R"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Lamorena","Mošupologo","Labobedi","Laboraro","Labone","Labohlano","Mokibelo"],
-                    namesAbbr: ["Lam","Moš","Lbb","Lbr","Lbn","Lbh","Mok"],
-                    namesShort: ["L","M","L","L","L","L","M"]
+                    names: ["Lamorena", "Mošupologo", "Labobedi", "Laboraro", "Labone", "Labohlano", "Mokibelo"],
+                    namesAbbr: ["Lam", "Moš", "Lbb", "Lbr", "Lbn", "Lbh", "Mok"],
+                    namesShort: ["L", "M", "L", "L", "L", "L", "M"]
                 },
                 months: {
-                    names: ["Pherekgong","Hlakola","Mopitlo","Moranang","Mosegamanye","Ngoatobošego","Phuphu","Phato","Lewedi","Diphalana","Dibatsela","Manthole",""],
-                    namesAbbr: ["Pher","Hlak","Mop","Mor","Mos","Ngwat","Phup","Phat","Lew","Dip","Dib","Man",""]
+                    names: ["Pherekgong", "Hlakola", "Mopitlo", "Moranang", "Mosegamanye", "Ngoatobošego", "Phuphu", "Phato", "Lewedi", "Diphalana", "Dibatsela", "Manthole", ""],
+                    namesAbbr: ["Pher", "Hlak", "Mop", "Mor", "Mos", "Ngwat", "Phup", "Phat", "Lew", "Dip", "Dib", "Man", ""]
                 },
                 patterns: {
                     d: "yyyy/MM/dd",
@@ -5253,16 +5262,16 @@
         numberFormat: {
             ',': " ",
             '.': ",",
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,0],
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 0],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
-                groupSizes: [3,0],
+                pattern: ["-n $", "n $"],
+                groupSizes: [3, 0],
                 ',': " ",
                 '.': ",",
                 symbol: "һ."
@@ -5273,13 +5282,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Йәкшәмбе","Дүшәмбе","Шишәмбе","Шаршамбы","Кесаҙна","Йома","Шәмбе"],
-                    namesAbbr: ["Йш","Дш","Шш","Шр","Кс","Йм","Шб"],
-                    namesShort: ["Йш","Дш","Шш","Шр","Кс","Йм","Шб"]
+                    names: ["Йәкшәмбе", "Дүшәмбе", "Шишәмбе", "Шаршамбы", "Кесаҙна", "Йома", "Шәмбе"],
+                    namesAbbr: ["Йш", "Дш", "Шш", "Шр", "Кс", "Йм", "Шб"],
+                    namesShort: ["Йш", "Дш", "Шш", "Шр", "Кс", "Йм", "Шб"]
                 },
                 months: {
-                    names: ["ғинуар","февраль","март","апрель","май","июнь","июль","август","сентябрь","октябрь","ноябрь","декабрь",""],
-                    namesAbbr: ["ғин","фев","мар","апр","май","июн","июл","авг","сен","окт","ноя","дек",""]
+                    names: ["ғинуар", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь", ""],
+                    namesAbbr: ["ғин", "фев", "мар", "апр", "май", "июн", "июл", "авг", "сен", "окт", "ноя", "дек", ""]
                 },
                 AM: null,
                 PM: null,
@@ -5309,7 +5318,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -5319,17 +5328,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Sonndeg","Méindeg","Dënschdeg","Mëttwoch","Donneschdeg","Freideg","Samschdeg"],
-                    namesAbbr: ["Son","Méi","Dën","Mët","Don","Fre","Sam"],
-                    namesShort: ["So","Mé","Dë","Më","Do","Fr","Sa"]
+                    names: ["Sonndeg", "Méindeg", "Dënschdeg", "Mëttwoch", "Donneschdeg", "Freideg", "Samschdeg"],
+                    namesAbbr: ["Son", "Méi", "Dën", "Mët", "Don", "Fre", "Sam"],
+                    namesShort: ["So", "Mé", "Dë", "Më", "Do", "Fr", "Sa"]
                 },
                 months: {
-                    names: ["Januar","Februar","Mäerz","Abrëll","Mee","Juni","Juli","August","September","Oktober","November","Dezember",""],
-                    namesAbbr: ["Jan","Feb","Mäe","Abr","Mee","Jun","Jul","Aug","Sep","Okt","Nov","Dez",""]
+                    names: ["Januar", "Februar", "Mäerz", "Abrëll", "Mee", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember", ""],
+                    namesAbbr: ["Jan", "Feb", "Mäe", "Abr", "Mee", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"n. Chr","start":null,"offset":0}],
+                eras: [{"name": "n. Chr", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd d MMMM yyyy",
@@ -5352,15 +5361,15 @@
         numberFormat: {
             ',': ".",
             '.': ",",
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                groupSizes: [3,0],
+                groupSizes: [3, 0],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,0],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 0],
                 ',': ".",
                 '.': ",",
                 symbol: "kr."
@@ -5371,13 +5380,13 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["sapaat","ataasinngorneq","marlunngorneq","pingasunngorneq","sisamanngorneq","tallimanngorneq","arfininngorneq"],
-                    namesAbbr: ["sap","ata","mar","ping","sis","tal","arf"],
-                    namesShort: ["sa","at","ma","pi","si","ta","ar"]
+                    names: ["sapaat", "ataasinngorneq", "marlunngorneq", "pingasunngorneq", "sisamanngorneq", "tallimanngorneq", "arfininngorneq"],
+                    namesAbbr: ["sap", "ata", "mar", "ping", "sis", "tal", "arf"],
+                    namesShort: ["sa", "at", "ma", "pi", "si", "ta", "ar"]
                 },
                 months: {
-                    names: ["januari","februari","martsi","apriili","maaji","juni","juli","aggusti","septembari","oktobari","novembari","decembari",""],
-                    namesAbbr: ["jan","feb","mar","apr","mai","jun","jul","aug","sep","okt","nov","dec",""]
+                    names: ["januari", "februari", "martsi", "apriili", "maaji", "juni", "juli", "aggusti", "septembari", "oktobari", "novembari", "decembari", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "mai", "jun", "jul", "aug", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
@@ -5402,24 +5411,24 @@
         language: "ig",
         numberFormat: {
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "N"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Aiku","Aje","Isegun","Ojo'ru","Ojo'bo","Eti","Abameta"],
-                    namesAbbr: ["Aik","Aje","Ise","Ojo","Ojo","Eti","Aba"],
-                    namesShort: ["A","A","I","O","O","E","A"]
+                    names: ["Aiku", "Aje", "Isegun", "Ojo'ru", "Ojo'bo", "Eti", "Abameta"],
+                    namesAbbr: ["Aik", "Aje", "Ise", "Ojo", "Ojo", "Eti", "Aba"],
+                    namesShort: ["A", "A", "I", "O", "O", "E", "A"]
                 },
                 months: {
-                    names: ["Onwa mbu","Onwa ibua","Onwa ato","Onwa ano","Onwa ise","Onwa isi","Onwa asa","Onwa asato","Onwa itolu","Onwa iri","Onwa iri n'ofu","Onwa iri n'ibua",""],
-                    namesAbbr: ["mbu.","ibu.","ato.","ano.","ise","isi","asa","asa.","ito.","iri.","n'of.","n'ib.",""]
+                    names: ["Onwa mbu", "Onwa ibua", "Onwa ato", "Onwa ano", "Onwa ise", "Onwa isi", "Onwa asa", "Onwa asato", "Onwa itolu", "Onwa iri", "Onwa iri n'ofu", "Onwa iri n'ibua", ""],
+                    namesAbbr: ["mbu.", "ibu.", "ato.", "ano.", "ise", "isi", "asa", "asa.", "ito.", "iri.", "n'of.", "n'ib.", ""]
                 },
-                AM: ["Ututu","ututu","UTUTU"],
-                PM: ["Efifie","efifie","EFIFIE"],
-                eras: [{"name":"AD","start":null,"offset":0}],
+                AM: ["Ututu", "ututu", "UTUTU"],
+                PM: ["Efifie", "efifie", "EFIFIE"],
+                eras: [{"name": "AD", "start": null, "offset": 0}],
                 patterns: {
                     d: "d/M/yyyy"
                 }
@@ -5433,13 +5442,13 @@
         nativeName: "ꆈꌠꁱꂷ",
         language: "ii",
         numberFormat: {
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,0]
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 0]
             },
             currency: {
-                pattern: ["$-n","$n"],
+                pattern: ["$-n", "$n"],
                 symbol: "¥"
             }
         },
@@ -5447,17 +5456,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["ꑭꆏꑍ","ꆏꊂ꒔","ꆏꊂꑍ","ꆏꊂꌕ","ꆏꊂꇖ","ꆏꊂꉬ","ꆏꊂꃘ"],
-                    namesAbbr: ["ꑭꆏ","ꆏ꒔","ꆏꑍ","ꆏꌕ","ꆏꇖ","ꆏꉬ","ꆏꃘ"],
-                    namesShort: ["ꆏ","꒔","ꑍ","ꌕ","ꇖ","ꉬ","ꃘ"]
+                    names: ["ꑭꆏꑍ", "ꆏꊂ꒔", "ꆏꊂꑍ", "ꆏꊂꌕ", "ꆏꊂꇖ", "ꆏꊂꉬ", "ꆏꊂꃘ"],
+                    namesAbbr: ["ꑭꆏ", "ꆏ꒔", "ꆏꑍ", "ꆏꌕ", "ꆏꇖ", "ꆏꉬ", "ꆏꃘ"],
+                    namesShort: ["ꆏ", "꒔", "ꑍ", "ꌕ", "ꇖ", "ꉬ", "ꃘ"]
                 },
                 months: {
-                    names: ["ꋍꆪ","ꑍꆪ","ꌕꆪ","ꇖꆪ","ꉬꆪ","ꃘꆪ","ꏃꆪ","ꉆꆪ","ꈬꆪ","ꊰꆪ","ꊯꊪꆪ","ꊰꑋꆪ",""],
-                    namesAbbr: ["ꋍꆪ","ꑍꆪ","ꌕꆪ","ꇖꆪ","ꉬꆪ","ꃘꆪ","ꏃꆪ","ꉆꆪ","ꈬꆪ","ꊰꆪ","ꊯꊪꆪ","ꊰꑋꆪ",""]
+                    names: ["ꋍꆪ", "ꑍꆪ", "ꌕꆪ", "ꇖꆪ", "ꉬꆪ", "ꃘꆪ", "ꏃꆪ", "ꉆꆪ", "ꈬꆪ", "ꊰꆪ", "ꊯꊪꆪ", "ꊰꑋꆪ", ""],
+                    namesAbbr: ["ꋍꆪ", "ꑍꆪ", "ꌕꆪ", "ꇖꆪ", "ꉬꆪ", "ꃘꆪ", "ꏃꆪ", "ꉆꆪ", "ꈬꆪ", "ꊰꆪ", "ꊯꊪꆪ", "ꊰꑋꆪ", ""]
                 },
-                AM: ["ꂵꆪꈌꈐ","ꂵꆪꈌꈐ","ꂵꆪꈌꈐ"],
-                PM: ["ꂵꆪꈌꉈ","ꂵꆪꈌꉈ","ꂵꆪꈌꉈ"],
-                eras: [{"name":"ꇬꑼ","start":null,"offset":0}],
+                AM: ["ꂵꆪꈌꈐ", "ꂵꆪꈌꈐ", "ꂵꆪꈌꈐ"],
+                PM: ["ꂵꆪꈌꉈ", "ꂵꆪꈌꉈ", "ꂵꆪꈌꉈ"],
+                eras: [{"name": "ꇬꑼ", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/M/d",
                     D: "yyyy'ꈎ' M'ꆪ' d'ꑍ'",
@@ -5485,7 +5494,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-$ n","$ n"],
+                pattern: ["-$ n", "$ n"],
                 ',': ".",
                 '.': ","
             }
@@ -5494,17 +5503,17 @@
             standard: $.extend(true, {}, standard, {
                 '/': "-",
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -5525,19 +5534,19 @@
         nativeName: "Kanien'kéha",
         language: "moh",
         numberFormat: {
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                groupSizes: [3,0]
+                groupSizes: [3, 0]
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Awentatokentì:ke","Awentataón'ke","Ratironhia'kehronòn:ke","Soséhne","Okaristiiáhne","Ronwaia'tanentaktonhne","Entákta"],
-                    namesShort: ["S","M","T","W","T","F","S"]
+                    names: ["Awentatokentì:ke", "Awentataón'ke", "Ratironhia'kehronòn:ke", "Soséhne", "Okaristiiáhne", "Ronwaia'tanentaktonhne", "Entákta"],
+                    namesShort: ["S", "M", "T", "W", "T", "F", "S"]
                 },
                 months: {
-                    names: ["Tsothohrkó:Wa","Enniska","Enniskó:Wa","Onerahtókha","Onerahtohkó:Wa","Ohiari:Ha","Ohiarihkó:Wa","Seskéha","Seskehkó:Wa","Kenténha","Kentenhkó:Wa","Tsothóhrha",""]
+                    names: ["Tsothohrkó:Wa", "Enniska", "Enniskó:Wa", "Onerahtókha", "Onerahtohkó:Wa", "Ohiari:Ha", "Ohiarihkó:Wa", "Seskéha", "Seskehkó:Wa", "Kenténha", "Kentenhkó:Wa", "Tsothóhrha", ""]
                 }
             })
         }
@@ -5556,7 +5565,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -5566,17 +5575,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Sul","Lun","Meurzh","Merc'her","Yaou","Gwener","Sadorn"],
-                    namesAbbr: ["Sul","Lun","Meu.","Mer.","Yaou","Gwe.","Sad."],
-                    namesShort: ["Su","Lu","Mz","Mc","Ya","Gw","Sa"]
+                    names: ["Sul", "Lun", "Meurzh", "Merc'her", "Yaou", "Gwener", "Sadorn"],
+                    namesAbbr: ["Sul", "Lun", "Meu.", "Mer.", "Yaou", "Gwe.", "Sad."],
+                    namesShort: ["Su", "Lu", "Mz", "Mc", "Ya", "Gw", "Sa"]
                 },
                 months: {
-                    names: ["Genver","C'hwevrer","Meurzh","Ebrel","Mae","Mezheven","Gouere","Eost","Gwengolo","Here","Du","Kerzu",""],
-                    namesAbbr: ["Gen.","C'hwe.","Meur.","Ebr.","Mae","Mezh.","Goue.","Eost","Gwen.","Here","Du","Kzu",""]
+                    names: ["Genver", "C'hwevrer", "Meurzh", "Ebrel", "Mae", "Mezheven", "Gouere", "Eost", "Gwengolo", "Here", "Du", "Kerzu", ""],
+                    namesAbbr: ["Gen.", "C'hwe.", "Meur.", "Ebr.", "Mae", "Mezh.", "Goue.", "Eost", "Gwen.", "Here", "Du", "Kzu", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"g. J.-K.","start":null,"offset":0}],
+                eras: [{"name": "g. J.-K.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd d MMMM yyyy",
@@ -5599,10 +5608,10 @@
         isRTL: true,
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             },
             currency: {
-                pattern: ["$-n","$n"],
+                pattern: ["$-n", "$n"],
                 symbol: "¥"
             }
         },
@@ -5610,17 +5619,17 @@
             standard: $.extend(true, {}, standard, {
                 '/': "-",
                 days: {
-                    names: ["يەكشەنبە","دۈشەنبە","سەيشەنبە","چارشەنبە","پەيشەنبە","جۈمە","شەنبە"],
-                    namesAbbr: ["يە","دۈ","سە","چا","پە","جۈ","شە"],
-                    namesShort: ["ي","د","س","چ","پ","ج","ش"]
+                    names: ["يەكشەنبە", "دۈشەنبە", "سەيشەنبە", "چارشەنبە", "پەيشەنبە", "جۈمە", "شەنبە"],
+                    namesAbbr: ["يە", "دۈ", "سە", "چا", "پە", "جۈ", "شە"],
+                    namesShort: ["ي", "د", "س", "چ", "پ", "ج", "ش"]
                 },
                 months: {
-                    names: ["1-ئاي","2-ئاي","3-ئاي","4-ئاي","5-ئاي","6-ئاي","7-ئاي","8-ئاي","9-ئاي","10-ئاي","11-ئاي","12-ئاي",""],
-                    namesAbbr: ["1-ئاي","2-ئاي","3-ئاي","4-ئاي","5-ئاي","6-ئاي","7-ئاي","8-ئاي","9-ئاي","10-ئاي","11-ئاي","12-ئاي",""]
+                    names: ["1-ئاي", "2-ئاي", "3-ئاي", "4-ئاي", "5-ئاي", "6-ئاي", "7-ئاي", "8-ئاي", "9-ئاي", "10-ئاي", "11-ئاي", "12-ئاي", ""],
+                    namesAbbr: ["1-ئاي", "2-ئاي", "3-ئاي", "4-ئاي", "5-ئاي", "6-ئاي", "7-ئاي", "8-ئاي", "9-ئاي", "10-ئاي", "11-ئاي", "12-ئاي", ""]
                 },
-                AM: ["چۈشتىن بۇرۇن","چۈشتىن بۇرۇن","چۈشتىن بۇرۇن"],
-                PM: ["چۈشتىن كېيىن","چۈشتىن كېيىن","چۈشتىن كېيىن"],
-                eras: [{"name":"مىلادى","start":null,"offset":0}],
+                AM: ["چۈشتىن بۇرۇن", "چۈشتىن بۇرۇن", "چۈشتىن بۇرۇن"],
+                PM: ["چۈشتىن كېيىن", "چۈشتىن كېيىن", "چۈشتىن كېيىن"],
+                eras: [{"name": "مىلادى", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy-M-d",
                     D: "yyyy-'يىلى' MMMM d-'كۈنى،'",
@@ -5642,26 +5651,26 @@
         language: "mi",
         numberFormat: {
             percent: {
-                pattern: ["-%n","%n"]
+                pattern: ["-%n", "%n"]
             },
             currency: {
-                pattern: ["-$n","$n"]
+                pattern: ["-$n", "$n"]
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Rātapu","Rāhina","Rātū","Rāapa","Rāpare","Rāmere","Rāhoroi"],
-                    namesAbbr: ["Ta","Hi","Tū","Apa","Pa","Me","Ho"],
-                    namesShort: ["Ta","Hi","Tū","Aa","Pa","Me","Ho"]
+                    names: ["Rātapu", "Rāhina", "Rātū", "Rāapa", "Rāpare", "Rāmere", "Rāhoroi"],
+                    namesAbbr: ["Ta", "Hi", "Tū", "Apa", "Pa", "Me", "Ho"],
+                    namesShort: ["Ta", "Hi", "Tū", "Aa", "Pa", "Me", "Ho"]
                 },
                 months: {
-                    names: ["Kohi-tātea","Hui-tanguru","Poutū-te-rangi","Paenga-whāwhā","Haratua","Pipiri","Hōngongoi","Here-turi-kōkā","Mahuru","Whiringa-ā-nuku","Whiringa-ā-rangi","Hakihea",""],
-                    namesAbbr: ["Kohi","Hui","Pou","Pae","Hara","Pipi","Hōngo","Here","Mahu","Nuku","Rangi","Haki",""]
+                    names: ["Kohi-tātea", "Hui-tanguru", "Poutū-te-rangi", "Paenga-whāwhā", "Haratua", "Pipiri", "Hōngongoi", "Here-turi-kōkā", "Mahuru", "Whiringa-ā-nuku", "Whiringa-ā-rangi", "Hakihea", ""],
+                    namesAbbr: ["Kohi", "Hui", "Pou", "Pae", "Hara", "Pipi", "Hōngo", "Here", "Mahu", "Nuku", "Rangi", "Haki", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd MMMM, yyyy",
@@ -5687,7 +5696,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -5697,21 +5706,21 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["dimenge","diluns","dimars","dimècres","dijòus","divendres","dissabte"],
-                    namesAbbr: ["dim.","lun.","mar.","mèc.","jòu.","ven.","sab."],
-                    namesShort: ["di","lu","ma","mè","jò","ve","sa"]
+                    names: ["dimenge", "diluns", "dimars", "dimècres", "dijòus", "divendres", "dissabte"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mèc.", "jòu.", "ven.", "sab."],
+                    namesShort: ["di", "lu", "ma", "mè", "jò", "ve", "sa"]
                 },
                 months: {
-                    names: ["genier","febrier","març","abril","mai","junh","julh","agost","setembre","octobre","novembre","desembre",""],
-                    namesAbbr: ["gen.","feb.","mar.","abr.","mai.","jun.","jul.","ag.","set.","oct.","nov.","des.",""]
+                    names: ["genier", "febrier", "març", "abril", "mai", "junh", "julh", "agost", "setembre", "octobre", "novembre", "desembre", ""],
+                    namesAbbr: ["gen.", "feb.", "mar.", "abr.", "mai.", "jun.", "jul.", "ag.", "set.", "oct.", "nov.", "des.", ""]
                 },
                 monthsGenitive: {
-                    names: ["de genier","de febrier","de març","d'abril","de mai","de junh","de julh","d'agost","de setembre","d'octobre","de novembre","de desembre",""],
-                    namesAbbr: ["gen.","feb.","mar.","abr.","mai.","jun.","jul.","ag.","set.","oct.","nov.","des.",""]
+                    names: ["de genier", "de febrier", "de març", "d'abril", "de mai", "de junh", "de julh", "d'agost", "de setembre", "d'octobre", "de novembre", "de desembre", ""],
+                    namesAbbr: ["gen.", "feb.", "mar.", "abr.", "mai.", "jun.", "jul.", "ag.", "set.", "oct.", "nov.", "des.", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"après Jèsus-Crist","start":null,"offset":0}],
+                eras: [{"name": "après Jèsus-Crist", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd,' lo 'd MMMM' de 'yyyy",
@@ -5739,7 +5748,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -5749,17 +5758,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["dumenica","luni","marti","mercuri","ghjovi","venderi","sabbatu"],
-                    namesAbbr: ["dum.","lun.","mar.","mer.","ghj.","ven.","sab."],
-                    namesShort: ["du","lu","ma","me","gh","ve","sa"]
+                    names: ["dumenica", "luni", "marti", "mercuri", "ghjovi", "venderi", "sabbatu"],
+                    namesAbbr: ["dum.", "lun.", "mar.", "mer.", "ghj.", "ven.", "sab."],
+                    namesShort: ["du", "lu", "ma", "me", "gh", "ve", "sa"]
                 },
                 months: {
-                    names: ["ghjennaghju","ferraghju","marzu","aprile","maghju","ghjunghju","lugliu","aostu","settembre","ottobre","nuvembre","dicembre",""],
-                    namesAbbr: ["ghje","ferr","marz","apri","magh","ghju","lugl","aost","sett","otto","nuve","dice",""]
+                    names: ["ghjennaghju", "ferraghju", "marzu", "aprile", "maghju", "ghjunghju", "lugliu", "aostu", "settembre", "ottobre", "nuvembre", "dicembre", ""],
+                    namesAbbr: ["ghje", "ferr", "marz", "apri", "magh", "ghju", "lugl", "aost", "sett", "otto", "nuve", "dice", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"dopu J-C","start":null,"offset":0}],
+                eras: [{"name": "dopu J-C", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd d MMMM yyyy",
@@ -5787,7 +5796,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -5797,17 +5806,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Sundàà","Mondàà","Dienschdàà","Mittwuch","Dunnerschdàà","Fridàà","Sàmschdàà"],
-                    namesAbbr: ["Su.","Mo.","Di.","Mi.","Du.","Fr.","Sà."],
-                    namesShort: ["Su","Mo","Di","Mi","Du","Fr","Sà"]
+                    names: ["Sundàà", "Mondàà", "Dienschdàà", "Mittwuch", "Dunnerschdàà", "Fridàà", "Sàmschdàà"],
+                    namesAbbr: ["Su.", "Mo.", "Di.", "Mi.", "Du.", "Fr.", "Sà."],
+                    namesShort: ["Su", "Mo", "Di", "Mi", "Du", "Fr", "Sà"]
                 },
                 months: {
-                    names: ["Jänner","Feverje","März","Àpril","Mai","Jüni","Jüli","Augscht","September","Oktower","Nowember","Dezember",""],
-                    namesAbbr: ["Jän.","Fev.","März","Apr.","Mai","Jüni","Jüli","Aug.","Sept.","Okt.","Now.","Dez.",""]
+                    names: ["Jänner", "Feverje", "März", "Àpril", "Mai", "Jüni", "Jüli", "Augscht", "September", "Oktower", "Nowember", "Dezember", ""],
+                    namesAbbr: ["Jän.", "Fev.", "März", "Apr.", "Mai", "Jüni", "Jüli", "Aug.", "Sept.", "Okt.", "Now.", "Dez.", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"Vor J.-C.","start":null,"offset":0}],
+                eras: [{"name": "Vor J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd d MMMM yyyy",
@@ -5831,12 +5840,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n$","n$"],
+                pattern: ["-n$", "n$"],
                 ',': " ",
                 '.': ",",
                 symbol: "с."
@@ -5847,17 +5856,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["баскыһыанньа","бэнидиэнньик","оптуорунньук","сэрэдэ","чэппиэр","бээтинсэ","субуота"],
-                    namesAbbr: ["Бс","Бн","Оп","Ср","Чп","Бт","Сб"],
-                    namesShort: ["Бс","Бн","Оп","Ср","Чп","Бт","Сб"]
+                    names: ["баскыһыанньа", "бэнидиэнньик", "оптуорунньук", "сэрэдэ", "чэппиэр", "бээтинсэ", "субуота"],
+                    namesAbbr: ["Бс", "Бн", "Оп", "Ср", "Чп", "Бт", "Сб"],
+                    namesShort: ["Бс", "Бн", "Оп", "Ср", "Чп", "Бт", "Сб"]
                 },
                 months: {
-                    names: ["Тохсунньу","Олунньу","Кулун тутар","Муус устар","Ыам ыйа","Бэс ыйа","От ыйа","Атырдьах ыйа","Балаҕан ыйа","Алтынньы","Сэтинньи","Ахсынньы",""],
-                    namesAbbr: ["тхс","олн","кул","мст","ыам","бэс","отй","атр","блҕ","алт","стн","ахс",""]
+                    names: ["Тохсунньу", "Олунньу", "Кулун тутар", "Муус устар", "Ыам ыйа", "Бэс ыйа", "От ыйа", "Атырдьах ыйа", "Балаҕан ыйа", "Алтынньы", "Сэтинньи", "Ахсынньы", ""],
+                    namesAbbr: ["тхс", "олн", "кул", "мст", "ыам", "бэс", "отй", "атр", "блҕ", "алт", "стн", "ахс", ""]
                 },
                 monthsGenitive: {
-                    names: ["тохсунньу","олунньу","кулун тутар","муус устар","ыам ыйын","бэс ыйын","от ыйын","атырдьах ыйын","балаҕан ыйын","алтынньы","сэтинньи","ахсынньы",""],
-                    namesAbbr: ["тхс","олн","кул","мст","ыам","бэс","отй","атр","блҕ","алт","стн","ахс",""]
+                    names: ["тохсунньу", "олунньу", "кулун тутар", "муус устар", "ыам ыйын", "бэс ыйын", "от ыйын", "атырдьах ыйын", "балаҕан ыйын", "алтынньы", "сэтинньи", "ахсынньы", ""],
+                    namesAbbr: ["тхс", "олн", "кул", "мст", "ыам", "бэс", "отй", "атр", "блҕ", "алт", "стн", "ахс", ""]
                 },
                 AM: null,
                 PM: null,
@@ -5887,17 +5896,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["juq'ij","kaq'ij","oxq'ij","kajq'ij","joq'ij","waqq'ij","wuqq'ij"],
-                    namesAbbr: ["juq","kaq","oxq","kajq","joq","waqq","wuqq"],
-                    namesShort: ["ju","ka","ox","ka","jo","wa","wu"]
+                    names: ["juq'ij", "kaq'ij", "oxq'ij", "kajq'ij", "joq'ij", "waqq'ij", "wuqq'ij"],
+                    namesAbbr: ["juq", "kaq", "oxq", "kajq", "joq", "waqq", "wuqq"],
+                    namesShort: ["ju", "ka", "ox", "ka", "jo", "wa", "wu"]
                 },
                 months: {
-                    names: ["nab'e ik'","ukab' ik'","rox ik'","ukaj ik'","uro' ik'","uwaq ik'","uwuq ik'","uwajxaq ik'","ub'elej ik'","ulaj ik'","ujulaj ik'","ukab'laj ik'",""],
-                    namesAbbr: ["nab'e","ukab","rox","ukaj","uro","uwaq","uwuq","uwajxaq","ub'elej","ulaj","ujulaj","ukab'laj",""]
+                    names: ["nab'e ik'", "ukab' ik'", "rox ik'", "ukaj ik'", "uro' ik'", "uwaq ik'", "uwuq ik'", "uwajxaq ik'", "ub'elej ik'", "ulaj ik'", "ujulaj ik'", "ukab'laj ik'", ""],
+                    namesAbbr: ["nab'e", "ukab", "rox", "ukaj", "uro", "uwaq", "uwuq", "uwajxaq", "ub'elej", "ulaj", "ujulaj", "ukab'laj", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -5925,7 +5934,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 ',': " ",
                 '.': ",",
                 symbol: "RWF"
@@ -5934,17 +5943,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Ku wa mbere","Ku wa kabiri","Ku wa gatatu","Ku wa kane","Ku wa gatanu","Ku wa gatandatu","Ku cyumweru"],
-                    namesAbbr: ["mbe.","kab.","gat.","kan.","gat.","gat.","cyu."],
-                    namesShort: ["mb","ka","ga","ka","ga","ga","cy"]
+                    names: ["Ku wa mbere", "Ku wa kabiri", "Ku wa gatatu", "Ku wa kane", "Ku wa gatanu", "Ku wa gatandatu", "Ku cyumweru"],
+                    namesAbbr: ["mbe.", "kab.", "gat.", "kan.", "gat.", "gat.", "cyu."],
+                    namesShort: ["mb", "ka", "ga", "ka", "ga", "ga", "cy"]
                 },
                 months: {
-                    names: ["Mutarama","Gashyantare","Werurwe","Mata","Gicurasi","Kamena","Nyakanga","Kanama","Nzeli","Ukwakira","Ugushyingo","Ukuboza",""],
-                    namesAbbr: ["Mut","Gas","Wer","Mat","Gic","Kam","Nya","Kan","Nze","Ukwa","Ugu","Uku",""]
+                    names: ["Mutarama", "Gashyantare", "Werurwe", "Mata", "Gicurasi", "Kamena", "Nyakanga", "Kanama", "Nzeli", "Ukwakira", "Ugushyingo", "Ukuboza", ""],
+                    namesAbbr: ["Mut", "Gas", "Wer", "Mat", "Gic", "Kam", "Nya", "Kan", "Nze", "Ukwa", "Ugu", "Uku", ""]
                 },
-                AM: ["saa moya z.m.","saa moya z.m.","SAA MOYA Z.M."],
-                PM: ["saa moya z.n.","saa moya z.n.","SAA MOYA Z.N."],
-                eras: [{"name":"AD","start":null,"offset":0}]
+                AM: ["saa moya z.m.", "saa moya z.m.", "SAA MOYA Z.M."],
+                PM: ["saa moya z.n.", "saa moya z.n.", "SAA MOYA Z.N."],
+                eras: [{"name": "AD", "start": null, "offset": 0}]
             })
         }
     }, cultures["rw"]);
@@ -5962,7 +5971,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "XOF"
@@ -5972,17 +5981,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd d MMMM yyyy",
@@ -6008,12 +6017,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["%n-","%n"],
+                pattern: ["%n-", "%n"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["$n-","$n"],
+                pattern: ["$n-", "$n"],
                 symbol: "؋"
             }
         },
@@ -6022,17 +6031,17 @@
                 name: "Hijri",
                 firstDay: 5,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["غ.م","غ.م","غ.م"],
-                PM: ["غ.و","غ.و","غ.و"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["غ.م", "غ.م", "غ.م"],
+                PM: ["غ.و", "غ.و", "غ.و"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -6053,7 +6062,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -6063,9 +6072,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -6098,7 +6107,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -6109,7 +6118,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -6117,17 +6126,17 @@
             Gregorian_Localized: $.extend(true, {}, standard, {
                 firstDay: 5,
                 days: {
-                    names: ["یکشنبه","دوشنبه","سه‌شنبه","چهارشنبه","پنجشنبه","جمعه","شنبه"],
-                    namesAbbr: ["یکشنبه","دوشنبه","سه‌شنبه","چهارشنبه","پنجشنبه","جمعه","شنبه"],
-                    namesShort: ["ی","د","س","چ","پ","ج","ش"]
+                    names: ["یکشنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنجشنبه", "جمعه", "شنبه"],
+                    namesAbbr: ["یکشنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنجشنبه", "جمعه", "شنبه"],
+                    namesShort: ["ی", "د", "س", "چ", "پ", "ج", "ش"]
                 },
                 months: {
-                    names: ["سلواغه","كب","ورى","غويى","غبرګولى","چنګاښ","زمرى","وږى","تله","لړم","ليندۍ","مرغومى",""],
-                    namesAbbr: ["سلواغه","كب","ورى","غويى","غبرګولى","چنګاښ","زمرى","وږى","تله","لړم","ليندۍ","مرغومى",""]
+                    names: ["سلواغه", "كب", "ورى", "غويى", "غبرګولى", "چنګاښ", "زمرى", "وږى", "تله", "لړم", "ليندۍ", "مرغومى", ""],
+                    namesAbbr: ["سلواغه", "كب", "ورى", "غويى", "غبرګولى", "چنګاښ", "زمرى", "وږى", "تله", "لړم", "ليندۍ", "مرغومى", ""]
                 },
-                AM: ["غ.م","غ.م","غ.م"],
-                PM: ["غ.و","غ.و","غ.و"],
-                eras: [{"name":"ل.ه","start":null,"offset":0}],
+                AM: ["غ.م", "غ.م", "غ.م"],
+                PM: ["غ.و", "غ.و", "غ.و"],
+                eras: [{"name": "ل.ه", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/M/d",
                     D: "yyyy, dd, MMMM, dddd",
@@ -6147,7 +6156,7 @@
         language: "gd",
         numberFormat: {
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 symbol: "£"
             }
         },
@@ -6155,16 +6164,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Didòmhnaich","Diluain","Dimàirt","Diciadain","Diardaoin","Dihaoine","Disathairne"],
-                    namesAbbr: ["Dòm","Lua","Mài","Cia","Ard","Hao","Sat"],
-                    namesShort: ["D","L","M","C","A","H","S"]
+                    names: ["Didòmhnaich", "Diluain", "Dimàirt", "Diciadain", "Diardaoin", "Dihaoine", "Disathairne"],
+                    namesAbbr: ["Dòm", "Lua", "Mài", "Cia", "Ard", "Hao", "Sat"],
+                    namesShort: ["D", "L", "M", "C", "A", "H", "S"]
                 },
                 months: {
-                    names: ["Am Faoilleach","An Gearran","Am Màrt","An Giblean","An Cèitean","An t-Ògmhios","An t-Iuchar","An Lùnastal","An t-Sultain","An Dàmhair","An t-Samhain","An Dùbhlachd",""],
-                    namesAbbr: ["Fao","Gea","Màr","Gib","Cèi","Ògm","Iuc","Lùn","Sul","Dàm","Sam","Dùb",""]
+                    names: ["Am Faoilleach", "An Gearran", "Am Màrt", "An Giblean", "An Cèitean", "An t-Ògmhios", "An t-Iuchar", "An Lùnastal", "An t-Sultain", "An Dàmhair", "An t-Samhain", "An Dùbhlachd", ""],
+                    namesAbbr: ["Fao", "Gea", "Màr", "Gib", "Cèi", "Ògm", "Iuc", "Lùn", "Sul", "Dàm", "Sam", "Dùb", ""]
                 },
-                AM: ["m","m","M"],
-                PM: ["f","f","F"],
+                AM: ["m", "m", "M"],
+                PM: ["f", "f", "F"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM yyyy",
@@ -6188,7 +6197,7 @@
         numberFormat: {
             pattern: ["n-"],
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 symbol: "ر.س.‏"
             }
         },
@@ -6197,17 +6206,17 @@
                 name: "UmAlQura",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -6358,7 +6367,7 @@
                     ],
                     minDate: -2198707200000,
                     maxDate: 1873411199999,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var days = hday - 1,
                             gyear = hyear - 1318;
                         if (gyear < 0 || gyear >= this._yearInfo.length) return null;
@@ -6376,7 +6385,7 @@
                         gdate.setDate(gdate.getDate() + days);
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         // Date's ticks in javascript are always from the GMT time,
                         // but we are interested in the hijri date in the same timezone,
                         // not what the hijri date was at GMT time, so we adjust for the offset.
@@ -6385,7 +6394,8 @@
                         var hyear = 0,
                             hmonth = 1;
                         // find the earliest gregorian date in the array that is greater than or equal to the given date
-                        while (ticks > this._yearInfo[++hyear][1]) { }
+                        while (ticks > this._yearInfo[++hyear][1]) {
+                        }
                         if (ticks !== this._yearInfo[hyear][1]) {
                             hyear--;
                         }
@@ -6415,17 +6425,17 @@
                 name: "Hijri",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -6448,7 +6458,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -6458,9 +6468,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -6493,7 +6503,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -6504,7 +6514,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -6513,17 +6523,17 @@
                 name: "Gregorian_MiddleEastFrench",
                 firstDay: 6,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -6537,17 +6547,17 @@
                 name: "Gregorian_Arabic",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""],
-                    namesAbbr: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""]
+                    names: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""],
+                    namesAbbr: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -6559,16 +6569,16 @@
             Gregorian_Localized: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM, yyyy",
@@ -6583,17 +6593,17 @@
                 name: "Gregorian_TransliteratedFrench",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -6618,7 +6628,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "лв."
@@ -6629,17 +6639,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["неделя","понеделник","вторник","сряда","четвъртък","петък","събота"],
-                    namesAbbr: ["нед","пон","вт","ср","четв","пет","съб"],
-                    namesShort: ["н","п","в","с","ч","п","с"]
+                    names: ["неделя", "понеделник", "вторник", "сряда", "четвъртък", "петък", "събота"],
+                    namesAbbr: ["нед", "пон", "вт", "ср", "четв", "пет", "съб"],
+                    namesShort: ["н", "п", "в", "с", "ч", "п", "с"]
                 },
                 months: {
-                    names: ["януари","февруари","март","април","май","юни","юли","август","септември","октомври","ноември","декември",""],
-                    namesAbbr: ["ян","февр","март","апр","май","юни","юли","авг","септ","окт","ноември","дек",""]
+                    names: ["януари", "февруари", "март", "април", "май", "юни", "юли", "август", "септември", "октомври", "ноември", "декември", ""],
+                    namesAbbr: ["ян", "февр", "март", "апр", "май", "юни", "юли", "авг", "септ", "окт", "ноември", "дек", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"след новата ера","start":null,"offset":0}],
+                eras: [{"name": "след новата ера", "start": null, "offset": 0}],
                 patterns: {
                     d: "d.M.yyyy 'г.'",
                     D: "dd MMMM yyyy 'г.'",
@@ -6667,7 +6677,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -6677,17 +6687,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["diumenge","dilluns","dimarts","dimecres","dijous","divendres","dissabte"],
-                    namesAbbr: ["dg.","dl.","dt.","dc.","dj.","dv.","ds."],
-                    namesShort: ["dg","dl","dt","dc","dj","dv","ds"]
+                    names: ["diumenge", "dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte"],
+                    namesAbbr: ["dg.", "dl.", "dt.", "dc.", "dj.", "dv.", "ds."],
+                    namesShort: ["dg", "dl", "dt", "dc", "dj", "dv", "ds"]
                 },
                 months: {
-                    names: ["gener","febrer","març","abril","maig","juny","juliol","agost","setembre","octubre","novembre","desembre",""],
-                    namesAbbr: ["gen","feb","març","abr","maig","juny","jul","ag","set","oct","nov","des",""]
+                    names: ["gener", "febrer", "març", "abril", "maig", "juny", "juliol", "agost", "setembre", "octubre", "novembre", "desembre", ""],
+                    namesAbbr: ["gen", "feb", "març", "abr", "maig", "juny", "jul", "ag", "set", "oct", "nov", "des", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, d' / 'MMMM' / 'yyyy",
@@ -6709,27 +6719,27 @@
         language: "zh-CHT",
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             },
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 symbol: "NT$"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
-                    namesAbbr: ["週日","週一","週二","週三","週四","週五","週六"],
-                    namesShort: ["日","一","二","三","四","五","六"]
+                    names: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+                    namesAbbr: ["週日", "週一", "週二", "週三", "週四", "週五", "週六"],
+                    namesShort: ["日", "一", "二", "三", "四", "五", "六"]
                 },
                 months: {
-                    names: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""],
-                    namesAbbr: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""]
+                    names: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""],
+                    namesAbbr: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""]
                 },
-                AM: ["上午","上午","上午"],
-                PM: ["下午","下午","下午"],
-                eras: [{"name":"西元","start":null,"offset":0}],
+                AM: ["上午", "上午", "上午"],
+                PM: ["下午", "下午", "下午"],
+                eras: [{"name": "西元", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/M/d",
                     D: "yyyy'年'M'月'd'日'",
@@ -6744,17 +6754,17 @@
             Taiwan: $.extend(true, {}, standard, {
                 name: "Taiwan",
                 days: {
-                    names: ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
-                    namesAbbr: ["週日","週一","週二","週三","週四","週五","週六"],
-                    namesShort: ["日","一","二","三","四","五","六"]
+                    names: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+                    namesAbbr: ["週日", "週一", "週二", "週三", "週四", "週五", "週六"],
+                    namesShort: ["日", "一", "二", "三", "四", "五", "六"]
                 },
                 months: {
-                    names: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""],
-                    namesAbbr: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""]
+                    names: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""],
+                    namesAbbr: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""]
                 },
-                AM: ["上午","上午","上午"],
-                PM: ["下午","下午","下午"],
-                eras: [{"name":"","start":null,"offset":1911}],
+                AM: ["上午", "上午", "上午"],
+                PM: ["下午", "下午", "下午"],
+                eras: [{"name": "", "start": null, "offset": 1911}],
                 twoDigitYearMax: 99,
                 patterns: {
                     d: "yyyy/M/d",
@@ -6779,12 +6789,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "Kč"
@@ -6795,21 +6805,21 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["neděle","pondělí","úterý","středa","čtvrtek","pátek","sobota"],
-                    namesAbbr: ["ne","po","út","st","čt","pá","so"],
-                    namesShort: ["ne","po","út","st","čt","pá","so"]
+                    names: ["neděle", "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota"],
+                    namesAbbr: ["ne", "po", "út", "st", "čt", "pá", "so"],
+                    namesShort: ["ne", "po", "út", "st", "čt", "pá", "so"]
                 },
                 months: {
-                    names: ["leden","únor","březen","duben","květen","červen","červenec","srpen","září","říjen","listopad","prosinec",""],
-                    namesAbbr: ["1","2","3","4","5","6","7","8","9","10","11","12",""]
+                    names: ["leden", "únor", "březen", "duben", "květen", "červen", "červenec", "srpen", "září", "říjen", "listopad", "prosinec", ""],
+                    namesAbbr: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", ""]
                 },
                 monthsGenitive: {
-                    names: ["ledna","února","března","dubna","května","června","července","srpna","září","října","listopadu","prosince",""],
-                    namesAbbr: ["1","2","3","4","5","6","7","8","9","10","11","12",""]
+                    names: ["ledna", "února", "března", "dubna", "května", "června", "července", "srpna", "září", "října", "listopadu", "prosince", ""],
+                    namesAbbr: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", ""]
                 },
-                AM: ["dop.","dop.","DOP."],
-                PM: ["odp.","odp.","ODP."],
-                eras: [{"name":"n. l.","start":null,"offset":0}],
+                AM: ["dop.", "dop.", "DOP."],
+                PM: ["odp.", "odp.", "ODP."],
+                eras: [{"name": "n. l.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d.M.yyyy",
                     D: "d. MMMM yyyy",
@@ -6837,7 +6847,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "kr."
@@ -6848,13 +6858,13 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["søndag","mandag","tirsdag","onsdag","torsdag","fredag","lørdag"],
-                    namesAbbr: ["sø","ma","ti","on","to","fr","lø"],
-                    namesShort: ["sø","ma","ti","on","to","fr","lø"]
+                    names: ["søndag", "mandag", "tirsdag", "onsdag", "torsdag", "fredag", "lørdag"],
+                    namesAbbr: ["sø", "ma", "ti", "on", "to", "fr", "lø"],
+                    namesShort: ["sø", "ma", "ti", "on", "to", "fr", "lø"]
                 },
                 months: {
-                    names: ["januar","februar","marts","april","maj","juni","juli","august","september","oktober","november","december",""],
-                    namesAbbr: ["jan","feb","mar","apr","maj","jun","jul","aug","sep","okt","nov","dec",""]
+                    names: ["januar", "februar", "marts", "april", "maj", "juni", "juli", "august", "september", "oktober", "november", "december", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
@@ -6881,12 +6891,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -6897,17 +6907,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],
-                    namesAbbr: ["So","Mo","Di","Mi","Do","Fr","Sa"],
-                    namesShort: ["So","Mo","Di","Mi","Do","Fr","Sa"]
+                    names: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
+                    namesAbbr: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+                    namesShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"]
                 },
                 months: {
-                    names: ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember",""],
-                    namesAbbr: ["Jan","Feb","Mrz","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez",""]
+                    names: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember", ""],
+                    namesAbbr: ["Jan", "Feb", "Mrz", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"n. Chr.","start":null,"offset":0}],
+                eras: [{"name": "n. Chr.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd.MM.yyyy",
                     D: "dddd, d. MMMM yyyy",
@@ -6931,12 +6941,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -6946,21 +6956,21 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Κυριακή","Δευτέρα","Τρίτη","Τετάρτη","Πέμπτη","Παρασκευή","Σάββατο"],
-                    namesAbbr: ["Κυρ","Δευ","Τρι","Τετ","Πεμ","Παρ","Σαβ"],
-                    namesShort: ["Κυ","Δε","Τρ","Τε","Πε","Πα","Σά"]
+                    names: ["Κυριακή", "Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο"],
+                    namesAbbr: ["Κυρ", "Δευ", "Τρι", "Τετ", "Πεμ", "Παρ", "Σαβ"],
+                    namesShort: ["Κυ", "Δε", "Τρ", "Τε", "Πε", "Πα", "Σά"]
                 },
                 months: {
-                    names: ["Ιανουάριος","Φεβρουάριος","Μάρτιος","Απρίλιος","Μάιος","Ιούνιος","Ιούλιος","Αύγουστος","Σεπτέμβριος","Οκτώβριος","Νοέμβριος","Δεκέμβριος",""],
-                    namesAbbr: ["Ιαν","Φεβ","Μαρ","Απρ","Μαϊ","Ιουν","Ιουλ","Αυγ","Σεπ","Οκτ","Νοε","Δεκ",""]
+                    names: ["Ιανουάριος", "Φεβρουάριος", "Μάρτιος", "Απρίλιος", "Μάιος", "Ιούνιος", "Ιούλιος", "Αύγουστος", "Σεπτέμβριος", "Οκτώβριος", "Νοέμβριος", "Δεκέμβριος", ""],
+                    namesAbbr: ["Ιαν", "Φεβ", "Μαρ", "Απρ", "Μαϊ", "Ιουν", "Ιουλ", "Αυγ", "Σεπ", "Οκτ", "Νοε", "Δεκ", ""]
                 },
                 monthsGenitive: {
-                    names: ["Ιανουαρίου","Φεβρουαρίου","Μαρτίου","Απριλίου","Μαΐου","Ιουνίου","Ιουλίου","Αυγούστου","Σεπτεμβρίου","Οκτωβρίου","Νοεμβρίου","Δεκεμβρίου",""],
-                    namesAbbr: ["Ιαν","Φεβ","Μαρ","Απρ","Μαϊ","Ιουν","Ιουλ","Αυγ","Σεπ","Οκτ","Νοε","Δεκ",""]
+                    names: ["Ιανουαρίου", "Φεβρουαρίου", "Μαρτίου", "Απριλίου", "Μαΐου", "Ιουνίου", "Ιουλίου", "Αυγούστου", "Σεπτεμβρίου", "Οκτωβρίου", "Νοεμβρίου", "Δεκεμβρίου", ""],
+                    namesAbbr: ["Ιαν", "Φεβ", "Μαρ", "Απρ", "Μαϊ", "Ιουν", "Ιουλ", "Αυγ", "Σεπ", "Οκτ", "Νοε", "Δεκ", ""]
                 },
-                AM: ["πμ","πμ","ΠΜ"],
-                PM: ["μμ","μμ","ΜΜ"],
-                eras: [{"name":"μ.Χ.","start":null,"offset":0}],
+                AM: ["πμ", "πμ", "ΠΜ"],
+                PM: ["μμ", "μμ", "ΜΜ"],
+                eras: [{"name": "μ.Χ.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d/M/yyyy",
                     D: "dddd, d MMMM yyyy",
@@ -6973,9 +6983,7 @@
         }
     }, cultures["el-GR"]);
     culture.calendar = culture.calendars.standard;
-    culture = cultures["en-US"] = $.extend(true, {}, en, {
-
-    }, cultures["en-US"]);
+    culture = cultures["en-US"] = $.extend(true, {}, en, {}, cultures["en-US"]);
     culture.calendar = culture.calendars.standard;
     culture = cultures["fi-FI"] = $.extend(true, {}, en, {
         name: "fi-FI",
@@ -6990,7 +6998,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -7001,13 +7009,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["sunnuntai","maanantai","tiistai","keskiviikko","torstai","perjantai","lauantai"],
-                    namesAbbr: ["su","ma","ti","ke","to","pe","la"],
-                    namesShort: ["su","ma","ti","ke","to","pe","la"]
+                    names: ["sunnuntai", "maanantai", "tiistai", "keskiviikko", "torstai", "perjantai", "lauantai"],
+                    namesAbbr: ["su", "ma", "ti", "ke", "to", "pe", "la"],
+                    namesShort: ["su", "ma", "ti", "ke", "to", "pe", "la"]
                 },
                 months: {
-                    names: ["tammikuu","helmikuu","maaliskuu","huhtikuu","toukokuu","kesäkuu","heinäkuu","elokuu","syyskuu","lokakuu","marraskuu","joulukuu",""],
-                    namesAbbr: ["tammi","helmi","maalis","huhti","touko","kesä","heinä","elo","syys","loka","marras","joulu",""]
+                    names: ["tammikuu", "helmikuu", "maaliskuu", "huhtikuu", "toukokuu", "kesäkuu", "heinäkuu", "elokuu", "syyskuu", "lokakuu", "marraskuu", "joulukuu", ""],
+                    namesAbbr: ["tammi", "helmi", "maalis", "huhti", "touko", "kesä", "heinä", "elo", "syys", "loka", "marras", "joulu", ""]
                 },
                 AM: null,
                 PM: null,
@@ -7038,7 +7046,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -7048,17 +7056,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd d MMMM yyyy",
@@ -7081,25 +7089,25 @@
         isRTL: true,
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "₪"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["יום ראשון","יום שני","יום שלישי","יום רביעי","יום חמישי","יום שישי","שבת"],
-                    namesAbbr: ["יום א","יום ב","יום ג","יום ד","יום ה","יום ו","שבת"],
-                    namesShort: ["א","ב","ג","ד","ה","ו","ש"]
+                    names: ["יום ראשון", "יום שני", "יום שלישי", "יום רביעי", "יום חמישי", "יום שישי", "שבת"],
+                    namesAbbr: ["יום א", "יום ב", "יום ג", "יום ד", "יום ה", "יום ו", "שבת"],
+                    namesShort: ["א", "ב", "ג", "ד", "ה", "ו", "ש"]
                 },
                 months: {
-                    names: ["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר",""],
-                    namesAbbr: ["ינו","פבר","מרץ","אפר","מאי","יונ","יול","אוג","ספט","אוק","נוב","דצמ",""]
+                    names: ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר", ""],
+                    namesAbbr: ["ינו", "פבר", "מרץ", "אפר", "מאי", "יונ", "יול", "אוג", "ספט", "אוק", "נוב", "דצמ", ""]
                 },
-                eras: [{"name":"לספירה","start":null,"offset":0}],
+                eras: [{"name": "לספירה", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd dd MMMM yyyy",
@@ -7115,15 +7123,15 @@
                 name: "Hebrew",
                 '/': " ",
                 days: {
-                    names: ["יום ראשון","יום שני","יום שלישי","יום רביעי","יום חמישי","יום שישי","שבת"],
-                    namesAbbr: ["א","ב","ג","ד","ה","ו","ש"],
-                    namesShort: ["א","ב","ג","ד","ה","ו","ש"]
+                    names: ["יום ראשון", "יום שני", "יום שלישי", "יום רביעי", "יום חמישי", "יום שישי", "שבת"],
+                    namesAbbr: ["א", "ב", "ג", "ד", "ה", "ו", "ש"],
+                    namesShort: ["א", "ב", "ג", "ד", "ה", "ו", "ש"]
                 },
                 months: {
-                    names: ["תשרי","חשון","כסלו","טבת","שבט","אדר","אדר ב","ניסן","אייר","סיון","תמוז","אב","אלול"],
-                    namesAbbr: ["תשרי","חשון","כסלו","טבת","שבט","אדר","אדר ב","ניסן","אייר","סיון","תמוז","אב","אלול"]
+                    names: ["תשרי", "חשון", "כסלו", "טבת", "שבט", "אדר", "אדר ב", "ניסן", "אייר", "סיון", "תמוז", "אב", "אלול"],
+                    namesAbbr: ["תשרי", "חשון", "כסלו", "טבת", "שבט", "אדר", "אדר ב", "ניסן", "אייר", "סיון", "תמוז", "אב", "אלול"]
                 },
-                eras: [{"name":"C.E.","start":null,"offset":0}],
+                eras: [{"name": "C.E.", "start": null, "offset": 0}],
                 twoDigitYearMax: 5790,
                 patterns: {
                     d: "dd MMMM yyyy",
@@ -7152,7 +7160,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "Ft"
@@ -7163,17 +7171,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["vasárnap","hétfő","kedd","szerda","csütörtök","péntek","szombat"],
-                    namesAbbr: ["V","H","K","Sze","Cs","P","Szo"],
-                    namesShort: ["V","H","K","Sze","Cs","P","Szo"]
+                    names: ["vasárnap", "hétfő", "kedd", "szerda", "csütörtök", "péntek", "szombat"],
+                    namesAbbr: ["V", "H", "K", "Sze", "Cs", "P", "Szo"],
+                    namesShort: ["V", "H", "K", "Sze", "Cs", "P", "Szo"]
                 },
                 months: {
-                    names: ["január","február","március","április","május","június","július","augusztus","szeptember","október","november","december",""],
-                    namesAbbr: ["jan.","febr.","márc.","ápr.","máj.","jún.","júl.","aug.","szept.","okt.","nov.","dec.",""]
+                    names: ["január", "február", "március", "április", "május", "június", "július", "augusztus", "szeptember", "október", "november", "december", ""],
+                    namesAbbr: ["jan.", "febr.", "márc.", "ápr.", "máj.", "jún.", "júl.", "aug.", "szept.", "okt.", "nov.", "dec.", ""]
                 },
-                AM: ["de.","de.","DE."],
-                PM: ["du.","du.","DU."],
-                eras: [{"name":"i.sz.","start":null,"offset":0}],
+                AM: ["de.", "de.", "DE."],
+                PM: ["du.", "du.", "DU."],
+                eras: [{"name": "i.sz.", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy.MM.dd.",
                     D: "yyyy. MMMM d.",
@@ -7197,12 +7205,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 decimals: 0,
                 ',': ".",
                 '.': ",",
@@ -7214,13 +7222,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["sunnudagur","mánudagur","þriðjudagur","miðvikudagur","fimmtudagur","föstudagur","laugardagur"],
-                    namesAbbr: ["sun.","mán.","þri.","mið.","fim.","fös.","lau."],
-                    namesShort: ["su","má","þr","mi","fi","fö","la"]
+                    names: ["sunnudagur", "mánudagur", "þriðjudagur", "miðvikudagur", "fimmtudagur", "föstudagur", "laugardagur"],
+                    namesAbbr: ["sun.", "mán.", "þri.", "mið.", "fim.", "fös.", "lau."],
+                    namesShort: ["su", "má", "þr", "mi", "fi", "fö", "la"]
                 },
                 months: {
-                    names: ["janúar","febrúar","mars","apríl","maí","júní","júlí","ágúst","september","október","nóvember","desember",""],
-                    namesAbbr: ["jan.","feb.","mar.","apr.","maí","jún.","júl.","ágú.","sep.","okt.","nóv.","des.",""]
+                    names: ["janúar", "febrúar", "mars", "apríl", "maí", "júní", "júlí", "ágúst", "september", "október", "nóvember", "desember", ""],
+                    namesAbbr: ["jan.", "feb.", "mar.", "apr.", "maí", "jún.", "júl.", "ágú.", "sep.", "okt.", "nóv.", "des.", ""]
                 },
                 AM: null,
                 PM: null,
@@ -7247,12 +7255,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-$ n","$ n"],
+                pattern: ["-$ n", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -7262,17 +7270,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["domenica","lunedì","martedì","mercoledì","giovedì","venerdì","sabato"],
-                    namesAbbr: ["dom","lun","mar","mer","gio","ven","sab"],
-                    namesShort: ["do","lu","ma","me","gi","ve","sa"]
+                    names: ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"],
+                    namesAbbr: ["dom", "lun", "mar", "mer", "gio", "ven", "sab"],
+                    namesShort: ["do", "lu", "ma", "me", "gi", "ve", "sa"]
                 },
                 months: {
-                    names: ["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre",""],
-                    namesAbbr: ["gen","feb","mar","apr","mag","giu","lug","ago","set","ott","nov","dic",""]
+                    names: ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre", ""],
+                    namesAbbr: ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd d MMMM yyyy",
@@ -7294,10 +7302,10 @@
         language: "ja",
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             },
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 decimals: 0,
                 symbol: "¥"
             }
@@ -7305,17 +7313,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["日曜日","月曜日","火曜日","水曜日","木曜日","金曜日","土曜日"],
-                    namesAbbr: ["日","月","火","水","木","金","土"],
-                    namesShort: ["日","月","火","水","木","金","土"]
+                    names: ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"],
+                    namesAbbr: ["日", "月", "火", "水", "木", "金", "土"],
+                    namesShort: ["日", "月", "火", "水", "木", "金", "土"]
                 },
                 months: {
-                    names: ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月",""],
-                    namesAbbr: ["1","2","3","4","5","6","7","8","9","10","11","12",""]
+                    names: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月", ""],
+                    namesAbbr: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", ""]
                 },
-                AM: ["午前","午前","午前"],
-                PM: ["午後","午後","午後"],
-                eras: [{"name":"西暦","start":null,"offset":0}],
+                AM: ["午前", "午前", "午前"],
+                PM: ["午後", "午後", "午後"],
+                eras: [{"name": "西暦", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/MM/dd",
                     D: "yyyy'年'M'月'd'日'",
@@ -7330,17 +7338,25 @@
             Japanese: $.extend(true, {}, standard, {
                 name: "Japanese",
                 days: {
-                    names: ["日曜日","月曜日","火曜日","水曜日","木曜日","金曜日","土曜日"],
-                    namesAbbr: ["日","月","火","水","木","金","土"],
-                    namesShort: ["日","月","火","水","木","金","土"]
+                    names: ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"],
+                    namesAbbr: ["日", "月", "火", "水", "木", "金", "土"],
+                    namesShort: ["日", "月", "火", "水", "木", "金", "土"]
                 },
                 months: {
-                    names: ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月",""],
-                    namesAbbr: ["1","2","3","4","5","6","7","8","9","10","11","12",""]
+                    names: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月", ""],
+                    namesAbbr: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", ""]
                 },
-                AM: ["午前","午前","午前"],
-                PM: ["午後","午後","午後"],
-                eras: [{"name":"平成","start":null,"offset":1867},{"name":"昭和","start":-1812153600000,"offset":1911},{"name":"大正","start":-1357603200000,"offset":1925},{"name":"明治","start":60022080000,"offset":1988}],
+                AM: ["午前", "午前", "午前"],
+                PM: ["午後", "午後", "午後"],
+                eras: [{"name": "平成", "start": null, "offset": 1867}, {
+                    "name": "昭和",
+                    "start": -1812153600000,
+                    "offset": 1911
+                }, {"name": "大正", "start": -1357603200000, "offset": 1925}, {
+                    "name": "明治",
+                    "start": 60022080000,
+                    "offset": 1988
+                }],
                 twoDigitYearMax: 99,
                 patterns: {
                     d: "gg y/M/d",
@@ -7363,7 +7379,7 @@
         language: "ko",
         numberFormat: {
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 decimals: 0,
                 symbol: "₩"
             }
@@ -7372,17 +7388,17 @@
             standard: $.extend(true, {}, standard, {
                 '/': "-",
                 days: {
-                    names: ["일요일","월요일","화요일","수요일","목요일","금요일","토요일"],
-                    namesAbbr: ["일","월","화","수","목","금","토"],
-                    namesShort: ["일","월","화","수","목","금","토"]
+                    names: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"],
+                    namesAbbr: ["일", "월", "화", "수", "목", "금", "토"],
+                    namesShort: ["일", "월", "화", "수", "목", "금", "토"]
                 },
                 months: {
-                    names: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월",""],
-                    namesAbbr: ["1","2","3","4","5","6","7","8","9","10","11","12",""]
+                    names: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월", ""],
+                    namesAbbr: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", ""]
                 },
-                AM: ["오전","오전","오전"],
-                PM: ["오후","오후","오후"],
-                eras: [{"name":"서기","start":null,"offset":0}],
+                AM: ["오전", "오전", "오전"],
+                PM: ["오후", "오후", "오후"],
+                eras: [{"name": "서기", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy-MM-dd",
                     D: "yyyy'년' M'월' d'일' dddd",
@@ -7398,17 +7414,17 @@
                 name: "Korean",
                 '/': "-",
                 days: {
-                    names: ["일요일","월요일","화요일","수요일","목요일","금요일","토요일"],
-                    namesAbbr: ["일","월","화","수","목","금","토"],
-                    namesShort: ["일","월","화","수","목","금","토"]
+                    names: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"],
+                    namesAbbr: ["일", "월", "화", "수", "목", "금", "토"],
+                    namesShort: ["일", "월", "화", "수", "목", "금", "토"]
                 },
                 months: {
-                    names: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월",""],
-                    namesAbbr: ["1","2","3","4","5","6","7","8","9","10","11","12",""]
+                    names: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월", ""],
+                    namesAbbr: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", ""]
                 },
-                AM: ["오전","오전","오전"],
-                PM: ["오후","오후","오후"],
-                eras: [{"name":"단기","start":null,"offset":-2333}],
+                AM: ["오전", "오전", "오전"],
+                PM: ["오후", "오후", "오후"],
+                eras: [{"name": "단기", "start": null, "offset": -2333}],
                 twoDigitYearMax: 4362,
                 patterns: {
                     d: "gg yyyy-MM-dd",
@@ -7437,7 +7453,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -7448,13 +7464,13 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["zondag","maandag","dinsdag","woensdag","donderdag","vrijdag","zaterdag"],
-                    namesAbbr: ["zo","ma","di","wo","do","vr","za"],
-                    namesShort: ["zo","ma","di","wo","do","vr","za"]
+                    names: ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"],
+                    namesAbbr: ["zo", "ma", "di", "wo", "do", "vr", "za"],
+                    namesShort: ["zo", "ma", "di", "wo", "do", "vr", "za"]
                 },
                 months: {
-                    names: ["januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december",""],
-                    namesAbbr: ["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec",""]
+                    names: ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december", ""],
+                    namesAbbr: ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
@@ -7485,7 +7501,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': " ",
                 '.': ",",
                 symbol: "kr"
@@ -7496,13 +7512,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["søndag","mandag","tirsdag","onsdag","torsdag","fredag","lørdag"],
-                    namesAbbr: ["sø","ma","ti","on","to","fr","lø"],
-                    namesShort: ["sø","ma","ti","on","to","fr","lø"]
+                    names: ["søndag", "mandag", "tirsdag", "onsdag", "torsdag", "fredag", "lørdag"],
+                    namesAbbr: ["sø", "ma", "ti", "on", "to", "fr", "lø"],
+                    namesShort: ["sø", "ma", "ti", "on", "to", "fr", "lø"]
                 },
                 months: {
-                    names: ["januar","februar","mars","april","mai","juni","juli","august","september","oktober","november","desember",""],
-                    namesAbbr: ["jan","feb","mar","apr","mai","jun","jul","aug","sep","okt","nov","des",""]
+                    names: ["januar", "februar", "mars", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "mai", "jun", "jul", "aug", "sep", "okt", "nov", "des", ""]
                 },
                 AM: null,
                 PM: null,
@@ -7529,12 +7545,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "zł"
@@ -7545,17 +7561,17 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["niedziela","poniedziałek","wtorek","środa","czwartek","piątek","sobota"],
-                    namesAbbr: ["N","Pn","Wt","Śr","Cz","Pt","So"],
-                    namesShort: ["N","Pn","Wt","Śr","Cz","Pt","So"]
+                    names: ["niedziela", "poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota"],
+                    namesAbbr: ["N", "Pn", "Wt", "Śr", "Cz", "Pt", "So"],
+                    namesShort: ["N", "Pn", "Wt", "Śr", "Cz", "Pt", "So"]
                 },
                 months: {
-                    names: ["styczeń","luty","marzec","kwiecień","maj","czerwiec","lipiec","sierpień","wrzesień","październik","listopad","grudzień",""],
-                    namesAbbr: ["sty","lut","mar","kwi","maj","cze","lip","sie","wrz","paź","lis","gru",""]
+                    names: ["styczeń", "luty", "marzec", "kwiecień", "maj", "czerwiec", "lipiec", "sierpień", "wrzesień", "październik", "listopad", "grudzień", ""],
+                    namesAbbr: ["sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paź", "lis", "gru", ""]
                 },
                 monthsGenitive: {
-                    names: ["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","września","października","listopada","grudnia",""],
-                    namesAbbr: ["sty","lut","mar","kwi","maj","cze","lip","sie","wrz","paź","lis","gru",""]
+                    names: ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września", "października", "listopada", "grudnia", ""],
+                    namesAbbr: ["sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paź", "lis", "gru", ""]
                 },
                 AM: null,
                 PM: null,
@@ -7582,12 +7598,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-$ n","$ n"],
+                pattern: ["-$ n", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "R$"
@@ -7596,17 +7612,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"],
-                    namesAbbr: ["dom","seg","ter","qua","qui","sex","sáb"],
-                    namesShort: ["D","S","T","Q","Q","S","S"]
+                    names: ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"],
+                    namesAbbr: ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"],
+                    namesShort: ["D", "S", "T", "Q", "Q", "S", "S"]
                 },
                 months: {
-                    names: ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro",""],
-                    namesAbbr: ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez",""]
+                    names: ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro", ""],
+                    namesAbbr: ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, d' de 'MMMM' de 'yyyy",
@@ -7629,11 +7645,11 @@
         numberFormat: {
             ',': "'",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': "'"
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 ',': "'",
                 symbol: "fr."
             }
@@ -7642,17 +7658,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["dumengia","glindesdi","mardi","mesemna","gievgia","venderdi","sonda"],
-                    namesAbbr: ["du","gli","ma","me","gie","ve","so"],
-                    namesShort: ["du","gli","ma","me","gie","ve","so"]
+                    names: ["dumengia", "glindesdi", "mardi", "mesemna", "gievgia", "venderdi", "sonda"],
+                    namesAbbr: ["du", "gli", "ma", "me", "gie", "ve", "so"],
+                    namesShort: ["du", "gli", "ma", "me", "gie", "ve", "so"]
                 },
                 months: {
-                    names: ["schaner","favrer","mars","avrigl","matg","zercladur","fanadur","avust","settember","october","november","december",""],
-                    namesAbbr: ["schan","favr","mars","avr","matg","zercl","fan","avust","sett","oct","nov","dec",""]
+                    names: ["schaner", "favrer", "mars", "avrigl", "matg", "zercladur", "fanadur", "avust", "settember", "october", "november", "december", ""],
+                    namesAbbr: ["schan", "favr", "mars", "avr", "matg", "zercl", "fan", "avust", "sett", "oct", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"s. Cr.","start":null,"offset":0}],
+                eras: [{"name": "s. Cr.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, d MMMM yyyy",
@@ -7676,12 +7692,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "lei"
@@ -7692,13 +7708,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["duminică","luni","marţi","miercuri","joi","vineri","sâmbătă"],
-                    namesAbbr: ["D","L","Ma","Mi","J","V","S"],
-                    namesShort: ["D","L","Ma","Mi","J","V","S"]
+                    names: ["duminică", "luni", "marţi", "miercuri", "joi", "vineri", "sâmbătă"],
+                    namesAbbr: ["D", "L", "Ma", "Mi", "J", "V", "S"],
+                    namesShort: ["D", "L", "Ma", "Mi", "J", "V", "S"]
                 },
                 months: {
-                    names: ["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie",""],
-                    namesAbbr: ["ian.","feb.","mar.","apr.","mai.","iun.","iul.","aug.","sep.","oct.","nov.","dec.",""]
+                    names: ["ianuarie", "februarie", "martie", "aprilie", "mai", "iunie", "iulie", "august", "septembrie", "octombrie", "noiembrie", "decembrie", ""],
+                    namesAbbr: ["ian.", "feb.", "mar.", "apr.", "mai.", "iun.", "iul.", "aug.", "sep.", "oct.", "nov.", "dec.", ""]
                 },
                 AM: null,
                 PM: null,
@@ -7725,12 +7741,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n$","n$"],
+                pattern: ["-n$", "n$"],
                 ',': " ",
                 '.': ",",
                 symbol: "р."
@@ -7741,17 +7757,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["воскресенье","понедельник","вторник","среда","четверг","пятница","суббота"],
-                    namesAbbr: ["Вс","Пн","Вт","Ср","Чт","Пт","Сб"],
-                    namesShort: ["Вс","Пн","Вт","Ср","Чт","Пт","Сб"]
+                    names: ["воскресенье", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота"],
+                    namesAbbr: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+                    namesShort: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"]
                 },
                 months: {
-                    names: ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь",""],
-                    namesAbbr: ["янв","фев","мар","апр","май","июн","июл","авг","сен","окт","ноя","дек",""]
+                    names: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь", ""],
+                    namesAbbr: ["янв", "фев", "мар", "апр", "май", "июн", "июл", "авг", "сен", "окт", "ноя", "дек", ""]
                 },
                 monthsGenitive: {
-                    names: ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря",""],
-                    namesAbbr: ["янв","фев","мар","апр","май","июн","июл","авг","сен","окт","ноя","дек",""]
+                    names: ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря", ""],
+                    namesAbbr: ["янв", "фев", "мар", "апр", "май", "июн", "июл", "авг", "сен", "окт", "ноя", "дек", ""]
                 },
                 AM: null,
                 PM: null,
@@ -7778,12 +7794,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "kn"
@@ -7794,17 +7810,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["nedjelja","ponedjeljak","utorak","srijeda","četvrtak","petak","subota"],
-                    namesAbbr: ["ned","pon","uto","sri","čet","pet","sub"],
-                    namesShort: ["ne","po","ut","sr","če","pe","su"]
+                    names: ["nedjelja", "ponedjeljak", "utorak", "srijeda", "četvrtak", "petak", "subota"],
+                    namesAbbr: ["ned", "pon", "uto", "sri", "čet", "pet", "sub"],
+                    namesShort: ["ne", "po", "ut", "sr", "če", "pe", "su"]
                 },
                 months: {
-                    names: ["siječanj","veljača","ožujak","travanj","svibanj","lipanj","srpanj","kolovoz","rujan","listopad","studeni","prosinac",""],
-                    namesAbbr: ["sij","vlj","ožu","tra","svi","lip","srp","kol","ruj","lis","stu","pro",""]
+                    names: ["siječanj", "veljača", "ožujak", "travanj", "svibanj", "lipanj", "srpanj", "kolovoz", "rujan", "listopad", "studeni", "prosinac", ""],
+                    namesAbbr: ["sij", "vlj", "ožu", "tra", "svi", "lip", "srp", "kol", "ruj", "lis", "stu", "pro", ""]
                 },
                 monthsGenitive: {
-                    names: ["siječnja","veljače","ožujka","travnja","svibnja","lipnja","srpnja","kolovoza","rujna","listopada","studenog","prosinca",""],
-                    namesAbbr: ["sij","vlj","ožu","tra","svi","lip","srp","kol","ruj","lis","stu","pro",""]
+                    names: ["siječnja", "veljače", "ožujka", "travnja", "svibnja", "lipnja", "srpnja", "kolovoza", "rujna", "listopada", "studenog", "prosinca", ""],
+                    namesAbbr: ["sij", "vlj", "ožu", "tra", "svi", "lip", "srp", "kol", "ruj", "lis", "stu", "pro", ""]
                 },
                 AM: null,
                 PM: null,
@@ -7830,12 +7846,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -7846,21 +7862,21 @@
                 '/': ". ",
                 firstDay: 1,
                 days: {
-                    names: ["nedeľa","pondelok","utorok","streda","štvrtok","piatok","sobota"],
-                    namesAbbr: ["ne","po","ut","st","št","pi","so"],
-                    namesShort: ["ne","po","ut","st","št","pi","so"]
+                    names: ["nedeľa", "pondelok", "utorok", "streda", "štvrtok", "piatok", "sobota"],
+                    namesAbbr: ["ne", "po", "ut", "st", "št", "pi", "so"],
+                    namesShort: ["ne", "po", "ut", "st", "št", "pi", "so"]
                 },
                 months: {
-                    names: ["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december",""],
-                    namesAbbr: ["1","2","3","4","5","6","7","8","9","10","11","12",""]
+                    names: ["január", "február", "marec", "apríl", "máj", "jún", "júl", "august", "september", "október", "november", "december", ""],
+                    namesAbbr: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", ""]
                 },
                 monthsGenitive: {
-                    names: ["januára","februára","marca","apríla","mája","júna","júla","augusta","septembra","októbra","novembra","decembra",""],
-                    namesAbbr: ["1","2","3","4","5","6","7","8","9","10","11","12",""]
+                    names: ["januára", "februára", "marca", "apríla", "mája", "júna", "júla", "augusta", "septembra", "októbra", "novembra", "decembra", ""],
+                    namesAbbr: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"n. l.","start":null,"offset":0}],
+                eras: [{"name": "n. l.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d. M. yyyy",
                     D: "d. MMMM yyyy",
@@ -7888,7 +7904,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n$","n$"],
+                pattern: ["-n$", "n$"],
                 ',': ".",
                 '.': ",",
                 symbol: "Lek"
@@ -7899,16 +7915,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["e diel","e hënë","e martë","e mërkurë","e enjte","e premte","e shtunë"],
-                    namesAbbr: ["Die","Hën","Mar","Mër","Enj","Pre","Sht"],
-                    namesShort: ["Di","Hë","Ma","Më","En","Pr","Sh"]
+                    names: ["e diel", "e hënë", "e martë", "e mërkurë", "e enjte", "e premte", "e shtunë"],
+                    namesAbbr: ["Die", "Hën", "Mar", "Mër", "Enj", "Pre", "Sht"],
+                    namesShort: ["Di", "Hë", "Ma", "Më", "En", "Pr", "Sh"]
                 },
                 months: {
-                    names: ["janar","shkurt","mars","prill","maj","qershor","korrik","gusht","shtator","tetor","nëntor","dhjetor",""],
-                    namesAbbr: ["Jan","Shk","Mar","Pri","Maj","Qer","Kor","Gsh","Sht","Tet","Nën","Dhj",""]
+                    names: ["janar", "shkurt", "mars", "prill", "maj", "qershor", "korrik", "gusht", "shtator", "tetor", "nëntor", "dhjetor", ""],
+                    namesAbbr: ["Jan", "Shk", "Mar", "Pri", "Maj", "Qer", "Kor", "Gsh", "Sht", "Tet", "Nën", "Dhj", ""]
                 },
-                AM: ["PD","pd","PD"],
-                PM: ["MD","md","MD"],
+                AM: ["PD", "pd", "PD"],
+                PM: ["MD", "md", "MD"],
                 patterns: {
                     d: "yyyy-MM-dd",
                     D: "yyyy-MM-dd",
@@ -7935,7 +7951,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "kr"
@@ -7946,13 +7962,13 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["söndag","måndag","tisdag","onsdag","torsdag","fredag","lördag"],
-                    namesAbbr: ["sö","må","ti","on","to","fr","lö"],
-                    namesShort: ["sö","må","ti","on","to","fr","lö"]
+                    names: ["söndag", "måndag", "tisdag", "onsdag", "torsdag", "fredag", "lördag"],
+                    namesAbbr: ["sö", "må", "ti", "on", "to", "fr", "lö"],
+                    namesShort: ["sö", "må", "ti", "on", "to", "fr", "lö"]
                 },
                 months: {
-                    names: ["januari","februari","mars","april","maj","juni","juli","augusti","september","oktober","november","december",""],
-                    namesAbbr: ["jan","feb","mar","apr","maj","jun","jul","aug","sep","okt","nov","dec",""]
+                    names: ["januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti", "september", "oktober", "november", "december", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
@@ -7977,7 +7993,7 @@
         language: "th",
         numberFormat: {
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 symbol: "฿"
             }
         },
@@ -7986,15 +8002,15 @@
                 name: "ThaiBuddhist",
                 firstDay: 1,
                 days: {
-                    names: ["อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์"],
-                    namesAbbr: ["อา.","จ.","อ.","พ.","พฤ.","ศ.","ส."],
-                    namesShort: ["อ","จ","อ","พ","พ","ศ","ส"]
+                    names: ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์"],
+                    namesAbbr: ["อา.", "จ.", "อ.", "พ.", "พฤ.", "ศ.", "ส."],
+                    namesShort: ["อ", "จ", "อ", "พ", "พ", "ศ", "ส"]
                 },
                 months: {
-                    names: ["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม",""],
-                    namesAbbr: ["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.",""]
+                    names: ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม", ""],
+                    namesAbbr: ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.", ""]
                 },
-                eras: [{"name":"พ.ศ.","start":null,"offset":-543}],
+                eras: [{"name": "พ.ศ.", "start": null, "offset": -543}],
                 twoDigitYearMax: 2572,
                 patterns: {
                     d: "d/M/yyyy",
@@ -8010,13 +8026,13 @@
             Gregorian_Localized: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์"],
-                    namesAbbr: ["อา.","จ.","อ.","พ.","พฤ.","ศ.","ส."],
-                    namesShort: ["อ","จ","อ","พ","พ","ศ","ส"]
+                    names: ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์"],
+                    namesAbbr: ["อา.", "จ.", "อ.", "พ.", "พฤ.", "ศ.", "ส."],
+                    namesShort: ["อ", "จ", "อ", "พ", "พ", "ศ", "ส"]
                 },
                 months: {
-                    names: ["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม",""],
-                    namesAbbr: ["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.",""]
+                    names: ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม", ""],
+                    namesAbbr: ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.", ""]
                 },
                 patterns: {
                     d: "d/M/yyyy",
@@ -8041,12 +8057,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-%n","%n"],
+                pattern: ["-%n", "%n"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "TL"
@@ -8057,13 +8073,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"],
-                    namesAbbr: ["Paz","Pzt","Sal","Çar","Per","Cum","Cmt"],
-                    namesShort: ["Pz","Pt","Sa","Ça","Pe","Cu","Ct"]
+                    names: ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"],
+                    namesAbbr: ["Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"],
+                    namesShort: ["Pz", "Pt", "Sa", "Ça", "Pe", "Cu", "Ct"]
                 },
                 months: {
-                    names: ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık",""],
-                    namesAbbr: ["Oca","Şub","Mar","Nis","May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara",""]
+                    names: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık", ""],
+                    namesAbbr: ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara", ""]
                 },
                 AM: null,
                 PM: null,
@@ -8089,7 +8105,7 @@
         isRTL: true,
         numberFormat: {
             currency: {
-                pattern: ["$n-","$n"],
+                pattern: ["$n-", "$n"],
                 symbol: "Rs"
             }
         },
@@ -8097,13 +8113,13 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["اتوار","پير","منگل","بدھ","جمعرات","جمعه","هفته"],
-                    namesAbbr: ["اتوار","پير","منگل","بدھ","جمعرات","جمعه","هفته"],
-                    namesShort: ["ا","پ","م","ب","ج","ج","ه"]
+                    names: ["اتوار", "پير", "منگل", "بدھ", "جمعرات", "جمعه", "هفته"],
+                    namesAbbr: ["اتوار", "پير", "منگل", "بدھ", "جمعرات", "جمعه", "هفته"],
+                    namesShort: ["ا", "پ", "م", "ب", "ج", "ج", "ه"]
                 },
                 months: {
-                    names: ["جنوری","فروری","مارچ","اپریل","مئی","جون","جولائی","اگست","ستمبر","اکتوبر","نومبر","دسمبر",""],
-                    namesAbbr: ["جنوری","فروری","مارچ","اپریل","مئی","جون","جولائی","اگست","ستمبر","اکتوبر","نومبر","دسمبر",""]
+                    names: ["جنوری", "فروری", "مارچ", "اپریل", "مئی", "جون", "جولائی", "اگست", "ستمبر", "اکتوبر", "نومبر", "دسمبر", ""],
+                    namesAbbr: ["جنوری", "فروری", "مارچ", "اپریل", "مئی", "جون", "جولائی", "اگست", "ستمبر", "اکتوبر", "نومبر", "دسمبر", ""]
                 },
                 patterns: {
                     d: "dd/MM/yyyy",
@@ -8117,15 +8133,15 @@
                 name: "Hijri",
                 firstDay: 1,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -8146,7 +8162,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -8156,9 +8172,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -8191,7 +8207,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -8202,7 +8218,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -8233,13 +8249,13 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"],
-                    namesAbbr: ["Minggu","Sen","Sel","Rabu","Kamis","Jumat","Sabtu"],
-                    namesShort: ["M","S","S","R","K","J","S"]
+                    names: ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"],
+                    namesAbbr: ["Minggu", "Sen", "Sel", "Rabu", "Kamis", "Jumat", "Sabtu"],
+                    namesShort: ["M", "S", "S", "R", "K", "J", "S"]
                 },
                 months: {
-                    names: ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember",""],
-                    namesAbbr: ["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agust","Sep","Okt","Nop","Des",""]
+                    names: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember", ""],
+                    namesAbbr: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agust", "Sep", "Okt", "Nop", "Des", ""]
                 },
                 AM: null,
                 PM: null,
@@ -8266,12 +8282,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n$","n$"],
+                pattern: ["-n$", "n$"],
                 ',': " ",
                 '.': ",",
                 symbol: "₴"
@@ -8282,17 +8298,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["неділя","понеділок","вівторок","середа","четвер","п'ятниця","субота"],
-                    namesAbbr: ["Нд","Пн","Вт","Ср","Чт","Пт","Сб"],
-                    namesShort: ["Нд","Пн","Вт","Ср","Чт","Пт","Сб"]
+                    names: ["неділя", "понеділок", "вівторок", "середа", "четвер", "п'ятниця", "субота"],
+                    namesAbbr: ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+                    namesShort: ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"]
                 },
                 months: {
-                    names: ["Січень","Лютий","Березень","Квітень","Травень","Червень","Липень","Серпень","Вересень","Жовтень","Листопад","Грудень",""],
-                    namesAbbr: ["Січ","Лют","Бер","Кві","Тра","Чер","Лип","Сер","Вер","Жов","Лис","Гру",""]
+                    names: ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень", ""],
+                    namesAbbr: ["Січ", "Лют", "Бер", "Кві", "Тра", "Чер", "Лип", "Сер", "Вер", "Жов", "Лис", "Гру", ""]
                 },
                 monthsGenitive: {
-                    names: ["січня","лютого","березня","квітня","травня","червня","липня","серпня","вересня","жовтня","листопада","грудня",""],
-                    namesAbbr: ["січ","лют","бер","кві","тра","чер","лип","сер","вер","жов","лис","гру",""]
+                    names: ["січня", "лютого", "березня", "квітня", "травня", "червня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня", ""],
+                    namesAbbr: ["січ", "лют", "бер", "кві", "тра", "чер", "лип", "сер", "вер", "жов", "лис", "гру", ""]
                 },
                 AM: null,
                 PM: null,
@@ -8323,7 +8339,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "р."
@@ -8334,17 +8350,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["нядзеля","панядзелак","аўторак","серада","чацвер","пятніца","субота"],
-                    namesAbbr: ["нд","пн","аў","ср","чц","пт","сб"],
-                    namesShort: ["нд","пн","аў","ср","чц","пт","сб"]
+                    names: ["нядзеля", "панядзелак", "аўторак", "серада", "чацвер", "пятніца", "субота"],
+                    namesAbbr: ["нд", "пн", "аў", "ср", "чц", "пт", "сб"],
+                    namesShort: ["нд", "пн", "аў", "ср", "чц", "пт", "сб"]
                 },
                 months: {
-                    names: ["Студзень","Люты","Сакавік","Красавік","Май","Чэрвень","Ліпень","Жнівень","Верасень","Кастрычнік","Лістапад","Снежань",""],
-                    namesAbbr: ["Сту","Лют","Сак","Кра","Май","Чэр","Ліп","Жні","Вер","Кас","Ліс","Сне",""]
+                    names: ["Студзень", "Люты", "Сакавік", "Красавік", "Май", "Чэрвень", "Ліпень", "Жнівень", "Верасень", "Кастрычнік", "Лістапад", "Снежань", ""],
+                    namesAbbr: ["Сту", "Лют", "Сак", "Кра", "Май", "Чэр", "Ліп", "Жні", "Вер", "Кас", "Ліс", "Сне", ""]
                 },
                 monthsGenitive: {
-                    names: ["студзеня","лютага","сакавіка","красавіка","мая","чэрвеня","ліпеня","жніўня","верасня","кастрычніка","лістапада","снежня",""],
-                    namesAbbr: ["Сту","Лют","Сак","Кра","Май","Чэр","Ліп","Жні","Вер","Кас","Ліс","Сне",""]
+                    names: ["студзеня", "лютага", "сакавіка", "красавіка", "мая", "чэрвеня", "ліпеня", "жніўня", "верасня", "кастрычніка", "лістапада", "снежня", ""],
+                    namesAbbr: ["Сту", "Лют", "Сак", "Кра", "Май", "Чэр", "Ліп", "Жні", "Вер", "Кас", "Ліс", "Сне", ""]
                 },
                 AM: null,
                 PM: null,
@@ -8371,12 +8387,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -8387,13 +8403,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["nedelja","ponedeljek","torek","sreda","četrtek","petek","sobota"],
-                    namesAbbr: ["ned","pon","tor","sre","čet","pet","sob"],
-                    namesShort: ["ne","po","to","sr","če","pe","so"]
+                    names: ["nedelja", "ponedeljek", "torek", "sreda", "četrtek", "petek", "sobota"],
+                    namesAbbr: ["ned", "pon", "tor", "sre", "čet", "pet", "sob"],
+                    namesShort: ["ne", "po", "to", "sr", "če", "pe", "so"]
                 },
                 months: {
-                    names: ["januar","februar","marec","april","maj","junij","julij","avgust","september","oktober","november","december",""],
-                    namesAbbr: ["jan","feb","mar","apr","maj","jun","jul","avg","sep","okt","nov","dec",""]
+                    names: ["januar", "februar", "marec", "april", "maj", "junij", "julij", "avgust", "september", "oktober", "november", "december", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "avg", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
@@ -8420,12 +8436,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 symbol: "kr"
             }
@@ -8435,16 +8451,16 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["pühapäev","esmaspäev","teisipäev","kolmapäev","neljapäev","reede","laupäev"],
-                    namesAbbr: ["P","E","T","K","N","R","L"],
-                    namesShort: ["P","E","T","K","N","R","L"]
+                    names: ["pühapäev", "esmaspäev", "teisipäev", "kolmapäev", "neljapäev", "reede", "laupäev"],
+                    namesAbbr: ["P", "E", "T", "K", "N", "R", "L"],
+                    namesShort: ["P", "E", "T", "K", "N", "R", "L"]
                 },
                 months: {
-                    names: ["jaanuar","veebruar","märts","aprill","mai","juuni","juuli","august","september","oktoober","november","detsember",""],
-                    namesAbbr: ["jaan","veebr","märts","apr","mai","juuni","juuli","aug","sept","okt","nov","dets",""]
+                    names: ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember", ""],
+                    namesAbbr: ["jaan", "veebr", "märts", "apr", "mai", "juuni", "juuli", "aug", "sept", "okt", "nov", "dets", ""]
                 },
-                AM: ["EL","el","EL"],
-                PM: ["PL","pl","PL"],
+                AM: ["EL", "el", "EL"],
+                PM: ["PL", "pl", "PL"],
                 patterns: {
                     d: "d.MM.yyyy",
                     D: "d. MMMM yyyy'. a.'",
@@ -8468,12 +8484,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-$ n","$ n"],
+                pattern: ["-$ n", "$ n"],
                 ',': " ",
                 '.': ",",
                 symbol: "Ls"
@@ -8484,17 +8500,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["svētdiena","pirmdiena","otrdiena","trešdiena","ceturtdiena","piektdiena","sestdiena"],
-                    namesAbbr: ["sv","pr","ot","tr","ce","pk","se"],
-                    namesShort: ["sv","pr","ot","tr","ce","pk","se"]
+                    names: ["svētdiena", "pirmdiena", "otrdiena", "trešdiena", "ceturtdiena", "piektdiena", "sestdiena"],
+                    namesAbbr: ["sv", "pr", "ot", "tr", "ce", "pk", "se"],
+                    namesShort: ["sv", "pr", "ot", "tr", "ce", "pk", "se"]
                 },
                 months: {
-                    names: ["janvāris","februāris","marts","aprīlis","maijs","jūnijs","jūlijs","augusts","septembris","oktobris","novembris","decembris",""],
-                    namesAbbr: ["jan","feb","mar","apr","mai","jūn","jūl","aug","sep","okt","nov","dec",""]
+                    names: ["janvāris", "februāris", "marts", "aprīlis", "maijs", "jūnijs", "jūlijs", "augusts", "septembris", "oktobris", "novembris", "decembris", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "mai", "jūn", "jūl", "aug", "sep", "okt", "nov", "dec", ""]
                 },
                 monthsGenitive: {
-                    names: ["janvārī","februārī","martā","aprīlī","maijā","jūnijā","jūlijā","augustā","septembrī","oktobrī","novembrī","decembrī",""],
-                    namesAbbr: ["jan","feb","mar","apr","mai","jūn","jūl","aug","sep","okt","nov","dec",""]
+                    names: ["janvārī", "februārī", "martā", "aprīlī", "maijā", "jūnijā", "jūlijā", "augustā", "septembrī", "oktobrī", "novembrī", "decembrī", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "mai", "jūn", "jūl", "aug", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
@@ -8521,12 +8537,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "Lt"
@@ -8537,17 +8553,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["sekmadienis","pirmadienis","antradienis","trečiadienis","ketvirtadienis","penktadienis","šeštadienis"],
-                    namesAbbr: ["Sk","Pr","An","Tr","Kt","Pn","Št"],
-                    namesShort: ["S","P","A","T","K","Pn","Š"]
+                    names: ["sekmadienis", "pirmadienis", "antradienis", "trečiadienis", "ketvirtadienis", "penktadienis", "šeštadienis"],
+                    namesAbbr: ["Sk", "Pr", "An", "Tr", "Kt", "Pn", "Št"],
+                    namesShort: ["S", "P", "A", "T", "K", "Pn", "Š"]
                 },
                 months: {
-                    names: ["sausis","vasaris","kovas","balandis","gegužė","birželis","liepa","rugpjūtis","rugsėjis","spalis","lapkritis","gruodis",""],
-                    namesAbbr: ["Sau","Vas","Kov","Bal","Geg","Bir","Lie","Rgp","Rgs","Spl","Lap","Grd",""]
+                    names: ["sausis", "vasaris", "kovas", "balandis", "gegužė", "birželis", "liepa", "rugpjūtis", "rugsėjis", "spalis", "lapkritis", "gruodis", ""],
+                    namesAbbr: ["Sau", "Vas", "Kov", "Bal", "Geg", "Bir", "Lie", "Rgp", "Rgs", "Spl", "Lap", "Grd", ""]
                 },
                 monthsGenitive: {
-                    names: ["sausio","vasario","kovo","balandžio","gegužės","birželio","liepos","rugpjūčio","rugsėjo","spalio","lapkričio","gruodžio",""],
-                    namesAbbr: ["Sau","Vas","Kov","Bal","Geg","Bir","Lie","Rgp","Rgs","Spl","Lap","Grd",""]
+                    names: ["sausio", "vasario", "kovo", "balandžio", "gegužės", "birželio", "liepos", "rugpjūčio", "rugsėjo", "spalio", "lapkričio", "gruodžio", ""],
+                    namesAbbr: ["Sau", "Vas", "Kov", "Bal", "Geg", "Bir", "Lie", "Rgp", "Rgs", "Spl", "Lap", "Grd", ""]
                 },
                 AM: null,
                 PM: null,
@@ -8573,16 +8589,16 @@
         numberFormat: {
             ',': " ",
             '.': ",",
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,0],
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 0],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
-                groupSizes: [3,0],
+                pattern: ["-n $", "n $"],
+                groupSizes: [3, 0],
                 ',': " ",
                 '.': ";",
                 symbol: "т.р."
@@ -8592,17 +8608,17 @@
             standard: $.extend(true, {}, standard, {
                 '/': ".",
                 days: {
-                    names: ["Яш","Душанбе","Сешанбе","Чоршанбе","Панҷшанбе","Ҷумъа","Шанбе"],
-                    namesAbbr: ["Яш","Дш","Сш","Чш","Пш","Ҷм","Шн"],
-                    namesShort: ["Яш","Дш","Сш","Чш","Пш","Ҷм","Шн"]
+                    names: ["Яш", "Душанбе", "Сешанбе", "Чоршанбе", "Панҷшанбе", "Ҷумъа", "Шанбе"],
+                    namesAbbr: ["Яш", "Дш", "Сш", "Чш", "Пш", "Ҷм", "Шн"],
+                    namesShort: ["Яш", "Дш", "Сш", "Чш", "Пш", "Ҷм", "Шн"]
                 },
                 months: {
-                    names: ["Январ","Феврал","Март","Апрел","Май","Июн","Июл","Август","Сентябр","Октябр","Ноябр","Декабр",""],
-                    namesAbbr: ["Янв","Фев","Мар","Апр","Май","Июн","Июл","Авг","Сен","Окт","Ноя","Дек",""]
+                    names: ["Январ", "Феврал", "Март", "Апрел", "Май", "Июн", "Июл", "Август", "Сентябр", "Октябр", "Ноябр", "Декабр", ""],
+                    namesAbbr: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек", ""]
                 },
                 monthsGenitive: {
-                    names: ["январи","феврали","марти","апрели","маи","июни","июли","августи","сентябри","октябри","ноябри","декабри",""],
-                    namesAbbr: ["Янв","Фев","Мар","Апр","Май","Июн","Июл","Авг","Сен","Окт","Ноя","Дек",""]
+                    names: ["январи", "феврали", "марти", "апрели", "маи", "июни", "июли", "августи", "сентябри", "октябри", "ноябри", "декабри", ""],
+                    namesAbbr: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек", ""]
                 },
                 AM: null,
                 PM: null,
@@ -8628,7 +8644,7 @@
         numberFormat: {
             pattern: ["n-"],
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 '.': "/",
                 symbol: "ريال"
             }
@@ -8638,17 +8654,17 @@
                 name: "Gregorian_TransliteratedFrench",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ق.ظ","ق.ظ","ق.ظ"],
-                PM: ["ب.ظ","ب.ظ","ب.ظ"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ق.ظ", "ق.ظ", "ق.ظ"],
+                PM: ["ب.ظ", "ب.ظ", "ب.ظ"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -8660,16 +8676,16 @@
             Gregorian_Localized: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["يكشنبه","دوشنبه","سه شنبه","چهارشنبه","پنجشنبه","جمعه","شنبه"],
-                    namesAbbr: ["يكشنبه","دوشنبه","سه شنبه","چهارشنبه","پنجشنبه","جمعه","شنبه"],
-                    namesShort: ["ی","د","س","چ","پ","ج","ش"]
+                    names: ["يكشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنجشنبه", "جمعه", "شنبه"],
+                    namesAbbr: ["يكشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنجشنبه", "جمعه", "شنبه"],
+                    namesShort: ["ی", "د", "س", "چ", "پ", "ج", "ش"]
                 },
                 months: {
-                    names: ["ژانويه","فوريه","مارس","آوريل","مى","ژوئن","ژوئيه","اوت","سپتامبر","اُكتبر","نوامبر","دسامبر",""],
-                    namesAbbr: ["ژانويه","فوريه","مارس","آوريل","مى","ژوئن","ژوئيه","اوت","سپتامبر","اُكتبر","نوامبر","دسامبر",""]
+                    names: ["ژانويه", "فوريه", "مارس", "آوريل", "مى", "ژوئن", "ژوئيه", "اوت", "سپتامبر", "اُكتبر", "نوامبر", "دسامبر", ""],
+                    namesAbbr: ["ژانويه", "فوريه", "مارس", "آوريل", "مى", "ژوئن", "ژوئيه", "اوت", "سپتامبر", "اُكتبر", "نوامبر", "دسامبر", ""]
                 },
-                AM: ["ق.ظ","ق.ظ","ق.ظ"],
-                PM: ["ب.ظ","ب.ظ","ب.ظ"],
+                AM: ["ق.ظ", "ق.ظ", "ق.ظ"],
+                PM: ["ب.ظ", "ب.ظ", "ب.ظ"],
                 patterns: {
                     d: "yyyy/MM/dd",
                     D: "yyyy/MM/dd",
@@ -8684,17 +8700,17 @@
                 name: "Hijri",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ق.ظ","ق.ظ","ق.ظ"],
-                PM: ["ب.ظ","ب.ظ","ب.ظ"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ق.ظ", "ق.ظ", "ق.ظ"],
+                PM: ["ب.ظ", "ب.ظ", "ب.ظ"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -8717,7 +8733,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -8727,9 +8743,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -8762,7 +8778,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -8773,7 +8789,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -8782,17 +8798,17 @@
                 name: "Gregorian_TransliteratedEnglish",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["أ","ا","ث","أ","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["أ", "ا", "ث", "أ", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","ابريل","مايو","يونيو","يوليو","اغسطس","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "ابريل", "مايو", "يونيو", "يوليو", "اغسطس", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ق.ظ","ق.ظ","ق.ظ"],
-                PM: ["ب.ظ","ب.ظ","ب.ظ"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ق.ظ", "ق.ظ", "ق.ظ"],
+                PM: ["ب.ظ", "ب.ظ", "ب.ظ"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -8817,7 +8833,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "₫"
@@ -8827,16 +8843,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Chủ Nhật","Thứ Hai","Thứ Ba","Thứ Tư","Thứ Năm","Thứ Sáu","Thứ Bảy"],
-                    namesAbbr: ["CN","Hai","Ba","Tư","Năm","Sáu","Bảy"],
-                    namesShort: ["C","H","B","T","N","S","B"]
+                    names: ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"],
+                    namesAbbr: ["CN", "Hai", "Ba", "Tư", "Năm", "Sáu", "Bảy"],
+                    namesShort: ["C", "H", "B", "T", "N", "S", "B"]
                 },
                 months: {
-                    names: ["Tháng Giêng","Tháng Hai","Tháng Ba","Tháng Tư","Tháng Năm","Tháng Sáu","Tháng Bảy","Tháng Tám","Tháng Chín","Tháng Mười","Tháng Mười Một","Tháng Mười Hai",""],
-                    namesAbbr: ["Thg1","Thg2","Thg3","Thg4","Thg5","Thg6","Thg7","Thg8","Thg9","Thg10","Thg11","Thg12",""]
+                    names: ["Tháng Giêng", "Tháng Hai", "Tháng Ba", "Tháng Tư", "Tháng Năm", "Tháng Sáu", "Tháng Bảy", "Tháng Tám", "Tháng Chín", "Tháng Mười", "Tháng Mười Một", "Tháng Mười Hai", ""],
+                    namesAbbr: ["Thg1", "Thg2", "Thg3", "Thg4", "Thg5", "Thg6", "Thg7", "Thg8", "Thg9", "Thg10", "Thg11", "Thg12", ""]
                 },
-                AM: ["SA","sa","SA"],
-                PM: ["CH","ch","CH"],
+                AM: ["SA", "sa", "SA"],
+                PM: ["CH", "ch", "CH"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM yyyy",
@@ -8856,7 +8872,7 @@
         language: "hy",
         numberFormat: {
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 symbol: "դր."
             }
         },
@@ -8865,13 +8881,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Կիրակի","Երկուշաբթի","Երեքշաբթի","Չորեքշաբթի","Հինգշաբթի","ՈՒրբաթ","Շաբաթ"],
-                    namesAbbr: ["Կիր","Երկ","Երք","Չրք","Հնգ","ՈՒր","Շբթ"],
-                    namesShort: ["Կ","Ե","Ե","Չ","Հ","Ո","Շ"]
+                    names: ["Կիրակի", "Երկուշաբթի", "Երեքշաբթի", "Չորեքշաբթի", "Հինգշաբթի", "ՈՒրբաթ", "Շաբաթ"],
+                    namesAbbr: ["Կիր", "Երկ", "Երք", "Չրք", "Հնգ", "ՈՒր", "Շբթ"],
+                    namesShort: ["Կ", "Ե", "Ե", "Չ", "Հ", "Ո", "Շ"]
                 },
                 months: {
-                    names: ["Հունվար","Փետրվար","Մարտ","Ապրիլ","Մայիս","Հունիս","Հուլիս","Օգոստոս","Սեպտեմբեր","Հոկտեմբեր","Նոյեմբեր","Դեկտեմբեր",""],
-                    namesAbbr: ["ՀՆՎ","ՓՏՎ","ՄՐՏ","ԱՊՐ","ՄՅՍ","ՀՆՍ","ՀԼՍ","ՕԳՍ","ՍԵՊ","ՀՈԿ","ՆՈՅ","ԴԵԿ",""]
+                    names: ["Հունվար", "Փետրվար", "Մարտ", "Ապրիլ", "Մայիս", "Հունիս", "Հուլիս", "Օգոստոս", "Սեպտեմբեր", "Հոկտեմբեր", "Նոյեմբեր", "Դեկտեմբեր", ""],
+                    namesAbbr: ["ՀՆՎ", "ՓՏՎ", "ՄՐՏ", "ԱՊՐ", "ՄՅՍ", "ՀՆՍ", "ՀԼՍ", "ՕԳՍ", "ՍԵՊ", "ՀՈԿ", "ՆՈՅ", "ԴԵԿ", ""]
                 },
                 AM: null,
                 PM: null,
@@ -8897,12 +8913,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "man."
@@ -8913,17 +8929,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Bazar","Bazar ertəsi","Çərşənbə axşamı","Çərşənbə","Cümə axşamı","Cümə","Şənbə"],
-                    namesAbbr: ["B","Be","Ça","Ç","Ca","C","Ş"],
-                    namesShort: ["B","Be","Ça","Ç","Ca","C","Ş"]
+                    names: ["Bazar", "Bazar ertəsi", "Çərşənbə axşamı", "Çərşənbə", "Cümə axşamı", "Cümə", "Şənbə"],
+                    namesAbbr: ["B", "Be", "Ça", "Ç", "Ca", "C", "Ş"],
+                    namesShort: ["B", "Be", "Ça", "Ç", "Ca", "C", "Ş"]
                 },
                 months: {
-                    names: ["Yanvar","Fevral","Mart","Aprel","May","İyun","İyul","Avgust","Sentyabr","Oktyabr","Noyabr","Dekabr",""],
-                    namesAbbr: ["Yan","Fev","Mar","Apr","May","İyun","İyul","Avg","Sen","Okt","Noy","Dek",""]
+                    names: ["Yanvar", "Fevral", "Mart", "Aprel", "May", "İyun", "İyul", "Avgust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr", ""],
+                    namesAbbr: ["Yan", "Fev", "Mar", "Apr", "May", "İyun", "İyul", "Avg", "Sen", "Okt", "Noy", "Dek", ""]
                 },
                 monthsGenitive: {
-                    names: ["yanvar","fevral","mart","aprel","may","iyun","iyul","avgust","sentyabr","oktyabr","noyabr","dekabr",""],
-                    namesAbbr: ["Yan","Fev","Mar","Apr","May","İyun","İyul","Avg","Sen","Okt","Noy","Dek",""]
+                    names: ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentyabr", "oktyabr", "noyabr", "dekabr", ""],
+                    namesAbbr: ["Yan", "Fev", "Mar", "Apr", "May", "İyun", "İyul", "Avg", "Sen", "Okt", "Noy", "Dek", ""]
                 },
                 AM: null,
                 PM: null,
@@ -8954,7 +8970,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -8964,17 +8980,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["igandea","astelehena","asteartea","asteazkena","osteguna","ostirala","larunbata"],
-                    namesAbbr: ["ig.","al.","as.","az.","og.","or.","lr."],
-                    namesShort: ["ig","al","as","az","og","or","lr"]
+                    names: ["igandea", "astelehena", "asteartea", "asteazkena", "osteguna", "ostirala", "larunbata"],
+                    namesAbbr: ["ig.", "al.", "as.", "az.", "og.", "or.", "lr."],
+                    namesShort: ["ig", "al", "as", "az", "og", "or", "lr"]
                 },
                 months: {
-                    names: ["urtarrila","otsaila","martxoa","apirila","maiatza","ekaina","uztaila","abuztua","iraila","urria","azaroa","abendua",""],
-                    namesAbbr: ["urt.","ots.","mar.","api.","mai.","eka.","uzt.","abu.","ira.","urr.","aza.","abe.",""]
+                    names: ["urtarrila", "otsaila", "martxoa", "apirila", "maiatza", "ekaina", "uztaila", "abuztua", "iraila", "urria", "azaroa", "abendua", ""],
+                    namesAbbr: ["urt.", "ots.", "mar.", "api.", "mai.", "eka.", "uzt.", "abu.", "ira.", "urr.", "aza.", "abe.", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/MM/dd",
                     D: "dddd, yyyy.'eko' MMMM'k 'd",
@@ -9001,7 +9017,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -9012,21 +9028,21 @@
                 '/': ". ",
                 firstDay: 1,
                 days: {
-                    names: ["njedźela","póndźela","wutora","srjeda","štwórtk","pjatk","sobota"],
-                    namesAbbr: ["nje","pón","wut","srj","štw","pja","sob"],
-                    namesShort: ["n","p","w","s","š","p","s"]
+                    names: ["njedźela", "póndźela", "wutora", "srjeda", "štwórtk", "pjatk", "sobota"],
+                    namesAbbr: ["nje", "pón", "wut", "srj", "štw", "pja", "sob"],
+                    namesShort: ["n", "p", "w", "s", "š", "p", "s"]
                 },
                 months: {
-                    names: ["januar","februar","měrc","apryl","meja","junij","julij","awgust","september","oktober","nowember","december",""],
-                    namesAbbr: ["jan","feb","měr","apr","mej","jun","jul","awg","sep","okt","now","dec",""]
+                    names: ["januar", "februar", "měrc", "apryl", "meja", "junij", "julij", "awgust", "september", "oktober", "nowember", "december", ""],
+                    namesAbbr: ["jan", "feb", "měr", "apr", "mej", "jun", "jul", "awg", "sep", "okt", "now", "dec", ""]
                 },
                 monthsGenitive: {
-                    names: ["januara","februara","měrca","apryla","meje","junija","julija","awgusta","septembra","oktobra","nowembra","decembra",""],
-                    namesAbbr: ["jan","feb","měr","apr","mej","jun","jul","awg","sep","okt","now","dec",""]
+                    names: ["januara", "februara", "měrca", "apryla", "meje", "junija", "julija", "awgusta", "septembra", "oktobra", "nowembra", "decembra", ""],
+                    namesAbbr: ["jan", "feb", "měr", "apr", "mej", "jun", "jul", "awg", "sep", "okt", "now", "dec", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"po Chr.","start":null,"offset":0}],
+                eras: [{"name": "po Chr.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d. M. yyyy",
                     D: "dddd, 'dnja' d. MMMM yyyy",
@@ -9054,7 +9070,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "ден."
@@ -9065,13 +9081,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["недела","понеделник","вторник","среда","четврток","петок","сабота"],
-                    namesAbbr: ["нед","пон","втр","срд","чет","пет","саб"],
-                    namesShort: ["не","по","вт","ср","че","пе","са"]
+                    names: ["недела", "понеделник", "вторник", "среда", "четврток", "петок", "сабота"],
+                    namesAbbr: ["нед", "пон", "втр", "срд", "чет", "пет", "саб"],
+                    namesShort: ["не", "по", "вт", "ср", "че", "пе", "са"]
                 },
                 months: {
-                    names: ["јануари","февруари","март","април","мај","јуни","јули","август","септември","октомври","ноември","декември",""],
-                    namesAbbr: ["јан","фев","мар","апр","мај","јун","јул","авг","сеп","окт","ное","дек",""]
+                    names: ["јануари", "февруари", "март", "април", "мај", "јуни", "јули", "август", "септември", "октомври", "ноември", "декември", ""],
+                    namesAbbr: ["јан", "фев", "мар", "апр", "мај", "јун", "јул", "авг", "сеп", "окт", "ное", "дек", ""]
                 },
                 AM: null,
                 PM: null,
@@ -9096,23 +9112,23 @@
         language: "tn",
         numberFormat: {
             percent: {
-                pattern: ["-%n","%n"]
+                pattern: ["-%n", "%n"]
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "R"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Latshipi","Mosupologo","Labobedi","Laboraro","Labone","Labotlhano","Lamatlhatso"],
-                    namesAbbr: ["Ltp.","Mos.","Lbd.","Lbr.","Lbn.","Lbt.","Lmt."],
-                    namesShort: ["Lp","Ms","Lb","Lr","Ln","Lt","Lm"]
+                    names: ["Latshipi", "Mosupologo", "Labobedi", "Laboraro", "Labone", "Labotlhano", "Lamatlhatso"],
+                    namesAbbr: ["Ltp.", "Mos.", "Lbd.", "Lbr.", "Lbn.", "Lbt.", "Lmt."],
+                    namesShort: ["Lp", "Ms", "Lb", "Lr", "Ln", "Lt", "Lm"]
                 },
                 months: {
-                    names: ["Ferikgong","Tlhakole","Mopitloe","Moranang","Motsheganong","Seetebosigo","Phukwi","Phatwe","Lwetse","Diphalane","Ngwanatsele","Sedimothole",""],
-                    namesAbbr: ["Fer.","Tlhak.","Mop.","Mor.","Motsh.","Seet.","Phukw.","Phatw.","Lwets.","Diph.","Ngwan.","Sed.",""]
+                    names: ["Ferikgong", "Tlhakole", "Mopitloe", "Moranang", "Motsheganong", "Seetebosigo", "Phukwi", "Phatwe", "Lwetse", "Diphalane", "Ngwanatsele", "Sedimothole", ""],
+                    namesAbbr: ["Fer.", "Tlhak.", "Mop.", "Mor.", "Motsh.", "Seet.", "Phukw.", "Phatw.", "Lwets.", "Diph.", "Ngwan.", "Sed.", ""]
                 },
                 patterns: {
                     d: "yyyy/MM/dd",
@@ -9135,21 +9151,21 @@
         language: "xh",
         numberFormat: {
             percent: {
-                pattern: ["-%n","%n"]
+                pattern: ["-%n", "%n"]
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "R"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["iCawa","uMvulo","uLwesibini","uLwesithathu","uLwesine","uLwesihlanu","uMgqibelo"],
-                    namesShort: ["Ca","Mv","Lb","Lt","Ln","Lh","Mg"]
+                    names: ["iCawa", "uMvulo", "uLwesibini", "uLwesithathu", "uLwesine", "uLwesihlanu", "uMgqibelo"],
+                    namesShort: ["Ca", "Mv", "Lb", "Lt", "Ln", "Lh", "Mg"]
                 },
                 months: {
-                    names: ["Mqungu","Mdumba","Kwindla","Tshazimpuzi","Canzibe","Silimela","Khala","Thupha","Msintsi","Dwarha","Nkanga","Mnga",""]
+                    names: ["Mqungu", "Mdumba", "Kwindla", "Tshazimpuzi", "Canzibe", "Silimela", "Khala", "Thupha", "Msintsi", "Dwarha", "Nkanga", "Mnga", ""]
                 },
                 patterns: {
                     d: "yyyy/MM/dd",
@@ -9172,22 +9188,22 @@
         language: "zu",
         numberFormat: {
             percent: {
-                pattern: ["-%n","%n"]
+                pattern: ["-%n", "%n"]
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "R"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["iSonto","uMsombuluko","uLwesibili","uLwesithathu","uLwesine","uLwesihlanu","uMgqibelo"],
-                    namesAbbr: ["Son.","Mso.","Bi.","Tha.","Ne.","Hla.","Mgq."]
+                    names: ["iSonto", "uMsombuluko", "uLwesibili", "uLwesithathu", "uLwesine", "uLwesihlanu", "uMgqibelo"],
+                    namesAbbr: ["Son.", "Mso.", "Bi.", "Tha.", "Ne.", "Hla.", "Mgq."]
                 },
                 months: {
-                    names: ["uMasingana","uNhlolanja","uNdasa","uMbaso","uNhlaba","uNhlangulana","uNtulikazi","uNcwaba","uMandulo","uMfumfu","uLwezi","uZibandlela",""],
-                    namesAbbr: ["Mas.","Nhlo.","Nda.","Mba.","Nhla.","Nhlang.","Ntu.","Ncwa.","Man.","Mfu.","Lwe.","Zib.",""]
+                    names: ["uMasingana", "uNhlolanja", "uNdasa", "uMbaso", "uNhlaba", "uNhlangulana", "uNtulikazi", "uNcwaba", "uMandulo", "uMfumfu", "uLwezi", "uZibandlela", ""],
+                    namesAbbr: ["Mas.", "Nhlo.", "Nda.", "Mba.", "Nhla.", "Nhlang.", "Ntu.", "Ncwa.", "Man.", "Mfu.", "Lwe.", "Zib.", ""]
                 },
                 patterns: {
                     d: "yyyy/MM/dd",
@@ -9210,23 +9226,23 @@
         language: "af",
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "R"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Sondag","Maandag","Dinsdag","Woensdag","Donderdag","Vrydag","Saterdag"],
-                    namesAbbr: ["Son","Maan","Dins","Woen","Dond","Vry","Sat"],
-                    namesShort: ["So","Ma","Di","Wo","Do","Vr","Sa"]
+                    names: ["Sondag", "Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrydag", "Saterdag"],
+                    namesAbbr: ["Son", "Maan", "Dins", "Woen", "Dond", "Vry", "Sat"],
+                    namesShort: ["So", "Ma", "Di", "Wo", "Do", "Vr", "Sa"]
                 },
                 months: {
-                    names: ["Januarie","Februarie","Maart","April","Mei","Junie","Julie","Augustus","September","Oktober","November","Desember",""],
-                    namesAbbr: ["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Aug","Sep","Okt","Nov","Des",""]
+                    names: ["Januarie", "Februarie", "Maart", "April", "Mei", "Junie", "Julie", "Augustus", "September", "Oktober", "November", "Desember", ""],
+                    namesAbbr: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Des", ""]
                 },
                 patterns: {
                     d: "yyyy/MM/dd",
@@ -9255,7 +9271,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "Lari"
@@ -9266,13 +9282,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["კვირა","ორშაბათი","სამშაბათი","ოთხშაბათი","ხუთშაბათი","პარასკევი","შაბათი"],
-                    namesAbbr: ["კვირა","ორშაბათი","სამშაბათი","ოთხშაბათი","ხუთშაბათი","პარასკევი","შაბათი"],
-                    namesShort: ["კ","ო","ს","ო","ხ","პ","შ"]
+                    names: ["კვირა", "ორშაბათი", "სამშაბათი", "ოთხშაბათი", "ხუთშაბათი", "პარასკევი", "შაბათი"],
+                    namesAbbr: ["კვირა", "ორშაბათი", "სამშაბათი", "ოთხშაბათი", "ხუთშაბათი", "პარასკევი", "შაბათი"],
+                    namesShort: ["კ", "ო", "ს", "ო", "ხ", "პ", "შ"]
                 },
                 months: {
-                    names: ["იანვარი","თებერვალი","მარტი","აპრილი","მაისი","ივნისი","ივლისი","აგვისტო","სექტემბერი","ოქტომბერი","ნოემბერი","დეკემბერი",""],
-                    namesAbbr: ["იან","თებ","მარ","აპრ","მაის","ივნ","ივლ","აგვ","სექ","ოქტ","ნოემ","დეკ",""]
+                    names: ["იანვარი", "თებერვალი", "მარტი", "აპრილი", "მაისი", "ივნისი", "ივლისი", "აგვისტო", "სექტემბერი", "ოქტომბერი", "ნოემბერი", "დეკემბერი", ""],
+                    namesAbbr: ["იან", "თებ", "მარ", "აპრ", "მაის", "ივნ", "ივლ", "აგვ", "სექ", "ოქტ", "ნოემ", "დეკ", ""]
                 },
                 AM: null,
                 PM: null,
@@ -9299,12 +9315,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "kr."
@@ -9315,13 +9331,13 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["sunnudagur","mánadagur","týsdagur","mikudagur","hósdagur","fríggjadagur","leygardagur"],
-                    namesAbbr: ["sun","mán","týs","mik","hós","frí","leyg"],
-                    namesShort: ["su","má","tý","mi","hó","fr","ley"]
+                    names: ["sunnudagur", "mánadagur", "týsdagur", "mikudagur", "hósdagur", "fríggjadagur", "leygardagur"],
+                    namesAbbr: ["sun", "mán", "týs", "mik", "hós", "frí", "leyg"],
+                    namesShort: ["su", "má", "tý", "mi", "hó", "fr", "ley"]
                 },
                 months: {
-                    names: ["januar","februar","mars","apríl","mai","juni","juli","august","september","oktober","november","desember",""],
-                    namesAbbr: ["jan","feb","mar","apr","mai","jun","jul","aug","sep","okt","nov","des",""]
+                    names: ["januar", "februar", "mars", "apríl", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "mai", "jun", "jul", "aug", "sep", "okt", "nov", "des", ""]
                 },
                 AM: null,
                 PM: null,
@@ -9345,13 +9361,13 @@
         nativeName: "हिंदी (भारत)",
         language: "hi",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "रु"
             }
         },
@@ -9360,16 +9376,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["रविवार","सोमवार","मंगलवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"],
-                    namesAbbr: ["रवि.","सोम.","मंगल.","बुध.","गुरु.","शुक्र.","शनि."],
-                    namesShort: ["र","स","म","ब","ग","श","श"]
+                    names: ["रविवार", "सोमवार", "मंगलवार", "बुधवार", "गुरुवार", "शुक्रवार", "शनिवार"],
+                    namesAbbr: ["रवि.", "सोम.", "मंगल.", "बुध.", "गुरु.", "शुक्र.", "शनि."],
+                    namesShort: ["र", "स", "म", "ब", "ग", "श", "श"]
                 },
                 months: {
-                    names: ["जनवरी","फरवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितम्बर","अक्तूबर","नवम्बर","दिसम्बर",""],
-                    namesAbbr: ["जनवरी","फरवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितम्बर","अक्तूबर","नवम्बर","दिसम्बर",""]
+                    names: ["जनवरी", "फरवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितम्बर", "अक्तूबर", "नवम्बर", "दिसम्बर", ""],
+                    namesAbbr: ["जनवरी", "फरवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितम्बर", "अक्तूबर", "नवम्बर", "दिसम्बर", ""]
                 },
-                AM: ["पूर्वाह्न","पूर्वाह्न","पूर्वाह्न"],
-                PM: ["अपराह्न","अपराह्न","अपराह्न"],
+                AM: ["पूर्वाह्न", "पूर्वाह्न", "पूर्वाह्न"],
+                PM: ["अपराह्न", "अपराह्न", "अपराह्न"],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "dd MMMM yyyy",
@@ -9390,10 +9406,10 @@
         language: "mt",
         numberFormat: {
             percent: {
-                pattern: ["-%n","%n"]
+                pattern: ["-%n", "%n"]
             },
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 symbol: "€"
             }
         },
@@ -9401,13 +9417,13 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Il-Ħadd","It-Tnejn","It-Tlieta","L-Erbgħa","Il-Ħamis","Il-Ġimgħa","Is-Sibt"],
-                    namesAbbr: ["Ħad","Tne","Tli","Erb","Ħam","Ġim","Sib"],
-                    namesShort: ["I","I","I","L","I","I","I"]
+                    names: ["Il-Ħadd", "It-Tnejn", "It-Tlieta", "L-Erbgħa", "Il-Ħamis", "Il-Ġimgħa", "Is-Sibt"],
+                    namesAbbr: ["Ħad", "Tne", "Tli", "Erb", "Ħam", "Ġim", "Sib"],
+                    namesShort: ["I", "I", "I", "L", "I", "I", "I"]
                 },
                 months: {
-                    names: ["Jannar","Frar","Marzu","April","Mejju","Ġunju","Lulju","Awissu","Settembru","Ottubru","Novembru","Diċembru",""],
-                    namesAbbr: ["Jan","Fra","Mar","Apr","Mej","Ġun","Lul","Awi","Set","Ott","Nov","Diċ",""]
+                    names: ["Jannar", "Frar", "Marzu", "April", "Mejju", "Ġunju", "Lulju", "Awissu", "Settembru", "Ottubru", "Novembru", "Diċembru", ""],
+                    namesAbbr: ["Jan", "Fra", "Mar", "Apr", "Mej", "Ġun", "Lul", "Awi", "Set", "Ott", "Nov", "Diċ", ""]
                 },
                 patterns: {
                     d: "dd/MM/yyyy",
@@ -9432,12 +9448,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-%n","%n"],
+                pattern: ["-%n", "%n"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': " ",
                 '.': ",",
                 symbol: "kr"
@@ -9448,17 +9464,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["sotnabeaivi","vuossárga","maŋŋebárga","gaskavahkku","duorastat","bearjadat","lávvardat"],
-                    namesAbbr: ["sotn","vuos","maŋ","gask","duor","bear","láv"],
-                    namesShort: ["s","m","d","g","d","b","l"]
+                    names: ["sotnabeaivi", "vuossárga", "maŋŋebárga", "gaskavahkku", "duorastat", "bearjadat", "lávvardat"],
+                    namesAbbr: ["sotn", "vuos", "maŋ", "gask", "duor", "bear", "láv"],
+                    namesShort: ["s", "m", "d", "g", "d", "b", "l"]
                 },
                 months: {
-                    names: ["ođđajagemánnu","guovvamánnu","njukčamánnu","cuoŋománnu","miessemánnu","geassemánnu","suoidnemánnu","borgemánnu","čakčamánnu","golggotmánnu","skábmamánnu","juovlamánnu",""],
-                    namesAbbr: ["ođđj","guov","njuk","cuo","mies","geas","suoi","borg","čakč","golg","skáb","juov",""]
+                    names: ["ođđajagemánnu", "guovvamánnu", "njukčamánnu", "cuoŋománnu", "miessemánnu", "geassemánnu", "suoidnemánnu", "borgemánnu", "čakčamánnu", "golggotmánnu", "skábmamánnu", "juovlamánnu", ""],
+                    namesAbbr: ["ođđj", "guov", "njuk", "cuo", "mies", "geas", "suoi", "borg", "čakč", "golg", "skáb", "juov", ""]
                 },
                 monthsGenitive: {
-                    names: ["ođđajagimánu","guovvamánu","njukčamánu","cuoŋománu","miessemánu","geassemánu","suoidnemánu","borgemánu","čakčamánu","golggotmánu","skábmamánu","juovlamánu",""],
-                    namesAbbr: ["ođđj","guov","njuk","cuo","mies","geas","suoi","borg","čakč","golg","skáb","juov",""]
+                    names: ["ođđajagimánu", "guovvamánu", "njukčamánu", "cuoŋománu", "miessemánu", "geassemánu", "suoidnemánu", "borgemánu", "čakčamánu", "golggotmánu", "skábmamánu", "juovlamánu", ""],
+                    namesAbbr: ["ođđj", "guov", "njuk", "cuo", "mies", "geas", "suoi", "borg", "čakč", "golg", "skáb", "juov", ""]
                 },
                 AM: null,
                 PM: null,
@@ -9491,13 +9507,13 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"],
-                    namesAbbr: ["Ahad","Isnin","Sel","Rabu","Khamis","Jumaat","Sabtu"],
-                    namesShort: ["A","I","S","R","K","J","S"]
+                    names: ["Ahad", "Isnin", "Selasa", "Rabu", "Khamis", "Jumaat", "Sabtu"],
+                    namesAbbr: ["Ahad", "Isnin", "Sel", "Rabu", "Khamis", "Jumaat", "Sabtu"],
+                    namesShort: ["A", "I", "S", "R", "K", "J", "S"]
                 },
                 months: {
-                    names: ["Januari","Februari","Mac","April","Mei","Jun","Julai","Ogos","September","Oktober","November","Disember",""],
-                    namesAbbr: ["Jan","Feb","Mac","Apr","Mei","Jun","Jul","Ogos","Sept","Okt","Nov","Dis",""]
+                    names: ["Januari", "Februari", "Mac", "April", "Mei", "Jun", "Julai", "Ogos", "September", "Oktober", "November", "Disember", ""],
+                    namesAbbr: ["Jan", "Feb", "Mac", "Apr", "Mei", "Jun", "Jul", "Ogos", "Sept", "Okt", "Nov", "Dis", ""]
                 },
                 AM: null,
                 PM: null,
@@ -9524,12 +9540,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 ',': " ",
                 '.': "-",
                 symbol: "Т"
@@ -9540,13 +9556,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Жексенбі","Дүйсенбі","Сейсенбі","Сәрсенбі","Бейсенбі","Жұма","Сенбі"],
-                    namesAbbr: ["Жк","Дс","Сс","Ср","Бс","Жм","Сн"],
-                    namesShort: ["Жк","Дс","Сс","Ср","Бс","Жм","Сн"]
+                    names: ["Жексенбі", "Дүйсенбі", "Сейсенбі", "Сәрсенбі", "Бейсенбі", "Жұма", "Сенбі"],
+                    namesAbbr: ["Жк", "Дс", "Сс", "Ср", "Бс", "Жм", "Сн"],
+                    namesShort: ["Жк", "Дс", "Сс", "Ср", "Бс", "Жм", "Сн"]
                 },
                 months: {
-                    names: ["қаңтар","ақпан","наурыз","сәуір","мамыр","маусым","шілде","тамыз","қыркүйек","қазан","қараша","желтоқсан",""],
-                    namesAbbr: ["Қаң","Ақп","Нау","Сәу","Мам","Мау","Шіл","Там","Қыр","Қаз","Қар","Жел",""]
+                    names: ["қаңтар", "ақпан", "наурыз", "сәуір", "мамыр", "маусым", "шілде", "тамыз", "қыркүйек", "қазан", "қараша", "желтоқсан", ""],
+                    namesAbbr: ["Қаң", "Ақп", "Нау", "Сәу", "Мам", "Мау", "Шіл", "Там", "Қыр", "Қаз", "Қар", "Жел", ""]
                 },
                 AM: null,
                 PM: null,
@@ -9573,12 +9589,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': "-",
                 symbol: "сом"
@@ -9589,13 +9605,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Жекшемби","Дүйшөмбү","Шейшемби","Шаршемби","Бейшемби","Жума","Ишемби"],
-                    namesAbbr: ["Жш","Дш","Шш","Шр","Бш","Жм","Иш"],
-                    namesShort: ["Жш","Дш","Шш","Шр","Бш","Жм","Иш"]
+                    names: ["Жекшемби", "Дүйшөмбү", "Шейшемби", "Шаршемби", "Бейшемби", "Жума", "Ишемби"],
+                    namesAbbr: ["Жш", "Дш", "Шш", "Шр", "Бш", "Жм", "Иш"],
+                    namesShort: ["Жш", "Дш", "Шш", "Шр", "Бш", "Жм", "Иш"]
                 },
                 months: {
-                    names: ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь",""],
-                    namesAbbr: ["Янв","Фев","Мар","Апр","Май","Июн","Июл","Авг","Сен","Окт","Ноя","Дек",""]
+                    names: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь", ""],
+                    namesAbbr: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек", ""]
                 },
                 AM: null,
                 PM: null,
@@ -9626,13 +9642,13 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Jumapili","Jumatatu","Jumanne","Jumatano","Alhamisi","Ijumaa","Jumamosi"],
-                    namesAbbr: ["Jumap.","Jumat.","Juman.","Jumat.","Alh.","Iju.","Jumam."],
-                    namesShort: ["P","T","N","T","A","I","M"]
+                    names: ["Jumapili", "Jumatatu", "Jumanne", "Jumatano", "Alhamisi", "Ijumaa", "Jumamosi"],
+                    namesAbbr: ["Jumap.", "Jumat.", "Juman.", "Jumat.", "Alh.", "Iju.", "Jumam."],
+                    namesShort: ["P", "T", "N", "T", "A", "I", "M"]
                 },
                 months: {
-                    names: ["Januari","Februari","Machi","Aprili","Mei","Juni","Julai","Agosti","Septemba","Oktoba","Novemba","Decemba",""],
-                    namesAbbr: ["Jan","Feb","Mac","Apr","Mei","Jun","Jul","Ago","Sep","Okt","Nov","Dec",""]
+                    names: ["Januari", "Februari", "Machi", "Aprili", "Mei", "Juni", "Julai", "Agosti", "Septemba", "Oktoba", "Novemba", "Decemba", ""],
+                    namesAbbr: ["Jan", "Feb", "Mac", "Apr", "Mei", "Jun", "Jul", "Ago", "Sep", "Okt", "Nov", "Dec", ""]
                 }
             })
         }
@@ -9647,12 +9663,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n$","n$"],
+                pattern: ["-n$", "n$"],
                 ',': " ",
                 '.': ",",
                 symbol: "m."
@@ -9663,13 +9679,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Duşenbe","Sişenbe","Çarşenbe","Penşenbe","Anna","Şenbe","Ýekşenbe"],
-                    namesAbbr: ["Db","Sb","Çb","Pb","An","Şb","Ýb"],
-                    namesShort: ["D","S","Ç","P","A","Ş","Ý"]
+                    names: ["Duşenbe", "Sişenbe", "Çarşenbe", "Penşenbe", "Anna", "Şenbe", "Ýekşenbe"],
+                    namesAbbr: ["Db", "Sb", "Çb", "Pb", "An", "Şb", "Ýb"],
+                    namesShort: ["D", "S", "Ç", "P", "A", "Ş", "Ý"]
                 },
                 months: {
-                    names: ["Ýanwar","Fewral","Mart","Aprel","Maý","lýun","lýul","Awgust","Sentýabr","Oktýabr","Noýabr","Dekabr",""],
-                    namesAbbr: ["Ýan","Few","Mart","Apr","Maý","lýun","lýul","Awg","Sen","Okt","Not","Dek",""]
+                    names: ["Ýanwar", "Fewral", "Mart", "Aprel", "Maý", "lýun", "lýul", "Awgust", "Sentýabr", "Oktýabr", "Noýabr", "Dekabr", ""],
+                    namesAbbr: ["Ýan", "Few", "Mart", "Apr", "Maý", "lýun", "lýul", "Awg", "Sen", "Okt", "Not", "Dek", ""]
                 },
                 AM: null,
                 PM: null,
@@ -9695,12 +9711,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 decimals: 0,
                 ',': " ",
                 '.': ",",
@@ -9711,13 +9727,13 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["yakshanba","dushanba","seshanba","chorshanba","payshanba","juma","shanba"],
-                    namesAbbr: ["yak.","dsh.","sesh.","chr.","psh.","jm.","sh."],
-                    namesShort: ["ya","d","s","ch","p","j","sh"]
+                    names: ["yakshanba", "dushanba", "seshanba", "chorshanba", "payshanba", "juma", "shanba"],
+                    namesAbbr: ["yak.", "dsh.", "sesh.", "chr.", "psh.", "jm.", "sh."],
+                    namesShort: ["ya", "d", "s", "ch", "p", "j", "sh"]
                 },
                 months: {
-                    names: ["yanvar","fevral","mart","aprel","may","iyun","iyul","avgust","sentyabr","oktyabr","noyabr","dekabr",""],
-                    namesAbbr: ["yanvar","fevral","mart","aprel","may","iyun","iyul","avgust","sentyabr","oktyabr","noyabr","dekabr",""]
+                    names: ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentyabr", "oktyabr", "noyabr", "dekabr", ""],
+                    namesAbbr: ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentyabr", "oktyabr", "noyabr", "dekabr", ""]
                 },
                 AM: null,
                 PM: null,
@@ -9744,12 +9760,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "р."
@@ -9760,17 +9776,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Якшәмбе","Дүшәмбе","Сишәмбе","Чәршәмбе","Пәнҗешәмбе","Җомга","Шимбә"],
-                    namesAbbr: ["Якш","Дүш","Сиш","Чәрш","Пәнҗ","Җом","Шим"],
-                    namesShort: ["Я","Д","С","Ч","П","Җ","Ш"]
+                    names: ["Якшәмбе", "Дүшәмбе", "Сишәмбе", "Чәршәмбе", "Пәнҗешәмбе", "Җомга", "Шимбә"],
+                    namesAbbr: ["Якш", "Дүш", "Сиш", "Чәрш", "Пәнҗ", "Җом", "Шим"],
+                    namesShort: ["Я", "Д", "С", "Ч", "П", "Җ", "Ш"]
                 },
                 months: {
-                    names: ["Гыйнвар","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь",""],
-                    namesAbbr: ["Гыйн.","Фев.","Мар.","Апр.","Май","Июнь","Июль","Авг.","Сен.","Окт.","Нояб.","Дек.",""]
+                    names: ["Гыйнвар", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь", ""],
+                    namesAbbr: ["Гыйн.", "Фев.", "Мар.", "Апр.", "Май", "Июнь", "Июль", "Авг.", "Сен.", "Окт.", "Нояб.", "Дек.", ""]
                 },
                 monthsGenitive: {
-                    names: ["Гыйнварның","Февральнең","Мартның","Апрельнең","Майның","Июньнең","Июльнең","Августның","Сентябрьның","Октябрьның","Ноябрьның","Декабрьның",""],
-                    namesAbbr: ["Гыйн.-ның","Фев.-нең","Мар.-ның","Апр.-нең","Майның","Июньнең","Июльнең","Авг.-ның","Сен.-ның","Окт.-ның","Нояб.-ның","Дек.-ның",""]
+                    names: ["Гыйнварның", "Февральнең", "Мартның", "Апрельнең", "Майның", "Июньнең", "Июльнең", "Августның", "Сентябрьның", "Октябрьның", "Ноябрьның", "Декабрьның", ""],
+                    namesAbbr: ["Гыйн.-ның", "Фев.-нең", "Мар.-ның", "Апр.-нең", "Майның", "Июньнең", "Июльнең", "Авг.-ның", "Сен.-ның", "Окт.-ның", "Нояб.-ның", "Дек.-ның", ""]
                 },
                 AM: null,
                 PM: null,
@@ -9794,14 +9810,14 @@
         nativeName: "বাংলা (ভারত)",
         language: "bn",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                pattern: ["-%n","%n"],
-                groupSizes: [3,2]
+                pattern: ["-%n", "%n"],
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "টা"
             }
         },
@@ -9811,16 +9827,16 @@
                 ':': ".",
                 firstDay: 1,
                 days: {
-                    names: ["রবিবার","সোমবার","মঙ্গলবার","বুধবার","বৃহস্পতিবার","শুক্রবার","শনিবার"],
-                    namesAbbr: ["রবি.","সোম.","মঙ্গল.","বুধ.","বৃহস্পতি.","শুক্র.","শনি."],
-                    namesShort: ["র","স","ম","ব","ব","শ","শ"]
+                    names: ["রবিবার", "সোমবার", "মঙ্গলবার", "বুধবার", "বৃহস্পতিবার", "শুক্রবার", "শনিবার"],
+                    namesAbbr: ["রবি.", "সোম.", "মঙ্গল.", "বুধ.", "বৃহস্পতি.", "শুক্র.", "শনি."],
+                    namesShort: ["র", "স", "ম", "ব", "ব", "শ", "শ"]
                 },
                 months: {
-                    names: ["জানুয়ারী","ফেব্রুয়ারী","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগস্ট","সেপ্টেম্বর","অক্টোবর","নভেম্বর","ডিসেম্বর",""],
-                    namesAbbr: ["জানু.","ফেব্রু.","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগ.","সেপ্টে.","অক্টো.","নভে.","ডিসে.",""]
+                    names: ["জানুয়ারী", "ফেব্রুয়ারী", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগস্ট", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর", ""],
+                    namesAbbr: ["জানু.", "ফেব্রু.", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগ.", "সেপ্টে.", "অক্টো.", "নভে.", "ডিসে.", ""]
                 },
-                AM: ["পুর্বাহ্ন","পুর্বাহ্ন","পুর্বাহ্ন"],
-                PM: ["অপরাহ্ন","অপরাহ্ন","অপরাহ্ন"],
+                AM: ["পুর্বাহ্ন", "পুর্বাহ্ন", "পুর্বাহ্ন"],
+                PM: ["অপরাহ্ন", "অপরাহ্ন", "অপরাহ্ন"],
                 patterns: {
                     d: "dd-MM-yy",
                     D: "dd MMMM yyyy",
@@ -9840,13 +9856,13 @@
         nativeName: "ਪੰਜਾਬੀ (ਭਾਰਤ)",
         language: "pa",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "ਰੁ"
             }
         },
@@ -9855,16 +9871,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["ਐਤਵਾਰ","ਸੋਮਵਾਰ","ਮੰਗਲਵਾਰ","ਬੁੱਧਵਾਰ","ਵੀਰਵਾਰ","ਸ਼ੁੱਕਰਵਾਰ","ਸ਼ਨਿੱਚਰਵਾਰ"],
-                    namesAbbr: ["ਐਤ.","ਸੋਮ.","ਮੰਗਲ.","ਬੁੱਧ.","ਵੀਰ.","ਸ਼ੁਕਰ.","ਸ਼ਨਿੱਚਰ."],
-                    namesShort: ["ਐ","ਸ","ਮ","ਬ","ਵ","ਸ਼","ਸ਼"]
+                    names: ["ਐਤਵਾਰ", "ਸੋਮਵਾਰ", "ਮੰਗਲਵਾਰ", "ਬੁੱਧਵਾਰ", "ਵੀਰਵਾਰ", "ਸ਼ੁੱਕਰਵਾਰ", "ਸ਼ਨਿੱਚਰਵਾਰ"],
+                    namesAbbr: ["ਐਤ.", "ਸੋਮ.", "ਮੰਗਲ.", "ਬੁੱਧ.", "ਵੀਰ.", "ਸ਼ੁਕਰ.", "ਸ਼ਨਿੱਚਰ."],
+                    namesShort: ["ਐ", "ਸ", "ਮ", "ਬ", "ਵ", "ਸ਼", "ਸ਼"]
                 },
                 months: {
-                    names: ["ਜਨਵਰੀ","ਫ਼ਰਵਰੀ","ਮਾਰਚ","ਅਪ੍ਰੈਲ","ਮਈ","ਜੂਨ","ਜੁਲਾਈ","ਅਗਸਤ","ਸਤੰਬਰ","ਅਕਤੂਬਰ","ਨਵੰਬਰ","ਦਸੰਬਰ",""],
-                    namesAbbr: ["ਜਨਵਰੀ","ਫ਼ਰਵਰੀ","ਮਾਰਚ","ਅਪ੍ਰੈਲ","ਮਈ","ਜੂਨ","ਜੁਲਾਈ","ਅਗਸਤ","ਸਤੰਬਰ","ਅਕਤੂਬਰ","ਨਵੰਬਰ","ਦਸੰਬਰ",""]
+                    names: ["ਜਨਵਰੀ", "ਫ਼ਰਵਰੀ", "ਮਾਰਚ", "ਅਪ੍ਰੈਲ", "ਮਈ", "ਜੂਨ", "ਜੁਲਾਈ", "ਅਗਸਤ", "ਸਤੰਬਰ", "ਅਕਤੂਬਰ", "ਨਵੰਬਰ", "ਦਸੰਬਰ", ""],
+                    namesAbbr: ["ਜਨਵਰੀ", "ਫ਼ਰਵਰੀ", "ਮਾਰਚ", "ਅਪ੍ਰੈਲ", "ਮਈ", "ਜੂਨ", "ਜੁਲਾਈ", "ਅਗਸਤ", "ਸਤੰਬਰ", "ਅਕਤੂਬਰ", "ਨਵੰਬਰ", "ਦਸੰਬਰ", ""]
                 },
-                AM: ["ਸਵੇਰ","ਸਵੇਰ","ਸਵੇਰ"],
-                PM: ["ਸ਼ਾਮ","ਸ਼ਾਮ","ਸ਼ਾਮ"],
+                AM: ["ਸਵੇਰ", "ਸਵੇਰ", "ਸਵੇਰ"],
+                PM: ["ਸ਼ਾਮ", "ਸ਼ਾਮ", "ਸ਼ਾਮ"],
                 patterns: {
                     d: "dd-MM-yy",
                     D: "dd MMMM yyyy dddd",
@@ -9884,13 +9900,13 @@
         nativeName: "ગુજરાતી (ભારત)",
         language: "gu",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "રૂ"
             }
         },
@@ -9899,16 +9915,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["રવિવાર","સોમવાર","મંગળવાર","બુધવાર","ગુરુવાર","શુક્રવાર","શનિવાર"],
-                    namesAbbr: ["રવિ","સોમ","મંગળ","બુધ","ગુરુ","શુક્ર","શનિ"],
-                    namesShort: ["ર","સ","મ","બ","ગ","શ","શ"]
+                    names: ["રવિવાર", "સોમવાર", "મંગળવાર", "બુધવાર", "ગુરુવાર", "શુક્રવાર", "શનિવાર"],
+                    namesAbbr: ["રવિ", "સોમ", "મંગળ", "બુધ", "ગુરુ", "શુક્ર", "શનિ"],
+                    namesShort: ["ર", "સ", "મ", "બ", "ગ", "શ", "શ"]
                 },
                 months: {
-                    names: ["જાન્યુઆરી","ફેબ્રુઆરી","માર્ચ","એપ્રિલ","મે","જૂન","જુલાઈ","ઑગસ્ટ","સપ્ટેમ્બર","ઑક્ટ્બર","નવેમ્બર","ડિસેમ્બર",""],
-                    namesAbbr: ["જાન્યુ","ફેબ્રુ","માર્ચ","એપ્રિલ","મે","જૂન","જુલાઈ","ઑગસ્ટ","સપ્ટે","ઑક્ટો","નવે","ડિસે",""]
+                    names: ["જાન્યુઆરી", "ફેબ્રુઆરી", "માર્ચ", "એપ્રિલ", "મે", "જૂન", "જુલાઈ", "ઑગસ્ટ", "સપ્ટેમ્બર", "ઑક્ટ્બર", "નવેમ્બર", "ડિસેમ્બર", ""],
+                    namesAbbr: ["જાન્યુ", "ફેબ્રુ", "માર્ચ", "એપ્રિલ", "મે", "જૂન", "જુલાઈ", "ઑગસ્ટ", "સપ્ટે", "ઑક્ટો", "નવે", "ડિસે", ""]
                 },
-                AM: ["પૂર્વ મધ્યાહ્ન","પૂર્વ મધ્યાહ્ન","પૂર્વ મધ્યાહ્ન"],
-                PM: ["ઉત્તર મધ્યાહ્ન","ઉત્તર મધ્યાહ્ન","ઉત્તર મધ્યાહ્ન"],
+                AM: ["પૂર્વ મધ્યાહ્ન", "પૂર્વ મધ્યાહ્ન", "પૂર્વ મધ્યાહ્ન"],
+                PM: ["ઉત્તર મધ્યાહ્ન", "ઉત્તર મધ્યાહ્ન", "ઉત્તર મધ્યાહ્ન"],
                 patterns: {
                     d: "dd-MM-yy",
                     D: "dd MMMM yyyy",
@@ -9928,13 +9944,13 @@
         nativeName: "ଓଡ଼ିଆ (ଭାରତ)",
         language: "or",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "ଟ"
             }
         },
@@ -9942,15 +9958,15 @@
             standard: $.extend(true, {}, standard, {
                 '/': "-",
                 days: {
-                    names: ["ରବିବାର","ସୋମବାର","ମଙ୍ଗଳବାର","ବୁଧବାର","ଗୁରୁବାର","ଶୁକ୍ରବାର","ଶନିବାର"],
-                    namesAbbr: ["ରବି.","ସୋମ.","ମଙ୍ଗଳ.","ବୁଧ.","ଗୁରୁ.","ଶୁକ୍ର.","ଶନି."],
-                    namesShort: ["ର","ସୋ","ମ","ବୁ","ଗୁ","ଶୁ","ଶ"]
+                    names: ["ରବିବାର", "ସୋମବାର", "ମଙ୍ଗଳବାର", "ବୁଧବାର", "ଗୁରୁବାର", "ଶୁକ୍ରବାର", "ଶନିବାର"],
+                    namesAbbr: ["ରବି.", "ସୋମ.", "ମଙ୍ଗଳ.", "ବୁଧ.", "ଗୁରୁ.", "ଶୁକ୍ର.", "ଶନି."],
+                    namesShort: ["ର", "ସୋ", "ମ", "ବୁ", "ଗୁ", "ଶୁ", "ଶ"]
                 },
                 months: {
-                    names: ["ଜାନୁୟାରୀ","ଫ୍ରେବୃୟାରୀ","ମାର୍ଚ୍ଚ","ଏପ୍ରିଲ୍‌","ମେ","ଜୁନ୍‌","ଜୁଲାଇ","ଅଗଷ୍ଟ","ସେପ୍ଟେମ୍ବର","ଅକ୍ଟୋବର","ନଭେମ୍ବର","(ଡିସେମ୍ବର",""],
-                    namesAbbr: ["ଜାନୁୟାରୀ","ଫ୍ରେବୃୟାରୀ","ମାର୍ଚ୍ଚ","ଏପ୍ରିଲ୍‌","ମେ","ଜୁନ୍‌","ଜୁଲାଇ","ଅଗଷ୍ଟ","ସେପ୍ଟେମ୍ବର","ଅକ୍ଟୋବର","ନଭେମ୍ବର","(ଡିସେମ୍ବର",""]
+                    names: ["ଜାନୁୟାରୀ", "ଫ୍ରେବୃୟାରୀ", "ମାର୍ଚ୍ଚ", "ଏପ୍ରିଲ୍‌", "ମେ", "ଜୁନ୍‌", "ଜୁଲାଇ", "ଅଗଷ୍ଟ", "ସେପ୍ଟେମ୍ବର", "ଅକ୍ଟୋବର", "ନଭେମ୍ବର", "(ଡିସେମ୍ବର", ""],
+                    namesAbbr: ["ଜାନୁୟାରୀ", "ଫ୍ରେବୃୟାରୀ", "ମାର୍ଚ୍ଚ", "ଏପ୍ରିଲ୍‌", "ମେ", "ଜୁନ୍‌", "ଜୁଲାଇ", "ଅଗଷ୍ଟ", "ସେପ୍ଟେମ୍ବର", "ଅକ୍ଟୋବର", "ନଭେମ୍ବର", "(ଡିସେମ୍ବର", ""]
                 },
-                eras: [{"name":"ଖ୍ରୀଷ୍ଟାବ୍ଦ","start":null,"offset":0}],
+                eras: [{"name": "ଖ୍ରୀଷ୍ଟାବ୍ଦ", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd-MM-yy",
                     D: "dd MMMM yyyy",
@@ -9970,13 +9986,13 @@
         nativeName: "தமிழ் (இந்தியா)",
         language: "ta",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "ரூ"
             }
         },
@@ -9985,16 +10001,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["ஞாயிற்றுக்கிழமை","திங்கள்கிழமை","செவ்வாய்கிழமை","புதன்கிழமை","வியாழக்கிழமை","வெள்ளிக்கிழமை","சனிக்கிழமை"],
-                    namesAbbr: ["ஞாயிறு","திங்கள்","செவ்வாய்","புதன்","வியாழன்","வெள்ளி","சனி"],
-                    namesShort: ["ஞா","தி","செ","பு","வி","வெ","ச"]
+                    names: ["ஞாயிற்றுக்கிழமை", "திங்கள்கிழமை", "செவ்வாய்கிழமை", "புதன்கிழமை", "வியாழக்கிழமை", "வெள்ளிக்கிழமை", "சனிக்கிழமை"],
+                    namesAbbr: ["ஞாயிறு", "திங்கள்", "செவ்வாய்", "புதன்", "வியாழன்", "வெள்ளி", "சனி"],
+                    namesShort: ["ஞா", "தி", "செ", "பு", "வி", "வெ", "ச"]
                 },
                 months: {
-                    names: ["ஜனவரி","பிப்ரவரி","மார்ச்","ஏப்ரல்","மே","ஜூன்","ஜூலை","ஆகஸ்ட்","செப்டம்பர்","அக்டோபர்","நவம்பர்","டிசம்பர்",""],
-                    namesAbbr: ["ஜனவரி","பிப்ரவரி","மார்ச்","ஏப்ரல்","மே","ஜூன்","ஜூலை","ஆகஸ்ட்","செப்டம்பர்","அக்டோபர்","நவம்பர்","டிசம்பர்",""]
+                    names: ["ஜனவரி", "பிப்ரவரி", "மார்ச்", "ஏப்ரல்", "மே", "ஜூன்", "ஜூலை", "ஆகஸ்ட்", "செப்டம்பர்", "அக்டோபர்", "நவம்பர்", "டிசம்பர்", ""],
+                    namesAbbr: ["ஜனவரி", "பிப்ரவரி", "மார்ச்", "ஏப்ரல்", "மே", "ஜூன்", "ஜூலை", "ஆகஸ்ட்", "செப்டம்பர்", "அக்டோபர்", "நவம்பர்", "டிசம்பர்", ""]
                 },
-                AM: ["காலை","காலை","காலை"],
-                PM: ["மாலை","மாலை","மாலை"],
+                AM: ["காலை", "காலை", "காலை"],
+                PM: ["மாலை", "மாலை", "மாலை"],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "dd MMMM yyyy",
@@ -10015,13 +10031,13 @@
         nativeName: "తెలుగు (భారత దేశం)",
         language: "te",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "రూ"
             }
         },
@@ -10030,16 +10046,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["ఆదివారం","సోమవారం","మంగళవారం","బుధవారం","గురువారం","శుక్రవారం","శనివారం"],
-                    namesAbbr: ["ఆది.","సోమ.","మంగళ.","బుధ.","గురు.","శుక్ర.","శని."],
-                    namesShort: ["ఆ","సో","మం","బు","గు","శు","శ"]
+                    names: ["ఆదివారం", "సోమవారం", "మంగళవారం", "బుధవారం", "గురువారం", "శుక్రవారం", "శనివారం"],
+                    namesAbbr: ["ఆది.", "సోమ.", "మంగళ.", "బుధ.", "గురు.", "శుక్ర.", "శని."],
+                    namesShort: ["ఆ", "సో", "మం", "బు", "గు", "శు", "శ"]
                 },
                 months: {
-                    names: ["జనవరి","ఫిబ్రవరి","మార్చి","ఏప్రిల్","మే","జూన్","జూలై","ఆగస్టు","సెప్టెంబర్","అక్టోబర్","నవంబర్","డిసెంబర్",""],
-                    namesAbbr: ["జనవరి","ఫిబ్రవరి","మార్చి","ఏప్రిల్","మే","జూన్","జూలై","ఆగస్టు","సెప్టెంబర్","అక్టోబర్","నవంబర్","డిసెంబర్",""]
+                    names: ["జనవరి", "ఫిబ్రవరి", "మార్చి", "ఏప్రిల్", "మే", "జూన్", "జూలై", "ఆగస్టు", "సెప్టెంబర్", "అక్టోబర్", "నవంబర్", "డిసెంబర్", ""],
+                    namesAbbr: ["జనవరి", "ఫిబ్రవరి", "మార్చి", "ఏప్రిల్", "మే", "జూన్", "జూలై", "ఆగస్టు", "సెప్టెంబర్", "అక్టోబర్", "నవంబర్", "డిసెంబర్", ""]
                 },
-                AM: ["పూర్వాహ్న","పూర్వాహ్న","పూర్వాహ్న"],
-                PM: ["అపరాహ్న","అపరాహ్న","అపరాహ్న"],
+                AM: ["పూర్వాహ్న", "పూర్వాహ్న", "పూర్వాహ్న"],
+                PM: ["అపరాహ్న", "అపరాహ్న", "అపరాహ్న"],
                 patterns: {
                     d: "dd-MM-yy",
                     D: "dd MMMM yyyy",
@@ -10059,13 +10075,13 @@
         nativeName: "ಕನ್ನಡ (ಭಾರತ)",
         language: "kn",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "ರೂ"
             }
         },
@@ -10074,16 +10090,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["ಭಾನುವಾರ","ಸೋಮವಾರ","ಮಂಗಳವಾರ","ಬುಧವಾರ","ಗುರುವಾರ","ಶುಕ್ರವಾರ","ಶನಿವಾರ"],
-                    namesAbbr: ["ಭಾನು.","ಸೋಮ.","ಮಂಗಳ.","ಬುಧ.","ಗುರು.","ಶುಕ್ರ.","ಶನಿ."],
-                    namesShort: ["ರ","ಸ","ಮ","ಬ","ಗ","ಶ","ಶ"]
+                    names: ["ಭಾನುವಾರ", "ಸೋಮವಾರ", "ಮಂಗಳವಾರ", "ಬುಧವಾರ", "ಗುರುವಾರ", "ಶುಕ್ರವಾರ", "ಶನಿವಾರ"],
+                    namesAbbr: ["ಭಾನು.", "ಸೋಮ.", "ಮಂಗಳ.", "ಬುಧ.", "ಗುರು.", "ಶುಕ್ರ.", "ಶನಿ."],
+                    namesShort: ["ರ", "ಸ", "ಮ", "ಬ", "ಗ", "ಶ", "ಶ"]
                 },
                 months: {
-                    names: ["ಜನವರಿ","ಫೆಬ್ರವರಿ","ಮಾರ್ಚ್","ಎಪ್ರಿಲ್","ಮೇ","ಜೂನ್","ಜುಲೈ","ಆಗಸ್ಟ್","ಸೆಪ್ಟಂಬರ್","ಅಕ್ಟೋಬರ್","ನವೆಂಬರ್","ಡಿಸೆಂಬರ್",""],
-                    namesAbbr: ["ಜನವರಿ","ಫೆಬ್ರವರಿ","ಮಾರ್ಚ್","ಎಪ್ರಿಲ್","ಮೇ","ಜೂನ್","ಜುಲೈ","ಆಗಸ್ಟ್","ಸೆಪ್ಟಂಬರ್","ಅಕ್ಟೋಬರ್","ನವೆಂಬರ್","ಡಿಸೆಂಬರ್",""]
+                    names: ["ಜನವರಿ", "ಫೆಬ್ರವರಿ", "ಮಾರ್ಚ್", "ಎಪ್ರಿಲ್", "ಮೇ", "ಜೂನ್", "ಜುಲೈ", "ಆಗಸ್ಟ್", "ಸೆಪ್ಟಂಬರ್", "ಅಕ್ಟೋಬರ್", "ನವೆಂಬರ್", "ಡಿಸೆಂಬರ್", ""],
+                    namesAbbr: ["ಜನವರಿ", "ಫೆಬ್ರವರಿ", "ಮಾರ್ಚ್", "ಎಪ್ರಿಲ್", "ಮೇ", "ಜೂನ್", "ಜುಲೈ", "ಆಗಸ್ಟ್", "ಸೆಪ್ಟಂಬರ್", "ಅಕ್ಟೋಬರ್", "ನವೆಂಬರ್", "ಡಿಸೆಂಬರ್", ""]
                 },
-                AM: ["ಪೂರ್ವಾಹ್ನ","ಪೂರ್ವಾಹ್ನ","ಪೂರ್ವಾಹ್ನ"],
-                PM: ["ಅಪರಾಹ್ನ","ಅಪರಾಹ್ನ","ಅಪರಾಹ್ನ"],
+                AM: ["ಪೂರ್ವಾಹ್ನ", "ಪೂರ್ವಾಹ್ನ", "ಪೂರ್ವಾಹ್ನ"],
+                PM: ["ಅಪರಾಹ್ನ", "ಅಪರಾಹ್ನ", "ಅಪರಾಹ್ನ"],
                 patterns: {
                     d: "dd-MM-yy",
                     D: "dd MMMM yyyy",
@@ -10103,14 +10119,14 @@
         nativeName: "മലയാളം (ഭാരതം)",
         language: "ml",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                pattern: ["-%n","%n"],
-                groupSizes: [3,2]
+                pattern: ["-%n", "%n"],
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "ക"
             }
         },
@@ -10120,13 +10136,13 @@
                 ':': ".",
                 firstDay: 1,
                 days: {
-                    names: ["ഞായറാഴ്ച","തിങ്കളാഴ്ച","ചൊവ്വാഴ്ച","ബുധനാഴ്ച","വ്യാഴാഴ്ച","വെള്ളിയാഴ്ച","ശനിയാഴ്ച"],
-                    namesAbbr: ["ഞായർ.","തിങ്കൾ.","ചൊവ്വ.","ബുധൻ.","വ്യാഴം.","വെള്ളി.","ശനി."],
-                    namesShort: ["ഞ","ത","ച","ബ","വ","വെ","ശ"]
+                    names: ["ഞായറാഴ്ച", "തിങ്കളാഴ്ച", "ചൊവ്വാഴ്ച", "ബുധനാഴ്ച", "വ്യാഴാഴ്ച", "വെള്ളിയാഴ്ച", "ശനിയാഴ്ച"],
+                    namesAbbr: ["ഞായർ.", "തിങ്കൾ.", "ചൊവ്വ.", "ബുധൻ.", "വ്യാഴം.", "വെള്ളി.", "ശനി."],
+                    namesShort: ["ഞ", "ത", "ച", "ബ", "വ", "വെ", "ശ"]
                 },
                 months: {
-                    names: ["ജനുവരി","ഫെബ്റുവരി","മാറ്ച്ച്","ഏപ്റില്","മെയ്","ജൂണ്","ജൂലൈ","ഓഗസ്ററ്","സെപ്ററംബറ്","ഒക്ടോബറ്","നവംബറ്","ഡിസംബറ്",""],
-                    namesAbbr: ["ജനുവരി","ഫെബ്റുവരി","മാറ്ച്ച്","ഏപ്റില്","മെയ്","ജൂണ്","ജൂലൈ","ഓഗസ്ററ്","സെപ്ററംബറ്","ഒക്ടോബറ്","നവംബറ്","ഡിസംബറ്",""]
+                    names: ["ജനുവരി", "ഫെബ്റുവരി", "മാറ്ച്ച്", "ഏപ്റില്", "മെയ്", "ജൂണ്", "ജൂലൈ", "ഓഗസ്ററ്", "സെപ്ററംബറ്", "ഒക്ടോബറ്", "നവംബറ്", "ഡിസംബറ്", ""],
+                    namesAbbr: ["ജനുവരി", "ഫെബ്റുവരി", "മാറ്ച്ച്", "ഏപ്റില്", "മെയ്", "ജൂണ്", "ജൂലൈ", "ഓഗസ്ററ്", "സെപ്ററംബറ്", "ഒക്ടോബറ്", "നവംബറ്", "ഡിസംബറ്", ""]
                 },
                 patterns: {
                     d: "dd-MM-yy",
@@ -10147,14 +10163,14 @@
         nativeName: "অসমীয়া (ভাৰত)",
         language: "as",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,2]
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","n$"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "n$"],
+                groupSizes: [3, 2],
                 symbol: "ট"
             }
         },
@@ -10163,17 +10179,17 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["সোমবাৰ","মঙ্গলবাৰ","বুধবাৰ","বৃহস্পতিবাৰ","শুক্রবাৰ","শনিবাৰ","ৰবিবাৰ"],
-                    namesAbbr: ["সোম.","মঙ্গল.","বুধ.","বৃহ.","শুক্র.","শনি.","ৰবি."],
-                    namesShort: ["সো","ম","বু","বৃ","শু","শ","র"]
+                    names: ["সোমবাৰ", "মঙ্গলবাৰ", "বুধবাৰ", "বৃহস্পতিবাৰ", "শুক্রবাৰ", "শনিবাৰ", "ৰবিবাৰ"],
+                    namesAbbr: ["সোম.", "মঙ্গল.", "বুধ.", "বৃহ.", "শুক্র.", "শনি.", "ৰবি."],
+                    namesShort: ["সো", "ম", "বু", "বৃ", "শু", "শ", "র"]
                 },
                 months: {
-                    names: ["জানুৱাৰী","ফেব্রুৱাৰী","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগষ্ট","চেপ্টেম্বর","অক্টোবর","নবেম্বর","ডিচেম্বর",""],
-                    namesAbbr: ["জানু","ফেব্রু","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগষ্ট","চেপ্টে","অক্টো","নবে","ডিচে",""]
+                    names: ["জানুৱাৰী", "ফেব্রুৱাৰী", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগষ্ট", "চেপ্টেম্বর", "অক্টোবর", "নবেম্বর", "ডিচেম্বর", ""],
+                    namesAbbr: ["জানু", "ফেব্রু", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগষ্ট", "চেপ্টে", "অক্টো", "নবে", "ডিচে", ""]
                 },
-                AM: ["ৰাতিপু","ৰাতিপু","ৰাতিপু"],
-                PM: ["আবেলি","আবেলি","আবেলি"],
-                eras: [{"name":"খ্রীষ্টাব্দ","start":null,"offset":0}],
+                AM: ["ৰাতিপু", "ৰাতিপু", "ৰাতিপু"],
+                PM: ["আবেলি", "আবেলি", "আবেলি"],
+                eras: [{"name": "খ্রীষ্টাব্দ", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "yyyy,MMMM dd, dddd",
@@ -10194,13 +10210,13 @@
         nativeName: "मराठी (भारत)",
         language: "mr",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "रु"
             }
         },
@@ -10209,16 +10225,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["रविवार","सोमवार","मंगळवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"],
-                    namesAbbr: ["रवि.","सोम.","मंगळ.","बुध.","गुरु.","शुक्र.","शनि."],
-                    namesShort: ["र","स","म","ब","ग","श","श"]
+                    names: ["रविवार", "सोमवार", "मंगळवार", "बुधवार", "गुरुवार", "शुक्रवार", "शनिवार"],
+                    namesAbbr: ["रवि.", "सोम.", "मंगळ.", "बुध.", "गुरु.", "शुक्र.", "शनि."],
+                    namesShort: ["र", "स", "म", "ब", "ग", "श", "श"]
                 },
                 months: {
-                    names: ["जानेवारी","फेब्रुवारी","मार्च","एप्रिल","मे","जून","जुलै","ऑगस्ट","सप्टेंबर","ऑक्टोबर","नोव्हेंबर","डिसेंबर",""],
-                    namesAbbr: ["जाने.","फेब्रु.","मार्च","एप्रिल","मे","जून","जुलै","ऑगस्ट","सप्टें.","ऑक्टो.","नोव्हें.","डिसें.",""]
+                    names: ["जानेवारी", "फेब्रुवारी", "मार्च", "एप्रिल", "मे", "जून", "जुलै", "ऑगस्ट", "सप्टेंबर", "ऑक्टोबर", "नोव्हेंबर", "डिसेंबर", ""],
+                    namesAbbr: ["जाने.", "फेब्रु.", "मार्च", "एप्रिल", "मे", "जून", "जुलै", "ऑगस्ट", "सप्टें.", "ऑक्टो.", "नोव्हें.", "डिसें.", ""]
                 },
-                AM: ["म.पू.","म.पू.","म.पू."],
-                PM: ["म.नं.","म.नं.","म.नं."],
+                AM: ["म.पू.", "म.पू.", "म.पू."],
+                PM: ["म.नं.", "म.नं.", "म.नं."],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "dd MMMM yyyy",
@@ -10238,13 +10254,13 @@
         nativeName: "संस्कृत (भारतम्)",
         language: "sa",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "रु"
             }
         },
@@ -10252,16 +10268,16 @@
             standard: $.extend(true, {}, standard, {
                 '/': "-",
                 days: {
-                    names: ["रविवासरः","सोमवासरः","मङ्गलवासरः","बुधवासरः","गुरुवासरः","शुक्रवासरः","शनिवासरः"],
-                    namesAbbr: ["रविवासरः","सोमवासरः","मङ्गलवासरः","बुधवासरः","गुरुवासरः","शुक्रवासरः","शनिवासरः"],
-                    namesShort: ["र","स","म","ब","ग","श","श"]
+                    names: ["रविवासरः", "सोमवासरः", "मङ्गलवासरः", "बुधवासरः", "गुरुवासरः", "शुक्रवासरः", "शनिवासरः"],
+                    namesAbbr: ["रविवासरः", "सोमवासरः", "मङ्गलवासरः", "बुधवासरः", "गुरुवासरः", "शुक्रवासरः", "शनिवासरः"],
+                    namesShort: ["र", "स", "म", "ब", "ग", "श", "श"]
                 },
                 months: {
-                    names: ["जनवरी","फरवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितम्बर","अक्तूबर","नवम्बर","दिसम्बर",""],
-                    namesAbbr: ["जनवरी","फरवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितम्बर","अक्तूबर","नवम्बर","दिसम्बर",""]
+                    names: ["जनवरी", "फरवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितम्बर", "अक्तूबर", "नवम्बर", "दिसम्बर", ""],
+                    namesAbbr: ["जनवरी", "फरवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितम्बर", "अक्तूबर", "नवम्बर", "दिसम्बर", ""]
                 },
-                AM: ["पूर्वाह्न","पूर्वाह्न","पूर्वाह्न"],
-                PM: ["अपराह्न","अपराह्न","अपराह्न"],
+                AM: ["पूर्वाह्न", "पूर्वाह्न", "पूर्वाह्न"],
+                PM: ["अपराह्न", "अपराह्न", "अपराह्न"],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "dd MMMM yyyy dddd",
@@ -10288,7 +10304,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n$","n$"],
+                pattern: ["-n$", "n$"],
                 ',': " ",
                 '.': ",",
                 symbol: "₮"
@@ -10299,17 +10315,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Ням","Даваа","Мягмар","Лхагва","Пүрэв","Баасан","Бямба"],
-                    namesAbbr: ["Ня","Да","Мя","Лх","Пү","Ба","Бя"],
-                    namesShort: ["Ня","Да","Мя","Лх","Пү","Ба","Бя"]
+                    names: ["Ням", "Даваа", "Мягмар", "Лхагва", "Пүрэв", "Баасан", "Бямба"],
+                    namesAbbr: ["Ня", "Да", "Мя", "Лх", "Пү", "Ба", "Бя"],
+                    namesShort: ["Ня", "Да", "Мя", "Лх", "Пү", "Ба", "Бя"]
                 },
                 months: {
-                    names: ["1 дүгээр сар","2 дугаар сар","3 дугаар сар","4 дүгээр сар","5 дугаар сар","6 дугаар сар","7 дугаар сар","8 дугаар сар","9 дүгээр сар","10 дугаар сар","11 дүгээр сар","12 дугаар сар",""],
-                    namesAbbr: ["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII",""]
+                    names: ["1 дүгээр сар", "2 дугаар сар", "3 дугаар сар", "4 дүгээр сар", "5 дугаар сар", "6 дугаар сар", "7 дугаар сар", "8 дугаар сар", "9 дүгээр сар", "10 дугаар сар", "11 дүгээр сар", "12 дугаар сар", ""],
+                    namesAbbr: ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", ""]
                 },
                 monthsGenitive: {
-                    names: ["1 дүгээр сарын","2 дугаар сарын","3 дугаар сарын","4 дүгээр сарын","5 дугаар сарын","6 дугаар сарын","7 дугаар сарын","8 дугаар сарын","9 дүгээр сарын","10 дугаар сарын","11 дүгээр сарын","12 дугаар сарын",""],
-                    namesAbbr: ["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII",""]
+                    names: ["1 дүгээр сарын", "2 дугаар сарын", "3 дугаар сарын", "4 дүгээр сарын", "5 дугаар сарын", "6 дугаар сарын", "7 дугаар сарын", "8 дугаар сарын", "9 дүгээр сарын", "10 дугаар сарын", "11 дүгээр сарын", "12 дугаар сарын", ""],
+                    namesAbbr: ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", ""]
                 },
                 AM: null,
                 PM: null,
@@ -10333,14 +10349,14 @@
         nativeName: "བོད་ཡིག (ཀྲུང་ཧྭ་མི་དམངས་སྤྱི་མཐུན་རྒྱལ་ཁབ།)",
         language: "bo",
         numberFormat: {
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,0]
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 0]
             },
             currency: {
-                pattern: ["$-n","$n"],
-                groupSizes: [3,0],
+                pattern: ["$-n", "$n"],
+                groupSizes: [3, 0],
                 symbol: "¥"
             }
         },
@@ -10348,17 +10364,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["གཟའ་ཉི་མ།","གཟའ་ཟླ་བ།","གཟའ་མིག་དམར།","གཟའ་ལྷག་པ།","གཟའ་ཕུར་བུ།","གཟའ་པ་སངས།","གཟའ་སྤེན་པ།"],
-                    namesAbbr: ["ཉི་མ།","ཟླ་བ།","མིག་དམར།","ལྷག་པ།","ཕུར་བུ།","པ་སངས།","སྤེན་པ།"],
-                    namesShort: ["༧","༡","༢","༣","༤","༥","༦"]
+                    names: ["གཟའ་ཉི་མ།", "གཟའ་ཟླ་བ།", "གཟའ་མིག་དམར།", "གཟའ་ལྷག་པ།", "གཟའ་ཕུར་བུ།", "གཟའ་པ་སངས།", "གཟའ་སྤེན་པ།"],
+                    namesAbbr: ["ཉི་མ།", "ཟླ་བ།", "མིག་དམར།", "ལྷག་པ།", "ཕུར་བུ།", "པ་སངས།", "སྤེན་པ།"],
+                    namesShort: ["༧", "༡", "༢", "༣", "༤", "༥", "༦"]
                 },
                 months: {
-                    names: ["སྤྱི་ཟླ་དང་པོ།","སྤྱི་ཟླ་གཉིས་པ།","སྤྱི་ཟླ་གསུམ་པ།","སྤྱི་ཟླ་བཞི་པ།","སྤྱི་ཟླ་ལྔ་པ།","སྤྱི་ཟླ་དྲུག་པ།","སྤྱི་ཟླ་བདུན་པ།","སྤྱི་ཟླ་བརྒྱད་པ།","སྤྱི་ཟླ་དགུ་པ།","སྤྱི་ཟླ་བཅུ་པོ།","སྤྱི་ཟླ་བཅུ་གཅིག་པ།","སྤྱི་ཟླ་བཅུ་གཉིས་པ།",""],
-                    namesAbbr: ["ཟླ་ ༡","ཟླ་ ༢","ཟླ་ ༣","ཟླ་ ༤","ཟླ་ ༥","ཟླ་ ༦","ཟླ་ ༧","ཟླ་ ༨","ཟླ་ ༩","ཟླ་ ༡༠","ཟླ་ ༡༡","ཟླ་ ༡༢",""]
+                    names: ["སྤྱི་ཟླ་དང་པོ།", "སྤྱི་ཟླ་གཉིས་པ།", "སྤྱི་ཟླ་གསུམ་པ།", "སྤྱི་ཟླ་བཞི་པ།", "སྤྱི་ཟླ་ལྔ་པ།", "སྤྱི་ཟླ་དྲུག་པ།", "སྤྱི་ཟླ་བདུན་པ།", "སྤྱི་ཟླ་བརྒྱད་པ།", "སྤྱི་ཟླ་དགུ་པ།", "སྤྱི་ཟླ་བཅུ་པོ།", "སྤྱི་ཟླ་བཅུ་གཅིག་པ།", "སྤྱི་ཟླ་བཅུ་གཉིས་པ།", ""],
+                    namesAbbr: ["ཟླ་ ༡", "ཟླ་ ༢", "ཟླ་ ༣", "ཟླ་ ༤", "ཟླ་ ༥", "ཟླ་ ༦", "ཟླ་ ༧", "ཟླ་ ༨", "ཟླ་ ༩", "ཟླ་ ༡༠", "ཟླ་ ༡༡", "ཟླ་ ༡༢", ""]
                 },
-                AM: ["སྔ་དྲོ","སྔ་དྲོ","སྔ་དྲོ"],
-                PM: ["ཕྱི་དྲོ","ཕྱི་དྲོ","ཕྱི་དྲོ"],
-                eras: [{"name":"སྤྱི་ལོ","start":null,"offset":0}],
+                AM: ["སྔ་དྲོ", "སྔ་དྲོ", "སྔ་དྲོ"],
+                PM: ["ཕྱི་དྲོ", "ཕྱི་དྲོ", "ཕྱི་དྲོ"],
+                eras: [{"name": "སྤྱི་ལོ", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/M/d",
                     D: "yyyy'ལོའི་ཟླ' M'ཚེས' d",
@@ -10380,10 +10396,10 @@
         language: "cy",
         numberFormat: {
             percent: {
-                pattern: ["-%n","%n"]
+                pattern: ["-%n", "%n"]
             },
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 symbol: "£"
             }
         },
@@ -10391,16 +10407,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Dydd Sul","Dydd Llun","Dydd Mawrth","Dydd Mercher","Dydd Iau","Dydd Gwener","Dydd Sadwrn"],
-                    namesAbbr: ["Sul","Llun","Maw","Mer","Iau","Gwe","Sad"],
-                    namesShort: ["Su","Ll","Ma","Me","Ia","Gw","Sa"]
+                    names: ["Dydd Sul", "Dydd Llun", "Dydd Mawrth", "Dydd Mercher", "Dydd Iau", "Dydd Gwener", "Dydd Sadwrn"],
+                    namesAbbr: ["Sul", "Llun", "Maw", "Mer", "Iau", "Gwe", "Sad"],
+                    namesShort: ["Su", "Ll", "Ma", "Me", "Ia", "Gw", "Sa"]
                 },
                 months: {
-                    names: ["Ionawr","Chwefror","Mawrth","Ebrill","Mai","Mehefin","Gorffennaf","Awst","Medi","Hydref","Tachwedd","Rhagfyr",""],
-                    namesAbbr: ["Ion","Chwe","Maw","Ebr","Mai","Meh","Gor","Aws","Med","Hyd","Tach","Rhag",""]
+                    names: ["Ionawr", "Chwefror", "Mawrth", "Ebrill", "Mai", "Mehefin", "Gorffennaf", "Awst", "Medi", "Hydref", "Tachwedd", "Rhagfyr", ""],
+                    namesAbbr: ["Ion", "Chwe", "Maw", "Ebr", "Mai", "Meh", "Gor", "Aws", "Med", "Hyd", "Tach", "Rhag", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM yyyy",
@@ -10422,13 +10438,13 @@
         language: "km",
         numberFormat: {
             pattern: ["- n"],
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,0]
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 0]
             },
             currency: {
-                pattern: ["-n$","n$"],
+                pattern: ["-n$", "n$"],
                 symbol: "៛"
             }
         },
@@ -10436,17 +10452,17 @@
             standard: $.extend(true, {}, standard, {
                 '/': "-",
                 days: {
-                    names: ["ថ្ងៃអាទិត្យ","ថ្ងៃច័ន្ទ","ថ្ងៃអង្គារ","ថ្ងៃពុធ","ថ្ងៃព្រហស្បតិ៍","ថ្ងៃសុក្រ","ថ្ងៃសៅរ៍"],
-                    namesAbbr: ["អាទិ.","ច.","អ.","ពុ","ព្រហ.","សុ.","ស."],
-                    namesShort: ["អា","ច","អ","ពុ","ព្","សុ","ស"]
+                    names: ["ថ្ងៃអាទិត្យ", "ថ្ងៃច័ន្ទ", "ថ្ងៃអង្គារ", "ថ្ងៃពុធ", "ថ្ងៃព្រហស្បតិ៍", "ថ្ងៃសុក្រ", "ថ្ងៃសៅរ៍"],
+                    namesAbbr: ["អាទិ.", "ច.", "អ.", "ពុ", "ព្រហ.", "សុ.", "ស."],
+                    namesShort: ["អា", "ច", "អ", "ពុ", "ព្", "សុ", "ស"]
                 },
                 months: {
-                    names: ["មករា","កុម្ភៈ","មិនា","មេសា","ឧសភា","មិថុនា","កក្កដា","សីហា","កញ្ញា","តុលា","វិច្ឆិកា","ធ្នូ",""],
-                    namesAbbr: ["១","២","៣","៤","៥","៦","៧","៨","៩","១០","១១","១២",""]
+                    names: ["មករា", "កុម្ភៈ", "មិនា", "មេសា", "ឧសភា", "មិថុនា", "កក្កដា", "សីហា", "កញ្ញា", "តុលា", "វិច្ឆិកា", "ធ្នូ", ""],
+                    namesAbbr: ["១", "២", "៣", "៤", "៥", "៦", "៧", "៨", "៩", "១០", "១១", "១២", ""]
                 },
-                AM: ["ព្រឹក","ព្រឹក","ព្រឹក"],
-                PM: ["ល្ងាច","ល្ងាច","ល្ងាច"],
-                eras: [{"name":"មុនគ.ស.","start":null,"offset":0}],
+                AM: ["ព្រឹក", "ព្រឹក", "ព្រឹក"],
+                PM: ["ល្ងាច", "ល្ងាច", "ល្ងាច"],
+                eras: [{"name": "មុនគ.ស.", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy-MM-dd",
                     D: "d MMMM yyyy",
@@ -10461,17 +10477,17 @@
             Gregorian_TransliteratedEnglish: $.extend(true, {}, standard, {
                 name: "Gregorian_TransliteratedEnglish",
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["أ","ا","ث","أ","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["أ", "ا", "ث", "أ", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","ابريل","مايو","يونيو","يوليو","اغسطس","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "ابريل", "مايو", "يونيو", "يوليو", "اغسطس", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ព្រឹក","ព្រឹក","ព្រឹក"],
-                PM: ["ល្ងាច","ល្ងាច","ល្ងាច"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ព្រឹក", "ព្រឹក", "ព្រឹក"],
+                PM: ["ល្ងាច", "ល្ងាច", "ល្ងាច"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "H:mm tt",
@@ -10490,29 +10506,29 @@
         language: "lo",
         numberFormat: {
             pattern: ["(n)"],
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                groupSizes: [3,0]
+                groupSizes: [3, 0]
             },
             currency: {
-                pattern: ["(n$)","n$"],
-                groupSizes: [3,0],
+                pattern: ["(n$)", "n$"],
+                groupSizes: [3, 0],
                 symbol: "₭"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["ວັນອາທິດ","ວັນຈັນ","ວັນອັງຄານ","ວັນພຸດ","ວັນພະຫັດ","ວັນສຸກ","ວັນເສົາ"],
-                    namesAbbr: ["ອາທິດ","ຈັນ","ອັງຄານ","ພຸດ","ພະຫັດ","ສຸກ","ເສົາ"],
-                    namesShort: ["ອ","ຈ","ອ","ພ","ພ","ສ","ເ"]
+                    names: ["ວັນອາທິດ", "ວັນຈັນ", "ວັນອັງຄານ", "ວັນພຸດ", "ວັນພະຫັດ", "ວັນສຸກ", "ວັນເສົາ"],
+                    namesAbbr: ["ອາທິດ", "ຈັນ", "ອັງຄານ", "ພຸດ", "ພະຫັດ", "ສຸກ", "ເສົາ"],
+                    namesShort: ["ອ", "ຈ", "ອ", "ພ", "ພ", "ສ", "ເ"]
                 },
                 months: {
-                    names: ["ມັງກອນ","ກຸມພາ","ມີນາ","ເມສາ","ພຶດສະພາ","ມິຖຸນາ","ກໍລະກົດ","ສິງຫາ","ກັນຍາ","ຕຸລາ","ພະຈິກ","ທັນວາ",""],
-                    namesAbbr: ["ມັງກອນ","ກຸມພາ","ມີນາ","ເມສາ","ພຶດສະພາ","ມິຖຸນາ","ກໍລະກົດ","ສິງຫາ","ກັນຍາ","ຕຸລາ","ພະຈິກ","ທັນວາ",""]
+                    names: ["ມັງກອນ", "ກຸມພາ", "ມີນາ", "ເມສາ", "ພຶດສະພາ", "ມິຖຸນາ", "ກໍລະກົດ", "ສິງຫາ", "ກັນຍາ", "ຕຸລາ", "ພະຈິກ", "ທັນວາ", ""],
+                    namesAbbr: ["ມັງກອນ", "ກຸມພາ", "ມີນາ", "ເມສາ", "ພຶດສະພາ", "ມິຖຸນາ", "ກໍລະກົດ", "ສິງຫາ", "ກັນຍາ", "ຕຸລາ", "ພະຈິກ", "ທັນວາ", ""]
                 },
-                AM: ["ເຊົ້າ","ເຊົ້າ","ເຊົ້າ"],
-                PM: ["ແລງ","ແລງ","ແລງ"],
+                AM: ["ເຊົ້າ", "ເຊົ້າ", "ເຊົ້າ"],
+                PM: ["ແລງ", "ແລງ", "ແລງ"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM yyyy",
@@ -10540,7 +10556,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -10550,17 +10566,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["domingo","luns","martes","mércores","xoves","venres","sábado"],
-                    namesAbbr: ["dom","luns","mar","mér","xov","ven","sáb"],
-                    namesShort: ["do","lu","ma","mé","xo","ve","sá"]
+                    names: ["domingo", "luns", "martes", "mércores", "xoves", "venres", "sábado"],
+                    namesAbbr: ["dom", "luns", "mar", "mér", "xov", "ven", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mé", "xo", "ve", "sá"]
                 },
                 months: {
-                    names: ["xaneiro","febreiro","marzo","abril","maio","xuño","xullo","agosto","setembro","outubro","novembro","decembro",""],
-                    namesAbbr: ["xan","feb","mar","abr","maio","xuñ","xull","ago","set","out","nov","dec",""]
+                    names: ["xaneiro", "febreiro", "marzo", "abril", "maio", "xuño", "xullo", "agosto", "setembro", "outubro", "novembro", "decembro", ""],
+                    namesAbbr: ["xan", "feb", "mar", "abr", "maio", "xuñ", "xull", "ago", "set", "out", "nov", "dec", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -10581,13 +10597,13 @@
         nativeName: "कोंकणी (भारत)",
         language: "kok",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "रु"
             }
         },
@@ -10596,16 +10612,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["आयतार","सोमार","मंगळार","बुधवार","बिरेस्तार","सुक्रार","शेनवार"],
-                    namesAbbr: ["आय.","सोम.","मंगळ.","बुध.","बिरे.","सुक्र.","शेन."],
-                    namesShort: ["आ","स","म","ब","ब","स","श"]
+                    names: ["आयतार", "सोमार", "मंगळार", "बुधवार", "बिरेस्तार", "सुक्रार", "शेनवार"],
+                    namesAbbr: ["आय.", "सोम.", "मंगळ.", "बुध.", "बिरे.", "सुक्र.", "शेन."],
+                    namesShort: ["आ", "स", "म", "ब", "ब", "स", "श"]
                 },
                 months: {
-                    names: ["जानेवारी","फेब्रुवारी","मार्च","एप्रिल","मे","जून","जुलै","ऑगस्ट","सप्टेंबर","ऑक्टोबर","नोवेम्बर","डिसेंबर",""],
-                    namesAbbr: ["जानेवारी","फेब्रुवारी","मार्च","एप्रिल","मे","जून","जुलै","ऑगस्ट","सप्टेंबर","ऑक्टोबर","नोवेम्बर","डिसेंबर",""]
+                    names: ["जानेवारी", "फेब्रुवारी", "मार्च", "एप्रिल", "मे", "जून", "जुलै", "ऑगस्ट", "सप्टेंबर", "ऑक्टोबर", "नोवेम्बर", "डिसेंबर", ""],
+                    namesAbbr: ["जानेवारी", "फेब्रुवारी", "मार्च", "एप्रिल", "मे", "जून", "जुलै", "ऑगस्ट", "सप्टेंबर", "ऑक्टोबर", "नोवेम्बर", "डिसेंबर", ""]
                 },
-                AM: ["म.पू.","म.पू.","म.पू."],
-                PM: ["म.नं.","म.नं.","म.नं."],
+                AM: ["म.पू.", "म.पू.", "म.पू."],
+                PM: ["म.नं.", "म.नं.", "म.नं."],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "dd MMMM yyyy",
@@ -10627,7 +10643,7 @@
         isRTL: true,
         numberFormat: {
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 symbol: "ل.س.‏"
             }
         },
@@ -10635,16 +10651,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["ܚܕ ܒܫܒܐ","ܬܪܝܢ ܒܫܒܐ","ܬܠܬܐ ܒܫܒܐ","ܐܪܒܥܐ ܒܫܒܐ","ܚܡܫܐ ܒܫܒܐ","ܥܪܘܒܬܐ","ܫܒܬܐ"],
-                    namesAbbr: ["܏ܐ ܏ܒܫ","܏ܒ ܏ܒܫ","܏ܓ ܏ܒܫ","܏ܕ ܏ܒܫ","܏ܗ ܏ܒܫ","܏ܥܪܘܒ","܏ܫܒ"],
-                    namesShort: ["ܐ","ܒ","ܓ","ܕ","ܗ","ܥ","ܫ"]
+                    names: ["ܚܕ ܒܫܒܐ", "ܬܪܝܢ ܒܫܒܐ", "ܬܠܬܐ ܒܫܒܐ", "ܐܪܒܥܐ ܒܫܒܐ", "ܚܡܫܐ ܒܫܒܐ", "ܥܪܘܒܬܐ", "ܫܒܬܐ"],
+                    namesAbbr: ["܏ܐ ܏ܒܫ", "܏ܒ ܏ܒܫ", "܏ܓ ܏ܒܫ", "܏ܕ ܏ܒܫ", "܏ܗ ܏ܒܫ", "܏ܥܪܘܒ", "܏ܫܒ"],
+                    namesShort: ["ܐ", "ܒ", "ܓ", "ܕ", "ܗ", "ܥ", "ܫ"]
                 },
                 months: {
-                    names: ["ܟܢܘܢ ܐܚܪܝ","ܫܒܛ","ܐܕܪ","ܢܝܣܢ","ܐܝܪ","ܚܙܝܪܢ","ܬܡܘܙ","ܐܒ","ܐܝܠܘܠ","ܬܫܪܝ ܩܕܝܡ","ܬܫܪܝ ܐܚܪܝ","ܟܢܘܢ ܩܕܝܡ",""],
-                    namesAbbr: ["܏ܟܢ ܏ܒ","ܫܒܛ","ܐܕܪ","ܢܝܣܢ","ܐܝܪ","ܚܙܝܪܢ","ܬܡܘܙ","ܐܒ","ܐܝܠܘܠ","܏ܬܫ ܏ܐ","܏ܬܫ ܏ܒ","܏ܟܢ ܏ܐ",""]
+                    names: ["ܟܢܘܢ ܐܚܪܝ", "ܫܒܛ", "ܐܕܪ", "ܢܝܣܢ", "ܐܝܪ", "ܚܙܝܪܢ", "ܬܡܘܙ", "ܐܒ", "ܐܝܠܘܠ", "ܬܫܪܝ ܩܕܝܡ", "ܬܫܪܝ ܐܚܪܝ", "ܟܢܘܢ ܩܕܝܡ", ""],
+                    namesAbbr: ["܏ܟܢ ܏ܒ", "ܫܒܛ", "ܐܕܪ", "ܢܝܣܢ", "ܐܝܪ", "ܚܙܝܪܢ", "ܬܡܘܙ", "ܐܒ", "ܐܝܠܘܠ", "܏ܬܫ ܏ܐ", "܏ܬܫ ܏ܒ", "܏ܟܢ ܏ܐ", ""]
                 },
-                AM: ["ܩ.ܛ","ܩ.ܛ","ܩ.ܛ"],
-                PM: ["ܒ.ܛ","ܒ.ܛ","ܒ.ܛ"],
+                AM: ["ܩ.ܛ", "ܩ.ܛ", "ܩ.ܛ"],
+                PM: ["ܒ.ܛ", "ܒ.ܛ", "ܒ.ܛ"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM, yyyy",
@@ -10664,12 +10680,12 @@
         nativeName: "සිංහල (ශ්‍රී ලංකා)",
         language: "si",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["($ n)","$ n"],
+                pattern: ["($ n)", "$ n"],
                 symbol: "රු."
             }
         },
@@ -10678,17 +10694,17 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["ඉරිදා","සඳුදා","අඟහරුවාදා","බදාදා","බ්‍රහස්පතින්දා","සිකුරාදා","සෙනසුරාදා"],
-                    namesAbbr: ["ඉරිදා","සඳුදා","කුජදා","බුදදා","ගුරුදා","කිවිදා","ශනිදා"],
-                    namesShort: ["ඉ","ස","අ","බ","බ්‍ර","සි","සෙ"]
+                    names: ["ඉරිදා", "සඳුදා", "අඟහරුවාදා", "බදාදා", "බ්‍රහස්පතින්දා", "සිකුරාදා", "සෙනසුරාදා"],
+                    namesAbbr: ["ඉරිදා", "සඳුදා", "කුජදා", "බුදදා", "ගුරුදා", "කිවිදා", "ශනිදා"],
+                    namesShort: ["ඉ", "ස", "අ", "බ", "බ්‍ර", "සි", "සෙ"]
                 },
                 months: {
-                    names: ["ජනවාරි","පෙබරවාරි","මාර්තු","අ‌ප්‍රේල්","මැයි","ජූනි","ජූලි","අ‌ගෝස්තු","සැප්තැම්බර්","ඔක්තෝබර්","නොවැම්බර්","දෙසැම්බර්",""],
-                    namesAbbr: ["ජන.","පෙබ.","මාර්තු.","අප්‍රේල්.","මැයි.","ජූනි.","ජූලි.","අගෝ.","සැප්.","ඔක්.","නොවැ.","දෙසැ.",""]
+                    names: ["ජනවාරි", "පෙබරවාරි", "මාර්තු", "අ‌ප්‍රේල්", "මැයි", "ජූනි", "ජූලි", "අ‌ගෝස්තු", "සැප්තැම්බර්", "ඔක්තෝබර්", "නොවැම්බර්", "දෙසැම්බර්", ""],
+                    namesAbbr: ["ජන.", "පෙබ.", "මාර්තු.", "අප්‍රේල්.", "මැයි.", "ජූනි.", "ජූලි.", "අගෝ.", "සැප්.", "ඔක්.", "නොවැ.", "දෙසැ.", ""]
                 },
-                AM: ["පෙ.ව.","පෙ.ව.","පෙ.ව."],
-                PM: ["ප.ව.","ප.ව.","ප.ව."],
-                eras: [{"name":"ක්‍රි.ව.","start":null,"offset":0}],
+                AM: ["පෙ.ව.", "පෙ.ව.", "පෙ.ව."],
+                PM: ["ප.ව.", "ප.ව.", "ප.ව."],
+                eras: [{"name": "ක්‍රි.ව.", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy-MM-dd",
                     D: "yyyy MMMM' මස 'dd' වැනිදා 'dddd",
@@ -10706,25 +10722,25 @@
         nativeName: "ᐃᓄᒃᑎᑐᑦ (ᑲᓇᑕᒥ)",
         language: "iu-Cans",
         numberFormat: {
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,0]
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 0]
             },
             currency: {
-                groupSizes: [3,0]
+                groupSizes: [3, 0]
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["ᓈᑦᑏᖑᔭ","ᓇᒡᒐᔾᔭᐅ","ᐊᐃᑉᐱᖅ","ᐱᖓᑦᓯᖅ","ᓯᑕᒻᒥᖅ","ᑕᓪᓕᕐᒥᖅ","ᓯᕙᑖᕐᕕᒃ"],
-                    namesAbbr: ["ᓈᑦᑏ","ᓇᒡᒐ","ᐊᐃᑉᐱ","ᐱᖓᑦᓯ","ᓯᑕ","ᑕᓪᓕ","ᓯᕙᑖᕐᕕᒃ"],
-                    namesShort: ["ᓈ","ᓇ","ᐊ","ᐱ","ᓯ","ᑕ","ᓯ"]
+                    names: ["ᓈᑦᑏᖑᔭ", "ᓇᒡᒐᔾᔭᐅ", "ᐊᐃᑉᐱᖅ", "ᐱᖓᑦᓯᖅ", "ᓯᑕᒻᒥᖅ", "ᑕᓪᓕᕐᒥᖅ", "ᓯᕙᑖᕐᕕᒃ"],
+                    namesAbbr: ["ᓈᑦᑏ", "ᓇᒡᒐ", "ᐊᐃᑉᐱ", "ᐱᖓᑦᓯ", "ᓯᑕ", "ᑕᓪᓕ", "ᓯᕙᑖᕐᕕᒃ"],
+                    namesShort: ["ᓈ", "ᓇ", "ᐊ", "ᐱ", "ᓯ", "ᑕ", "ᓯ"]
                 },
                 months: {
-                    names: ["ᔮᓐᓄᐊᕆ","ᕖᕝᕗᐊᕆ","ᒫᑦᓯ","ᐄᐳᕆ","ᒪᐃ","ᔫᓂ","ᔪᓚᐃ","ᐋᒡᒌᓯ","ᓯᑎᐱᕆ","ᐅᑐᐱᕆ","ᓄᕕᐱᕆ","ᑎᓯᐱᕆ",""],
-                    namesAbbr: ["ᔮᓐᓄ","ᕖᕝᕗ","ᒫᑦᓯ","ᐄᐳᕆ","ᒪᐃ","ᔫᓂ","ᔪᓚᐃ","ᐋᒡᒌ","ᓯᑎᐱ","ᐅᑐᐱ","ᓄᕕᐱ","ᑎᓯᐱ",""]
+                    names: ["ᔮᓐᓄᐊᕆ", "ᕖᕝᕗᐊᕆ", "ᒫᑦᓯ", "ᐄᐳᕆ", "ᒪᐃ", "ᔫᓂ", "ᔪᓚᐃ", "ᐋᒡᒌᓯ", "ᓯᑎᐱᕆ", "ᐅᑐᐱᕆ", "ᓄᕕᐱᕆ", "ᑎᓯᐱᕆ", ""],
+                    namesAbbr: ["ᔮᓐᓄ", "ᕖᕝᕗ", "ᒫᑦᓯ", "ᐄᐳᕆ", "ᒪᐃ", "ᔫᓂ", "ᔪᓚᐃ", "ᐋᒡᒌ", "ᓯᑎᐱ", "ᐅᑐᐱ", "ᓄᕕᐱ", "ᑎᓯᐱ", ""]
                 },
                 patterns: {
                     d: "d/M/yyyy",
@@ -10744,32 +10760,32 @@
         language: "am",
         numberFormat: {
             decimals: 1,
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 decimals: 1,
-                groupSizes: [3,0]
+                groupSizes: [3, 0]
             },
             currency: {
-                pattern: ["-$n","$n"],
-                groupSizes: [3,0],
+                pattern: ["-$n", "$n"],
+                groupSizes: [3, 0],
                 symbol: "ETB"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["እሑድ","ሰኞ","ማክሰኞ","ረቡዕ","ሐሙስ","ዓርብ","ቅዳሜ"],
-                    namesAbbr: ["እሑድ","ሰኞ","ማክሰ","ረቡዕ","ሐሙስ","ዓርብ","ቅዳሜ"],
-                    namesShort: ["እ","ሰ","ማ","ረ","ሐ","ዓ","ቅ"]
+                    names: ["እሑድ", "ሰኞ", "ማክሰኞ", "ረቡዕ", "ሐሙስ", "ዓርብ", "ቅዳሜ"],
+                    namesAbbr: ["እሑድ", "ሰኞ", "ማክሰ", "ረቡዕ", "ሐሙስ", "ዓርብ", "ቅዳሜ"],
+                    namesShort: ["እ", "ሰ", "ማ", "ረ", "ሐ", "ዓ", "ቅ"]
                 },
                 months: {
-                    names: ["ጃንዩወሪ","ፌብሩወሪ","ማርች","ኤፕረል","ሜይ","ጁን","ጁላይ","ኦገስት","ሴፕቴምበር","ኦክተውበር","ኖቬምበር","ዲሴምበር",""],
-                    namesAbbr: ["ጃንዩ","ፌብሩ","ማርች","ኤፕረ","ሜይ","ጁን","ጁላይ","ኦገስ","ሴፕቴ","ኦክተ","ኖቬም","ዲሴም",""]
+                    names: ["ጃንዩወሪ", "ፌብሩወሪ", "ማርች", "ኤፕረል", "ሜይ", "ጁን", "ጁላይ", "ኦገስት", "ሴፕቴምበር", "ኦክተውበር", "ኖቬምበር", "ዲሴምበር", ""],
+                    namesAbbr: ["ጃንዩ", "ፌብሩ", "ማርች", "ኤፕረ", "ሜይ", "ጁን", "ጁላይ", "ኦገስ", "ሴፕቴ", "ኦክተ", "ኖቬም", "ዲሴም", ""]
                 },
-                AM: ["ጡዋት","ጡዋት","ጡዋት"],
-                PM: ["ከሰዓት","ከሰዓት","ከሰዓት"],
-                eras: [{"name":"ዓመተ  ምሕረት","start":null,"offset":0}],
+                AM: ["ጡዋት", "ጡዋት", "ጡዋት"],
+                PM: ["ከሰዓት", "ከሰዓት", "ከሰዓት"],
+                eras: [{"name": "ዓመተ  ምሕረት", "start": null, "offset": 0}],
                 patterns: {
                     d: "d/M/yyyy",
                     D: "dddd '፣' MMMM d 'ቀን' yyyy",
@@ -10788,30 +10804,30 @@
         nativeName: "नेपाली (नेपाल)",
         language: "ne",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,2]
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 symbol: "रु"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["आइतवार","सोमवार","मङ्गलवार","बुधवार","बिहीवार","शुक्रवार","शनिवार"],
-                    namesAbbr: ["आइत","सोम","मङ्गल","बुध","बिही","शुक्र","शनि"],
-                    namesShort: ["आ","सो","म","बु","बि","शु","श"]
+                    names: ["आइतवार", "सोमवार", "मङ्गलवार", "बुधवार", "बिहीवार", "शुक्रवार", "शनिवार"],
+                    namesAbbr: ["आइत", "सोम", "मङ्गल", "बुध", "बिही", "शुक्र", "शनि"],
+                    namesShort: ["आ", "सो", "म", "बु", "बि", "शु", "श"]
                 },
                 months: {
-                    names: ["जनवरी","फेब्रुअरी","मार्च","अप्रिल","मे","जून","जुलाई","अगस्त","सेप्टेम्बर","अक्टोबर","नोभेम्बर","डिसेम्बर",""],
-                    namesAbbr: ["जन","फेब","मार्च","अप्रिल","मे","जून","जुलाई","अग","सेप्ट","अक्ट","नोभ","डिस",""]
+                    names: ["जनवरी", "फेब्रुअरी", "मार्च", "अप्रिल", "मे", "जून", "जुलाई", "अगस्त", "सेप्टेम्बर", "अक्टोबर", "नोभेम्बर", "डिसेम्बर", ""],
+                    namesAbbr: ["जन", "फेब", "मार्च", "अप्रिल", "मे", "जून", "जुलाई", "अग", "सेप्ट", "अक्ट", "नोभ", "डिस", ""]
                 },
-                AM: ["विहानी","विहानी","विहानी"],
-                PM: ["बेलुकी","बेलुकी","बेलुकी"],
-                eras: [{"name":"a.d.","start":null,"offset":0}],
+                AM: ["विहानी", "विहानी", "विहानी"],
+                PM: ["बेलुकी", "बेलुकी", "बेलुकी"],
+                eras: [{"name": "a.d.", "start": null, "offset": 0}],
                 patterns: {
                     Y: "MMMM,yyyy"
                 }
@@ -10832,7 +10848,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -10843,13 +10859,13 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["Snein","Moandei","Tiisdei","Woansdei","Tongersdei","Freed","Sneon"],
-                    namesAbbr: ["Sn","Mo","Ti","Wo","To","Fr","Sn"],
-                    namesShort: ["S","M","T","W","T","F","S"]
+                    names: ["Snein", "Moandei", "Tiisdei", "Woansdei", "Tongersdei", "Freed", "Sneon"],
+                    namesAbbr: ["Sn", "Mo", "Ti", "Wo", "To", "Fr", "Sn"],
+                    namesShort: ["S", "M", "T", "W", "T", "F", "S"]
                 },
                 months: {
-                    names: ["jannewaris","febrewaris","maart","april","maaie","juny","july","augustus","septimber","oktober","novimber","desimber",""],
-                    namesAbbr: ["jann","febr","mrt","apr","maaie","jun","jul","aug","sept","okt","nov","des",""]
+                    names: ["jannewaris", "febrewaris", "maart", "april", "maaie", "juny", "july", "augustus", "septimber", "oktober", "novimber", "desimber", ""],
+                    namesAbbr: ["jann", "febr", "mrt", "apr", "maaie", "jun", "jul", "aug", "sept", "okt", "nov", "des", ""]
                 },
                 AM: null,
                 PM: null,
@@ -10878,12 +10894,12 @@
             ',': "،",
             '.': ",",
             percent: {
-                pattern: ["%n-","%n"],
+                pattern: ["%n-", "%n"],
                 ',': "،",
                 '.': ","
             },
             currency: {
-                pattern: ["$n-","$n"],
+                pattern: ["$n-", "$n"],
                 ',': "٬",
                 '.': "٫",
                 symbol: "؋"
@@ -10894,17 +10910,17 @@
                 name: "Hijri",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["غ.م","غ.م","غ.م"],
-                PM: ["غ.و","غ.و","غ.و"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["غ.م", "غ.م", "غ.م"],
+                PM: ["غ.و", "غ.و", "غ.و"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -10925,7 +10941,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -10935,9 +10951,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -10970,7 +10986,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -10981,7 +10997,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -10989,17 +11005,17 @@
             Gregorian_Localized: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["یکشنبه","دوشنبه","سه‌شنبه","چارشنبه","پنجشنبه","جمعه","شنبه"],
-                    namesAbbr: ["یکشنبه","دوشنبه","سه‌شنبه","چارشنبه","پنجشنبه","جمعه","شنبه"],
-                    namesShort: ["ی","د","س","چ","پ","ج","ش"]
+                    names: ["یکشنبه", "دوشنبه", "سه‌شنبه", "چارشنبه", "پنجشنبه", "جمعه", "شنبه"],
+                    namesAbbr: ["یکشنبه", "دوشنبه", "سه‌شنبه", "چارشنبه", "پنجشنبه", "جمعه", "شنبه"],
+                    namesShort: ["ی", "د", "س", "چ", "پ", "ج", "ش"]
                 },
                 months: {
-                    names: ["سلواغه","كب","ورى","غويى","غبرګولى","چنګا ښزمرى","زمرى","وږى","تله","لړم","لنڈ ۍ","مرغومى",""],
-                    namesAbbr: ["سلواغه","كب","ورى","غويى","غبرګولى","چنګا ښ","زمرى","وږى","تله","لړم","لنڈ ۍ","مرغومى",""]
+                    names: ["سلواغه", "كب", "ورى", "غويى", "غبرګولى", "چنګا ښزمرى", "زمرى", "وږى", "تله", "لړم", "لنڈ ۍ", "مرغومى", ""],
+                    namesAbbr: ["سلواغه", "كب", "ورى", "غويى", "غبرګولى", "چنګا ښ", "زمرى", "وږى", "تله", "لړم", "لنڈ ۍ", "مرغومى", ""]
                 },
-                AM: ["غ.م","غ.م","غ.م"],
-                PM: ["غ.و","غ.و","غ.و"],
-                eras: [{"name":"ل.ه","start":null,"offset":0}],
+                AM: ["غ.م", "غ.م", "غ.م"],
+                PM: ["غ.و", "غ.و", "غ.و"],
+                eras: [{"name": "ل.ه", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/M/d",
                     D: "yyyy, dd, MMMM, dddd",
@@ -11025,15 +11041,15 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Linggo","Lunes","Martes","Mierkoles","Huebes","Biernes","Sabado"],
-                    namesAbbr: ["Lin","Lun","Mar","Mier","Hueb","Bier","Saba"],
-                    namesShort: ["L","L","M","M","H","B","S"]
+                    names: ["Linggo", "Lunes", "Martes", "Mierkoles", "Huebes", "Biernes", "Sabado"],
+                    namesAbbr: ["Lin", "Lun", "Mar", "Mier", "Hueb", "Bier", "Saba"],
+                    namesShort: ["L", "L", "M", "M", "H", "B", "S"]
                 },
                 months: {
-                    names: ["Enero","Pebrero","Marso","Abril","Mayo","Hunyo","Hulyo","Agosto","Septyembre","Oktubre","Nobyembre","Disyembre",""],
-                    namesAbbr: ["En","Peb","Mar","Abr","Mayo","Hun","Hul","Agos","Sept","Okt","Nob","Dis",""]
+                    names: ["Enero", "Pebrero", "Marso", "Abril", "Mayo", "Hunyo", "Hulyo", "Agosto", "Septyembre", "Oktubre", "Nobyembre", "Disyembre", ""],
+                    namesAbbr: ["En", "Peb", "Mar", "Abr", "Mayo", "Hun", "Hul", "Agos", "Sept", "Okt", "Nob", "Dis", ""]
                 },
-                eras: [{"name":"Anno Domini","start":null,"offset":0}]
+                eras: [{"name": "Anno Domini", "start": null, "offset": 0}]
             })
         }
     }, cultures["fil-PH"]);
@@ -11046,7 +11062,7 @@
         isRTL: true,
         numberFormat: {
             currency: {
-                pattern: ["n $-","n $"],
+                pattern: ["n $-", "n $"],
                 symbol: "ރ."
             }
         },
@@ -11054,17 +11070,17 @@
             standard: $.extend(true, {}, standard, {
                 name: "Hijri",
                 days: {
-                    names: ["އާދީއްތަ","ހޯމަ","އަންގާރަ","ބުދަ","ބުރާސްފަތި","ހުކުރު","ހޮނިހިރު"],
-                    namesAbbr: ["އާދީއްތަ","ހޯމަ","އަންގާރަ","ބުދަ","ބުރާސްފަތި","ހުކުރު","ހޮނިހިރު"],
-                    namesShort: ["އާ","ހޯ","އަ","ބު","ބު","ހު","ހޮ"]
+                    names: ["އާދީއްތަ", "ހޯމަ", "އަންގާރަ", "ބުދަ", "ބުރާސްފަތި", "ހުކުރު", "ހޮނިހިރު"],
+                    namesAbbr: ["އާދީއްތަ", "ހޯމަ", "އަންގާރަ", "ބުދަ", "ބުރާސްފަތި", "ހުކުރު", "ހޮނިހިރު"],
+                    namesShort: ["އާ", "ހޯ", "އަ", "ބު", "ބު", "ހު", "ހޮ"]
                 },
                 months: {
-                    names: ["މުޙައްރަމް","ޞަފަރު","ރަބީޢުލްއައްވަލް","ރަބީޢުލްއާޚިރު","ޖުމާދަލްއޫލާ","ޖުމާދަލްއާޚިރާ","ރަޖަބް","ޝަޢްބާން","ރަމަޟާން","ޝައްވާލް","ޛުލްޤަޢިދާ","ޛުލްޙިއްޖާ",""],
-                    namesAbbr: ["މުޙައްރަމް","ޞަފަރު","ރަބީޢުލްއައްވަލް","ރަބީޢުލްއާޚިރު","ޖުމާދަލްއޫލާ","ޖުމާދަލްއާޚިރާ","ރަޖަބް","ޝަޢްބާން","ރަމަޟާން","ޝައްވާލް","ޛުލްޤަޢިދާ","ޛުލްޙިއްޖާ",""]
+                    names: ["މުޙައްރަމް", "ޞަފަރު", "ރަބީޢުލްއައްވަލް", "ރަބީޢުލްއާޚިރު", "ޖުމާދަލްއޫލާ", "ޖުމާދަލްއާޚިރާ", "ރަޖަބް", "ޝަޢްބާން", "ރަމަޟާން", "ޝައްވާލް", "ޛުލްޤަޢިދާ", "ޛުލްޙިއްޖާ", ""],
+                    namesAbbr: ["މުޙައްރަމް", "ޞަފަރު", "ރަބީޢުލްއައްވަލް", "ރަބީޢުލްއާޚިރު", "ޖުމާދަލްއޫލާ", "ޖުމާދަލްއާޚިރާ", "ރަޖަބް", "ޝަޢްބާން", "ރަމަޟާން", "ޝައްވާލް", "ޛުލްޤަޢިދާ", "ޛުލްޙިއްޖާ", ""]
                 },
-                AM: ["މކ","މކ","މކ"],
-                PM: ["މފ","މފ","މފ"],
-                eras: [{"name":"ހިޖްރީ","start":null,"offset":0}],
+                AM: ["މކ", "މކ", "މކ"],
+                PM: ["މފ", "މފ", "މފ"],
+                eras: [{"name": "ހިޖްރީ", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -11087,7 +11103,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -11097,9 +11113,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -11132,7 +11148,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -11143,24 +11159,24 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
             }),
             Gregorian_Localized: $.extend(true, {}, standard, {
                 days: {
-                    names: ["އާދީއްތަ","ހޯމަ","އަންގާރަ","ބުދަ","ބުރާސްފަތި","ހުކުރު","ހޮނިހިރު"],
-                    namesAbbr: ["އާދީއްތަ","ހޯމަ","އަންގާރަ","ބުދަ","ބުރާސްފަތި","ހުކުރު","ހޮނިހިރު"],
-                    namesShort: ["އާ","ހޯ","އަ","ބު","ބު","ހު","ހޮ"]
+                    names: ["އާދީއްތަ", "ހޯމަ", "އަންގާރަ", "ބުދަ", "ބުރާސްފަތި", "ހުކުރު", "ހޮނިހިރު"],
+                    namesAbbr: ["އާދީއްތަ", "ހޯމަ", "އަންގާރަ", "ބުދަ", "ބުރާސްފަތި", "ހުކުރު", "ހޮނިހިރު"],
+                    namesShort: ["އާ", "ހޯ", "އަ", "ބު", "ބު", "ހު", "ހޮ"]
                 },
                 months: {
-                    names: ["ޖަނަވަރީ","ފެބްރުއަރީ","މާޗް","އޭޕްރިލް","މެއި","ޖޫން","ޖުލައި","އޯގަސްޓް","ސެޕްޓެމްބަރ","އޮކްޓޯބަރ","ނޮވެމްބަރ","ޑިސެމްބަރ",""],
-                    namesAbbr: ["ޖަނަވަރީ","ފެބްރުއަރީ","މާޗް","އޭޕްރިލް","މެއި","ޖޫން","ޖުލައި","އޯގަސްޓް","ސެޕްޓެމްބަރ","އޮކްޓޯބަރ","ނޮވެމްބަރ","ޑިސެމްބަރ",""]
+                    names: ["ޖަނަވަރީ", "ފެބްރުއަރީ", "މާޗް", "އޭޕްރިލް", "މެއި", "ޖޫން", "ޖުލައި", "އޯގަސްޓް", "ސެޕްޓެމްބަރ", "އޮކްޓޯބަރ", "ނޮވެމްބަރ", "ޑިސެމްބަރ", ""],
+                    namesAbbr: ["ޖަނަވަރީ", "ފެބްރުއަރީ", "މާޗް", "އޭޕްރިލް", "މެއި", "ޖޫން", "ޖުލައި", "އޯގަސްޓް", "ސެޕްޓެމްބަރ", "އޮކްޓޯބަރ", "ނޮވެމްބަރ", "ޑިސެމްބަރ", ""]
                 },
-                AM: ["މކ","މކ","މކ"],
-                PM: ["މފ","މފ","މފ"],
-                eras: [{"name":"މީލާދީ","start":null,"offset":0}],
+                AM: ["މކ", "މކ", "މކ"],
+                PM: ["މފ", "މފ", "މފ"],
+                eras: [{"name": "މީލާދީ", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yy",
                     D: "ddd, yyyy MMMM dd",
@@ -11181,24 +11197,24 @@
         language: "ha-Latn",
         numberFormat: {
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "N"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Lahadi","Litinin","Talata","Laraba","Alhamis","Juma'a","Asabar"],
-                    namesAbbr: ["Lah","Lit","Tal","Lar","Alh","Jum","Asa"],
-                    namesShort: ["L","L","T","L","A","J","A"]
+                    names: ["Lahadi", "Litinin", "Talata", "Laraba", "Alhamis", "Juma'a", "Asabar"],
+                    namesAbbr: ["Lah", "Lit", "Tal", "Lar", "Alh", "Jum", "Asa"],
+                    namesShort: ["L", "L", "T", "L", "A", "J", "A"]
                 },
                 months: {
-                    names: ["Januwaru","Febreru","Maris","Afrilu","Mayu","Yuni","Yuli","Agusta","Satumba","Oktocba","Nuwamba","Disamba",""],
-                    namesAbbr: ["Jan","Feb","Mar","Afr","May","Yun","Yul","Agu","Sat","Okt","Nuw","Dis",""]
+                    names: ["Januwaru", "Febreru", "Maris", "Afrilu", "Mayu", "Yuni", "Yuli", "Agusta", "Satumba", "Oktocba", "Nuwamba", "Disamba", ""],
+                    namesAbbr: ["Jan", "Feb", "Mar", "Afr", "May", "Yun", "Yul", "Agu", "Sat", "Okt", "Nuw", "Dis", ""]
                 },
-                AM: ["Safe","safe","SAFE"],
-                PM: ["Yamma","yamma","YAMMA"],
-                eras: [{"name":"AD","start":null,"offset":0}],
+                AM: ["Safe", "safe", "SAFE"],
+                PM: ["Yamma", "yamma", "YAMMA"],
+                eras: [{"name": "AD", "start": null, "offset": 0}],
                 patterns: {
                     d: "d/M/yyyy"
                 }
@@ -11213,24 +11229,24 @@
         language: "yo",
         numberFormat: {
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "N"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Aiku","Aje","Isegun","Ojo'ru","Ojo'bo","Eti","Abameta"],
-                    namesAbbr: ["Aik","Aje","Ise","Ojo","Ojo","Eti","Aba"],
-                    namesShort: ["A","A","I","O","O","E","A"]
+                    names: ["Aiku", "Aje", "Isegun", "Ojo'ru", "Ojo'bo", "Eti", "Abameta"],
+                    namesAbbr: ["Aik", "Aje", "Ise", "Ojo", "Ojo", "Eti", "Aba"],
+                    namesShort: ["A", "A", "I", "O", "O", "E", "A"]
                 },
                 months: {
-                    names: ["Osu kinni","Osu keji","Osu keta","Osu kerin","Osu karun","Osu kefa","Osu keje","Osu kejo","Osu kesan","Osu kewa","Osu kokanla","Osu keresi",""],
-                    namesAbbr: ["kin.","kej.","ket.","ker.","kar.","kef.","kej.","kej.","kes.","kew.","kok.","ker.",""]
+                    names: ["Osu kinni", "Osu keji", "Osu keta", "Osu kerin", "Osu karun", "Osu kefa", "Osu keje", "Osu kejo", "Osu kesan", "Osu kewa", "Osu kokanla", "Osu keresi", ""],
+                    namesAbbr: ["kin.", "kej.", "ket.", "ker.", "kar.", "kef.", "kej.", "kej.", "kes.", "kew.", "kok.", "ker.", ""]
                 },
-                AM: ["Owuro","owuro","OWURO"],
-                PM: ["Ale","ale","ALE"],
-                eras: [{"name":"AD","start":null,"offset":0}],
+                AM: ["Owuro", "owuro", "OWURO"],
+                PM: ["Ale", "ale", "ALE"],
+                eras: [{"name": "AD", "start": null, "offset": 0}],
                 patterns: {
                     d: "d/M/yyyy"
                 }
@@ -11247,12 +11263,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-%n","%n"],
+                pattern: ["-%n", "%n"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["($ n)","$ n"],
+                pattern: ["($ n)", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "$b"
@@ -11261,16 +11277,16 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["intichaw","killachaw","atipachaw","quyllurchaw","Ch' askachaw","Illapachaw","k'uychichaw"],
-                    namesAbbr: ["int","kil","ati","quy","Ch'","Ill","k'u"],
-                    namesShort: ["d","k","a","m","h","b","k"]
+                    names: ["intichaw", "killachaw", "atipachaw", "quyllurchaw", "Ch' askachaw", "Illapachaw", "k'uychichaw"],
+                    namesAbbr: ["int", "kil", "ati", "quy", "Ch'", "Ill", "k'u"],
+                    namesShort: ["d", "k", "a", "m", "h", "b", "k"]
                 },
                 months: {
-                    names: ["Qulla puquy","Hatun puquy","Pauqar waray","ayriwa","Aymuray","Inti raymi","Anta Sitwa","Qhapaq Sitwa","Uma raymi","Kantaray","Ayamarq'a","Kapaq Raymi",""],
-                    namesAbbr: ["Qul","Hat","Pau","ayr","Aym","Int","Ant","Qha","Uma","Kan","Aya","Kap",""]
+                    names: ["Qulla puquy", "Hatun puquy", "Pauqar waray", "ayriwa", "Aymuray", "Inti raymi", "Anta Sitwa", "Qhapaq Sitwa", "Uma raymi", "Kantaray", "Ayamarq'a", "Kapaq Raymi", ""],
+                    namesAbbr: ["Qul", "Hat", "Pau", "ayr", "Aym", "Int", "Ant", "Qha", "Uma", "Kan", "Aya", "Kap", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -11291,23 +11307,23 @@
         language: "nso",
         numberFormat: {
             percent: {
-                pattern: ["-%n","%n"]
+                pattern: ["-%n", "%n"]
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "R"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Lamorena","Mošupologo","Labobedi","Laboraro","Labone","Labohlano","Mokibelo"],
-                    namesAbbr: ["Lam","Moš","Lbb","Lbr","Lbn","Lbh","Mok"],
-                    namesShort: ["L","M","L","L","L","L","M"]
+                    names: ["Lamorena", "Mošupologo", "Labobedi", "Laboraro", "Labone", "Labohlano", "Mokibelo"],
+                    namesAbbr: ["Lam", "Moš", "Lbb", "Lbr", "Lbn", "Lbh", "Mok"],
+                    namesShort: ["L", "M", "L", "L", "L", "L", "M"]
                 },
                 months: {
-                    names: ["Pherekgong","Hlakola","Mopitlo","Moranang","Mosegamanye","Ngoatobošego","Phuphu","Phato","Lewedi","Diphalana","Dibatsela","Manthole",""],
-                    namesAbbr: ["Pher","Hlak","Mop","Mor","Mos","Ngwat","Phup","Phat","Lew","Dip","Dib","Man",""]
+                    names: ["Pherekgong", "Hlakola", "Mopitlo", "Moranang", "Mosegamanye", "Ngoatobošego", "Phuphu", "Phato", "Lewedi", "Diphalana", "Dibatsela", "Manthole", ""],
+                    namesAbbr: ["Pher", "Hlak", "Mop", "Mor", "Mos", "Ngwat", "Phup", "Phat", "Lew", "Dip", "Dib", "Man", ""]
                 },
                 patterns: {
                     d: "yyyy/MM/dd",
@@ -11331,16 +11347,16 @@
         numberFormat: {
             ',': " ",
             '.': ",",
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,0],
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 0],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
-                groupSizes: [3,0],
+                pattern: ["-n $", "n $"],
+                groupSizes: [3, 0],
                 ',': " ",
                 '.': ",",
                 symbol: "һ."
@@ -11351,13 +11367,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Йәкшәмбе","Дүшәмбе","Шишәмбе","Шаршамбы","Кесаҙна","Йома","Шәмбе"],
-                    namesAbbr: ["Йш","Дш","Шш","Шр","Кс","Йм","Шб"],
-                    namesShort: ["Йш","Дш","Шш","Шр","Кс","Йм","Шб"]
+                    names: ["Йәкшәмбе", "Дүшәмбе", "Шишәмбе", "Шаршамбы", "Кесаҙна", "Йома", "Шәмбе"],
+                    namesAbbr: ["Йш", "Дш", "Шш", "Шр", "Кс", "Йм", "Шб"],
+                    namesShort: ["Йш", "Дш", "Шш", "Шр", "Кс", "Йм", "Шб"]
                 },
                 months: {
-                    names: ["ғинуар","февраль","март","апрель","май","июнь","июль","август","сентябрь","октябрь","ноябрь","декабрь",""],
-                    namesAbbr: ["ғин","фев","мар","апр","май","июн","июл","авг","сен","окт","ноя","дек",""]
+                    names: ["ғинуар", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь", ""],
+                    namesAbbr: ["ғин", "фев", "мар", "апр", "май", "июн", "июл", "авг", "сен", "окт", "ноя", "дек", ""]
                 },
                 AM: null,
                 PM: null,
@@ -11387,7 +11403,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -11397,17 +11413,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Sonndeg","Méindeg","Dënschdeg","Mëttwoch","Donneschdeg","Freideg","Samschdeg"],
-                    namesAbbr: ["Son","Méi","Dën","Mët","Don","Fre","Sam"],
-                    namesShort: ["So","Mé","Dë","Më","Do","Fr","Sa"]
+                    names: ["Sonndeg", "Méindeg", "Dënschdeg", "Mëttwoch", "Donneschdeg", "Freideg", "Samschdeg"],
+                    namesAbbr: ["Son", "Méi", "Dën", "Mët", "Don", "Fre", "Sam"],
+                    namesShort: ["So", "Mé", "Dë", "Më", "Do", "Fr", "Sa"]
                 },
                 months: {
-                    names: ["Januar","Februar","Mäerz","Abrëll","Mee","Juni","Juli","August","September","Oktober","November","Dezember",""],
-                    namesAbbr: ["Jan","Feb","Mäe","Abr","Mee","Jun","Jul","Aug","Sep","Okt","Nov","Dez",""]
+                    names: ["Januar", "Februar", "Mäerz", "Abrëll", "Mee", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember", ""],
+                    namesAbbr: ["Jan", "Feb", "Mäe", "Abr", "Mee", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"n. Chr","start":null,"offset":0}],
+                eras: [{"name": "n. Chr", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd d MMMM yyyy",
@@ -11430,15 +11446,15 @@
         numberFormat: {
             ',': ".",
             '.': ",",
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                groupSizes: [3,0],
+                groupSizes: [3, 0],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,0],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 0],
                 ',': ".",
                 '.': ",",
                 symbol: "kr."
@@ -11449,13 +11465,13 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["sapaat","ataasinngorneq","marlunngorneq","pingasunngorneq","sisamanngorneq","tallimanngorneq","arfininngorneq"],
-                    namesAbbr: ["sap","ata","mar","ping","sis","tal","arf"],
-                    namesShort: ["sa","at","ma","pi","si","ta","ar"]
+                    names: ["sapaat", "ataasinngorneq", "marlunngorneq", "pingasunngorneq", "sisamanngorneq", "tallimanngorneq", "arfininngorneq"],
+                    namesAbbr: ["sap", "ata", "mar", "ping", "sis", "tal", "arf"],
+                    namesShort: ["sa", "at", "ma", "pi", "si", "ta", "ar"]
                 },
                 months: {
-                    names: ["januari","februari","martsi","apriili","maaji","juni","juli","aggusti","septembari","oktobari","novembari","decembari",""],
-                    namesAbbr: ["jan","feb","mar","apr","mai","jun","jul","aug","sep","okt","nov","dec",""]
+                    names: ["januari", "februari", "martsi", "apriili", "maaji", "juni", "juli", "aggusti", "septembari", "oktobari", "novembari", "decembari", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "mai", "jun", "jul", "aug", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
@@ -11480,24 +11496,24 @@
         language: "ig",
         numberFormat: {
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "N"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Aiku","Aje","Isegun","Ojo'ru","Ojo'bo","Eti","Abameta"],
-                    namesAbbr: ["Aik","Aje","Ise","Ojo","Ojo","Eti","Aba"],
-                    namesShort: ["A","A","I","O","O","E","A"]
+                    names: ["Aiku", "Aje", "Isegun", "Ojo'ru", "Ojo'bo", "Eti", "Abameta"],
+                    namesAbbr: ["Aik", "Aje", "Ise", "Ojo", "Ojo", "Eti", "Aba"],
+                    namesShort: ["A", "A", "I", "O", "O", "E", "A"]
                 },
                 months: {
-                    names: ["Onwa mbu","Onwa ibua","Onwa ato","Onwa ano","Onwa ise","Onwa isi","Onwa asa","Onwa asato","Onwa itolu","Onwa iri","Onwa iri n'ofu","Onwa iri n'ibua",""],
-                    namesAbbr: ["mbu.","ibu.","ato.","ano.","ise","isi","asa","asa.","ito.","iri.","n'of.","n'ib.",""]
+                    names: ["Onwa mbu", "Onwa ibua", "Onwa ato", "Onwa ano", "Onwa ise", "Onwa isi", "Onwa asa", "Onwa asato", "Onwa itolu", "Onwa iri", "Onwa iri n'ofu", "Onwa iri n'ibua", ""],
+                    namesAbbr: ["mbu.", "ibu.", "ato.", "ano.", "ise", "isi", "asa", "asa.", "ito.", "iri.", "n'of.", "n'ib.", ""]
                 },
-                AM: ["Ututu","ututu","UTUTU"],
-                PM: ["Efifie","efifie","EFIFIE"],
-                eras: [{"name":"AD","start":null,"offset":0}],
+                AM: ["Ututu", "ututu", "UTUTU"],
+                PM: ["Efifie", "efifie", "EFIFIE"],
+                eras: [{"name": "AD", "start": null, "offset": 0}],
                 patterns: {
                     d: "d/M/yyyy"
                 }
@@ -11511,13 +11527,13 @@
         nativeName: "ꆈꌠꁱꂷ (ꍏꉸꏓꂱꇭꉼꇩ)",
         language: "ii",
         numberFormat: {
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,0]
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 0]
             },
             currency: {
-                pattern: ["$-n","$n"],
+                pattern: ["$-n", "$n"],
                 symbol: "¥"
             }
         },
@@ -11525,17 +11541,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["ꑭꆏꑍ","ꆏꊂ꒔","ꆏꊂꑍ","ꆏꊂꌕ","ꆏꊂꇖ","ꆏꊂꉬ","ꆏꊂꃘ"],
-                    namesAbbr: ["ꑭꆏ","ꆏ꒔","ꆏꑍ","ꆏꌕ","ꆏꇖ","ꆏꉬ","ꆏꃘ"],
-                    namesShort: ["ꆏ","꒔","ꑍ","ꌕ","ꇖ","ꉬ","ꃘ"]
+                    names: ["ꑭꆏꑍ", "ꆏꊂ꒔", "ꆏꊂꑍ", "ꆏꊂꌕ", "ꆏꊂꇖ", "ꆏꊂꉬ", "ꆏꊂꃘ"],
+                    namesAbbr: ["ꑭꆏ", "ꆏ꒔", "ꆏꑍ", "ꆏꌕ", "ꆏꇖ", "ꆏꉬ", "ꆏꃘ"],
+                    namesShort: ["ꆏ", "꒔", "ꑍ", "ꌕ", "ꇖ", "ꉬ", "ꃘ"]
                 },
                 months: {
-                    names: ["ꋍꆪ","ꑍꆪ","ꌕꆪ","ꇖꆪ","ꉬꆪ","ꃘꆪ","ꏃꆪ","ꉆꆪ","ꈬꆪ","ꊰꆪ","ꊯꊪꆪ","ꊰꑋꆪ",""],
-                    namesAbbr: ["ꋍꆪ","ꑍꆪ","ꌕꆪ","ꇖꆪ","ꉬꆪ","ꃘꆪ","ꏃꆪ","ꉆꆪ","ꈬꆪ","ꊰꆪ","ꊯꊪꆪ","ꊰꑋꆪ",""]
+                    names: ["ꋍꆪ", "ꑍꆪ", "ꌕꆪ", "ꇖꆪ", "ꉬꆪ", "ꃘꆪ", "ꏃꆪ", "ꉆꆪ", "ꈬꆪ", "ꊰꆪ", "ꊯꊪꆪ", "ꊰꑋꆪ", ""],
+                    namesAbbr: ["ꋍꆪ", "ꑍꆪ", "ꌕꆪ", "ꇖꆪ", "ꉬꆪ", "ꃘꆪ", "ꏃꆪ", "ꉆꆪ", "ꈬꆪ", "ꊰꆪ", "ꊯꊪꆪ", "ꊰꑋꆪ", ""]
                 },
-                AM: ["ꂵꆪꈌꈐ","ꂵꆪꈌꈐ","ꂵꆪꈌꈐ"],
-                PM: ["ꂵꆪꈌꉈ","ꂵꆪꈌꉈ","ꂵꆪꈌꉈ"],
-                eras: [{"name":"ꇬꑼ","start":null,"offset":0}],
+                AM: ["ꂵꆪꈌꈐ", "ꂵꆪꈌꈐ", "ꂵꆪꈌꈐ"],
+                PM: ["ꂵꆪꈌꉈ", "ꂵꆪꈌꉈ", "ꂵꆪꈌꉈ"],
+                eras: [{"name": "ꇬꑼ", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/M/d",
                     D: "yyyy'ꈎ' M'ꆪ' d'ꑍ'",
@@ -11563,7 +11579,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-$ n","$ n"],
+                pattern: ["-$ n", "$ n"],
                 ',': ".",
                 '.': ","
             }
@@ -11572,17 +11588,17 @@
             standard: $.extend(true, {}, standard, {
                 '/': "-",
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -11603,19 +11619,19 @@
         nativeName: "Kanien'kéha",
         language: "moh",
         numberFormat: {
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                groupSizes: [3,0]
+                groupSizes: [3, 0]
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Awentatokentì:ke","Awentataón'ke","Ratironhia'kehronòn:ke","Soséhne","Okaristiiáhne","Ronwaia'tanentaktonhne","Entákta"],
-                    namesShort: ["S","M","T","W","T","F","S"]
+                    names: ["Awentatokentì:ke", "Awentataón'ke", "Ratironhia'kehronòn:ke", "Soséhne", "Okaristiiáhne", "Ronwaia'tanentaktonhne", "Entákta"],
+                    namesShort: ["S", "M", "T", "W", "T", "F", "S"]
                 },
                 months: {
-                    names: ["Tsothohrkó:Wa","Enniska","Enniskó:Wa","Onerahtókha","Onerahtohkó:Wa","Ohiari:Ha","Ohiarihkó:Wa","Seskéha","Seskehkó:Wa","Kenténha","Kentenhkó:Wa","Tsothóhrha",""]
+                    names: ["Tsothohrkó:Wa", "Enniska", "Enniskó:Wa", "Onerahtókha", "Onerahtohkó:Wa", "Ohiari:Ha", "Ohiarihkó:Wa", "Seskéha", "Seskehkó:Wa", "Kenténha", "Kentenhkó:Wa", "Tsothóhrha", ""]
                 }
             })
         }
@@ -11634,7 +11650,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -11644,17 +11660,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Sul","Lun","Meurzh","Merc'her","Yaou","Gwener","Sadorn"],
-                    namesAbbr: ["Sul","Lun","Meu.","Mer.","Yaou","Gwe.","Sad."],
-                    namesShort: ["Su","Lu","Mz","Mc","Ya","Gw","Sa"]
+                    names: ["Sul", "Lun", "Meurzh", "Merc'her", "Yaou", "Gwener", "Sadorn"],
+                    namesAbbr: ["Sul", "Lun", "Meu.", "Mer.", "Yaou", "Gwe.", "Sad."],
+                    namesShort: ["Su", "Lu", "Mz", "Mc", "Ya", "Gw", "Sa"]
                 },
                 months: {
-                    names: ["Genver","C'hwevrer","Meurzh","Ebrel","Mae","Mezheven","Gouere","Eost","Gwengolo","Here","Du","Kerzu",""],
-                    namesAbbr: ["Gen.","C'hwe.","Meur.","Ebr.","Mae","Mezh.","Goue.","Eost","Gwen.","Here","Du","Kzu",""]
+                    names: ["Genver", "C'hwevrer", "Meurzh", "Ebrel", "Mae", "Mezheven", "Gouere", "Eost", "Gwengolo", "Here", "Du", "Kerzu", ""],
+                    namesAbbr: ["Gen.", "C'hwe.", "Meur.", "Ebr.", "Mae", "Mezh.", "Goue.", "Eost", "Gwen.", "Here", "Du", "Kzu", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"g. J.-K.","start":null,"offset":0}],
+                eras: [{"name": "g. J.-K.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd d MMMM yyyy",
@@ -11677,10 +11693,10 @@
         isRTL: true,
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             },
             currency: {
-                pattern: ["$-n","$n"],
+                pattern: ["$-n", "$n"],
                 symbol: "¥"
             }
         },
@@ -11688,17 +11704,17 @@
             standard: $.extend(true, {}, standard, {
                 '/': "-",
                 days: {
-                    names: ["يەكشەنبە","دۈشەنبە","سەيشەنبە","چارشەنبە","پەيشەنبە","جۈمە","شەنبە"],
-                    namesAbbr: ["يە","دۈ","سە","چا","پە","جۈ","شە"],
-                    namesShort: ["ي","د","س","چ","پ","ج","ش"]
+                    names: ["يەكشەنبە", "دۈشەنبە", "سەيشەنبە", "چارشەنبە", "پەيشەنبە", "جۈمە", "شەنبە"],
+                    namesAbbr: ["يە", "دۈ", "سە", "چا", "پە", "جۈ", "شە"],
+                    namesShort: ["ي", "د", "س", "چ", "پ", "ج", "ش"]
                 },
                 months: {
-                    names: ["1-ئاي","2-ئاي","3-ئاي","4-ئاي","5-ئاي","6-ئاي","7-ئاي","8-ئاي","9-ئاي","10-ئاي","11-ئاي","12-ئاي",""],
-                    namesAbbr: ["1-ئاي","2-ئاي","3-ئاي","4-ئاي","5-ئاي","6-ئاي","7-ئاي","8-ئاي","9-ئاي","10-ئاي","11-ئاي","12-ئاي",""]
+                    names: ["1-ئاي", "2-ئاي", "3-ئاي", "4-ئاي", "5-ئاي", "6-ئاي", "7-ئاي", "8-ئاي", "9-ئاي", "10-ئاي", "11-ئاي", "12-ئاي", ""],
+                    namesAbbr: ["1-ئاي", "2-ئاي", "3-ئاي", "4-ئاي", "5-ئاي", "6-ئاي", "7-ئاي", "8-ئاي", "9-ئاي", "10-ئاي", "11-ئاي", "12-ئاي", ""]
                 },
-                AM: ["چۈشتىن بۇرۇن","چۈشتىن بۇرۇن","چۈشتىن بۇرۇن"],
-                PM: ["چۈشتىن كېيىن","چۈشتىن كېيىن","چۈشتىن كېيىن"],
-                eras: [{"name":"مىلادى","start":null,"offset":0}],
+                AM: ["چۈشتىن بۇرۇن", "چۈشتىن بۇرۇن", "چۈشتىن بۇرۇن"],
+                PM: ["چۈشتىن كېيىن", "چۈشتىن كېيىن", "چۈشتىن كېيىن"],
+                eras: [{"name": "مىلادى", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy-M-d",
                     D: "yyyy-'يىلى' MMMM d-'كۈنى،'",
@@ -11720,26 +11736,26 @@
         language: "mi",
         numberFormat: {
             percent: {
-                pattern: ["-%n","%n"]
+                pattern: ["-%n", "%n"]
             },
             currency: {
-                pattern: ["-$n","$n"]
+                pattern: ["-$n", "$n"]
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Rātapu","Rāhina","Rātū","Rāapa","Rāpare","Rāmere","Rāhoroi"],
-                    namesAbbr: ["Ta","Hi","Tū","Apa","Pa","Me","Ho"],
-                    namesShort: ["Ta","Hi","Tū","Aa","Pa","Me","Ho"]
+                    names: ["Rātapu", "Rāhina", "Rātū", "Rāapa", "Rāpare", "Rāmere", "Rāhoroi"],
+                    namesAbbr: ["Ta", "Hi", "Tū", "Apa", "Pa", "Me", "Ho"],
+                    namesShort: ["Ta", "Hi", "Tū", "Aa", "Pa", "Me", "Ho"]
                 },
                 months: {
-                    names: ["Kohi-tātea","Hui-tanguru","Poutū-te-rangi","Paenga-whāwhā","Haratua","Pipiri","Hōngongoi","Here-turi-kōkā","Mahuru","Whiringa-ā-nuku","Whiringa-ā-rangi","Hakihea",""],
-                    namesAbbr: ["Kohi","Hui","Pou","Pae","Hara","Pipi","Hōngo","Here","Mahu","Nuku","Rangi","Haki",""]
+                    names: ["Kohi-tātea", "Hui-tanguru", "Poutū-te-rangi", "Paenga-whāwhā", "Haratua", "Pipiri", "Hōngongoi", "Here-turi-kōkā", "Mahuru", "Whiringa-ā-nuku", "Whiringa-ā-rangi", "Hakihea", ""],
+                    namesAbbr: ["Kohi", "Hui", "Pou", "Pae", "Hara", "Pipi", "Hōngo", "Here", "Mahu", "Nuku", "Rangi", "Haki", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd MMMM, yyyy",
@@ -11765,7 +11781,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -11775,21 +11791,21 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["dimenge","diluns","dimars","dimècres","dijòus","divendres","dissabte"],
-                    namesAbbr: ["dim.","lun.","mar.","mèc.","jòu.","ven.","sab."],
-                    namesShort: ["di","lu","ma","mè","jò","ve","sa"]
+                    names: ["dimenge", "diluns", "dimars", "dimècres", "dijòus", "divendres", "dissabte"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mèc.", "jòu.", "ven.", "sab."],
+                    namesShort: ["di", "lu", "ma", "mè", "jò", "ve", "sa"]
                 },
                 months: {
-                    names: ["genier","febrier","març","abril","mai","junh","julh","agost","setembre","octobre","novembre","desembre",""],
-                    namesAbbr: ["gen.","feb.","mar.","abr.","mai.","jun.","jul.","ag.","set.","oct.","nov.","des.",""]
+                    names: ["genier", "febrier", "març", "abril", "mai", "junh", "julh", "agost", "setembre", "octobre", "novembre", "desembre", ""],
+                    namesAbbr: ["gen.", "feb.", "mar.", "abr.", "mai.", "jun.", "jul.", "ag.", "set.", "oct.", "nov.", "des.", ""]
                 },
                 monthsGenitive: {
-                    names: ["de genier","de febrier","de març","d'abril","de mai","de junh","de julh","d'agost","de setembre","d'octobre","de novembre","de desembre",""],
-                    namesAbbr: ["gen.","feb.","mar.","abr.","mai.","jun.","jul.","ag.","set.","oct.","nov.","des.",""]
+                    names: ["de genier", "de febrier", "de març", "d'abril", "de mai", "de junh", "de julh", "d'agost", "de setembre", "d'octobre", "de novembre", "de desembre", ""],
+                    namesAbbr: ["gen.", "feb.", "mar.", "abr.", "mai.", "jun.", "jul.", "ag.", "set.", "oct.", "nov.", "des.", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"après Jèsus-Crist","start":null,"offset":0}],
+                eras: [{"name": "après Jèsus-Crist", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd,' lo 'd MMMM' de 'yyyy",
@@ -11817,7 +11833,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -11827,17 +11843,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["dumenica","luni","marti","mercuri","ghjovi","venderi","sabbatu"],
-                    namesAbbr: ["dum.","lun.","mar.","mer.","ghj.","ven.","sab."],
-                    namesShort: ["du","lu","ma","me","gh","ve","sa"]
+                    names: ["dumenica", "luni", "marti", "mercuri", "ghjovi", "venderi", "sabbatu"],
+                    namesAbbr: ["dum.", "lun.", "mar.", "mer.", "ghj.", "ven.", "sab."],
+                    namesShort: ["du", "lu", "ma", "me", "gh", "ve", "sa"]
                 },
                 months: {
-                    names: ["ghjennaghju","ferraghju","marzu","aprile","maghju","ghjunghju","lugliu","aostu","settembre","ottobre","nuvembre","dicembre",""],
-                    namesAbbr: ["ghje","ferr","marz","apri","magh","ghju","lugl","aost","sett","otto","nuve","dice",""]
+                    names: ["ghjennaghju", "ferraghju", "marzu", "aprile", "maghju", "ghjunghju", "lugliu", "aostu", "settembre", "ottobre", "nuvembre", "dicembre", ""],
+                    namesAbbr: ["ghje", "ferr", "marz", "apri", "magh", "ghju", "lugl", "aost", "sett", "otto", "nuve", "dice", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"dopu J-C","start":null,"offset":0}],
+                eras: [{"name": "dopu J-C", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd d MMMM yyyy",
@@ -11865,7 +11881,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -11875,17 +11891,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Sundàà","Mondàà","Dienschdàà","Mittwuch","Dunnerschdàà","Fridàà","Sàmschdàà"],
-                    namesAbbr: ["Su.","Mo.","Di.","Mi.","Du.","Fr.","Sà."],
-                    namesShort: ["Su","Mo","Di","Mi","Du","Fr","Sà"]
+                    names: ["Sundàà", "Mondàà", "Dienschdàà", "Mittwuch", "Dunnerschdàà", "Fridàà", "Sàmschdàà"],
+                    namesAbbr: ["Su.", "Mo.", "Di.", "Mi.", "Du.", "Fr.", "Sà."],
+                    namesShort: ["Su", "Mo", "Di", "Mi", "Du", "Fr", "Sà"]
                 },
                 months: {
-                    names: ["Jänner","Feverje","März","Àpril","Mai","Jüni","Jüli","Augscht","September","Oktower","Nowember","Dezember",""],
-                    namesAbbr: ["Jän.","Fev.","März","Apr.","Mai","Jüni","Jüli","Aug.","Sept.","Okt.","Now.","Dez.",""]
+                    names: ["Jänner", "Feverje", "März", "Àpril", "Mai", "Jüni", "Jüli", "Augscht", "September", "Oktower", "Nowember", "Dezember", ""],
+                    namesAbbr: ["Jän.", "Fev.", "März", "Apr.", "Mai", "Jüni", "Jüli", "Aug.", "Sept.", "Okt.", "Now.", "Dez.", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"Vor J.-C.","start":null,"offset":0}],
+                eras: [{"name": "Vor J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd d MMMM yyyy",
@@ -11909,12 +11925,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n$","n$"],
+                pattern: ["-n$", "n$"],
                 ',': " ",
                 '.': ",",
                 symbol: "с."
@@ -11925,17 +11941,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["баскыһыанньа","бэнидиэнньик","оптуорунньук","сэрэдэ","чэппиэр","бээтинсэ","субуота"],
-                    namesAbbr: ["Бс","Бн","Оп","Ср","Чп","Бт","Сб"],
-                    namesShort: ["Бс","Бн","Оп","Ср","Чп","Бт","Сб"]
+                    names: ["баскыһыанньа", "бэнидиэнньик", "оптуорунньук", "сэрэдэ", "чэппиэр", "бээтинсэ", "субуота"],
+                    namesAbbr: ["Бс", "Бн", "Оп", "Ср", "Чп", "Бт", "Сб"],
+                    namesShort: ["Бс", "Бн", "Оп", "Ср", "Чп", "Бт", "Сб"]
                 },
                 months: {
-                    names: ["Тохсунньу","Олунньу","Кулун тутар","Муус устар","Ыам ыйа","Бэс ыйа","От ыйа","Атырдьах ыйа","Балаҕан ыйа","Алтынньы","Сэтинньи","Ахсынньы",""],
-                    namesAbbr: ["тхс","олн","кул","мст","ыам","бэс","отй","атр","блҕ","алт","стн","ахс",""]
+                    names: ["Тохсунньу", "Олунньу", "Кулун тутар", "Муус устар", "Ыам ыйа", "Бэс ыйа", "От ыйа", "Атырдьах ыйа", "Балаҕан ыйа", "Алтынньы", "Сэтинньи", "Ахсынньы", ""],
+                    namesAbbr: ["тхс", "олн", "кул", "мст", "ыам", "бэс", "отй", "атр", "блҕ", "алт", "стн", "ахс", ""]
                 },
                 monthsGenitive: {
-                    names: ["тохсунньу","олунньу","кулун тутар","муус устар","ыам ыйын","бэс ыйын","от ыйын","атырдьах ыйын","балаҕан ыйын","алтынньы","сэтинньи","ахсынньы",""],
-                    namesAbbr: ["тхс","олн","кул","мст","ыам","бэс","отй","атр","блҕ","алт","стн","ахс",""]
+                    names: ["тохсунньу", "олунньу", "кулун тутар", "муус устар", "ыам ыйын", "бэс ыйын", "от ыйын", "атырдьах ыйын", "балаҕан ыйын", "алтынньы", "сэтинньи", "ахсынньы", ""],
+                    namesAbbr: ["тхс", "олн", "кул", "мст", "ыам", "бэс", "отй", "атр", "блҕ", "алт", "стн", "ахс", ""]
                 },
                 AM: null,
                 PM: null,
@@ -11965,17 +11981,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["juq'ij","kaq'ij","oxq'ij","kajq'ij","joq'ij","waqq'ij","wuqq'ij"],
-                    namesAbbr: ["juq","kaq","oxq","kajq","joq","waqq","wuqq"],
-                    namesShort: ["ju","ka","ox","ka","jo","wa","wu"]
+                    names: ["juq'ij", "kaq'ij", "oxq'ij", "kajq'ij", "joq'ij", "waqq'ij", "wuqq'ij"],
+                    namesAbbr: ["juq", "kaq", "oxq", "kajq", "joq", "waqq", "wuqq"],
+                    namesShort: ["ju", "ka", "ox", "ka", "jo", "wa", "wu"]
                 },
                 months: {
-                    names: ["nab'e ik'","ukab' ik'","rox ik'","ukaj ik'","uro' ik'","uwaq ik'","uwuq ik'","uwajxaq ik'","ub'elej ik'","ulaj ik'","ujulaj ik'","ukab'laj ik'",""],
-                    namesAbbr: ["nab'e","ukab","rox","ukaj","uro","uwaq","uwuq","uwajxaq","ub'elej","ulaj","ujulaj","ukab'laj",""]
+                    names: ["nab'e ik'", "ukab' ik'", "rox ik'", "ukaj ik'", "uro' ik'", "uwaq ik'", "uwuq ik'", "uwajxaq ik'", "ub'elej ik'", "ulaj ik'", "ujulaj ik'", "ukab'laj ik'", ""],
+                    namesAbbr: ["nab'e", "ukab", "rox", "ukaj", "uro", "uwaq", "uwuq", "uwajxaq", "ub'elej", "ulaj", "ujulaj", "ukab'laj", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -12003,7 +12019,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 ',': " ",
                 '.': ",",
                 symbol: "RWF"
@@ -12012,17 +12028,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Ku wa mbere","Ku wa kabiri","Ku wa gatatu","Ku wa kane","Ku wa gatanu","Ku wa gatandatu","Ku cyumweru"],
-                    namesAbbr: ["mbe.","kab.","gat.","kan.","gat.","gat.","cyu."],
-                    namesShort: ["mb","ka","ga","ka","ga","ga","cy"]
+                    names: ["Ku wa mbere", "Ku wa kabiri", "Ku wa gatatu", "Ku wa kane", "Ku wa gatanu", "Ku wa gatandatu", "Ku cyumweru"],
+                    namesAbbr: ["mbe.", "kab.", "gat.", "kan.", "gat.", "gat.", "cyu."],
+                    namesShort: ["mb", "ka", "ga", "ka", "ga", "ga", "cy"]
                 },
                 months: {
-                    names: ["Mutarama","Gashyantare","Werurwe","Mata","Gicurasi","Kamena","Nyakanga","Kanama","Nzeli","Ukwakira","Ugushyingo","Ukuboza",""],
-                    namesAbbr: ["Mut","Gas","Wer","Mat","Gic","Kam","Nya","Kan","Nze","Ukwa","Ugu","Uku",""]
+                    names: ["Mutarama", "Gashyantare", "Werurwe", "Mata", "Gicurasi", "Kamena", "Nyakanga", "Kanama", "Nzeli", "Ukwakira", "Ugushyingo", "Ukuboza", ""],
+                    namesAbbr: ["Mut", "Gas", "Wer", "Mat", "Gic", "Kam", "Nya", "Kan", "Nze", "Ukwa", "Ugu", "Uku", ""]
                 },
-                AM: ["saa moya z.m.","saa moya z.m.","SAA MOYA Z.M."],
-                PM: ["saa moya z.n.","saa moya z.n.","SAA MOYA Z.N."],
-                eras: [{"name":"AD","start":null,"offset":0}]
+                AM: ["saa moya z.m.", "saa moya z.m.", "SAA MOYA Z.M."],
+                PM: ["saa moya z.n.", "saa moya z.n.", "SAA MOYA Z.N."],
+                eras: [{"name": "AD", "start": null, "offset": 0}]
             })
         }
     }, cultures["rw-RW"]);
@@ -12040,7 +12056,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "XOF"
@@ -12050,17 +12066,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd d MMMM yyyy",
@@ -12086,12 +12102,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["%n-","%n"],
+                pattern: ["%n-", "%n"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["$n-","$n"],
+                pattern: ["$n-", "$n"],
                 symbol: "؋"
             }
         },
@@ -12100,17 +12116,17 @@
                 name: "Hijri",
                 firstDay: 5,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["غ.م","غ.م","غ.م"],
-                PM: ["غ.و","غ.و","غ.و"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["غ.م", "غ.م", "غ.م"],
+                PM: ["غ.و", "غ.و", "غ.و"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -12131,7 +12147,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -12141,9 +12157,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -12176,7 +12192,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -12187,7 +12203,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -12195,17 +12211,17 @@
             Gregorian_Localized: $.extend(true, {}, standard, {
                 firstDay: 5,
                 days: {
-                    names: ["یکشنبه","دوشنبه","سه‌شنبه","چهارشنبه","پنجشنبه","جمعه","شنبه"],
-                    namesAbbr: ["یکشنبه","دوشنبه","سه‌شنبه","چهارشنبه","پنجشنبه","جمعه","شنبه"],
-                    namesShort: ["ی","د","س","چ","پ","ج","ش"]
+                    names: ["یکشنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنجشنبه", "جمعه", "شنبه"],
+                    namesAbbr: ["یکشنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنجشنبه", "جمعه", "شنبه"],
+                    namesShort: ["ی", "د", "س", "چ", "پ", "ج", "ش"]
                 },
                 months: {
-                    names: ["سلواغه","كب","ورى","غويى","غبرګولى","چنګاښ","زمرى","وږى","تله","لړم","ليندۍ","مرغومى",""],
-                    namesAbbr: ["سلواغه","كب","ورى","غويى","غبرګولى","چنګاښ","زمرى","وږى","تله","لړم","ليندۍ","مرغومى",""]
+                    names: ["سلواغه", "كب", "ورى", "غويى", "غبرګولى", "چنګاښ", "زمرى", "وږى", "تله", "لړم", "ليندۍ", "مرغومى", ""],
+                    namesAbbr: ["سلواغه", "كب", "ورى", "غويى", "غبرګولى", "چنګاښ", "زمرى", "وږى", "تله", "لړم", "ليندۍ", "مرغومى", ""]
                 },
-                AM: ["غ.م","غ.م","غ.م"],
-                PM: ["غ.و","غ.و","غ.و"],
-                eras: [{"name":"ل.ه","start":null,"offset":0}],
+                AM: ["غ.م", "غ.م", "غ.م"],
+                PM: ["غ.و", "غ.و", "غ.و"],
+                eras: [{"name": "ل.ه", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/M/d",
                     D: "yyyy, dd, MMMM, dddd",
@@ -12225,7 +12241,7 @@
         language: "gd",
         numberFormat: {
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 symbol: "£"
             }
         },
@@ -12233,16 +12249,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Didòmhnaich","Diluain","Dimàirt","Diciadain","Diardaoin","Dihaoine","Disathairne"],
-                    namesAbbr: ["Dòm","Lua","Mài","Cia","Ard","Hao","Sat"],
-                    namesShort: ["D","L","M","C","A","H","S"]
+                    names: ["Didòmhnaich", "Diluain", "Dimàirt", "Diciadain", "Diardaoin", "Dihaoine", "Disathairne"],
+                    namesAbbr: ["Dòm", "Lua", "Mài", "Cia", "Ard", "Hao", "Sat"],
+                    namesShort: ["D", "L", "M", "C", "A", "H", "S"]
                 },
                 months: {
-                    names: ["Am Faoilleach","An Gearran","Am Màrt","An Giblean","An Cèitean","An t-Ògmhios","An t-Iuchar","An Lùnastal","An t-Sultain","An Dàmhair","An t-Samhain","An Dùbhlachd",""],
-                    namesAbbr: ["Fao","Gea","Màr","Gib","Cèi","Ògm","Iuc","Lùn","Sul","Dàm","Sam","Dùb",""]
+                    names: ["Am Faoilleach", "An Gearran", "Am Màrt", "An Giblean", "An Cèitean", "An t-Ògmhios", "An t-Iuchar", "An Lùnastal", "An t-Sultain", "An Dàmhair", "An t-Samhain", "An Dùbhlachd", ""],
+                    namesAbbr: ["Fao", "Gea", "Màr", "Gib", "Cèi", "Ògm", "Iuc", "Lùn", "Sul", "Dàm", "Sam", "Dùb", ""]
                 },
-                AM: ["m","m","M"],
-                PM: ["f","f","F"],
+                AM: ["m", "m", "M"],
+                PM: ["f", "f", "F"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM yyyy",
@@ -12266,7 +12282,7 @@
         numberFormat: {
             pattern: ["n-"],
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 symbol: "د.ع.‏"
             }
         },
@@ -12274,16 +12290,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""],
-                    namesAbbr: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""]
+                    names: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""],
+                    namesAbbr: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM, yyyy",
@@ -12298,17 +12314,17 @@
                 name: "UmAlQura",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -12459,7 +12475,7 @@
                     ],
                     minDate: -2198707200000,
                     maxDate: 1873411199999,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var days = hday - 1,
                             gyear = hyear - 1318;
                         if (gyear < 0 || gyear >= this._yearInfo.length) return null;
@@ -12477,7 +12493,7 @@
                         gdate.setDate(gdate.getDate() + days);
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         // Date's ticks in javascript are always from the GMT time,
                         // but we are interested in the hijri date in the same timezone,
                         // not what the hijri date was at GMT time, so we adjust for the offset.
@@ -12486,7 +12502,8 @@
                         var hyear = 0,
                             hmonth = 1;
                         // find the earliest gregorian date in the array that is greater than or equal to the given date
-                        while (ticks > this._yearInfo[++hyear][1]) { }
+                        while (ticks > this._yearInfo[++hyear][1]) {
+                        }
                         if (ticks !== this._yearInfo[hyear][1]) {
                             hyear--;
                         }
@@ -12516,17 +12533,17 @@
                 name: "Hijri",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -12549,7 +12566,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -12559,9 +12576,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -12594,7 +12611,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -12605,7 +12622,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -12614,17 +12631,17 @@
                 name: "Gregorian_MiddleEastFrench",
                 firstDay: 6,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -12638,17 +12655,17 @@
                 name: "Gregorian_TransliteratedEnglish",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["أ","ا","ث","أ","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["أ", "ا", "ث", "أ", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","ابريل","مايو","يونيو","يوليو","اغسطس","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "ابريل", "مايو", "يونيو", "يوليو", "اغسطس", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -12661,17 +12678,17 @@
                 name: "Gregorian_TransliteratedFrench",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -12690,27 +12707,27 @@
         language: "zh-CHS",
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             },
             currency: {
-                pattern: ["$-n","$n"],
+                pattern: ["$-n", "$n"],
                 symbol: "¥"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
-                    namesAbbr: ["周日","周一","周二","周三","周四","周五","周六"],
-                    namesShort: ["日","一","二","三","四","五","六"]
+                    names: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+                    namesAbbr: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+                    namesShort: ["日", "一", "二", "三", "四", "五", "六"]
                 },
                 months: {
-                    names: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""],
-                    namesAbbr: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""]
+                    names: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""],
+                    namesAbbr: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""]
                 },
-                AM: ["上午","上午","上午"],
-                PM: ["下午","下午","下午"],
-                eras: [{"name":"公元","start":null,"offset":0}],
+                AM: ["上午", "上午", "上午"],
+                PM: ["下午", "下午", "下午"],
+                eras: [{"name": "公元", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/M/d",
                     D: "yyyy'年'M'月'd'日'",
@@ -12733,11 +12750,11 @@
         numberFormat: {
             ',': "'",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': "'"
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 ',': "'",
                 symbol: "Fr."
             }
@@ -12747,17 +12764,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],
-                    namesAbbr: ["So","Mo","Di","Mi","Do","Fr","Sa"],
-                    namesShort: ["So","Mo","Di","Mi","Do","Fr","Sa"]
+                    names: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
+                    namesAbbr: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+                    namesShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"]
                 },
                 months: {
-                    names: ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember",""],
-                    namesAbbr: ["Jan","Feb","Mrz","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez",""]
+                    names: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember", ""],
+                    namesAbbr: ["Jan", "Feb", "Mrz", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"n. Chr.","start":null,"offset":0}],
+                eras: [{"name": "n. Chr.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd.MM.yyyy",
                     D: "dddd, d. MMMM yyyy",
@@ -12778,7 +12795,7 @@
         nativeName: "English (United Kingdom)",
         numberFormat: {
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 symbol: "£"
             }
         },
@@ -12806,23 +12823,23 @@
         language: "es",
         numberFormat: {
             currency: {
-                pattern: ["-$n","$n"]
+                pattern: ["-$n", "$n"]
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -12850,7 +12867,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -12860,17 +12877,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d/MM/yyyy",
                     D: "dddd d MMMM yyyy",
@@ -12893,11 +12910,11 @@
         numberFormat: {
             ',': "'",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': "'"
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 ',': "'",
                 symbol: "fr."
             }
@@ -12907,17 +12924,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["domenica","lunedì","martedì","mercoledì","giovedì","venerdì","sabato"],
-                    namesAbbr: ["dom","lun","mar","mer","gio","ven","sab"],
-                    namesShort: ["do","lu","ma","me","gi","ve","sa"]
+                    names: ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"],
+                    namesAbbr: ["dom", "lun", "mar", "mer", "gio", "ven", "sab"],
+                    namesShort: ["do", "lu", "ma", "me", "gi", "ve", "sa"]
                 },
                 months: {
-                    names: ["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre",""],
-                    namesAbbr: ["gen","feb","mar","apr","mag","giu","lug","ago","set","ott","nov","dic",""]
+                    names: ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre", ""],
+                    namesAbbr: ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd.MM.yyyy",
                     D: "dddd, d. MMMM yyyy",
@@ -12941,12 +12958,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -12956,13 +12973,13 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["zondag","maandag","dinsdag","woensdag","donderdag","vrijdag","zaterdag"],
-                    namesAbbr: ["zo","ma","di","wo","do","vr","za"],
-                    namesShort: ["zo","ma","di","wo","do","vr","za"]
+                    names: ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"],
+                    namesAbbr: ["zo", "ma", "di", "wo", "do", "vr", "za"],
+                    namesShort: ["zo", "ma", "di", "wo", "do", "vr", "za"]
                 },
                 months: {
-                    names: ["januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december",""],
-                    namesAbbr: ["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec",""]
+                    names: ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december", ""],
+                    namesAbbr: ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
@@ -12993,7 +13010,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': " ",
                 '.': ",",
                 symbol: "kr"
@@ -13004,13 +13021,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["søndag","måndag","tysdag","onsdag","torsdag","fredag","laurdag"],
-                    namesAbbr: ["sø","må","ty","on","to","fr","la"],
-                    namesShort: ["sø","må","ty","on","to","fr","la"]
+                    names: ["søndag", "måndag", "tysdag", "onsdag", "torsdag", "fredag", "laurdag"],
+                    namesAbbr: ["sø", "må", "ty", "on", "to", "fr", "la"],
+                    namesShort: ["sø", "må", "ty", "on", "to", "fr", "la"]
                 },
                 months: {
-                    names: ["januar","februar","mars","april","mai","juni","juli","august","september","oktober","november","desember",""],
-                    namesAbbr: ["jan","feb","mar","apr","mai","jun","jul","aug","sep","okt","nov","des",""]
+                    names: ["januar", "februar", "mars", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "mai", "jun", "jul", "aug", "sep", "okt", "nov", "des", ""]
                 },
                 AM: null,
                 PM: null,
@@ -13037,12 +13054,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -13053,17 +13070,17 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"],
-                    namesAbbr: ["dom","seg","ter","qua","qui","sex","sáb"],
-                    namesShort: ["D","S","T","Q","Q","S","S"]
+                    names: ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"],
+                    namesAbbr: ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"],
+                    namesShort: ["D", "S", "T", "Q", "Q", "S", "S"]
                 },
                 months: {
-                    names: ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro",""],
-                    namesAbbr: ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez",""]
+                    names: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro", ""],
+                    namesAbbr: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "dddd, d' de 'MMMM' de 'yyyy",
@@ -13087,12 +13104,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "Din."
@@ -13103,17 +13120,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["nedelja","ponedeljak","utorak","sreda","četvrtak","petak","subota"],
-                    namesAbbr: ["ned","pon","uto","sre","čet","pet","sub"],
-                    namesShort: ["ne","po","ut","sr","če","pe","su"]
+                    names: ["nedelja", "ponedeljak", "utorak", "sreda", "četvrtak", "petak", "subota"],
+                    namesAbbr: ["ned", "pon", "uto", "sre", "čet", "pet", "sub"],
+                    namesShort: ["ne", "po", "ut", "sr", "če", "pe", "su"]
                 },
                 months: {
-                    names: ["januar","februar","mart","april","maj","jun","jul","avgust","septembar","oktobar","novembar","decembar",""],
-                    namesAbbr: ["jan","feb","mar","apr","maj","jun","jul","avg","sep","okt","nov","dec",""]
+                    names: ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "avg", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"n.e.","start":null,"offset":0}],
+                eras: [{"name": "n.e.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d.M.yyyy",
                     D: "d. MMMM yyyy",
@@ -13141,7 +13158,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -13152,13 +13169,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["söndag","måndag","tisdag","onsdag","torsdag","fredag","lördag"],
-                    namesAbbr: ["sö","må","ti","on","to","fr","lö"],
-                    namesShort: ["sö","må","ti","on","to","fr","lö"]
+                    names: ["söndag", "måndag", "tisdag", "onsdag", "torsdag", "fredag", "lördag"],
+                    namesAbbr: ["sö", "må", "ti", "on", "to", "fr", "lö"],
+                    namesShort: ["sö", "må", "ti", "on", "to", "fr", "lö"]
                 },
                 months: {
-                    names: ["januari","februari","mars","april","maj","juni","juli","augusti","september","oktober","november","december",""],
-                    namesAbbr: ["jan","feb","mar","apr","maj","jun","jul","aug","sep","okt","nov","dec",""]
+                    names: ["januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti", "september", "oktober", "november", "december", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
@@ -13185,12 +13202,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "ман."
@@ -13201,17 +13218,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Базар","Базар ертәси","Чәршәнбә ахшамы","Чәршәнбә","Ҹүмә ахшамы","Ҹүмә","Шәнбә"],
-                    namesAbbr: ["Б","Бе","Ча","Ч","Ҹа","Ҹ","Ш"],
-                    namesShort: ["Б","Бе","Ча","Ч","Ҹа","Ҹ","Ш"]
+                    names: ["Базар", "Базар ертәси", "Чәршәнбә ахшамы", "Чәршәнбә", "Ҹүмә ахшамы", "Ҹүмә", "Шәнбә"],
+                    namesAbbr: ["Б", "Бе", "Ча", "Ч", "Ҹа", "Ҹ", "Ш"],
+                    namesShort: ["Б", "Бе", "Ча", "Ч", "Ҹа", "Ҹ", "Ш"]
                 },
                 months: {
-                    names: ["Јанвар","Феврал","Март","Апрел","Мај","Ијун","Ијул","Август","Сентјабр","Октјабр","Нојабр","Декабр",""],
-                    namesAbbr: ["Јан","Фев","Мар","Апр","Мај","Ијун","Ијул","Авг","Сен","Окт","Ноя","Дек",""]
+                    names: ["Јанвар", "Феврал", "Март", "Апрел", "Мај", "Ијун", "Ијул", "Август", "Сентјабр", "Октјабр", "Нојабр", "Декабр", ""],
+                    namesAbbr: ["Јан", "Фев", "Мар", "Апр", "Мај", "Ијун", "Ијул", "Авг", "Сен", "Окт", "Ноя", "Дек", ""]
                 },
                 monthsGenitive: {
-                    names: ["јанвар","феврал","март","апрел","мај","ијун","ијул","август","сентјабр","октјабр","нојабр","декабр",""],
-                    namesAbbr: ["Јан","Фев","Мар","Апр","мая","ијун","ијул","Авг","Сен","Окт","Ноя","Дек",""]
+                    names: ["јанвар", "феврал", "март", "апрел", "мај", "ијун", "ијул", "август", "сентјабр", "октјабр", "нојабр", "декабр", ""],
+                    namesAbbr: ["Јан", "Фев", "Мар", "Апр", "мая", "ијун", "ијул", "Авг", "Сен", "Окт", "Ноя", "Дек", ""]
                 },
                 AM: null,
                 PM: null,
@@ -13242,7 +13259,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -13253,21 +13270,21 @@
                 '/': ". ",
                 firstDay: 1,
                 days: {
-                    names: ["njeźela","ponjeźele","wałtora","srjoda","stwortk","pětk","sobota"],
-                    namesAbbr: ["nje","pon","wał","srj","stw","pět","sob"],
-                    namesShort: ["n","p","w","s","s","p","s"]
+                    names: ["njeźela", "ponjeźele", "wałtora", "srjoda", "stwortk", "pětk", "sobota"],
+                    namesAbbr: ["nje", "pon", "wał", "srj", "stw", "pět", "sob"],
+                    namesShort: ["n", "p", "w", "s", "s", "p", "s"]
                 },
                 months: {
-                    names: ["januar","februar","měrc","apryl","maj","junij","julij","awgust","september","oktober","nowember","december",""],
-                    namesAbbr: ["jan","feb","měr","apr","maj","jun","jul","awg","sep","okt","now","dec",""]
+                    names: ["januar", "februar", "měrc", "apryl", "maj", "junij", "julij", "awgust", "september", "oktober", "nowember", "december", ""],
+                    namesAbbr: ["jan", "feb", "měr", "apr", "maj", "jun", "jul", "awg", "sep", "okt", "now", "dec", ""]
                 },
                 monthsGenitive: {
-                    names: ["januara","februara","měrca","apryla","maja","junija","julija","awgusta","septembra","oktobra","nowembra","decembra",""],
-                    namesAbbr: ["jan","feb","měr","apr","maj","jun","jul","awg","sep","okt","now","dec",""]
+                    names: ["januara", "februara", "měrca", "apryla", "maja", "junija", "julija", "awgusta", "septembra", "oktobra", "nowembra", "decembra", ""],
+                    namesAbbr: ["jan", "feb", "měr", "apr", "maj", "jun", "jul", "awg", "sep", "okt", "now", "dec", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"po Chr.","start":null,"offset":0}],
+                eras: [{"name": "po Chr.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d. M. yyyy",
                     D: "dddd, 'dnja' d. MMMM yyyy",
@@ -13295,7 +13312,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "kr"
@@ -13306,17 +13323,17 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["sotnabeaivi","mánnodat","disdat","gaskavahkku","duorastat","bearjadat","lávvardat"],
-                    namesAbbr: ["sotn","mán","dis","gask","duor","bear","láv"],
-                    namesShort: ["s","m","d","g","d","b","l"]
+                    names: ["sotnabeaivi", "mánnodat", "disdat", "gaskavahkku", "duorastat", "bearjadat", "lávvardat"],
+                    namesAbbr: ["sotn", "mán", "dis", "gask", "duor", "bear", "láv"],
+                    namesShort: ["s", "m", "d", "g", "d", "b", "l"]
                 },
                 months: {
-                    names: ["ođđajagemánnu","guovvamánnu","njukčamánnu","cuoŋománnu","miessemánnu","geassemánnu","suoidnemánnu","borgemánnu","čakčamánnu","golggotmánnu","skábmamánnu","juovlamánnu",""],
-                    namesAbbr: ["ođđj","guov","njuk","cuo","mies","geas","suoi","borg","čakč","golg","skáb","juov",""]
+                    names: ["ođđajagemánnu", "guovvamánnu", "njukčamánnu", "cuoŋománnu", "miessemánnu", "geassemánnu", "suoidnemánnu", "borgemánnu", "čakčamánnu", "golggotmánnu", "skábmamánnu", "juovlamánnu", ""],
+                    namesAbbr: ["ođđj", "guov", "njuk", "cuo", "mies", "geas", "suoi", "borg", "čakč", "golg", "skáb", "juov", ""]
                 },
                 monthsGenitive: {
-                    names: ["ođđajagimánu","guovvamánu","njukčamánu","cuoŋománu","miessemánu","geassemánu","suoidnemánu","borgemánu","čakčamánu","golggotmánu","skábmamánu","juovlamánu",""],
-                    namesAbbr: ["ođđj","guov","njuk","cuo","mies","geas","suoi","borg","čakč","golg","skáb","juov",""]
+                    names: ["ođđajagimánu", "guovvamánu", "njukčamánu", "cuoŋománu", "miessemánu", "geassemánu", "suoidnemánu", "borgemánu", "čakčamánu", "golggotmánu", "skábmamánu", "juovlamánu", ""],
+                    namesAbbr: ["ođđj", "guov", "njuk", "cuo", "mies", "geas", "suoi", "borg", "čakč", "golg", "skáb", "juov", ""]
                 },
                 AM: null,
                 PM: null,
@@ -13341,7 +13358,7 @@
         language: "ga",
         numberFormat: {
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 symbol: "€"
             }
         },
@@ -13349,16 +13366,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Dé Domhnaigh","Dé Luain","Dé Máirt","Dé Céadaoin","Déardaoin","Dé hAoine","Dé Sathairn"],
-                    namesAbbr: ["Domh","Luan","Máir","Céad","Déar","Aoi","Sath"],
-                    namesShort: ["Do","Lu","Má","Cé","De","Ao","Sa"]
+                    names: ["Dé Domhnaigh", "Dé Luain", "Dé Máirt", "Dé Céadaoin", "Déardaoin", "Dé hAoine", "Dé Sathairn"],
+                    namesAbbr: ["Domh", "Luan", "Máir", "Céad", "Déar", "Aoi", "Sath"],
+                    namesShort: ["Do", "Lu", "Má", "Cé", "De", "Ao", "Sa"]
                 },
                 months: {
-                    names: ["Eanáir","Feabhra","Márta","Aibreán","Bealtaine","Meitheamh","Iúil","Lúnasa","Meán Fómhair","Deireadh Fómhair","Samhain","Nollaig",""],
-                    namesAbbr: ["Ean","Feabh","Már","Aib","Bealt","Meith","Iúil","Lún","M.Fómh","D.Fómh","Samh","Noll",""]
+                    names: ["Eanáir", "Feabhra", "Márta", "Aibreán", "Bealtaine", "Meitheamh", "Iúil", "Lúnasa", "Meán Fómhair", "Deireadh Fómhair", "Samhain", "Nollaig", ""],
+                    namesAbbr: ["Ean", "Feabh", "Már", "Aib", "Bealt", "Meith", "Iúil", "Lún", "M.Fómh", "D.Fómh", "Samh", "Noll", ""]
                 },
-                AM: ["r.n.","r.n.","R.N."],
-                PM: ["i.n.","i.n.","I.N."],
+                AM: ["r.n.", "r.n.", "R.N."],
+                PM: ["i.n.", "i.n.", "I.N."],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "d MMMM yyyy",
@@ -13395,13 +13412,13 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"],
-                    namesAbbr: ["Ahad","Isnin","Sel","Rabu","Khamis","Jumaat","Sabtu"],
-                    namesShort: ["A","I","S","R","K","J","S"]
+                    names: ["Ahad", "Isnin", "Selasa", "Rabu", "Khamis", "Jumaat", "Sabtu"],
+                    namesAbbr: ["Ahad", "Isnin", "Sel", "Rabu", "Khamis", "Jumaat", "Sabtu"],
+                    namesShort: ["A", "I", "S", "R", "K", "J", "S"]
                 },
                 months: {
-                    names: ["Januari","Februari","Mac","April","Mei","Jun","Julai","Ogos","September","Oktober","November","Disember",""],
-                    namesAbbr: ["Jan","Feb","Mac","Apr","Mei","Jun","Jul","Ogos","Sept","Okt","Nov","Dis",""]
+                    names: ["Januari", "Februari", "Mac", "April", "Mei", "Jun", "Julai", "Ogos", "September", "Oktober", "November", "Disember", ""],
+                    namesAbbr: ["Jan", "Feb", "Mac", "Apr", "Mei", "Jun", "Jul", "Ogos", "Sept", "Okt", "Nov", "Dis", ""]
                 },
                 AM: null,
                 PM: null,
@@ -13428,12 +13445,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "сўм"
@@ -13444,17 +13461,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["якшанба","душанба","сешанба","чоршанба","пайшанба","жума","шанба"],
-                    namesAbbr: ["якш","дш","сш","чш","пш","ж","ш"],
-                    namesShort: ["я","д","с","ч","п","ж","ш"]
+                    names: ["якшанба", "душанба", "сешанба", "чоршанба", "пайшанба", "жума", "шанба"],
+                    namesAbbr: ["якш", "дш", "сш", "чш", "пш", "ж", "ш"],
+                    namesShort: ["я", "д", "с", "ч", "п", "ж", "ш"]
                 },
                 months: {
-                    names: ["Январ","Феврал","Март","Апрел","Май","Июн","Июл","Август","Сентябр","Октябр","Ноябр","Декабр",""],
-                    namesAbbr: ["Янв","Фев","Мар","Апр","Май","Июн","Июл","Авг","Сен","Окт","Ноя","Дек",""]
+                    names: ["Январ", "Феврал", "Март", "Апрел", "Май", "Июн", "Июл", "Август", "Сентябр", "Октябр", "Ноябр", "Декабр", ""],
+                    namesAbbr: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек", ""]
                 },
                 monthsGenitive: {
-                    names: ["январ","феврал","март","апрел","май","июн","июл","август","сентябр","октябр","ноябр","декабр",""],
-                    namesAbbr: ["Янв","Фев","Мар","Апр","мая","Июн","Июл","Авг","Сен","Окт","Ноя","Дек",""]
+                    names: ["январ", "феврал", "март", "апрел", "май", "июн", "июл", "август", "сентябр", "октябр", "ноябр", "декабр", ""],
+                    namesAbbr: ["Янв", "Фев", "Мар", "Апр", "мая", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек", ""]
                 },
                 AM: null,
                 PM: null,
@@ -13478,14 +13495,14 @@
         nativeName: "বাংলা (বাংলাদেশ)",
         language: "bn",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                pattern: ["-%n","%n"],
-                groupSizes: [3,2]
+                pattern: ["-%n", "%n"],
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "৳"
             }
         },
@@ -13495,16 +13512,16 @@
                 ':': ".",
                 firstDay: 1,
                 days: {
-                    names: ["রবিবার","সোমবার","মঙ্গলবার","বুধবার","বৃহস্পতিবার","শুক্রবার","শনিবার"],
-                    namesAbbr: ["রবি.","সোম.","মঙ্গল.","বুধ.","বৃহস্পতি.","শুক্র.","শনি."],
-                    namesShort: ["র","স","ম","ব","ব","শ","শ"]
+                    names: ["রবিবার", "সোমবার", "মঙ্গলবার", "বুধবার", "বৃহস্পতিবার", "শুক্রবার", "শনিবার"],
+                    namesAbbr: ["রবি.", "সোম.", "মঙ্গল.", "বুধ.", "বৃহস্পতি.", "শুক্র.", "শনি."],
+                    namesShort: ["র", "স", "ম", "ব", "ব", "শ", "শ"]
                 },
                 months: {
-                    names: ["জানুয়ারী","ফেব্রুয়ারী","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগস্ট","সেপ্টেম্বর","অক্টোবর","নভেম্বর","ডিসেম্বর",""],
-                    namesAbbr: ["জানু.","ফেব্রু.","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগ.","সেপ্টে.","অক্টো.","নভে.","ডিসে.",""]
+                    names: ["জানুয়ারী", "ফেব্রুয়ারী", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগস্ট", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর", ""],
+                    namesAbbr: ["জানু.", "ফেব্রু.", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগ.", "সেপ্টে.", "অক্টো.", "নভে.", "ডিসে.", ""]
                 },
-                AM: ["পুর্বাহ্ন","পুর্বাহ্ন","পুর্বাহ্ন"],
-                PM: ["অপরাহ্ন","অপরাহ্ন","অপরাহ্ন"],
+                AM: ["পুর্বাহ্ন", "পুর্বাহ্ন", "পুর্বাহ্ন"],
+                PM: ["অপরাহ্ন", "অপরাহ্ন", "অপরাহ্ন"],
                 patterns: {
                     d: "dd-MM-yy",
                     D: "dd MMMM yyyy",
@@ -13524,14 +13541,14 @@
         nativeName: "ᠮᠤᠨᠭᠭᠤᠯ ᠬᠡᠯᠡ (ᠪᠦᠭᠦᠳᠡ ᠨᠠᠢᠷᠠᠮᠳᠠᠬᠤ ᠳᠤᠮᠳᠠᠳᠤ ᠠᠷᠠᠳ ᠣᠯᠣᠰ)",
         language: "mn-Mong",
         numberFormat: {
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,0]
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 0]
             },
             currency: {
-                pattern: ["$-n","$n"],
-                groupSizes: [3,0],
+                pattern: ["$-n", "$n"],
+                groupSizes: [3, 0],
                 symbol: "¥"
             }
         },
@@ -13539,17 +13556,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["ᠭᠠᠷᠠᠭ ᠤᠨ ᠡᠳᠦᠷ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠨᠢᠭᠡᠨ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠬᠣᠶᠠᠷ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠭᠤᠷᠪᠠᠨ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠳᠥᠷᠪᠡᠨ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠲᠠᠪᠤᠨ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠵᠢᠷᠭᠤᠭᠠᠨ"],
-                    namesAbbr: ["ᠭᠠᠷᠠᠭ ᠤᠨ ᠡᠳᠦᠷ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠨᠢᠭᠡᠨ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠬᠣᠶᠠᠷ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠭᠤᠷᠪᠠᠨ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠳᠥᠷᠪᠡᠨ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠲᠠᠪᠤᠨ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠵᠢᠷᠭᠤᠭᠠᠨ"],
-                    namesShort: ["ᠡ‍","ᠨᠢ‍","ᠬᠣ‍","ᠭᠤ‍","ᠳᠥ‍","ᠲᠠ‍","ᠵᠢ‍"]
+                    names: ["ᠭᠠᠷᠠᠭ ᠤᠨ ᠡᠳᠦᠷ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠨᠢᠭᠡᠨ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠬᠣᠶᠠᠷ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠭᠤᠷᠪᠠᠨ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠳᠥᠷᠪᠡᠨ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠲᠠᠪᠤᠨ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠵᠢᠷᠭᠤᠭᠠᠨ"],
+                    namesAbbr: ["ᠭᠠᠷᠠᠭ ᠤᠨ ᠡᠳᠦᠷ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠨᠢᠭᠡᠨ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠬᠣᠶᠠᠷ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠭᠤᠷᠪᠠᠨ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠳᠥᠷᠪᠡᠨ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠲᠠᠪᠤᠨ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠵᠢᠷᠭᠤᠭᠠᠨ"],
+                    namesShort: ["ᠡ‍", "ᠨᠢ‍", "ᠬᠣ‍", "ᠭᠤ‍", "ᠳᠥ‍", "ᠲᠠ‍", "ᠵᠢ‍"]
                 },
                 months: {
-                    names: ["ᠨᠢᠭᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ","ᠬᠤᠶ᠋ᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠭᠤᠷᠪᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠲᠦᠷᠪᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ","ᠲᠠᠪᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠵᠢᠷᠭᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠲᠤᠯᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠨᠠᠢᠮᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠶᠢᠰᠦᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ","ᠠᠷᠪᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠠᠷᠪᠠᠨ ᠨᠢᠭᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ","ᠠᠷᠪᠠᠨ ᠬᠤᠶ᠋ᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ",""],
-                    namesAbbr: ["ᠨᠢᠭᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ","ᠬᠤᠶ᠋ᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠭᠤᠷᠪᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠲᠦᠷᠪᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ","ᠲᠠᠪᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠵᠢᠷᠭᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠲᠤᠯᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠨᠠᠢᠮᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠶᠢᠰᠦᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ","ᠠᠷᠪᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠠᠷᠪᠠᠨ ᠨᠢᠭᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ","ᠠᠷᠪᠠᠨ ᠬᠤᠶ᠋ᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ",""]
+                    names: ["ᠨᠢᠭᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ", "ᠬᠤᠶ᠋ᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠭᠤᠷᠪᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠲᠦᠷᠪᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ", "ᠲᠠᠪᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠵᠢᠷᠭᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠲᠤᠯᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠨᠠᠢᠮᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠶᠢᠰᠦᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ", "ᠠᠷᠪᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠠᠷᠪᠠᠨ ᠨᠢᠭᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ", "ᠠᠷᠪᠠᠨ ᠬᠤᠶ᠋ᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", ""],
+                    namesAbbr: ["ᠨᠢᠭᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ", "ᠬᠤᠶ᠋ᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠭᠤᠷᠪᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠲᠦᠷᠪᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ", "ᠲᠠᠪᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠵᠢᠷᠭᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠲᠤᠯᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠨᠠᠢᠮᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠶᠢᠰᠦᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ", "ᠠᠷᠪᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠠᠷᠪᠠᠨ ᠨᠢᠭᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ", "ᠠᠷᠪᠠᠨ ᠬᠤᠶ᠋ᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"ᠣᠨ ᠲᠣᠭᠠᠯᠠᠯ ᠤᠨ","start":null,"offset":0}],
+                eras: [{"name": "ᠣᠨ ᠲᠣᠭᠠᠯᠠᠯ ᠤᠨ", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/M/d",
                     D: "yyyy'ᠣᠨ ᠤ᠋' M'ᠰᠠᠷ᠎ᠠ  ᠢᠢᠨ 'd' ᠤ᠋ ᠡᠳᠦᠷ'",
@@ -13570,21 +13587,21 @@
         nativeName: "Inuktitut (Kanatami)",
         language: "iu-Latn",
         numberFormat: {
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                groupSizes: [3,0]
+                groupSizes: [3, 0]
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Naattiinguja","Naggajjau","Aippiq","Pingatsiq","Sitammiq","Tallirmiq","Sivataarvik"],
-                    namesAbbr: ["Nat","Nag","Aip","Pi","Sit","Tal","Siv"],
-                    namesShort: ["N","N","A","P","S","T","S"]
+                    names: ["Naattiinguja", "Naggajjau", "Aippiq", "Pingatsiq", "Sitammiq", "Tallirmiq", "Sivataarvik"],
+                    namesAbbr: ["Nat", "Nag", "Aip", "Pi", "Sit", "Tal", "Siv"],
+                    namesShort: ["N", "N", "A", "P", "S", "T", "S"]
                 },
                 months: {
-                    names: ["Jaannuari","Viivvuari","Maatsi","Iipuri","Mai","Juuni","Julai","Aaggiisi","Sitipiri","Utupiri","Nuvipiri","Tisipiri",""],
-                    namesAbbr: ["Jan","Viv","Mas","Ipu","Mai","Jun","Jul","Agi","Sii","Uut","Nuv","Tis",""]
+                    names: ["Jaannuari", "Viivvuari", "Maatsi", "Iipuri", "Mai", "Juuni", "Julai", "Aaggiisi", "Sitipiri", "Utupiri", "Nuvipiri", "Tisipiri", ""],
+                    namesAbbr: ["Jan", "Viv", "Mas", "Ipu", "Mai", "Jun", "Jul", "Agi", "Sii", "Uut", "Nuv", "Tis", ""]
                 },
                 patterns: {
                     d: "d/MM/yyyy",
@@ -13610,7 +13627,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 symbol: "DZD"
             }
         },
@@ -13619,13 +13636,13 @@
                 '/': "-",
                 firstDay: 6,
                 days: {
-                    names: ["Acer","Arime","Aram","Ahad","Amhadh","Sem","Sedh"],
-                    namesAbbr: ["Ace","Ari","Ara","Aha","Amh","Sem","Sed"],
-                    namesShort: ["Ac","Ar","Ar","Ah","Am","Se","Se"]
+                    names: ["Acer", "Arime", "Aram", "Ahad", "Amhadh", "Sem", "Sedh"],
+                    namesAbbr: ["Ace", "Ari", "Ara", "Aha", "Amh", "Sem", "Sed"],
+                    namesShort: ["Ac", "Ar", "Ar", "Ah", "Am", "Se", "Se"]
                 },
                 months: {
-                    names: ["Yenayer","Furar","Maghres","Yebrir","Mayu","Yunyu","Yulyu","Ghuct","Cutenber","Ktuber","Wambir","Dujanbir",""],
-                    namesAbbr: ["Yen","Fur","Mag","Yeb","May","Yun","Yul","Ghu","Cut","Ktu","Wam","Duj",""]
+                    names: ["Yenayer", "Furar", "Maghres", "Yebrir", "Mayu", "Yunyu", "Yulyu", "Ghuct", "Cutenber", "Ktuber", "Wambir", "Dujanbir", ""],
+                    namesAbbr: ["Yen", "Fur", "Mag", "Yeb", "May", "Yun", "Yul", "Ghu", "Cut", "Ktu", "Wam", "Duj", ""]
                 },
                 AM: null,
                 PM: null,
@@ -13651,12 +13668,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-%n","%n"],
+                pattern: ["-%n", "%n"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["($ n)","$ n"],
+                pattern: ["($ n)", "$ n"],
                 ',': ".",
                 '.': ","
             }
@@ -13664,13 +13681,13 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["intichaw","killachaw","atipachaw","quyllurchaw","Ch' askachaw","Illapachaw","k'uychichaw"],
-                    namesAbbr: ["int","kil","ati","quy","Ch'","Ill","k'u"],
-                    namesShort: ["d","k","a","m","h","b","k"]
+                    names: ["intichaw", "killachaw", "atipachaw", "quyllurchaw", "Ch' askachaw", "Illapachaw", "k'uychichaw"],
+                    namesAbbr: ["int", "kil", "ati", "quy", "Ch'", "Ill", "k'u"],
+                    namesShort: ["d", "k", "a", "m", "h", "b", "k"]
                 },
                 months: {
-                    names: ["Qulla puquy","Hatun puquy","Pauqar waray","ayriwa","Aymuray","Inti raymi","Anta Sitwa","Qhapaq Sitwa","Uma raymi","Kantaray","Ayamarq'a","Kapaq Raymi",""],
-                    namesAbbr: ["Qul","Hat","Pau","ayr","Aym","Int","Ant","Qha","Uma","Kan","Aya","Kap",""]
+                    names: ["Qulla puquy", "Hatun puquy", "Pauqar waray", "ayriwa", "Aymuray", "Inti raymi", "Anta Sitwa", "Qhapaq Sitwa", "Uma raymi", "Kantaray", "Ayamarq'a", "Kapaq Raymi", ""],
+                    namesAbbr: ["Qul", "Hat", "Pau", "ayr", "Aym", "Int", "Ant", "Qha", "Uma", "Kan", "Aya", "Kap", ""]
                 },
                 AM: null,
                 PM: null,
@@ -13700,7 +13717,7 @@
                 decimals: 3
             },
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 symbol: "ج.م.‏"
             }
         },
@@ -13708,16 +13725,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM, yyyy",
@@ -13732,17 +13749,17 @@
                 name: "UmAlQura",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -13893,7 +13910,7 @@
                     ],
                     minDate: -2198707200000,
                     maxDate: 1873411199999,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var days = hday - 1,
                             gyear = hyear - 1318;
                         if (gyear < 0 || gyear >= this._yearInfo.length) return null;
@@ -13911,7 +13928,7 @@
                         gdate.setDate(gdate.getDate() + days);
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         // Date's ticks in javascript are always from the GMT time,
                         // but we are interested in the hijri date in the same timezone,
                         // not what the hijri date was at GMT time, so we adjust for the offset.
@@ -13920,7 +13937,8 @@
                         var hyear = 0,
                             hmonth = 1;
                         // find the earliest gregorian date in the array that is greater than or equal to the given date
-                        while (ticks > this._yearInfo[++hyear][1]) { }
+                        while (ticks > this._yearInfo[++hyear][1]) {
+                        }
                         if (ticks !== this._yearInfo[hyear][1]) {
                             hyear--;
                         }
@@ -13950,17 +13968,17 @@
                 name: "Gregorian_TransliteratedEnglish",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["أ","ا","ث","أ","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["أ", "ا", "ث", "أ", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","ابريل","مايو","يونيو","يوليو","اغسطس","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "ابريل", "مايو", "يونيو", "يوليو", "اغسطس", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -13973,17 +13991,17 @@
                 name: "Hijri",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -14006,7 +14024,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -14016,9 +14034,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -14051,7 +14069,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -14062,7 +14080,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -14071,17 +14089,17 @@
                 name: "Gregorian_MiddleEastFrench",
                 firstDay: 6,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -14095,17 +14113,17 @@
                 name: "Gregorian_Arabic",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""],
-                    namesAbbr: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""]
+                    names: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""],
+                    namesAbbr: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -14118,17 +14136,17 @@
                 name: "Gregorian_TransliteratedFrench",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -14147,7 +14165,7 @@
         language: "zh-CHT",
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             },
             currency: {
                 symbol: "HK$"
@@ -14156,17 +14174,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
-                    namesAbbr: ["週日","週一","週二","週三","週四","週五","週六"],
-                    namesShort: ["日","一","二","三","四","五","六"]
+                    names: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+                    namesAbbr: ["週日", "週一", "週二", "週三", "週四", "週五", "週六"],
+                    namesShort: ["日", "一", "二", "三", "四", "五", "六"]
                 },
                 months: {
-                    names: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""],
-                    namesAbbr: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""]
+                    names: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""],
+                    namesAbbr: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""]
                 },
-                AM: ["上午","上午","上午"],
-                PM: ["下午","下午","下午"],
-                eras: [{"name":"公元","start":null,"offset":0}],
+                AM: ["上午", "上午", "上午"],
+                PM: ["下午", "下午", "下午"],
+                eras: [{"name": "公元", "start": null, "offset": 0}],
                 patterns: {
                     d: "d/M/yyyy",
                     D: "yyyy'年'M'月'd'日'",
@@ -14190,12 +14208,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-$ n","$ n"],
+                pattern: ["-$ n", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -14206,17 +14224,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],
-                    namesAbbr: ["So","Mo","Di","Mi","Do","Fr","Sa"],
-                    namesShort: ["So","Mo","Di","Mi","Do","Fr","Sa"]
+                    names: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
+                    namesAbbr: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+                    namesShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"]
                 },
                 months: {
-                    names: ["Jänner","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember",""],
-                    namesAbbr: ["Jän","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez",""]
+                    names: ["Jänner", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember", ""],
+                    namesAbbr: ["Jän", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"n. Chr.","start":null,"offset":0}],
+                eras: [{"name": "n. Chr.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd.MM.yyyy",
                     D: "dddd, dd. MMMM yyyy",
@@ -14237,7 +14255,7 @@
         nativeName: "English (Australia)",
         numberFormat: {
             currency: {
-                pattern: ["-$n","$n"]
+                pattern: ["-$n", "$n"]
             }
         },
         calendars: {
@@ -14268,7 +14286,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -14278,17 +14296,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -14316,7 +14334,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["(n $)","n $"],
+                pattern: ["(n $)", "n $"],
                 ',': " ",
                 '.': ","
             }
@@ -14325,17 +14343,17 @@
             standard: $.extend(true, {}, standard, {
                 '/': "-",
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy-MM-dd",
                     D: "d MMMM yyyy",
@@ -14358,12 +14376,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "Дин."
@@ -14374,17 +14392,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["недеља","понедељак","уторак","среда","четвртак","петак","субота"],
-                    namesAbbr: ["нед","пон","уто","сре","чет","пет","суб"],
-                    namesShort: ["не","по","ут","ср","че","пе","су"]
+                    names: ["недеља", "понедељак", "уторак", "среда", "четвртак", "петак", "субота"],
+                    namesAbbr: ["нед", "пон", "уто", "сре", "чет", "пет", "суб"],
+                    namesShort: ["не", "по", "ут", "ср", "че", "пе", "су"]
                 },
                 months: {
-                    names: ["јануар","фебруар","март","април","мај","јун","јул","август","септембар","октобар","новембар","децембар",""],
-                    namesAbbr: ["јан","феб","мар","апр","мај","јун","јул","авг","сеп","окт","нов","дец",""]
+                    names: ["јануар", "фебруар", "март", "април", "мај", "јун", "јул", "август", "септембар", "октобар", "новембар", "децембар", ""],
+                    namesAbbr: ["јан", "феб", "мар", "апр", "мај", "јун", "јул", "авг", "сеп", "окт", "нов", "дец", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"н.е.","start":null,"offset":0}],
+                eras: [{"name": "н.е.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d.M.yyyy",
                     D: "d. MMMM yyyy",
@@ -14412,7 +14430,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -14423,17 +14441,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["sotnabeaivi","vuossárga","maŋŋebárga","gaskavahkku","duorastat","bearjadat","lávvardat"],
-                    namesAbbr: ["sotn","vuos","maŋ","gask","duor","bear","láv"],
-                    namesShort: ["s","m","d","g","d","b","l"]
+                    names: ["sotnabeaivi", "vuossárga", "maŋŋebárga", "gaskavahkku", "duorastat", "bearjadat", "lávvardat"],
+                    namesAbbr: ["sotn", "vuos", "maŋ", "gask", "duor", "bear", "láv"],
+                    namesShort: ["s", "m", "d", "g", "d", "b", "l"]
                 },
                 months: {
-                    names: ["ođđajagemánnu","guovvamánnu","njukčamánnu","cuoŋománnu","miessemánnu","geassemánnu","suoidnemánnu","borgemánnu","čakčamánnu","golggotmánnu","skábmamánnu","juovlamánnu",""],
-                    namesAbbr: ["ođđj","guov","njuk","cuo","mies","geas","suoi","borg","čakč","golg","skáb","juov",""]
+                    names: ["ođđajagemánnu", "guovvamánnu", "njukčamánnu", "cuoŋománnu", "miessemánnu", "geassemánnu", "suoidnemánnu", "borgemánnu", "čakčamánnu", "golggotmánnu", "skábmamánnu", "juovlamánnu", ""],
+                    namesAbbr: ["ođđj", "guov", "njuk", "cuo", "mies", "geas", "suoi", "borg", "čakč", "golg", "skáb", "juov", ""]
                 },
                 monthsGenitive: {
-                    names: ["ođđajagimánu","guovvamánu","njukčamánu","cuoŋománu","miessemánu","geassemánu","suoidnemánu","borgemánu","čakčamánu","golggotmánu","skábmamánu","juovlamánu",""],
-                    namesAbbr: ["ođđj","guov","njuk","cuo","mies","geas","suoi","borg","čakč","golg","skáb","juov",""]
+                    names: ["ođđajagimánu", "guovvamánu", "njukčamánu", "cuoŋománu", "miessemánu", "geassemánu", "suoidnemánu", "borgemánu", "čakčamánu", "golggotmánu", "skábmamánu", "juovlamánu", ""],
+                    namesAbbr: ["ođđj", "guov", "njuk", "cuo", "mies", "geas", "suoi", "borg", "čakč", "golg", "skáb", "juov", ""]
                 },
                 AM: null,
                 PM: null,
@@ -14458,26 +14476,26 @@
         language: "quz",
         numberFormat: {
             percent: {
-                pattern: ["-%n","%n"]
+                pattern: ["-%n", "%n"]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 symbol: "S/."
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["intichaw","killachaw","atipachaw","quyllurchaw","Ch' askachaw","Illapachaw","k'uychichaw"],
-                    namesAbbr: ["int","kil","ati","quy","Ch'","Ill","k'u"],
-                    namesShort: ["d","k","a","m","h","b","k"]
+                    names: ["intichaw", "killachaw", "atipachaw", "quyllurchaw", "Ch' askachaw", "Illapachaw", "k'uychichaw"],
+                    namesAbbr: ["int", "kil", "ati", "quy", "Ch'", "Ill", "k'u"],
+                    namesShort: ["d", "k", "a", "m", "h", "b", "k"]
                 },
                 months: {
-                    names: ["Qulla puquy","Hatun puquy","Pauqar waray","ayriwa","Aymuray","Inti raymi","Anta Sitwa","Qhapaq Sitwa","Uma raymi","Kantaray","Ayamarq'a","Kapaq Raymi",""],
-                    namesAbbr: ["Qul","Hat","Pau","ayr","Aym","Int","Ant","Qha","Uma","Kan","Aya","Kap",""]
+                    names: ["Qulla puquy", "Hatun puquy", "Pauqar waray", "ayriwa", "Aymuray", "Inti raymi", "Anta Sitwa", "Qhapaq Sitwa", "Uma raymi", "Kantaray", "Ayamarq'a", "Kapaq Raymi", ""],
+                    namesAbbr: ["Qul", "Hat", "Pau", "ayr", "Aym", "Int", "Ant", "Qha", "Uma", "Kan", "Aya", "Kap", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -14504,7 +14522,7 @@
                 decimals: 3
             },
             currency: {
-                pattern: ["$n-","$n"],
+                pattern: ["$n-", "$n"],
                 decimals: 3,
                 symbol: "د.ل.‏"
             }
@@ -14513,16 +14531,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM, yyyy",
@@ -14537,17 +14555,17 @@
                 name: "Hijri",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -14570,7 +14588,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -14580,9 +14598,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -14615,7 +14633,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -14626,7 +14644,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -14635,17 +14653,17 @@
                 name: "UmAlQura",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -14796,7 +14814,7 @@
                     ],
                     minDate: -2198707200000,
                     maxDate: 1873411199999,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var days = hday - 1,
                             gyear = hyear - 1318;
                         if (gyear < 0 || gyear >= this._yearInfo.length) return null;
@@ -14814,7 +14832,7 @@
                         gdate.setDate(gdate.getDate() + days);
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         // Date's ticks in javascript are always from the GMT time,
                         // but we are interested in the hijri date in the same timezone,
                         // not what the hijri date was at GMT time, so we adjust for the offset.
@@ -14823,7 +14841,8 @@
                         var hyear = 0,
                             hmonth = 1;
                         // find the earliest gregorian date in the array that is greater than or equal to the given date
-                        while (ticks > this._yearInfo[++hyear][1]) { }
+                        while (ticks > this._yearInfo[++hyear][1]) {
+                        }
                         if (ticks !== this._yearInfo[hyear][1]) {
                             hyear--;
                         }
@@ -14853,17 +14872,17 @@
                 name: "Gregorian_MiddleEastFrench",
                 firstDay: 6,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -14877,17 +14896,17 @@
                 name: "Gregorian_Arabic",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""],
-                    namesAbbr: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""]
+                    names: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""],
+                    namesAbbr: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -14900,17 +14919,17 @@
                 name: "Gregorian_TransliteratedFrench",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -14929,19 +14948,19 @@
         language: "zh-CHS",
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
-                    namesAbbr: ["周日","周一","周二","周三","周四","周五","周六"],
-                    namesShort: ["日","一","二","三","四","五","六"]
+                    names: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+                    namesAbbr: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+                    namesShort: ["日", "一", "二", "三", "四", "五", "六"]
                 },
                 months: {
-                    names: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""],
-                    namesAbbr: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""]
+                    names: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""],
+                    namesAbbr: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""]
                 },
                 patterns: {
                     d: "d/M/yyyy",
@@ -14966,12 +14985,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -14982,17 +15001,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],
-                    namesAbbr: ["So","Mo","Di","Mi","Do","Fr","Sa"],
-                    namesShort: ["So","Mo","Di","Mi","Do","Fr","Sa"]
+                    names: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
+                    namesAbbr: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+                    namesShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"]
                 },
                 months: {
-                    names: ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember",""],
-                    namesAbbr: ["Jan","Feb","Mrz","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez",""]
+                    names: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember", ""],
+                    namesAbbr: ["Jan", "Feb", "Mrz", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"n. Chr.","start":null,"offset":0}],
+                eras: [{"name": "n. Chr.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd.MM.yyyy",
                     D: "dddd, d. MMMM yyyy",
@@ -15013,7 +15032,7 @@
         nativeName: "English (Canada)",
         numberFormat: {
             currency: {
-                pattern: ["-$n","$n"]
+                pattern: ["-$n", "$n"]
             }
         },
         calendars: {
@@ -15041,17 +15060,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -15077,7 +15096,7 @@
                 ',': "'"
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 ',': "'",
                 symbol: "fr."
             }
@@ -15087,17 +15106,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd.MM.yyyy",
                     D: "dddd d MMMM yyyy",
@@ -15126,7 +15145,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "KM"
@@ -15137,17 +15156,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["nedjelja","ponedjeljak","utorak","srijeda","četvrtak","petak","subota"],
-                    namesAbbr: ["ned","pon","uto","sri","čet","pet","sub"],
-                    namesShort: ["ne","po","ut","sr","če","pe","su"]
+                    names: ["nedjelja", "ponedjeljak", "utorak", "srijeda", "četvrtak", "petak", "subota"],
+                    namesAbbr: ["ned", "pon", "uto", "sri", "čet", "pet", "sub"],
+                    namesShort: ["ne", "po", "ut", "sr", "če", "pe", "su"]
                 },
                 months: {
-                    names: ["siječanj","veljača","ožujak","travanj","svibanj","lipanj","srpanj","kolovoz","rujan","listopad","studeni","prosinac",""],
-                    namesAbbr: ["sij","vlj","ožu","tra","svi","lip","srp","kol","ruj","lis","stu","pro",""]
+                    names: ["siječanj", "veljača", "ožujak", "travanj", "svibanj", "lipanj", "srpanj", "kolovoz", "rujan", "listopad", "studeni", "prosinac", ""],
+                    namesAbbr: ["sij", "vlj", "ožu", "tra", "svi", "lip", "srp", "kol", "ruj", "lis", "stu", "pro", ""]
                 },
                 monthsGenitive: {
-                    names: ["siječnja","veljače","ožujka","travnja","svibnja","lipnja","srpnja","kolovoza","rujna","listopada","studenog","prosinca",""],
-                    namesAbbr: ["sij","vlj","ožu","tra","svi","lip","srp","kol","ruj","lis","stu","pro",""]
+                    names: ["siječnja", "veljače", "ožujka", "travnja", "svibnja", "lipnja", "srpnja", "kolovoza", "rujna", "listopada", "studenog", "prosinca", ""],
+                    namesAbbr: ["sij", "vlj", "ožu", "tra", "svi", "lip", "srp", "kol", "ruj", "lis", "stu", "pro", ""]
                 },
                 AM: null,
                 PM: null,
@@ -15173,12 +15192,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-%n","%n"],
+                pattern: ["-%n", "%n"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': " ",
                 '.': ",",
                 symbol: "kr"
@@ -15189,17 +15208,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["sådnåbiejvve","mánnodahka","dijstahka","gasskavahkko","duorastahka","bierjjedahka","lávvodahka"],
-                    namesAbbr: ["såd","mán","dis","gas","duor","bier","láv"],
-                    namesShort: ["s","m","d","g","d","b","l"]
+                    names: ["sådnåbiejvve", "mánnodahka", "dijstahka", "gasskavahkko", "duorastahka", "bierjjedahka", "lávvodahka"],
+                    namesAbbr: ["såd", "mán", "dis", "gas", "duor", "bier", "láv"],
+                    namesShort: ["s", "m", "d", "g", "d", "b", "l"]
                 },
                 months: {
-                    names: ["ådåjakmánno","guovvamánno","sjnjuktjamánno","vuoratjismánno","moarmesmánno","biehtsemánno","sjnjilltjamánno","bårggemánno","ragátmánno","gålgådismánno","basádismánno","javllamánno",""],
-                    namesAbbr: ["ådåj","guov","snju","vuor","moar","bieh","snji","bårg","ragá","gålg","basá","javl",""]
+                    names: ["ådåjakmánno", "guovvamánno", "sjnjuktjamánno", "vuoratjismánno", "moarmesmánno", "biehtsemánno", "sjnjilltjamánno", "bårggemánno", "ragátmánno", "gålgådismánno", "basádismánno", "javllamánno", ""],
+                    namesAbbr: ["ådåj", "guov", "snju", "vuor", "moar", "bieh", "snji", "bårg", "ragá", "gålg", "basá", "javl", ""]
                 },
                 monthsGenitive: {
-                    names: ["ådåjakmáno","guovvamáno","sjnjuktjamáno","vuoratjismáno","moarmesmáno","biehtsemáno","sjnjilltjamáno","bårggemáno","ragátmáno","gålgådismáno","basádismáno","javllamáno",""],
-                    namesAbbr: ["ådåj","guov","snju","vuor","moar","bieh","snji","bårg","ragá","gålg","basá","javl",""]
+                    names: ["ådåjakmáno", "guovvamáno", "sjnjuktjamáno", "vuoratjismáno", "moarmesmáno", "biehtsemáno", "sjnjilltjamáno", "bårggemáno", "ragátmáno", "gålgådismáno", "basádismáno", "javllamáno", ""],
+                    namesAbbr: ["ådåj", "guov", "snju", "vuor", "moar", "bieh", "snji", "bårg", "ragá", "gålg", "basá", "javl", ""]
                 },
                 AM: null,
                 PM: null,
@@ -15226,7 +15245,7 @@
         numberFormat: {
             pattern: ["n-"],
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 symbol: "د.ج.‏"
             }
         },
@@ -15235,16 +15254,16 @@
                 '/': "-",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "dd MMMM, yyyy",
@@ -15259,17 +15278,17 @@
                 name: "Hijri",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -15292,7 +15311,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -15302,9 +15321,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -15337,7 +15356,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -15348,7 +15367,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -15357,17 +15376,17 @@
                 name: "UmAlQura",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -15518,7 +15537,7 @@
                     ],
                     minDate: -2198707200000,
                     maxDate: 1873411199999,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var days = hday - 1,
                             gyear = hyear - 1318;
                         if (gyear < 0 || gyear >= this._yearInfo.length) return null;
@@ -15536,7 +15555,7 @@
                         gdate.setDate(gdate.getDate() + days);
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         // Date's ticks in javascript are always from the GMT time,
                         // but we are interested in the hijri date in the same timezone,
                         // not what the hijri date was at GMT time, so we adjust for the offset.
@@ -15545,7 +15564,8 @@
                         var hyear = 0,
                             hmonth = 1;
                         // find the earliest gregorian date in the array that is greater than or equal to the given date
-                        while (ticks > this._yearInfo[++hyear][1]) { }
+                        while (ticks > this._yearInfo[++hyear][1]) {
+                        }
                         if (ticks !== this._yearInfo[hyear][1]) {
                             hyear--;
                         }
@@ -15575,17 +15595,17 @@
                 name: "Gregorian_MiddleEastFrench",
                 firstDay: 6,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "H:mm",
@@ -15599,17 +15619,17 @@
                 name: "Gregorian_Arabic",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""],
-                    namesAbbr: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""]
+                    names: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""],
+                    namesAbbr: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "H:mm",
@@ -15622,17 +15642,17 @@
                 name: "Gregorian_TransliteratedEnglish",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["أ","ا","ث","أ","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["أ", "ا", "ث", "أ", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","ابريل","مايو","يونيو","يوليو","اغسطس","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "ابريل", "مايو", "يونيو", "يوليو", "اغسطس", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "H:mm",
@@ -15651,7 +15671,7 @@
         language: "zh-CHT",
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             },
             currency: {
                 symbol: "MOP"
@@ -15660,17 +15680,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
-                    namesAbbr: ["週日","週一","週二","週三","週四","週五","週六"],
-                    namesShort: ["日","一","二","三","四","五","六"]
+                    names: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+                    namesAbbr: ["週日", "週一", "週二", "週三", "週四", "週五", "週六"],
+                    namesShort: ["日", "一", "二", "三", "四", "五", "六"]
                 },
                 months: {
-                    names: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""],
-                    namesAbbr: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""]
+                    names: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""],
+                    namesAbbr: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""]
                 },
-                AM: ["上午","上午","上午"],
-                PM: ["下午","下午","下午"],
-                eras: [{"name":"公元","start":null,"offset":0}],
+                AM: ["上午", "上午", "上午"],
+                PM: ["下午", "下午", "下午"],
+                eras: [{"name": "公元", "start": null, "offset": 0}],
                 patterns: {
                     d: "d/M/yyyy",
                     D: "yyyy'年'M'月'd'日'",
@@ -15693,11 +15713,11 @@
         numberFormat: {
             ',': "'",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': "'"
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 ',': "'",
                 symbol: "CHF"
             }
@@ -15707,17 +15727,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],
-                    namesAbbr: ["So","Mo","Di","Mi","Do","Fr","Sa"],
-                    namesShort: ["So","Mo","Di","Mi","Do","Fr","Sa"]
+                    names: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
+                    namesAbbr: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+                    namesShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"]
                 },
                 months: {
-                    names: ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember",""],
-                    namesAbbr: ["Jan","Feb","Mrz","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez",""]
+                    names: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember", ""],
+                    namesAbbr: ["Jan", "Feb", "Mrz", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"n. Chr.","start":null,"offset":0}],
+                eras: [{"name": "n. Chr.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd.MM.yyyy",
                     D: "dddd, d. MMMM yyyy",
@@ -15738,14 +15758,14 @@
         nativeName: "English (New Zealand)",
         numberFormat: {
             currency: {
-                pattern: ["-$n","$n"]
+                pattern: ["-$n", "$n"]
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
                 patterns: {
                     d: "d/MM/yyyy",
                     D: "dddd, d MMMM yyyy",
@@ -15779,17 +15799,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -15817,7 +15837,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -15827,17 +15847,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd d MMMM yyyy",
@@ -15865,7 +15885,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "KM"
@@ -15876,13 +15896,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["nedjelja","ponedjeljak","utorak","srijeda","četvrtak","petak","subota"],
-                    namesAbbr: ["ned","pon","uto","sri","čet","pet","sub"],
-                    namesShort: ["ne","po","ut","sr","če","pe","su"]
+                    names: ["nedjelja", "ponedjeljak", "utorak", "srijeda", "četvrtak", "petak", "subota"],
+                    namesAbbr: ["ned", "pon", "uto", "sri", "čet", "pet", "sub"],
+                    namesShort: ["ne", "po", "ut", "sr", "če", "pe", "su"]
                 },
                 months: {
-                    names: ["januar","februar","mart","april","maj","juni","juli","avgust","septembar","oktobar","novembar","decembar",""],
-                    namesAbbr: ["jan","feb","mar","apr","maj","jun","jul","avg","sep","okt","nov","dec",""]
+                    names: ["januar", "februar", "mart", "april", "maj", "juni", "juli", "avgust", "septembar", "oktobar", "novembar", "decembar", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "avg", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
@@ -15913,7 +15933,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "kr"
@@ -15924,17 +15944,17 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["ájllek","mánnodahka","dijstahka","gasskavahkko","duorastahka","bierjjedahka","lávvodahka"],
-                    namesAbbr: ["ájl","mán","dis","gas","duor","bier","láv"],
-                    namesShort: ["á","m","d","g","d","b","l"]
+                    names: ["ájllek", "mánnodahka", "dijstahka", "gasskavahkko", "duorastahka", "bierjjedahka", "lávvodahka"],
+                    namesAbbr: ["ájl", "mán", "dis", "gas", "duor", "bier", "láv"],
+                    namesShort: ["á", "m", "d", "g", "d", "b", "l"]
                 },
                 months: {
-                    names: ["ådåjakmánno","guovvamánno","sjnjuktjamánno","vuoratjismánno","moarmesmánno","biehtsemánno","sjnjilltjamánno","bårggemánno","ragátmánno","gålgådismánno","basádismánno","javllamánno",""],
-                    namesAbbr: ["ådåj","guov","snju","vuor","moar","bieh","snji","bårg","ragá","gålg","basá","javl",""]
+                    names: ["ådåjakmánno", "guovvamánno", "sjnjuktjamánno", "vuoratjismánno", "moarmesmánno", "biehtsemánno", "sjnjilltjamánno", "bårggemánno", "ragátmánno", "gålgådismánno", "basádismánno", "javllamánno", ""],
+                    namesAbbr: ["ådåj", "guov", "snju", "vuor", "moar", "bieh", "snji", "bårg", "ragá", "gålg", "basá", "javl", ""]
                 },
                 monthsGenitive: {
-                    names: ["ådåjakmáno","guovvamáno","sjnjuktjamáno","vuoratjismáno","moarmesmáno","biehtsemáno","sjnjilltjamáno","bårggemáno","ragátmáno","gålgådismáno","basádismáno","javllamáno",""],
-                    namesAbbr: ["ådåj","guov","snju","vuor","moar","bieh","snji","bårg","ragá","gålg","basá","javl",""]
+                    names: ["ådåjakmáno", "guovvamáno", "sjnjuktjamáno", "vuoratjismáno", "moarmesmáno", "biehtsemáno", "sjnjilltjamáno", "bårggemáno", "ragátmáno", "gålgådismáno", "basádismáno", "javllamáno", ""],
+                    namesAbbr: ["ådåj", "guov", "snju", "vuor", "moar", "bieh", "snji", "bårg", "ragá", "gålg", "basá", "javl", ""]
                 },
                 AM: null,
                 PM: null,
@@ -15961,7 +15981,7 @@
         numberFormat: {
             pattern: ["n-"],
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 symbol: "د.م.‏"
             }
         },
@@ -15970,16 +15990,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","ماي","يونيو","يوليوز","غشت","شتنبر","أكتوبر","نونبر","دجنبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","أبريل","ماي","يونيو","يوليوز","غشت","شتنبر","أكتوبر","نونبر","دجنبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "ماي", "يونيو", "يوليوز", "غشت", "شتنبر", "أكتوبر", "نونبر", "دجنبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "أبريل", "ماي", "يونيو", "يوليوز", "غشت", "شتنبر", "أكتوبر", "نونبر", "دجنبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "dd MMMM, yyyy",
@@ -15994,17 +16014,17 @@
                 name: "Hijri",
                 firstDay: 1,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -16027,7 +16047,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -16037,9 +16057,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -16072,7 +16092,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -16083,7 +16103,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -16092,17 +16112,17 @@
                 name: "UmAlQura",
                 firstDay: 1,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -16253,7 +16273,7 @@
                     ],
                     minDate: -2198707200000,
                     maxDate: 1873411199999,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var days = hday - 1,
                             gyear = hyear - 1318;
                         if (gyear < 0 || gyear >= this._yearInfo.length) return null;
@@ -16271,7 +16291,7 @@
                         gdate.setDate(gdate.getDate() + days);
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         // Date's ticks in javascript are always from the GMT time,
                         // but we are interested in the hijri date in the same timezone,
                         // not what the hijri date was at GMT time, so we adjust for the offset.
@@ -16280,7 +16300,8 @@
                         var hyear = 0,
                             hmonth = 1;
                         // find the earliest gregorian date in the array that is greater than or equal to the given date
-                        while (ticks > this._yearInfo[++hyear][1]) { }
+                        while (ticks > this._yearInfo[++hyear][1]) {
+                        }
                         if (ticks !== this._yearInfo[hyear][1]) {
                             hyear--;
                         }
@@ -16310,17 +16331,17 @@
                 name: "Gregorian_MiddleEastFrench",
                 firstDay: 1,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "H:mm",
@@ -16334,17 +16355,17 @@
                 name: "Gregorian_Arabic",
                 firstDay: 1,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""],
-                    namesAbbr: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""]
+                    names: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""],
+                    namesAbbr: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "H:mm",
@@ -16357,17 +16378,17 @@
                 name: "Gregorian_TransliteratedEnglish",
                 firstDay: 1,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["أ","ا","ث","أ","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["أ", "ا", "ث", "أ", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","ابريل","مايو","يونيو","يوليو","اغسطس","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "ابريل", "مايو", "يونيو", "يوليو", "اغسطس", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "H:mm",
@@ -16385,7 +16406,7 @@
         nativeName: "English (Ireland)",
         numberFormat: {
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 symbol: "€"
             }
         },
@@ -16415,24 +16436,24 @@
         language: "es",
         numberFormat: {
             currency: {
-                pattern: ["($ n)","$ n"],
+                pattern: ["($ n)", "$ n"],
                 symbol: "B/."
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -16460,7 +16481,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -16470,17 +16491,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd d MMMM yyyy",
@@ -16508,7 +16529,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "KM"
@@ -16519,17 +16540,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["nedelja","ponedeljak","utorak","sreda","četvrtak","petak","subota"],
-                    namesAbbr: ["ned","pon","uto","sre","čet","pet","sub"],
-                    namesShort: ["ne","po","ut","sr","če","pe","su"]
+                    names: ["nedelja", "ponedeljak", "utorak", "sreda", "četvrtak", "petak", "subota"],
+                    namesAbbr: ["ned", "pon", "uto", "sre", "čet", "pet", "sub"],
+                    namesShort: ["ne", "po", "ut", "sr", "če", "pe", "su"]
                 },
                 months: {
-                    names: ["januar","februar","mart","april","maj","jun","jul","avgust","septembar","oktobar","novembar","decembar",""],
-                    namesAbbr: ["jan","feb","mar","apr","maj","jun","jul","avg","sep","okt","nov","dec",""]
+                    names: ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "avg", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"n.e.","start":null,"offset":0}],
+                eras: [{"name": "n.e.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d.M.yyyy",
                     D: "d. MMMM yyyy",
@@ -16553,12 +16574,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-%n","%n"],
+                pattern: ["-%n", "%n"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': " ",
                 '.': ",",
                 symbol: "kr"
@@ -16569,17 +16590,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["aejlege","måanta","dæjsta","gaskevåhkoe","duarsta","bearjadahke","laavvardahke"],
-                    namesAbbr: ["aej","måa","dæj","gask","duar","bearj","laav"],
-                    namesShort: ["a","m","d","g","d","b","l"]
+                    names: ["aejlege", "måanta", "dæjsta", "gaskevåhkoe", "duarsta", "bearjadahke", "laavvardahke"],
+                    namesAbbr: ["aej", "måa", "dæj", "gask", "duar", "bearj", "laav"],
+                    namesShort: ["a", "m", "d", "g", "d", "b", "l"]
                 },
                 months: {
-                    names: ["tsïengele","goevte","njoktje","voerhtje","suehpede","ruffie","snjaltje","mïetske","skïerede","golke","rahka","goeve",""],
-                    namesAbbr: ["tsïen","goevt","njok","voer","sueh","ruff","snja","mïet","skïer","golk","rahk","goev",""]
+                    names: ["tsïengele", "goevte", "njoktje", "voerhtje", "suehpede", "ruffie", "snjaltje", "mïetske", "skïerede", "golke", "rahka", "goeve", ""],
+                    namesAbbr: ["tsïen", "goevt", "njok", "voer", "sueh", "ruff", "snja", "mïet", "skïer", "golk", "rahk", "goev", ""]
                 },
                 monthsGenitive: {
-                    names: ["tsïengelen","goevten","njoktjen","voerhtjen","suehpeden","ruffien","snjaltjen","mïetsken","skïereden","golken","rahkan","goeven",""],
-                    namesAbbr: ["tsïen","goevt","njok","voer","sueh","ruff","snja","mïet","skïer","golk","rahk","goev",""]
+                    names: ["tsïengelen", "goevten", "njoktjen", "voerhtjen", "suehpeden", "ruffien", "snjaltjen", "mïetsken", "skïereden", "golken", "rahkan", "goeven", ""],
+                    namesAbbr: ["tsïen", "goevt", "njok", "voer", "sueh", "ruff", "snja", "mïet", "skïer", "golk", "rahk", "goev", ""]
                 },
                 AM: null,
                 PM: null,
@@ -16610,7 +16631,7 @@
                 decimals: 3
             },
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 decimals: 3,
                 symbol: "د.ت.‏"
             }
@@ -16620,16 +16641,16 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "dd MMMM, yyyy",
@@ -16644,17 +16665,17 @@
                 name: "Hijri",
                 firstDay: 1,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -16677,7 +16698,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -16687,9 +16708,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -16722,7 +16743,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -16733,7 +16754,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -16742,17 +16763,17 @@
                 name: "UmAlQura",
                 firstDay: 1,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -16903,7 +16924,7 @@
                     ],
                     minDate: -2198707200000,
                     maxDate: 1873411199999,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var days = hday - 1,
                             gyear = hyear - 1318;
                         if (gyear < 0 || gyear >= this._yearInfo.length) return null;
@@ -16921,7 +16942,7 @@
                         gdate.setDate(gdate.getDate() + days);
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         // Date's ticks in javascript are always from the GMT time,
                         // but we are interested in the hijri date in the same timezone,
                         // not what the hijri date was at GMT time, so we adjust for the offset.
@@ -16930,7 +16951,8 @@
                         var hyear = 0,
                             hmonth = 1;
                         // find the earliest gregorian date in the array that is greater than or equal to the given date
-                        while (ticks > this._yearInfo[++hyear][1]) { }
+                        while (ticks > this._yearInfo[++hyear][1]) {
+                        }
                         if (ticks !== this._yearInfo[hyear][1]) {
                             hyear--;
                         }
@@ -16960,17 +16982,17 @@
                 name: "Gregorian_MiddleEastFrench",
                 firstDay: 1,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "H:mm",
@@ -16984,17 +17006,17 @@
                 name: "Gregorian_Arabic",
                 firstDay: 1,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""],
-                    namesAbbr: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""]
+                    names: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""],
+                    namesAbbr: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "H:mm",
@@ -17007,17 +17029,17 @@
                 name: "Gregorian_TransliteratedEnglish",
                 firstDay: 1,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["أ","ا","ث","أ","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["أ", "ا", "ث", "أ", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","ابريل","مايو","يونيو","يوليو","اغسطس","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "ابريل", "مايو", "يونيو", "يوليو", "اغسطس", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "H:mm",
@@ -17036,11 +17058,11 @@
         numberFormat: {
             ',': " ",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " "
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 ',': " ",
                 '.': ",",
                 symbol: "R"
@@ -17075,17 +17097,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -17113,7 +17135,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "КМ"
@@ -17124,17 +17146,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["недеља","понедељак","уторак","среда","четвртак","петак","субота"],
-                    namesAbbr: ["нед","пон","уто","сре","чет","пет","суб"],
-                    namesShort: ["н","п","у","с","ч","п","с"]
+                    names: ["недеља", "понедељак", "уторак", "среда", "четвртак", "петак", "субота"],
+                    namesAbbr: ["нед", "пон", "уто", "сре", "чет", "пет", "суб"],
+                    namesShort: ["н", "п", "у", "с", "ч", "п", "с"]
                 },
                 months: {
-                    names: ["јануар","фебруар","март","април","мај","јун","јул","август","септембар","октобар","новембар","децембар",""],
-                    namesAbbr: ["јан","феб","мар","апр","мај","јун","јул","авг","сеп","окт","нов","дец",""]
+                    names: ["јануар", "фебруар", "март", "април", "мај", "јун", "јул", "август", "септембар", "октобар", "новембар", "децембар", ""],
+                    namesAbbr: ["јан", "феб", "мар", "апр", "мај", "јун", "јул", "авг", "сеп", "окт", "нов", "дец", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"н.е.","start":null,"offset":0}],
+                eras: [{"name": "н.е.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d.M.yyyy",
                     D: "d. MMMM yyyy",
@@ -17161,7 +17183,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "kr"
@@ -17172,17 +17194,17 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["aejlege","måanta","dæjsta","gaskevåhkoe","duarsta","bearjadahke","laavvardahke"],
-                    namesAbbr: ["aej","måa","dæj","gask","duar","bearj","laav"],
-                    namesShort: ["a","m","d","g","d","b","l"]
+                    names: ["aejlege", "måanta", "dæjsta", "gaskevåhkoe", "duarsta", "bearjadahke", "laavvardahke"],
+                    namesAbbr: ["aej", "måa", "dæj", "gask", "duar", "bearj", "laav"],
+                    namesShort: ["a", "m", "d", "g", "d", "b", "l"]
                 },
                 months: {
-                    names: ["tsïengele","goevte","njoktje","voerhtje","suehpede","ruffie","snjaltje","mïetske","skïerede","golke","rahka","goeve",""],
-                    namesAbbr: ["tsïen","goevt","njok","voer","sueh","ruff","snja","mïet","skïer","golk","rahk","goev",""]
+                    names: ["tsïengele", "goevte", "njoktje", "voerhtje", "suehpede", "ruffie", "snjaltje", "mïetske", "skïerede", "golke", "rahka", "goeve", ""],
+                    namesAbbr: ["tsïen", "goevt", "njok", "voer", "sueh", "ruff", "snja", "mïet", "skïer", "golk", "rahk", "goev", ""]
                 },
                 monthsGenitive: {
-                    names: ["tsïengelen","goevten","njoktjen","voerhtjen","suehpeden","ruffien","snjaltjen","mïetsken","skïereden","golken","rahkan","goeven",""],
-                    namesAbbr: ["tsïen","goevt","njok","voer","sueh","ruff","snja","mïet","skïer","golk","rahk","goev",""]
+                    names: ["tsïengelen", "goevten", "njoktjen", "voerhtjen", "suehpeden", "ruffien", "snjaltjen", "mïetsken", "skïereden", "golken", "rahkan", "goeven", ""],
+                    namesAbbr: ["tsïen", "goevt", "njok", "voer", "sueh", "ruff", "snja", "mïet", "skïer", "golk", "rahk", "goev", ""]
                 },
                 AM: null,
                 PM: null,
@@ -17209,7 +17231,7 @@
         numberFormat: {
             pattern: ["n-"],
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 decimals: 3,
                 symbol: "ر.ع.‏"
             }
@@ -17218,16 +17240,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM, yyyy",
@@ -17242,17 +17264,17 @@
                 name: "Hijri",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -17275,7 +17297,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -17285,9 +17307,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -17320,7 +17342,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -17331,7 +17353,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -17340,17 +17362,17 @@
                 name: "UmAlQura",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -17501,7 +17523,7 @@
                     ],
                     minDate: -2198707200000,
                     maxDate: 1873411199999,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var days = hday - 1,
                             gyear = hyear - 1318;
                         if (gyear < 0 || gyear >= this._yearInfo.length) return null;
@@ -17519,7 +17541,7 @@
                         gdate.setDate(gdate.getDate() + days);
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         // Date's ticks in javascript are always from the GMT time,
                         // but we are interested in the hijri date in the same timezone,
                         // not what the hijri date was at GMT time, so we adjust for the offset.
@@ -17528,7 +17550,8 @@
                         var hyear = 0,
                             hmonth = 1;
                         // find the earliest gregorian date in the array that is greater than or equal to the given date
-                        while (ticks > this._yearInfo[++hyear][1]) { }
+                        while (ticks > this._yearInfo[++hyear][1]) {
+                        }
                         if (ticks !== this._yearInfo[hyear][1]) {
                             hyear--;
                         }
@@ -17558,17 +17581,17 @@
                 name: "Gregorian_MiddleEastFrench",
                 firstDay: 6,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -17582,17 +17605,17 @@
                 name: "Gregorian_Arabic",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""],
-                    namesAbbr: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""]
+                    names: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""],
+                    namesAbbr: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -17605,17 +17628,17 @@
                 name: "Gregorian_TransliteratedFrench",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -17633,7 +17656,7 @@
         nativeName: "English (Jamaica)",
         numberFormat: {
             currency: {
-                pattern: ["-$n","$n"],
+                pattern: ["-$n", "$n"],
                 symbol: "J$"
             }
         },
@@ -17663,7 +17686,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "Bs. F."
@@ -17672,17 +17695,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -17710,7 +17733,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "КМ"
@@ -17721,17 +17744,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["недјеља","понедјељак","уторак","сриједа","четвртак","петак","субота"],
-                    namesAbbr: ["нед","пон","уто","сре","чет","пет","суб"],
-                    namesShort: ["н","п","у","с","ч","п","с"]
+                    names: ["недјеља", "понедјељак", "уторак", "сриједа", "четвртак", "петак", "субота"],
+                    namesAbbr: ["нед", "пон", "уто", "сре", "чет", "пет", "суб"],
+                    namesShort: ["н", "п", "у", "с", "ч", "п", "с"]
                 },
                 months: {
-                    names: ["јануар","фебруар","март","април","мај","јун","јул","август","септембар","октобар","новембар","децембар",""],
-                    namesAbbr: ["јан","феб","мар","апр","мај","јун","јул","авг","сеп","окт","нов","дец",""]
+                    names: ["јануар", "фебруар", "март", "април", "мај", "јун", "јул", "август", "септембар", "октобар", "новембар", "децембар", ""],
+                    namesAbbr: ["јан", "феб", "мар", "апр", "мај", "јун", "јул", "авг", "сеп", "окт", "нов", "дец", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"н.е.","start":null,"offset":0}],
+                eras: [{"name": "н.е.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d.M.yyyy",
                     D: "d. MMMM yyyy",
@@ -17758,7 +17781,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -17769,17 +17792,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["pâ´sspei´vv","vuõssargg","mââibargg","seärad","nelljdpei´vv","piâtnâc","sue´vet"],
-                    namesAbbr: ["pâ","vu","mâ","se","ne","pi","su"],
-                    namesShort: ["p","v","m","s","n","p","s"]
+                    names: ["pâ´sspei´vv", "vuõssargg", "mââibargg", "seärad", "nelljdpei´vv", "piâtnâc", "sue´vet"],
+                    namesAbbr: ["pâ", "vu", "mâ", "se", "ne", "pi", "su"],
+                    namesShort: ["p", "v", "m", "s", "n", "p", "s"]
                 },
                 months: {
-                    names: ["ođđee´jjmään","tä´lvvmään","pâ´zzlâšttammään","njuhččmään","vue´ssmään","ǩie´ssmään","suei´nnmään","på´rǧǧmään","čõhččmään","kålggmään","skamm´mään","rosttovmään",""],
-                    namesAbbr: ["ođjm","tä´lvv","pâzl","njuh","vue","ǩie","suei","på´r","čõh","kålg","ska","rost",""]
+                    names: ["ođđee´jjmään", "tä´lvvmään", "pâ´zzlâšttammään", "njuhččmään", "vue´ssmään", "ǩie´ssmään", "suei´nnmään", "på´rǧǧmään", "čõhččmään", "kålggmään", "skamm´mään", "rosttovmään", ""],
+                    namesAbbr: ["ođjm", "tä´lvv", "pâzl", "njuh", "vue", "ǩie", "suei", "på´r", "čõh", "kålg", "ska", "rost", ""]
                 },
                 monthsGenitive: {
-                    names: ["ođđee´jjmannu","tä´lvvmannu","pâ´zzlâšttammannu","njuhččmannu","vue´ssmannu","ǩie´ssmannu","suei´nnmannu","på´rǧǧmannu","čõhččmannu","kålggmannu","skamm´mannu","rosttovmannu",""],
-                    namesAbbr: ["ođjm","tä´lvv","pâzl","njuh","vue","ǩie","suei","på´r","čõh","kålg","ska","rost",""]
+                    names: ["ođđee´jjmannu", "tä´lvvmannu", "pâ´zzlâšttammannu", "njuhččmannu", "vue´ssmannu", "ǩie´ssmannu", "suei´nnmannu", "på´rǧǧmannu", "čõhččmannu", "kålggmannu", "skamm´mannu", "rosttovmannu", ""],
+                    namesAbbr: ["ođjm", "tä´lvv", "pâzl", "njuh", "vue", "ǩie", "suei", "på´r", "čõh", "kålg", "ska", "rost", ""]
                 },
                 AM: null,
                 PM: null,
@@ -17806,7 +17829,7 @@
         numberFormat: {
             pattern: ["n-"],
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 symbol: "ر.ي.‏"
             }
         },
@@ -17814,16 +17837,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM, yyyy",
@@ -17838,17 +17861,17 @@
                 name: "UmAlQura",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -17999,7 +18022,7 @@
                     ],
                     minDate: -2198707200000,
                     maxDate: 1873411199999,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var days = hday - 1,
                             gyear = hyear - 1318;
                         if (gyear < 0 || gyear >= this._yearInfo.length) return null;
@@ -18017,7 +18040,7 @@
                         gdate.setDate(gdate.getDate() + days);
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         // Date's ticks in javascript are always from the GMT time,
                         // but we are interested in the hijri date in the same timezone,
                         // not what the hijri date was at GMT time, so we adjust for the offset.
@@ -18026,7 +18049,8 @@
                         var hyear = 0,
                             hmonth = 1;
                         // find the earliest gregorian date in the array that is greater than or equal to the given date
-                        while (ticks > this._yearInfo[++hyear][1]) { }
+                        while (ticks > this._yearInfo[++hyear][1]) {
+                        }
                         if (ticks !== this._yearInfo[hyear][1]) {
                             hyear--;
                         }
@@ -18056,17 +18080,17 @@
                 name: "Hijri",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -18089,7 +18113,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -18099,9 +18123,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -18134,7 +18158,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -18145,7 +18169,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -18154,17 +18178,17 @@
                 name: "Gregorian_MiddleEastFrench",
                 firstDay: 6,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -18178,17 +18202,17 @@
                 name: "Gregorian_Arabic",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""],
-                    namesAbbr: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""]
+                    names: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""],
+                    namesAbbr: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -18201,17 +18225,17 @@
                 name: "Gregorian_TransliteratedFrench",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -18229,7 +18253,7 @@
         nativeName: "English (Caribbean)",
         numberFormat: {
             currency: {
-                pattern: ["-$n","$n"]
+                pattern: ["-$n", "$n"]
             }
         },
         calendars: {
@@ -18255,7 +18279,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["($ n)","$ n"],
+                pattern: ["($ n)", "$ n"],
                 ',': ".",
                 '.': ","
             }
@@ -18263,17 +18287,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -18297,12 +18321,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "Din."
@@ -18313,17 +18337,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["nedelja","ponedeljak","utorak","sreda","četvrtak","petak","subota"],
-                    namesAbbr: ["ned","pon","uto","sre","čet","pet","sub"],
-                    namesShort: ["ne","po","ut","sr","če","pe","su"]
+                    names: ["nedelja", "ponedeljak", "utorak", "sreda", "četvrtak", "petak", "subota"],
+                    namesAbbr: ["ned", "pon", "uto", "sre", "čet", "pet", "sub"],
+                    namesShort: ["ne", "po", "ut", "sr", "če", "pe", "su"]
                 },
                 months: {
-                    names: ["januar","februar","mart","april","maj","jun","jul","avgust","septembar","oktobar","novembar","decembar",""],
-                    namesAbbr: ["jan","feb","mar","apr","maj","jun","jul","avg","sep","okt","nov","dec",""]
+                    names: ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "avg", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"n.e.","start":null,"offset":0}],
+                eras: [{"name": "n.e.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d.M.yyyy",
                     D: "d. MMMM yyyy",
@@ -18351,7 +18375,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -18362,13 +18386,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["pasepeivi","vuossargâ","majebargâ","koskokko","tuorâstâh","vástuppeivi","lávárdâh"],
-                    namesAbbr: ["pa","vu","ma","ko","tu","vá","lá"],
-                    namesShort: ["p","v","m","k","t","v","l"]
+                    names: ["pasepeivi", "vuossargâ", "majebargâ", "koskokko", "tuorâstâh", "vástuppeivi", "lávárdâh"],
+                    namesAbbr: ["pa", "vu", "ma", "ko", "tu", "vá", "lá"],
+                    namesShort: ["p", "v", "m", "k", "t", "v", "l"]
                 },
                 months: {
-                    names: ["uđđâivemáánu","kuovâmáánu","njuhčâmáánu","cuáŋuimáánu","vyesimáánu","kesimáánu","syeinimáánu","porgemáánu","čohčâmáánu","roovvâdmáánu","skammâmáánu","juovlâmáánu",""],
-                    namesAbbr: ["uđiv","kuov","njuh","cuoŋ","vyes","kesi","syei","porg","čoh","roov","ska","juov",""]
+                    names: ["uđđâivemáánu", "kuovâmáánu", "njuhčâmáánu", "cuáŋuimáánu", "vyesimáánu", "kesimáánu", "syeinimáánu", "porgemáánu", "čohčâmáánu", "roovvâdmáánu", "skammâmáánu", "juovlâmáánu", ""],
+                    namesAbbr: ["uđiv", "kuov", "njuh", "cuoŋ", "vyes", "kesi", "syei", "porg", "čoh", "roov", "ska", "juov", ""]
                 },
                 AM: null,
                 PM: null,
@@ -18395,7 +18419,7 @@
         numberFormat: {
             pattern: ["n-"],
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 symbol: "ل.س.‏"
             }
         },
@@ -18403,16 +18427,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""],
-                    namesAbbr: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""]
+                    names: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""],
+                    namesAbbr: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM, yyyy",
@@ -18427,17 +18451,17 @@
                 name: "UmAlQura",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -18588,7 +18612,7 @@
                     ],
                     minDate: -2198707200000,
                     maxDate: 1873411199999,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var days = hday - 1,
                             gyear = hyear - 1318;
                         if (gyear < 0 || gyear >= this._yearInfo.length) return null;
@@ -18606,7 +18630,7 @@
                         gdate.setDate(gdate.getDate() + days);
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         // Date's ticks in javascript are always from the GMT time,
                         // but we are interested in the hijri date in the same timezone,
                         // not what the hijri date was at GMT time, so we adjust for the offset.
@@ -18615,7 +18639,8 @@
                         var hyear = 0,
                             hmonth = 1;
                         // find the earliest gregorian date in the array that is greater than or equal to the given date
-                        while (ticks > this._yearInfo[++hyear][1]) { }
+                        while (ticks > this._yearInfo[++hyear][1]) {
+                        }
                         if (ticks !== this._yearInfo[hyear][1]) {
                             hyear--;
                         }
@@ -18645,17 +18670,17 @@
                 name: "Hijri",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -18678,7 +18703,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -18688,9 +18713,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -18723,7 +18748,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -18734,7 +18759,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -18743,17 +18768,17 @@
                 name: "Gregorian_MiddleEastFrench",
                 firstDay: 6,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -18767,17 +18792,17 @@
                 name: "Gregorian_TransliteratedEnglish",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["أ","ا","ث","أ","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["أ", "ا", "ث", "أ", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","ابريل","مايو","يونيو","يوليو","اغسطس","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "ابريل", "مايو", "يونيو", "يوليو", "اغسطس", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -18790,17 +18815,17 @@
                 name: "Gregorian_TransliteratedFrench",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -18818,7 +18843,7 @@
         nativeName: "English (Belize)",
         numberFormat: {
             currency: {
-                groupSizes: [3,0],
+                groupSizes: [3, 0],
                 symbol: "BZ$"
             }
         },
@@ -18845,24 +18870,24 @@
         language: "es",
         numberFormat: {
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 symbol: "S/."
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -18886,12 +18911,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "Дин."
@@ -18902,17 +18927,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["недеља","понедељак","уторак","среда","четвртак","петак","субота"],
-                    namesAbbr: ["нед","пон","уто","сре","чет","пет","суб"],
-                    namesShort: ["не","по","ут","ср","че","пе","су"]
+                    names: ["недеља", "понедељак", "уторак", "среда", "четвртак", "петак", "субота"],
+                    namesAbbr: ["нед", "пон", "уто", "сре", "чет", "пет", "суб"],
+                    namesShort: ["не", "по", "ут", "ср", "че", "пе", "су"]
                 },
                 months: {
-                    names: ["јануар","фебруар","март","април","мај","јун","јул","август","септембар","октобар","новембар","децембар",""],
-                    namesAbbr: ["јан","феб","мар","апр","мај","јун","јул","авг","сеп","окт","нов","дец",""]
+                    names: ["јануар", "фебруар", "март", "април", "мај", "јун", "јул", "август", "септембар", "октобар", "новембар", "децембар", ""],
+                    namesAbbr: ["јан", "феб", "мар", "апр", "мај", "јун", "јул", "авг", "сеп", "окт", "нов", "дец", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"н.е.","start":null,"offset":0}],
+                eras: [{"name": "н.е.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d.M.yyyy",
                     D: "d. MMMM yyyy",
@@ -18940,7 +18965,7 @@
                 decimals: 3
             },
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 decimals: 3,
                 symbol: "د.ا.‏"
             }
@@ -18949,16 +18974,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""],
-                    namesAbbr: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""]
+                    names: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""],
+                    namesAbbr: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM, yyyy",
@@ -18973,17 +18998,17 @@
                 name: "UmAlQura",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -19134,7 +19159,7 @@
                     ],
                     minDate: -2198707200000,
                     maxDate: 1873411199999,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var days = hday - 1,
                             gyear = hyear - 1318;
                         if (gyear < 0 || gyear >= this._yearInfo.length) return null;
@@ -19152,7 +19177,7 @@
                         gdate.setDate(gdate.getDate() + days);
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         // Date's ticks in javascript are always from the GMT time,
                         // but we are interested in the hijri date in the same timezone,
                         // not what the hijri date was at GMT time, so we adjust for the offset.
@@ -19161,7 +19186,8 @@
                         var hyear = 0,
                             hmonth = 1;
                         // find the earliest gregorian date in the array that is greater than or equal to the given date
-                        while (ticks > this._yearInfo[++hyear][1]) { }
+                        while (ticks > this._yearInfo[++hyear][1]) {
+                        }
                         if (ticks !== this._yearInfo[hyear][1]) {
                             hyear--;
                         }
@@ -19191,17 +19217,17 @@
                 name: "Hijri",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -19224,7 +19250,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -19234,9 +19260,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -19269,7 +19295,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -19280,7 +19306,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -19289,17 +19315,17 @@
                 name: "Gregorian_MiddleEastFrench",
                 firstDay: 6,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -19313,17 +19339,17 @@
                 name: "Gregorian_TransliteratedEnglish",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["أ","ا","ث","أ","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["أ", "ا", "ث", "أ", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","ابريل","مايو","يونيو","يوليو","اغسطس","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "ابريل", "مايو", "يونيو", "يوليو", "اغسطس", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -19336,17 +19362,17 @@
                 name: "Gregorian_TransliteratedFrench",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -19364,7 +19390,7 @@
         nativeName: "English (Trinidad y Tobago)",
         numberFormat: {
             currency: {
-                groupSizes: [3,0],
+                groupSizes: [3, 0],
                 symbol: "TT$"
             }
         },
@@ -19397,7 +19423,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 ',': ".",
                 '.': ","
             }
@@ -19405,17 +19431,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -19439,12 +19465,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -19455,17 +19481,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["nedelja","ponedeljak","utorak","sreda","četvrtak","petak","subota"],
-                    namesAbbr: ["ned","pon","uto","sre","čet","pet","sub"],
-                    namesShort: ["ne","po","ut","sr","če","pe","su"]
+                    names: ["nedelja", "ponedeljak", "utorak", "sreda", "četvrtak", "petak", "subota"],
+                    namesAbbr: ["ned", "pon", "uto", "sre", "čet", "pet", "sub"],
+                    namesShort: ["ne", "po", "ut", "sr", "če", "pe", "su"]
                 },
                 months: {
-                    names: ["januar","februar","mart","april","maj","jun","jul","avgust","septembar","oktobar","novembar","decembar",""],
-                    namesAbbr: ["jan","feb","mar","apr","maj","jun","jul","avg","sep","okt","nov","dec",""]
+                    names: ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "avg", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"n.e.","start":null,"offset":0}],
+                eras: [{"name": "n.e.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d.M.yyyy",
                     D: "d. MMMM yyyy",
@@ -19489,7 +19515,7 @@
         numberFormat: {
             pattern: ["n-"],
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 symbol: "ل.ل.‏"
             }
         },
@@ -19497,16 +19523,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""],
-                    namesAbbr: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""]
+                    names: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""],
+                    namesAbbr: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM, yyyy",
@@ -19521,17 +19547,17 @@
                 name: "UmAlQura",
                 firstDay: 1,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -19682,7 +19708,7 @@
                     ],
                     minDate: -2198707200000,
                     maxDate: 1873411199999,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var days = hday - 1,
                             gyear = hyear - 1318;
                         if (gyear < 0 || gyear >= this._yearInfo.length) return null;
@@ -19700,7 +19726,7 @@
                         gdate.setDate(gdate.getDate() + days);
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         // Date's ticks in javascript are always from the GMT time,
                         // but we are interested in the hijri date in the same timezone,
                         // not what the hijri date was at GMT time, so we adjust for the offset.
@@ -19709,7 +19735,8 @@
                         var hyear = 0,
                             hmonth = 1;
                         // find the earliest gregorian date in the array that is greater than or equal to the given date
-                        while (ticks > this._yearInfo[++hyear][1]) { }
+                        while (ticks > this._yearInfo[++hyear][1]) {
+                        }
                         if (ticks !== this._yearInfo[hyear][1]) {
                             hyear--;
                         }
@@ -19739,17 +19766,17 @@
                 name: "Hijri",
                 firstDay: 1,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -19772,7 +19799,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -19782,9 +19809,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -19817,7 +19844,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -19828,7 +19855,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -19837,17 +19864,17 @@
                 name: "Gregorian_MiddleEastFrench",
                 firstDay: 1,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -19861,17 +19888,17 @@
                 name: "Gregorian_TransliteratedEnglish",
                 firstDay: 1,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["أ","ا","ث","أ","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["أ", "ا", "ث", "أ", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","ابريل","مايو","يونيو","يوليو","اغسطس","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "ابريل", "مايو", "يونيو", "يوليو", "اغسطس", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -19884,17 +19911,17 @@
                 name: "Gregorian_TransliteratedFrench",
                 firstDay: 1,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -19930,7 +19957,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["($ n)","$ n"],
+                pattern: ["($ n)", "$ n"],
                 ',': ".",
                 '.': ","
             }
@@ -19938,17 +19965,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -19972,12 +19999,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -19988,17 +20015,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["недеља","понедељак","уторак","среда","четвртак","петак","субота"],
-                    namesAbbr: ["нед","пон","уто","сре","чет","пет","суб"],
-                    namesShort: ["не","по","ут","ср","че","пе","су"]
+                    names: ["недеља", "понедељак", "уторак", "среда", "четвртак", "петак", "субота"],
+                    namesAbbr: ["нед", "пон", "уто", "сре", "чет", "пет", "суб"],
+                    namesShort: ["не", "по", "ут", "ср", "че", "пе", "су"]
                 },
                 months: {
-                    names: ["јануар","фебруар","март","април","мај","јун","јул","август","септембар","октобар","новембар","децембар",""],
-                    namesAbbr: ["јан","феб","мар","апр","мај","јун","јул","авг","сеп","окт","нов","дец",""]
+                    names: ["јануар", "фебруар", "март", "април", "мај", "јун", "јул", "август", "септембар", "октобар", "новембар", "децембар", ""],
+                    namesAbbr: ["јан", "феб", "мар", "апр", "мај", "јун", "јул", "авг", "сеп", "окт", "нов", "дец", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"н.е.","start":null,"offset":0}],
+                eras: [{"name": "н.е.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d.M.yyyy",
                     D: "d. MMMM yyyy",
@@ -20026,7 +20053,7 @@
                 decimals: 3
             },
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 decimals: 3,
                 symbol: "د.ك.‏"
             }
@@ -20035,16 +20062,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM, yyyy",
@@ -20059,17 +20086,17 @@
                 name: "Hijri",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -20092,7 +20119,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -20102,9 +20129,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -20137,7 +20164,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -20148,7 +20175,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -20157,17 +20184,17 @@
                 name: "UmAlQura",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -20318,7 +20345,7 @@
                     ],
                     minDate: -2198707200000,
                     maxDate: 1873411199999,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var days = hday - 1,
                             gyear = hyear - 1318;
                         if (gyear < 0 || gyear >= this._yearInfo.length) return null;
@@ -20336,7 +20363,7 @@
                         gdate.setDate(gdate.getDate() + days);
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         // Date's ticks in javascript are always from the GMT time,
                         // but we are interested in the hijri date in the same timezone,
                         // not what the hijri date was at GMT time, so we adjust for the offset.
@@ -20345,7 +20372,8 @@
                         var hyear = 0,
                             hmonth = 1;
                         // find the earliest gregorian date in the array that is greater than or equal to the given date
-                        while (ticks > this._yearInfo[++hyear][1]) { }
+                        while (ticks > this._yearInfo[++hyear][1]) {
+                        }
                         if (ticks !== this._yearInfo[hyear][1]) {
                             hyear--;
                         }
@@ -20375,17 +20403,17 @@
                 name: "Gregorian_MiddleEastFrench",
                 firstDay: 6,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -20399,17 +20427,17 @@
                 name: "Gregorian_Arabic",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""],
-                    namesAbbr: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""]
+                    names: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""],
+                    namesAbbr: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -20422,17 +20450,17 @@
                 name: "Gregorian_TransliteratedFrench",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -20468,7 +20496,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-$ n","$ n"],
+                pattern: ["-$ n", "$ n"],
                 ',': ".",
                 '.': ","
             }
@@ -20477,17 +20505,17 @@
             standard: $.extend(true, {}, standard, {
                 '/': "-",
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd-MM-yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -20511,7 +20539,7 @@
         numberFormat: {
             pattern: ["n-"],
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 symbol: "د.إ.‏"
             }
         },
@@ -20519,16 +20547,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM, yyyy",
@@ -20543,17 +20571,17 @@
                 name: "UmAlQura",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -20704,7 +20732,7 @@
                     ],
                     minDate: -2198707200000,
                     maxDate: 1873411199999,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var days = hday - 1,
                             gyear = hyear - 1318;
                         if (gyear < 0 || gyear >= this._yearInfo.length) return null;
@@ -20722,7 +20750,7 @@
                         gdate.setDate(gdate.getDate() + days);
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         // Date's ticks in javascript are always from the GMT time,
                         // but we are interested in the hijri date in the same timezone,
                         // not what the hijri date was at GMT time, so we adjust for the offset.
@@ -20731,7 +20759,8 @@
                         var hyear = 0,
                             hmonth = 1;
                         // find the earliest gregorian date in the array that is greater than or equal to the given date
-                        while (ticks > this._yearInfo[++hyear][1]) { }
+                        while (ticks > this._yearInfo[++hyear][1]) {
+                        }
                         if (ticks !== this._yearInfo[hyear][1]) {
                             hyear--;
                         }
@@ -20761,17 +20790,17 @@
                 name: "Hijri",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -20794,7 +20823,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -20804,9 +20833,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -20839,7 +20868,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -20850,7 +20879,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -20859,17 +20888,17 @@
                 name: "Gregorian_MiddleEastFrench",
                 firstDay: 6,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -20883,17 +20912,17 @@
                 name: "Gregorian_Arabic",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""],
-                    namesAbbr: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""]
+                    names: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""],
+                    namesAbbr: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -20906,17 +20935,17 @@
                 name: "Gregorian_TransliteratedFrench",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -20941,7 +20970,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["($ n)","$ n"],
+                pattern: ["($ n)", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "$U"
@@ -20951,17 +20980,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -20989,7 +21018,7 @@
                 decimals: 3
             },
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 decimals: 3,
                 symbol: "د.ب.‏"
             }
@@ -20998,16 +21027,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","ابريل","مايو","يونيو","يوليو","اغسطس","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "ابريل", "مايو", "يونيو", "يوليو", "اغسطس", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM, yyyy",
@@ -21022,17 +21051,17 @@
                 name: "UmAlQura",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -21183,7 +21212,7 @@
                     ],
                     minDate: -2198707200000,
                     maxDate: 1873411199999,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var days = hday - 1,
                             gyear = hyear - 1318;
                         if (gyear < 0 || gyear >= this._yearInfo.length) return null;
@@ -21201,7 +21230,7 @@
                         gdate.setDate(gdate.getDate() + days);
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         // Date's ticks in javascript are always from the GMT time,
                         // but we are interested in the hijri date in the same timezone,
                         // not what the hijri date was at GMT time, so we adjust for the offset.
@@ -21210,7 +21239,8 @@
                         var hyear = 0,
                             hmonth = 1;
                         // find the earliest gregorian date in the array that is greater than or equal to the given date
-                        while (ticks > this._yearInfo[++hyear][1]) { }
+                        while (ticks > this._yearInfo[++hyear][1]) {
+                        }
                         if (ticks !== this._yearInfo[hyear][1]) {
                             hyear--;
                         }
@@ -21240,17 +21270,17 @@
                 name: "Hijri",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -21273,7 +21303,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -21283,9 +21313,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -21318,7 +21348,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -21329,7 +21359,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -21338,17 +21368,17 @@
                 name: "Gregorian_MiddleEastFrench",
                 firstDay: 6,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -21362,17 +21392,17 @@
                 name: "Gregorian_Arabic",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""],
-                    namesAbbr: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""]
+                    names: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""],
+                    namesAbbr: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -21385,17 +21415,17 @@
                 name: "Gregorian_TransliteratedFrench",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -21420,7 +21450,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["($ n)","$ n"],
+                pattern: ["($ n)", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "Gs"
@@ -21430,17 +21460,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -21464,7 +21494,7 @@
         numberFormat: {
             pattern: ["n-"],
             currency: {
-                pattern: ["$n-","$ n"],
+                pattern: ["$n-", "$ n"],
                 symbol: "ر.ق.‏"
             }
         },
@@ -21472,16 +21502,16 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليه","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dd MMMM, yyyy",
@@ -21496,17 +21526,17 @@
                 name: "UmAlQura",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -21657,7 +21687,7 @@
                     ],
                     minDate: -2198707200000,
                     maxDate: 1873411199999,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var days = hday - 1,
                             gyear = hyear - 1318;
                         if (gyear < 0 || gyear >= this._yearInfo.length) return null;
@@ -21675,7 +21705,7 @@
                         gdate.setDate(gdate.getDate() + days);
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         // Date's ticks in javascript are always from the GMT time,
                         // but we are interested in the hijri date in the same timezone,
                         // not what the hijri date was at GMT time, so we adjust for the offset.
@@ -21684,7 +21714,8 @@
                         var hyear = 0,
                             hmonth = 1;
                         // find the earliest gregorian date in the array that is greater than or equal to the given date
-                        while (ticks > this._yearInfo[++hyear][1]) { }
+                        while (ticks > this._yearInfo[++hyear][1]) {
+                        }
                         if (ticks !== this._yearInfo[hyear][1]) {
                             hyear--;
                         }
@@ -21714,17 +21745,17 @@
                 name: "Hijri",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""],
-                    namesAbbr: ["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة",""]
+                    names: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""],
+                    namesAbbr: ["محرم", "صفر", "ربيع الأول", "ربيع الثاني", "جمادى الأولى", "جمادى الثانية", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"بعد الهجرة","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "بعد الهجرة", "start": null, "offset": 0}],
                 twoDigitYearMax: 1451,
                 patterns: {
                     d: "dd/MM/yy",
@@ -21747,7 +21778,7 @@
                     // countries/regions. May be dynamically adjusted based on user preference, but should
                     // remain in the range of -2 to 2, inclusive.
                     hijriAdjustment: 0,
-                    toGregorian: function(hyear, hmonth, hday) {
+                    toGregorian: function (hyear, hmonth, hday) {
                         var daysSinceJan0101 = this.daysToYear(hyear) + this.monthDays[hmonth] + hday - 1 - this.hijriAdjustment;
                         // 86400000 = ticks per day
                         var gdate = new Date(daysSinceJan0101 * 86400000 - this.ticks1970);
@@ -21757,9 +21788,9 @@
                         gdate.setMinutes(gdate.getMinutes() + gdate.getTimezoneOffset());
                         return gdate;
                     },
-                    fromGregorian: function(gdate) {
+                    fromGregorian: function (gdate) {
                         if ((gdate < this.minDate) || (gdate > this.maxDate)) return null;
-                        var ticks = this.ticks1970 + (gdate-0) - gdate.getTimezoneOffset() * 60000,
+                        var ticks = this.ticks1970 + (gdate - 0) - gdate.getTimezoneOffset() * 60000,
                             daysSinceJan0101 = Math.floor(ticks / 86400000) + 1 + this.hijriAdjustment;
                         // very particular formula determined by someone smart, adapted from the server-side implementation.
                         // it approximates the hijri year.
@@ -21792,7 +21823,7 @@
                         hday = daysIntoYear - this.monthDays[hmonth];
                         return [hyear, hmonth, hday];
                     },
-                    daysToYear: function(year) {
+                    daysToYear: function (year) {
                         // calculates how many days since Jan 1, 0001
                         var yearsToYear30 = Math.floor((year - 1) / 30) * 30,
                             yearsInto30 = year - yearsToYear30 - 1,
@@ -21803,7 +21834,7 @@
                         }
                         return days;
                     },
-                    isLeapYear: function(year) {
+                    isLeapYear: function (year) {
                         return ((((year * 11) + 14) % 30) < 11);
                     }
                 }
@@ -21812,17 +21843,17 @@
                 name: "Gregorian_MiddleEastFrench",
                 firstDay: 6,
                 days: {
-                    names: ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
-                    namesAbbr: ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
-                    namesShort: ["di","lu","ma","me","je","ve","sa"]
+                    names: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                    namesAbbr: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                    namesShort: ["di", "lu", "ma", "me", "je", "ve", "sa"]
                 },
                 months: {
-                    names: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],
-                    namesAbbr: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""]
+                    names: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""],
+                    namesAbbr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"ap. J.-C.","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "ap. J.-C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -21836,17 +21867,17 @@
                 name: "Gregorian_Arabic",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""],
-                    namesAbbr: ["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول",""]
+                    names: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""],
+                    namesAbbr: ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -21859,17 +21890,17 @@
                 name: "Gregorian_TransliteratedFrench",
                 firstDay: 6,
                 days: {
-                    names: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesAbbr: ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
-                    namesShort: ["ح","ن","ث","ر","خ","ج","س"]
+                    names: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesAbbr: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+                    namesShort: ["ح", "ن", "ث", "ر", "خ", "ج", "س"]
                 },
                 months: {
-                    names: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""],
-                    namesAbbr: ["جانفييه","فيفرييه","مارس","أفريل","مي","جوان","جوييه","أوت","سبتمبر","اكتوبر","نوفمبر","ديسمبر",""]
+                    names: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""],
+                    namesAbbr: ["جانفييه", "فيفرييه", "مارس", "أفريل", "مي", "جوان", "جوييه", "أوت", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر", ""]
                 },
-                AM: ["ص","ص","ص"],
-                PM: ["م","م","م"],
-                eras: [{"name":"م","start":null,"offset":0}],
+                AM: ["ص", "ص", "ص"],
+                PM: ["م", "م", "م"],
+                eras: [{"name": "م", "start": null, "offset": 0}],
                 patterns: {
                     d: "MM/dd/yyyy",
                     t: "hh:mm tt",
@@ -21886,13 +21917,13 @@
         englishName: "English (India)",
         nativeName: "English (India)",
         numberFormat: {
-            groupSizes: [3,2],
+            groupSizes: [3, 2],
             percent: {
-                groupSizes: [3,2]
+                groupSizes: [3, 2]
             },
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,2],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 2],
                 symbol: "Rs."
             }
         },
@@ -21926,7 +21957,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["($ n)","$ n"],
+                pattern: ["($ n)", "$ n"],
                 ',': ".",
                 '.': ",",
                 symbol: "$b"
@@ -21935,17 +21966,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -21966,7 +21997,7 @@
         nativeName: "English (Malaysia)",
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             },
             currency: {
                 symbol: "RM"
@@ -21975,7 +22006,7 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    namesShort: ["S","M","T","W","T","F","S"]
+                    namesShort: ["S", "M", "T", "W", "T", "F", "S"]
                 },
                 patterns: {
                     d: "d/M/yyyy",
@@ -21995,23 +22026,23 @@
         language: "es",
         numberFormat: {
             currency: {
-                groupSizes: [3,0]
+                groupSizes: [3, 0]
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -22032,13 +22063,13 @@
         nativeName: "English (Singapore)",
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    namesShort: ["S","M","T","W","T","F","S"]
+                    namesShort: ["S", "M", "T", "W", "T", "F", "S"]
                 },
                 patterns: {
                     d: "d/M/yyyy",
@@ -22058,25 +22089,25 @@
         language: "es",
         numberFormat: {
             currency: {
-                pattern: ["$ -n","$ n"],
-                groupSizes: [3,0],
+                pattern: ["$ -n", "$ n"],
+                groupSizes: [3, 0],
                 symbol: "L."
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -22098,25 +22129,25 @@
         language: "es",
         numberFormat: {
             currency: {
-                pattern: ["($ n)","$ n"],
-                groupSizes: [3,0],
+                pattern: ["($ n)", "$ n"],
+                groupSizes: [3, 0],
                 symbol: "C$"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -22138,24 +22169,24 @@
         language: "es",
         numberFormat: {
             currency: {
-                pattern: ["($ n)","$ n"],
-                groupSizes: [3,0]
+                pattern: ["($ n)", "$ n"],
+                groupSizes: [3, 0]
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sá"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sá"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
-                AM: ["a.m.","a.m.","A.M."],
-                PM: ["p.m.","p.m.","P.M."],
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                AM: ["a.m.", "a.m.", "A.M."],
+                PM: ["p.m.", "p.m.", "P.M."],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     d: "dd/MM/yyyy",
                     D: "dddd, dd' de 'MMMM' de 'yyyy",
@@ -22176,23 +22207,23 @@
         nativeName: "Español (Estados Unidos)",
         language: "es",
         numberFormat: {
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                groupSizes: [3,0]
+                groupSizes: [3, 0]
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],
-                    namesAbbr: ["dom","lun","mar","mié","jue","vie","sáb"],
-                    namesShort: ["do","lu","ma","mi","ju","vi","sa"]
+                    names: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+                    namesAbbr: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+                    namesShort: ["do", "lu", "ma", "mi", "ju", "vi", "sa"]
                 },
                 months: {
-                    names: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],
-                    namesAbbr: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""]
+                    names: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", ""],
+                    namesAbbr: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", ""]
                 },
-                eras: [{"name":"d.C.","start":null,"offset":0}],
+                eras: [{"name": "d.C.", "start": null, "offset": 0}],
                 patterns: {
                     M: "dd' de 'MMMM",
                     Y: "MMMM' de 'yyyy"
@@ -22214,7 +22245,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "КМ"
@@ -22225,17 +22256,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["недјеља","понедјељак","уторак","сриједа","четвртак","петак","субота"],
-                    namesAbbr: ["нед","пон","уто","сре","чет","пет","суб"],
-                    namesShort: ["н","п","у","с","ч","п","с"]
+                    names: ["недјеља", "понедјељак", "уторак", "сриједа", "четвртак", "петак", "субота"],
+                    namesAbbr: ["нед", "пон", "уто", "сре", "чет", "пет", "суб"],
+                    namesShort: ["н", "п", "у", "с", "ч", "п", "с"]
                 },
                 months: {
-                    names: ["јануар","фебруар","март","април","мај","јун","јул","август","септембар","октобар","новембар","децембар",""],
-                    namesAbbr: ["јан","феб","мар","апр","мај","јун","јул","авг","сеп","окт","нов","дец",""]
+                    names: ["јануар", "фебруар", "март", "април", "мај", "јун", "јул", "август", "септембар", "октобар", "новембар", "децембар", ""],
+                    namesAbbr: ["јан", "феб", "мар", "апр", "мај", "јун", "јул", "авг", "сеп", "окт", "нов", "дец", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"н.е.","start":null,"offset":0}],
+                eras: [{"name": "н.е.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d.M.yyyy",
                     D: "d. MMMM yyyy",
@@ -22262,7 +22293,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "KM"
@@ -22273,13 +22304,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["nedjelja","ponedjeljak","utorak","srijeda","četvrtak","petak","subota"],
-                    namesAbbr: ["ned","pon","uto","sri","čet","pet","sub"],
-                    namesShort: ["ne","po","ut","sr","če","pe","su"]
+                    names: ["nedjelja", "ponedjeljak", "utorak", "srijeda", "četvrtak", "petak", "subota"],
+                    namesAbbr: ["ned", "pon", "uto", "sri", "čet", "pet", "sub"],
+                    namesShort: ["ne", "po", "ut", "sr", "če", "pe", "su"]
                 },
                 months: {
-                    names: ["januar","februar","mart","april","maj","juni","juli","avgust","septembar","oktobar","novembar","decembar",""],
-                    namesAbbr: ["jan","feb","mar","apr","maj","jun","jul","avg","sep","okt","nov","dec",""]
+                    names: ["januar", "februar", "mart", "april", "maj", "juni", "juli", "avgust", "septembar", "oktobar", "novembar", "decembar", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "avg", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
@@ -22306,12 +22337,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "Дин."
@@ -22322,17 +22353,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["недеља","понедељак","уторак","среда","четвртак","петак","субота"],
-                    namesAbbr: ["нед","пон","уто","сре","чет","пет","суб"],
-                    namesShort: ["не","по","ут","ср","че","пе","су"]
+                    names: ["недеља", "понедељак", "уторак", "среда", "четвртак", "петак", "субота"],
+                    namesAbbr: ["нед", "пон", "уто", "сре", "чет", "пет", "суб"],
+                    namesShort: ["не", "по", "ут", "ср", "че", "пе", "су"]
                 },
                 months: {
-                    names: ["јануар","фебруар","март","април","мај","јун","јул","август","септембар","октобар","новембар","децембар",""],
-                    namesAbbr: ["јан","феб","мар","апр","мај","јун","јул","авг","сеп","окт","нов","дец",""]
+                    names: ["јануар", "фебруар", "март", "април", "мај", "јун", "јул", "август", "септембар", "октобар", "новембар", "децембар", ""],
+                    namesAbbr: ["јан", "феб", "мар", "апр", "мај", "јун", "јул", "авг", "сеп", "окт", "нов", "дец", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"н.е.","start":null,"offset":0}],
+                eras: [{"name": "н.е.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d.M.yyyy",
                     D: "d. MMMM yyyy",
@@ -22356,12 +22387,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "Din."
@@ -22372,17 +22403,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["nedelja","ponedeljak","utorak","sreda","četvrtak","petak","subota"],
-                    namesAbbr: ["ned","pon","uto","sre","čet","pet","sub"],
-                    namesShort: ["ne","po","ut","sr","če","pe","su"]
+                    names: ["nedelja", "ponedeljak", "utorak", "sreda", "četvrtak", "petak", "subota"],
+                    namesAbbr: ["ned", "pon", "uto", "sre", "čet", "pet", "sub"],
+                    namesShort: ["ne", "po", "ut", "sr", "če", "pe", "su"]
                 },
                 months: {
-                    names: ["januar","februar","mart","april","maj","jun","jul","avgust","septembar","oktobar","novembar","decembar",""],
-                    namesAbbr: ["jan","feb","mar","apr","maj","jun","jul","avg","sep","okt","nov","dec",""]
+                    names: ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "avg", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"n.e.","start":null,"offset":0}],
+                eras: [{"name": "n.e.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d.M.yyyy",
                     D: "d. MMMM yyyy",
@@ -22410,7 +22441,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -22421,13 +22452,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["pasepeivi","vuossargâ","majebargâ","koskokko","tuorâstâh","vástuppeivi","lávárdâh"],
-                    namesAbbr: ["pa","vu","ma","ko","tu","vá","lá"],
-                    namesShort: ["p","v","m","k","t","v","l"]
+                    names: ["pasepeivi", "vuossargâ", "majebargâ", "koskokko", "tuorâstâh", "vástuppeivi", "lávárdâh"],
+                    namesAbbr: ["pa", "vu", "ma", "ko", "tu", "vá", "lá"],
+                    namesShort: ["p", "v", "m", "k", "t", "v", "l"]
                 },
                 months: {
-                    names: ["uđđâivemáánu","kuovâmáánu","njuhčâmáánu","cuáŋuimáánu","vyesimáánu","kesimáánu","syeinimáánu","porgemáánu","čohčâmáánu","roovvâdmáánu","skammâmáánu","juovlâmáánu",""],
-                    namesAbbr: ["uđiv","kuov","njuh","cuoŋ","vyes","kesi","syei","porg","čoh","roov","ska","juov",""]
+                    names: ["uđđâivemáánu", "kuovâmáánu", "njuhčâmáánu", "cuáŋuimáánu", "vyesimáánu", "kesimáánu", "syeinimáánu", "porgemáánu", "čohčâmáánu", "roovvâdmáánu", "skammâmáánu", "juovlâmáánu", ""],
+                    namesAbbr: ["uđiv", "kuov", "njuh", "cuoŋ", "vyes", "kesi", "syei", "porg", "čoh", "roov", "ska", "juov", ""]
                 },
                 AM: null,
                 PM: null,
@@ -22454,12 +22485,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "ман."
@@ -22470,17 +22501,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Базар","Базар ертәси","Чәршәнбә ахшамы","Чәршәнбә","Ҹүмә ахшамы","Ҹүмә","Шәнбә"],
-                    namesAbbr: ["Б","Бе","Ча","Ч","Ҹа","Ҹ","Ш"],
-                    namesShort: ["Б","Бе","Ча","Ч","Ҹа","Ҹ","Ш"]
+                    names: ["Базар", "Базар ертәси", "Чәршәнбә ахшамы", "Чәршәнбә", "Ҹүмә ахшамы", "Ҹүмә", "Шәнбә"],
+                    namesAbbr: ["Б", "Бе", "Ча", "Ч", "Ҹа", "Ҹ", "Ш"],
+                    namesShort: ["Б", "Бе", "Ча", "Ч", "Ҹа", "Ҹ", "Ш"]
                 },
                 months: {
-                    names: ["Јанвар","Феврал","Март","Апрел","Мај","Ијун","Ијул","Август","Сентјабр","Октјабр","Нојабр","Декабр",""],
-                    namesAbbr: ["Јан","Фев","Мар","Апр","Мај","Ијун","Ијул","Авг","Сен","Окт","Ноя","Дек",""]
+                    names: ["Јанвар", "Феврал", "Март", "Апрел", "Мај", "Ијун", "Ијул", "Август", "Сентјабр", "Октјабр", "Нојабр", "Декабр", ""],
+                    namesAbbr: ["Јан", "Фев", "Мар", "Апр", "Мај", "Ијун", "Ијул", "Авг", "Сен", "Окт", "Ноя", "Дек", ""]
                 },
                 monthsGenitive: {
-                    names: ["јанвар","феврал","март","апрел","мај","ијун","ијул","август","сентјабр","октјабр","нојабр","декабр",""],
-                    namesAbbr: ["Јан","Фев","Мар","Апр","мая","ијун","ијул","Авг","Сен","Окт","Ноя","Дек",""]
+                    names: ["јанвар", "феврал", "март", "апрел", "мај", "ијун", "ијул", "август", "сентјабр", "октјабр", "нојабр", "декабр", ""],
+                    namesAbbr: ["Јан", "Фев", "Мар", "Апр", "мая", "ијун", "ијул", "Авг", "Сен", "Окт", "Ноя", "Дек", ""]
                 },
                 AM: null,
                 PM: null,
@@ -22511,7 +22542,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "€"
@@ -22522,17 +22553,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["pâ´sspei´vv","vuõssargg","mââibargg","seärad","nelljdpei´vv","piâtnâc","sue´vet"],
-                    namesAbbr: ["pâ","vu","mâ","se","ne","pi","su"],
-                    namesShort: ["p","v","m","s","n","p","s"]
+                    names: ["pâ´sspei´vv", "vuõssargg", "mââibargg", "seärad", "nelljdpei´vv", "piâtnâc", "sue´vet"],
+                    namesAbbr: ["pâ", "vu", "mâ", "se", "ne", "pi", "su"],
+                    namesShort: ["p", "v", "m", "s", "n", "p", "s"]
                 },
                 months: {
-                    names: ["ođđee´jjmään","tä´lvvmään","pâ´zzlâšttammään","njuhččmään","vue´ssmään","ǩie´ssmään","suei´nnmään","på´rǧǧmään","čõhččmään","kålggmään","skamm´mään","rosttovmään",""],
-                    namesAbbr: ["ođjm","tä´lvv","pâzl","njuh","vue","ǩie","suei","på´r","čõh","kålg","ska","rost",""]
+                    names: ["ođđee´jjmään", "tä´lvvmään", "pâ´zzlâšttammään", "njuhččmään", "vue´ssmään", "ǩie´ssmään", "suei´nnmään", "på´rǧǧmään", "čõhččmään", "kålggmään", "skamm´mään", "rosttovmään", ""],
+                    namesAbbr: ["ođjm", "tä´lvv", "pâzl", "njuh", "vue", "ǩie", "suei", "på´r", "čõh", "kålg", "ska", "rost", ""]
                 },
                 monthsGenitive: {
-                    names: ["ođđee´jjmannu","tä´lvvmannu","pâ´zzlâšttammannu","njuhččmannu","vue´ssmannu","ǩie´ssmannu","suei´nnmannu","på´rǧǧmannu","čõhččmannu","kålggmannu","skamm´mannu","rosttovmannu",""],
-                    namesAbbr: ["ođjm","tä´lvv","pâzl","njuh","vue","ǩie","suei","på´r","čõh","kålg","ska","rost",""]
+                    names: ["ođđee´jjmannu", "tä´lvvmannu", "pâ´zzlâšttammannu", "njuhččmannu", "vue´ssmannu", "ǩie´ssmannu", "suei´nnmannu", "på´rǧǧmannu", "čõhččmannu", "kålggmannu", "skamm´mannu", "rosttovmannu", ""],
+                    namesAbbr: ["ođjm", "tä´lvv", "pâzl", "njuh", "vue", "ǩie", "suei", "på´r", "čõh", "kålg", "ska", "rost", ""]
                 },
                 AM: null,
                 PM: null,
@@ -22557,27 +22588,27 @@
         language: "zh",
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             },
             currency: {
-                pattern: ["$-n","$n"],
+                pattern: ["$-n", "$n"],
                 symbol: "¥"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
-                    namesAbbr: ["周日","周一","周二","周三","周四","周五","周六"],
-                    namesShort: ["日","一","二","三","四","五","六"]
+                    names: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+                    namesAbbr: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+                    namesShort: ["日", "一", "二", "三", "四", "五", "六"]
                 },
                 months: {
-                    names: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""],
-                    namesAbbr: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""]
+                    names: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""],
+                    namesAbbr: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""]
                 },
-                AM: ["上午","上午","上午"],
-                PM: ["下午","下午","下午"],
-                eras: [{"name":"公元","start":null,"offset":0}],
+                AM: ["上午", "上午", "上午"],
+                PM: ["下午", "下午", "下午"],
+                eras: [{"name": "公元", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/M/d",
                     D: "yyyy'年'M'月'd'日'",
@@ -22605,7 +22636,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': " ",
                 '.': ",",
                 symbol: "kr"
@@ -22616,13 +22647,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["søndag","måndag","tysdag","onsdag","torsdag","fredag","laurdag"],
-                    namesAbbr: ["sø","må","ty","on","to","fr","la"],
-                    namesShort: ["sø","må","ty","on","to","fr","la"]
+                    names: ["søndag", "måndag", "tysdag", "onsdag", "torsdag", "fredag", "laurdag"],
+                    namesAbbr: ["sø", "må", "ty", "on", "to", "fr", "la"],
+                    namesShort: ["sø", "må", "ty", "on", "to", "fr", "la"]
                 },
                 months: {
-                    names: ["januar","februar","mars","april","mai","juni","juli","august","september","oktober","november","desember",""],
-                    namesAbbr: ["jan","feb","mar","apr","mai","jun","jul","aug","sep","okt","nov","des",""]
+                    names: ["januar", "februar", "mars", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "mai", "jun", "jul", "aug", "sep", "okt", "nov", "des", ""]
                 },
                 AM: null,
                 PM: null,
@@ -22653,7 +22684,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "KM"
@@ -22664,13 +22695,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["nedjelja","ponedjeljak","utorak","srijeda","četvrtak","petak","subota"],
-                    namesAbbr: ["ned","pon","uto","sri","čet","pet","sub"],
-                    namesShort: ["ne","po","ut","sr","če","pe","su"]
+                    names: ["nedjelja", "ponedjeljak", "utorak", "srijeda", "četvrtak", "petak", "subota"],
+                    namesAbbr: ["ned", "pon", "uto", "sri", "čet", "pet", "sub"],
+                    namesShort: ["ne", "po", "ut", "sr", "če", "pe", "su"]
                 },
                 months: {
-                    names: ["januar","februar","mart","april","maj","juni","juli","avgust","septembar","oktobar","novembar","decembar",""],
-                    namesAbbr: ["jan","feb","mar","apr","maj","jun","jul","avg","sep","okt","nov","dec",""]
+                    names: ["januar", "februar", "mart", "april", "maj", "juni", "juli", "avgust", "septembar", "oktobar", "novembar", "decembar", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "avg", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
@@ -22697,12 +22728,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "man."
@@ -22713,17 +22744,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Bazar","Bazar ertəsi","Çərşənbə axşamı","Çərşənbə","Cümə axşamı","Cümə","Şənbə"],
-                    namesAbbr: ["B","Be","Ça","Ç","Ca","C","Ş"],
-                    namesShort: ["B","Be","Ça","Ç","Ca","C","Ş"]
+                    names: ["Bazar", "Bazar ertəsi", "Çərşənbə axşamı", "Çərşənbə", "Cümə axşamı", "Cümə", "Şənbə"],
+                    namesAbbr: ["B", "Be", "Ça", "Ç", "Ca", "C", "Ş"],
+                    namesShort: ["B", "Be", "Ça", "Ç", "Ca", "C", "Ş"]
                 },
                 months: {
-                    names: ["Yanvar","Fevral","Mart","Aprel","May","İyun","İyul","Avgust","Sentyabr","Oktyabr","Noyabr","Dekabr",""],
-                    namesAbbr: ["Yan","Fev","Mar","Apr","May","İyun","İyul","Avg","Sen","Okt","Noy","Dek",""]
+                    names: ["Yanvar", "Fevral", "Mart", "Aprel", "May", "İyun", "İyul", "Avgust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr", ""],
+                    namesAbbr: ["Yan", "Fev", "Mar", "Apr", "May", "İyun", "İyul", "Avg", "Sen", "Okt", "Noy", "Dek", ""]
                 },
                 monthsGenitive: {
-                    names: ["yanvar","fevral","mart","aprel","may","iyun","iyul","avgust","sentyabr","oktyabr","noyabr","dekabr",""],
-                    namesAbbr: ["Yan","Fev","Mar","Apr","May","İyun","İyul","Avg","Sen","Okt","Noy","Dek",""]
+                    names: ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentyabr", "oktyabr", "noyabr", "dekabr", ""],
+                    namesAbbr: ["Yan", "Fev", "Mar", "Apr", "May", "İyun", "İyul", "Avg", "Sen", "Okt", "Noy", "Dek", ""]
                 },
                 AM: null,
                 PM: null,
@@ -22754,7 +22785,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "kr"
@@ -22765,17 +22796,17 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["aejlege","måanta","dæjsta","gaskevåhkoe","duarsta","bearjadahke","laavvardahke"],
-                    namesAbbr: ["aej","måa","dæj","gask","duar","bearj","laav"],
-                    namesShort: ["a","m","d","g","d","b","l"]
+                    names: ["aejlege", "måanta", "dæjsta", "gaskevåhkoe", "duarsta", "bearjadahke", "laavvardahke"],
+                    namesAbbr: ["aej", "måa", "dæj", "gask", "duar", "bearj", "laav"],
+                    namesShort: ["a", "m", "d", "g", "d", "b", "l"]
                 },
                 months: {
-                    names: ["tsïengele","goevte","njoktje","voerhtje","suehpede","ruffie","snjaltje","mïetske","skïerede","golke","rahka","goeve",""],
-                    namesAbbr: ["tsïen","goevt","njok","voer","sueh","ruff","snja","mïet","skïer","golk","rahk","goev",""]
+                    names: ["tsïengele", "goevte", "njoktje", "voerhtje", "suehpede", "ruffie", "snjaltje", "mïetske", "skïerede", "golke", "rahka", "goeve", ""],
+                    namesAbbr: ["tsïen", "goevt", "njok", "voer", "sueh", "ruff", "snja", "mïet", "skïer", "golk", "rahk", "goev", ""]
                 },
                 monthsGenitive: {
-                    names: ["tsïengelen","goevten","njoktjen","voerhtjen","suehpeden","ruffien","snjaltjen","mïetsken","skïereden","golken","rahkan","goeven",""],
-                    namesAbbr: ["tsïen","goevt","njok","voer","sueh","ruff","snja","mïet","skïer","golk","rahk","goev",""]
+                    names: ["tsïengelen", "goevten", "njoktjen", "voerhtjen", "suehpeden", "ruffien", "snjaltjen", "mïetsken", "skïereden", "golken", "rahkan", "goeven", ""],
+                    namesAbbr: ["tsïen", "goevt", "njok", "voer", "sueh", "ruff", "snja", "mïet", "skïer", "golk", "rahk", "goev", ""]
                 },
                 AM: null,
                 PM: null,
@@ -22802,12 +22833,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': " ",
                 '.': ",",
                 symbol: "сўм"
@@ -22818,17 +22849,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["якшанба","душанба","сешанба","чоршанба","пайшанба","жума","шанба"],
-                    namesAbbr: ["якш","дш","сш","чш","пш","ж","ш"],
-                    namesShort: ["я","д","с","ч","п","ж","ш"]
+                    names: ["якшанба", "душанба", "сешанба", "чоршанба", "пайшанба", "жума", "шанба"],
+                    namesAbbr: ["якш", "дш", "сш", "чш", "пш", "ж", "ш"],
+                    namesShort: ["я", "д", "с", "ч", "п", "ж", "ш"]
                 },
                 months: {
-                    names: ["Январ","Феврал","Март","Апрел","Май","Июн","Июл","Август","Сентябр","Октябр","Ноябр","Декабр",""],
-                    namesAbbr: ["Янв","Фев","Мар","Апр","Май","Июн","Июл","Авг","Сен","Окт","Ноя","Дек",""]
+                    names: ["Январ", "Феврал", "Март", "Апрел", "Май", "Июн", "Июл", "Август", "Сентябр", "Октябр", "Ноябр", "Декабр", ""],
+                    namesAbbr: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек", ""]
                 },
                 monthsGenitive: {
-                    names: ["январ","феврал","март","апрел","май","июн","июл","август","сентябр","октябр","ноябр","декабр",""],
-                    namesAbbr: ["Янв","Фев","Мар","Апр","мая","Июн","Июл","Авг","Сен","Окт","Ноя","Дек",""]
+                    names: ["январ", "феврал", "март", "апрел", "май", "июн", "июл", "август", "сентябр", "октябр", "ноябр", "декабр", ""],
+                    namesAbbr: ["Янв", "Фев", "Мар", "Апр", "мая", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек", ""]
                 },
                 AM: null,
                 PM: null,
@@ -22859,7 +22890,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n$","n$"],
+                pattern: ["-n$", "n$"],
                 ',': " ",
                 '.': ",",
                 symbol: "₮"
@@ -22870,17 +22901,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["Ням","Даваа","Мягмар","Лхагва","Пүрэв","Баасан","Бямба"],
-                    namesAbbr: ["Ня","Да","Мя","Лх","Пү","Ба","Бя"],
-                    namesShort: ["Ня","Да","Мя","Лх","Пү","Ба","Бя"]
+                    names: ["Ням", "Даваа", "Мягмар", "Лхагва", "Пүрэв", "Баасан", "Бямба"],
+                    namesAbbr: ["Ня", "Да", "Мя", "Лх", "Пү", "Ба", "Бя"],
+                    namesShort: ["Ня", "Да", "Мя", "Лх", "Пү", "Ба", "Бя"]
                 },
                 months: {
-                    names: ["1 дүгээр сар","2 дугаар сар","3 дугаар сар","4 дүгээр сар","5 дугаар сар","6 дугаар сар","7 дугаар сар","8 дугаар сар","9 дүгээр сар","10 дугаар сар","11 дүгээр сар","12 дугаар сар",""],
-                    namesAbbr: ["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII",""]
+                    names: ["1 дүгээр сар", "2 дугаар сар", "3 дугаар сар", "4 дүгээр сар", "5 дугаар сар", "6 дугаар сар", "7 дугаар сар", "8 дугаар сар", "9 дүгээр сар", "10 дугаар сар", "11 дүгээр сар", "12 дугаар сар", ""],
+                    namesAbbr: ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", ""]
                 },
                 monthsGenitive: {
-                    names: ["1 дүгээр сарын","2 дугаар сарын","3 дугаар сарын","4 дүгээр сарын","5 дугаар сарын","6 дугаар сарын","7 дугаар сарын","8 дугаар сарын","9 дүгээр сарын","10 дугаар сарын","11 дүгээр сарын","12 дугаар сарын",""],
-                    namesAbbr: ["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII",""]
+                    names: ["1 дүгээр сарын", "2 дугаар сарын", "3 дугаар сарын", "4 дүгээр сарын", "5 дугаар сарын", "6 дугаар сарын", "7 дугаар сарын", "8 дугаар сарын", "9 дүгээр сарын", "10 дугаар сарын", "11 дүгээр сарын", "12 дугаар сарын", ""],
+                    namesAbbr: ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", ""]
                 },
                 AM: null,
                 PM: null,
@@ -22904,25 +22935,25 @@
         nativeName: "ᐃᓄᒃᑎᑐᑦ",
         language: "iu-Cans",
         numberFormat: {
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,0]
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 0]
             },
             currency: {
-                groupSizes: [3,0]
+                groupSizes: [3, 0]
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["ᓈᑦᑏᖑᔭ","ᓇᒡᒐᔾᔭᐅ","ᐊᐃᑉᐱᖅ","ᐱᖓᑦᓯᖅ","ᓯᑕᒻᒥᖅ","ᑕᓪᓕᕐᒥᖅ","ᓯᕙᑖᕐᕕᒃ"],
-                    namesAbbr: ["ᓈᑦᑏ","ᓇᒡᒐ","ᐊᐃᑉᐱ","ᐱᖓᑦᓯ","ᓯᑕ","ᑕᓪᓕ","ᓯᕙᑖᕐᕕᒃ"],
-                    namesShort: ["ᓈ","ᓇ","ᐊ","ᐱ","ᓯ","ᑕ","ᓯ"]
+                    names: ["ᓈᑦᑏᖑᔭ", "ᓇᒡᒐᔾᔭᐅ", "ᐊᐃᑉᐱᖅ", "ᐱᖓᑦᓯᖅ", "ᓯᑕᒻᒥᖅ", "ᑕᓪᓕᕐᒥᖅ", "ᓯᕙᑖᕐᕕᒃ"],
+                    namesAbbr: ["ᓈᑦᑏ", "ᓇᒡᒐ", "ᐊᐃᑉᐱ", "ᐱᖓᑦᓯ", "ᓯᑕ", "ᑕᓪᓕ", "ᓯᕙᑖᕐᕕᒃ"],
+                    namesShort: ["ᓈ", "ᓇ", "ᐊ", "ᐱ", "ᓯ", "ᑕ", "ᓯ"]
                 },
                 months: {
-                    names: ["ᔮᓐᓄᐊᕆ","ᕖᕝᕗᐊᕆ","ᒫᑦᓯ","ᐄᐳᕆ","ᒪᐃ","ᔫᓂ","ᔪᓚᐃ","ᐋᒡᒌᓯ","ᓯᑎᐱᕆ","ᐅᑐᐱᕆ","ᓄᕕᐱᕆ","ᑎᓯᐱᕆ",""],
-                    namesAbbr: ["ᔮᓐᓄ","ᕖᕝᕗ","ᒫᑦᓯ","ᐄᐳᕆ","ᒪᐃ","ᔫᓂ","ᔪᓚᐃ","ᐋᒡᒌ","ᓯᑎᐱ","ᐅᑐᐱ","ᓄᕕᐱ","ᑎᓯᐱ",""]
+                    names: ["ᔮᓐᓄᐊᕆ", "ᕖᕝᕗᐊᕆ", "ᒫᑦᓯ", "ᐄᐳᕆ", "ᒪᐃ", "ᔫᓂ", "ᔪᓚᐃ", "ᐋᒡᒌᓯ", "ᓯᑎᐱᕆ", "ᐅᑐᐱᕆ", "ᓄᕕᐱᕆ", "ᑎᓯᐱᕆ", ""],
+                    namesAbbr: ["ᔮᓐᓄ", "ᕖᕝᕗ", "ᒫᑦᓯ", "ᐄᐳᕆ", "ᒪᐃ", "ᔫᓂ", "ᔪᓚᐃ", "ᐋᒡᒌ", "ᓯᑎᐱ", "ᐅᑐᐱ", "ᓄᕕᐱ", "ᑎᓯᐱ", ""]
                 },
                 patterns: {
                     d: "d/M/yyyy",
@@ -22942,7 +22973,7 @@
         language: "zh-Hant",
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             },
             currency: {
                 symbol: "HK$"
@@ -22951,17 +22982,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
-                    namesAbbr: ["週日","週一","週二","週三","週四","週五","週六"],
-                    namesShort: ["日","一","二","三","四","五","六"]
+                    names: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+                    namesAbbr: ["週日", "週一", "週二", "週三", "週四", "週五", "週六"],
+                    namesShort: ["日", "一", "二", "三", "四", "五", "六"]
                 },
                 months: {
-                    names: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""],
-                    namesAbbr: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""]
+                    names: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""],
+                    namesAbbr: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""]
                 },
-                AM: ["上午","上午","上午"],
-                PM: ["下午","下午","下午"],
-                eras: [{"name":"公元","start":null,"offset":0}],
+                AM: ["上午", "上午", "上午"],
+                PM: ["下午", "下午", "下午"],
+                eras: [{"name": "公元", "start": null, "offset": 0}],
                 patterns: {
                     d: "d/M/yyyy",
                     D: "yyyy'年'M'月'd'日'",
@@ -22989,7 +23020,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["$ -n","$ n"],
+                pattern: ["$ -n", "$ n"],
                 ',': " ",
                 '.': ",",
                 symbol: "kr"
@@ -23000,13 +23031,13 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["søndag","mandag","tirsdag","onsdag","torsdag","fredag","lørdag"],
-                    namesAbbr: ["sø","ma","ti","on","to","fr","lø"],
-                    namesShort: ["sø","ma","ti","on","to","fr","lø"]
+                    names: ["søndag", "mandag", "tirsdag", "onsdag", "torsdag", "fredag", "lørdag"],
+                    namesAbbr: ["sø", "ma", "ti", "on", "to", "fr", "lø"],
+                    namesShort: ["sø", "ma", "ti", "on", "to", "fr", "lø"]
                 },
                 months: {
-                    names: ["januar","februar","mars","april","mai","juni","juli","august","september","oktober","november","desember",""],
-                    namesAbbr: ["jan","feb","mar","apr","mai","jun","jul","aug","sep","okt","nov","des",""]
+                    names: ["januar", "februar", "mars", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "mai", "jun", "jul", "aug", "sep", "okt", "nov", "des", ""]
                 },
                 AM: null,
                 PM: null,
@@ -23033,12 +23064,12 @@
             ',': ".",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': ".",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "Din."
@@ -23049,17 +23080,17 @@
                 '/': ".",
                 firstDay: 1,
                 days: {
-                    names: ["nedelja","ponedeljak","utorak","sreda","četvrtak","petak","subota"],
-                    namesAbbr: ["ned","pon","uto","sre","čet","pet","sub"],
-                    namesShort: ["ne","po","ut","sr","če","pe","su"]
+                    names: ["nedelja", "ponedeljak", "utorak", "sreda", "četvrtak", "petak", "subota"],
+                    namesAbbr: ["ned", "pon", "uto", "sre", "čet", "pet", "sub"],
+                    namesShort: ["ne", "po", "ut", "sr", "če", "pe", "su"]
                 },
                 months: {
-                    names: ["januar","februar","mart","april","maj","jun","jul","avgust","septembar","oktobar","novembar","decembar",""],
-                    namesAbbr: ["jan","feb","mar","apr","maj","jun","jul","avg","sep","okt","nov","dec",""]
+                    names: ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar", ""],
+                    namesAbbr: ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "avg", "sep", "okt", "nov", "dec", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"n.e.","start":null,"offset":0}],
+                eras: [{"name": "n.e.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d.M.yyyy",
                     D: "d. MMMM yyyy",
@@ -23082,16 +23113,16 @@
         numberFormat: {
             ',': " ",
             '.': ",",
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,0],
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 0],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
-                groupSizes: [3,0],
+                pattern: ["-n $", "n $"],
+                groupSizes: [3, 0],
                 ',': " ",
                 '.': ";",
                 symbol: "т.р."
@@ -23101,17 +23132,17 @@
             standard: $.extend(true, {}, standard, {
                 '/': ".",
                 days: {
-                    names: ["Яш","Душанбе","Сешанбе","Чоршанбе","Панҷшанбе","Ҷумъа","Шанбе"],
-                    namesAbbr: ["Яш","Дш","Сш","Чш","Пш","Ҷм","Шн"],
-                    namesShort: ["Яш","Дш","Сш","Чш","Пш","Ҷм","Шн"]
+                    names: ["Яш", "Душанбе", "Сешанбе", "Чоршанбе", "Панҷшанбе", "Ҷумъа", "Шанбе"],
+                    namesAbbr: ["Яш", "Дш", "Сш", "Чш", "Пш", "Ҷм", "Шн"],
+                    namesShort: ["Яш", "Дш", "Сш", "Чш", "Пш", "Ҷм", "Шн"]
                 },
                 months: {
-                    names: ["Январ","Феврал","Март","Апрел","Май","Июн","Июл","Август","Сентябр","Октябр","Ноябр","Декабр",""],
-                    namesAbbr: ["Янв","Фев","Мар","Апр","Май","Июн","Июл","Авг","Сен","Окт","Ноя","Дек",""]
+                    names: ["Январ", "Феврал", "Март", "Апрел", "Май", "Июн", "Июл", "Август", "Сентябр", "Октябр", "Ноябр", "Декабр", ""],
+                    namesAbbr: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек", ""]
                 },
                 monthsGenitive: {
-                    names: ["январи","феврали","марти","апрели","маи","июни","июли","августи","сентябри","октябри","ноябри","декабри",""],
-                    namesAbbr: ["Янв","Фев","Мар","Апр","Май","Июн","Июл","Авг","Сен","Окт","Ноя","Дек",""]
+                    names: ["январи", "феврали", "марти", "апрели", "маи", "июни", "июли", "августи", "сентябри", "октябри", "ноябри", "декабри", ""],
+                    namesAbbr: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек", ""]
                 },
                 AM: null,
                 PM: null,
@@ -23141,7 +23172,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "€"
@@ -23152,21 +23183,21 @@
                 '/': ". ",
                 firstDay: 1,
                 days: {
-                    names: ["njeźela","ponjeźele","wałtora","srjoda","stwortk","pětk","sobota"],
-                    namesAbbr: ["nje","pon","wał","srj","stw","pět","sob"],
-                    namesShort: ["n","p","w","s","s","p","s"]
+                    names: ["njeźela", "ponjeźele", "wałtora", "srjoda", "stwortk", "pětk", "sobota"],
+                    namesAbbr: ["nje", "pon", "wał", "srj", "stw", "pět", "sob"],
+                    namesShort: ["n", "p", "w", "s", "s", "p", "s"]
                 },
                 months: {
-                    names: ["januar","februar","měrc","apryl","maj","junij","julij","awgust","september","oktober","nowember","december",""],
-                    namesAbbr: ["jan","feb","měr","apr","maj","jun","jul","awg","sep","okt","now","dec",""]
+                    names: ["januar", "februar", "měrc", "apryl", "maj", "junij", "julij", "awgust", "september", "oktober", "nowember", "december", ""],
+                    namesAbbr: ["jan", "feb", "měr", "apr", "maj", "jun", "jul", "awg", "sep", "okt", "now", "dec", ""]
                 },
                 monthsGenitive: {
-                    names: ["januara","februara","měrca","apryla","maja","junija","julija","awgusta","septembra","oktobra","nowembra","decembra",""],
-                    namesAbbr: ["jan","feb","měr","apr","maj","jun","jul","awg","sep","okt","now","dec",""]
+                    names: ["januara", "februara", "měrca", "apryla", "maja", "junija", "julija", "awgusta", "septembra", "oktobra", "nowembra", "decembra", ""],
+                    namesAbbr: ["jan", "feb", "měr", "apr", "maj", "jun", "jul", "awg", "sep", "okt", "now", "dec", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"po Chr.","start":null,"offset":0}],
+                eras: [{"name": "po Chr.", "start": null, "offset": 0}],
                 patterns: {
                     d: "d. M. yyyy",
                     D: "dddd, 'dnja' d. MMMM yyyy",
@@ -23194,7 +23225,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 ',': ".",
                 '.': ",",
                 symbol: "kr"
@@ -23205,17 +23236,17 @@
                 '/': "-",
                 firstDay: 1,
                 days: {
-                    names: ["ájllek","mánnodahka","dijstahka","gasskavahkko","duorastahka","bierjjedahka","lávvodahka"],
-                    namesAbbr: ["ájl","mán","dis","gas","duor","bier","láv"],
-                    namesShort: ["á","m","d","g","d","b","l"]
+                    names: ["ájllek", "mánnodahka", "dijstahka", "gasskavahkko", "duorastahka", "bierjjedahka", "lávvodahka"],
+                    namesAbbr: ["ájl", "mán", "dis", "gas", "duor", "bier", "láv"],
+                    namesShort: ["á", "m", "d", "g", "d", "b", "l"]
                 },
                 months: {
-                    names: ["ådåjakmánno","guovvamánno","sjnjuktjamánno","vuoratjismánno","moarmesmánno","biehtsemánno","sjnjilltjamánno","bårggemánno","ragátmánno","gålgådismánno","basádismánno","javllamánno",""],
-                    namesAbbr: ["ådåj","guov","snju","vuor","moar","bieh","snji","bårg","ragá","gålg","basá","javl",""]
+                    names: ["ådåjakmánno", "guovvamánno", "sjnjuktjamánno", "vuoratjismánno", "moarmesmánno", "biehtsemánno", "sjnjilltjamánno", "bårggemánno", "ragátmánno", "gålgådismánno", "basádismánno", "javllamánno", ""],
+                    namesAbbr: ["ådåj", "guov", "snju", "vuor", "moar", "bieh", "snji", "bårg", "ragá", "gålg", "basá", "javl", ""]
                 },
                 monthsGenitive: {
-                    names: ["ådåjakmáno","guovvamáno","sjnjuktjamáno","vuoratjismáno","moarmesmáno","biehtsemáno","sjnjilltjamáno","bårggemáno","ragátmáno","gålgådismáno","basádismáno","javllamáno",""],
-                    namesAbbr: ["ådåj","guov","snju","vuor","moar","bieh","snji","bårg","ragá","gålg","basá","javl",""]
+                    names: ["ådåjakmáno", "guovvamáno", "sjnjuktjamáno", "vuoratjismáno", "moarmesmáno", "biehtsemáno", "sjnjilltjamáno", "bårggemáno", "ragátmáno", "gålgådismáno", "basádismáno", "javllamáno", ""],
+                    namesAbbr: ["ådåj", "guov", "snju", "vuor", "moar", "bieh", "snji", "bårg", "ragá", "gålg", "basá", "javl", ""]
                 },
                 AM: null,
                 PM: null,
@@ -23242,12 +23273,12 @@
             ',': " ",
             '.': ",",
             percent: {
-                pattern: ["-n%","n%"],
+                pattern: ["-n%", "n%"],
                 ',': " ",
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 decimals: 0,
                 ',': " ",
                 '.': ",",
@@ -23258,13 +23289,13 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["yakshanba","dushanba","seshanba","chorshanba","payshanba","juma","shanba"],
-                    namesAbbr: ["yak.","dsh.","sesh.","chr.","psh.","jm.","sh."],
-                    namesShort: ["ya","d","s","ch","p","j","sh"]
+                    names: ["yakshanba", "dushanba", "seshanba", "chorshanba", "payshanba", "juma", "shanba"],
+                    namesAbbr: ["yak.", "dsh.", "sesh.", "chr.", "psh.", "jm.", "sh."],
+                    namesShort: ["ya", "d", "s", "ch", "p", "j", "sh"]
                 },
                 months: {
-                    names: ["yanvar","fevral","mart","aprel","may","iyun","iyul","avgust","sentyabr","oktyabr","noyabr","dekabr",""],
-                    namesAbbr: ["yanvar","fevral","mart","aprel","may","iyun","iyul","avgust","sentyabr","oktyabr","noyabr","dekabr",""]
+                    names: ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentyabr", "oktyabr", "noyabr", "dekabr", ""],
+                    namesAbbr: ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentyabr", "oktyabr", "noyabr", "dekabr", ""]
                 },
                 AM: null,
                 PM: null,
@@ -23288,14 +23319,14 @@
         nativeName: "ᠮᠤᠨᠭᠭᠤᠯ ᠬᠡᠯᠡ",
         language: "mn-Mong",
         numberFormat: {
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                pattern: ["-n%","n%"],
-                groupSizes: [3,0]
+                pattern: ["-n%", "n%"],
+                groupSizes: [3, 0]
             },
             currency: {
-                pattern: ["$-n","$n"],
-                groupSizes: [3,0],
+                pattern: ["$-n", "$n"],
+                groupSizes: [3, 0],
                 symbol: "¥"
             }
         },
@@ -23303,17 +23334,17 @@
             standard: $.extend(true, {}, standard, {
                 firstDay: 1,
                 days: {
-                    names: ["ᠭᠠᠷᠠᠭ ᠤᠨ ᠡᠳᠦᠷ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠨᠢᠭᠡᠨ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠬᠣᠶᠠᠷ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠭᠤᠷᠪᠠᠨ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠳᠥᠷᠪᠡᠨ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠲᠠᠪᠤᠨ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠵᠢᠷᠭᠤᠭᠠᠨ"],
-                    namesAbbr: ["ᠭᠠᠷᠠᠭ ᠤᠨ ᠡᠳᠦᠷ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠨᠢᠭᠡᠨ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠬᠣᠶᠠᠷ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠭᠤᠷᠪᠠᠨ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠳᠥᠷᠪᠡᠨ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠲᠠᠪᠤᠨ","ᠭᠠᠷᠠᠭ ᠤᠨ ᠵᠢᠷᠭᠤᠭᠠᠨ"],
-                    namesShort: ["ᠡ‍","ᠨᠢ‍","ᠬᠣ‍","ᠭᠤ‍","ᠳᠥ‍","ᠲᠠ‍","ᠵᠢ‍"]
+                    names: ["ᠭᠠᠷᠠᠭ ᠤᠨ ᠡᠳᠦᠷ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠨᠢᠭᠡᠨ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠬᠣᠶᠠᠷ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠭᠤᠷᠪᠠᠨ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠳᠥᠷᠪᠡᠨ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠲᠠᠪᠤᠨ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠵᠢᠷᠭᠤᠭᠠᠨ"],
+                    namesAbbr: ["ᠭᠠᠷᠠᠭ ᠤᠨ ᠡᠳᠦᠷ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠨᠢᠭᠡᠨ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠬᠣᠶᠠᠷ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠭᠤᠷᠪᠠᠨ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠳᠥᠷᠪᠡᠨ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠲᠠᠪᠤᠨ", "ᠭᠠᠷᠠᠭ ᠤᠨ ᠵᠢᠷᠭᠤᠭᠠᠨ"],
+                    namesShort: ["ᠡ‍", "ᠨᠢ‍", "ᠬᠣ‍", "ᠭᠤ‍", "ᠳᠥ‍", "ᠲᠠ‍", "ᠵᠢ‍"]
                 },
                 months: {
-                    names: ["ᠨᠢᠭᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ","ᠬᠤᠶ᠋ᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠭᠤᠷᠪᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠲᠦᠷᠪᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ","ᠲᠠᠪᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠵᠢᠷᠭᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠲᠤᠯᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠨᠠᠢᠮᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠶᠢᠰᠦᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ","ᠠᠷᠪᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠠᠷᠪᠠᠨ ᠨᠢᠭᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ","ᠠᠷᠪᠠᠨ ᠬᠤᠶ᠋ᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ",""],
-                    namesAbbr: ["ᠨᠢᠭᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ","ᠬᠤᠶ᠋ᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠭᠤᠷᠪᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠲᠦᠷᠪᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ","ᠲᠠᠪᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠵᠢᠷᠭᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠲᠤᠯᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠨᠠᠢᠮᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠶᠢᠰᠦᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ","ᠠᠷᠪᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ","ᠠᠷᠪᠠᠨ ᠨᠢᠭᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ","ᠠᠷᠪᠠᠨ ᠬᠤᠶ᠋ᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ",""]
+                    names: ["ᠨᠢᠭᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ", "ᠬᠤᠶ᠋ᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠭᠤᠷᠪᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠲᠦᠷᠪᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ", "ᠲᠠᠪᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠵᠢᠷᠭᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠲᠤᠯᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠨᠠᠢᠮᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠶᠢᠰᠦᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ", "ᠠᠷᠪᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠠᠷᠪᠠᠨ ᠨᠢᠭᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ", "ᠠᠷᠪᠠᠨ ᠬᠤᠶ᠋ᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", ""],
+                    namesAbbr: ["ᠨᠢᠭᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ", "ᠬᠤᠶ᠋ᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠭᠤᠷᠪᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠲᠦᠷᠪᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ", "ᠲᠠᠪᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠵᠢᠷᠭᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠲᠤᠯᠤᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠨᠠᠢᠮᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠶᠢᠰᠦᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ", "ᠠᠷᠪᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", "ᠠᠷᠪᠠᠨ ᠨᠢᠭᠡᠳᠦᠭᠡᠷ ᠰᠠᠷ᠎ᠠ", "ᠠᠷᠪᠠᠨ ᠬᠤᠶ᠋ᠠᠳᠤᠭᠠᠷ ᠰᠠᠷ᠎ᠠ", ""]
                 },
                 AM: null,
                 PM: null,
-                eras: [{"name":"ᠣᠨ ᠲᠣᠭᠠᠯᠠᠯ ᠤᠨ","start":null,"offset":0}],
+                eras: [{"name": "ᠣᠨ ᠲᠣᠭᠠᠯᠠᠯ ᠤᠨ", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/M/d",
                     D: "yyyy'ᠣᠨ ᠤ᠋' M'ᠰᠠᠷ᠎ᠠ  ᠢᠢᠨ 'd' ᠤ᠋ ᠡᠳᠦᠷ'",
@@ -23334,21 +23365,21 @@
         nativeName: "Inuktitut",
         language: "iu-Latn",
         numberFormat: {
-            groupSizes: [3,0],
+            groupSizes: [3, 0],
             percent: {
-                groupSizes: [3,0]
+                groupSizes: [3, 0]
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Naattiinguja","Naggajjau","Aippiq","Pingatsiq","Sitammiq","Tallirmiq","Sivataarvik"],
-                    namesAbbr: ["Nat","Nag","Aip","Pi","Sit","Tal","Siv"],
-                    namesShort: ["N","N","A","P","S","T","S"]
+                    names: ["Naattiinguja", "Naggajjau", "Aippiq", "Pingatsiq", "Sitammiq", "Tallirmiq", "Sivataarvik"],
+                    namesAbbr: ["Nat", "Nag", "Aip", "Pi", "Sit", "Tal", "Siv"],
+                    namesShort: ["N", "N", "A", "P", "S", "T", "S"]
                 },
                 months: {
-                    names: ["Jaannuari","Viivvuari","Maatsi","Iipuri","Mai","Juuni","Julai","Aaggiisi","Sitipiri","Utupiri","Nuvipiri","Tisipiri",""],
-                    namesAbbr: ["Jan","Viv","Mas","Ipu","Mai","Jun","Jul","Agi","Sii","Uut","Nuv","Tis",""]
+                    names: ["Jaannuari", "Viivvuari", "Maatsi", "Iipuri", "Mai", "Juuni", "Julai", "Aaggiisi", "Sitipiri", "Utupiri", "Nuvipiri", "Tisipiri", ""],
+                    namesAbbr: ["Jan", "Viv", "Mas", "Ipu", "Mai", "Jun", "Jul", "Agi", "Sii", "Uut", "Nuv", "Tis", ""]
                 },
                 patterns: {
                     d: "d/MM/yyyy",
@@ -23374,7 +23405,7 @@
                 '.': ","
             },
             currency: {
-                pattern: ["-n $","n $"],
+                pattern: ["-n $", "n $"],
                 symbol: "DZD"
             }
         },
@@ -23383,13 +23414,13 @@
                 '/': "-",
                 firstDay: 6,
                 days: {
-                    names: ["Acer","Arime","Aram","Ahad","Amhadh","Sem","Sedh"],
-                    namesAbbr: ["Ace","Ari","Ara","Aha","Amh","Sem","Sed"],
-                    namesShort: ["Ac","Ar","Ar","Ah","Am","Se","Se"]
+                    names: ["Acer", "Arime", "Aram", "Ahad", "Amhadh", "Sem", "Sedh"],
+                    namesAbbr: ["Ace", "Ari", "Ara", "Aha", "Amh", "Sem", "Sed"],
+                    namesShort: ["Ac", "Ar", "Ar", "Ah", "Am", "Se", "Se"]
                 },
                 months: {
-                    names: ["Yenayer","Furar","Maghres","Yebrir","Mayu","Yunyu","Yulyu","Ghuct","Cutenber","Ktuber","Wambir","Dujanbir",""],
-                    namesAbbr: ["Yen","Fur","Mag","Yeb","May","Yun","Yul","Ghu","Cut","Ktu","Wam","Duj",""]
+                    names: ["Yenayer", "Furar", "Maghres", "Yebrir", "Mayu", "Yunyu", "Yulyu", "Ghuct", "Cutenber", "Ktuber", "Wambir", "Dujanbir", ""],
+                    namesAbbr: ["Yen", "Fur", "Mag", "Yeb", "May", "Yun", "Yul", "Ghu", "Cut", "Ktu", "Wam", "Duj", ""]
                 },
                 AM: null,
                 PM: null,
@@ -23413,24 +23444,24 @@
         language: "ha-Latn",
         numberFormat: {
             currency: {
-                pattern: ["$-n","$ n"],
+                pattern: ["$-n", "$ n"],
                 symbol: "N"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["Lahadi","Litinin","Talata","Laraba","Alhamis","Juma'a","Asabar"],
-                    namesAbbr: ["Lah","Lit","Tal","Lar","Alh","Jum","Asa"],
-                    namesShort: ["L","L","T","L","A","J","A"]
+                    names: ["Lahadi", "Litinin", "Talata", "Laraba", "Alhamis", "Juma'a", "Asabar"],
+                    namesAbbr: ["Lah", "Lit", "Tal", "Lar", "Alh", "Jum", "Asa"],
+                    namesShort: ["L", "L", "T", "L", "A", "J", "A"]
                 },
                 months: {
-                    names: ["Januwaru","Febreru","Maris","Afrilu","Mayu","Yuni","Yuli","Agusta","Satumba","Oktocba","Nuwamba","Disamba",""],
-                    namesAbbr: ["Jan","Feb","Mar","Afr","May","Yun","Yul","Agu","Sat","Okt","Nuw","Dis",""]
+                    names: ["Januwaru", "Febreru", "Maris", "Afrilu", "Mayu", "Yuni", "Yuli", "Agusta", "Satumba", "Oktocba", "Nuwamba", "Disamba", ""],
+                    namesAbbr: ["Jan", "Feb", "Mar", "Afr", "May", "Yun", "Yul", "Agu", "Sat", "Okt", "Nuw", "Dis", ""]
                 },
-                AM: ["Safe","safe","SAFE"],
-                PM: ["Yamma","yamma","YAMMA"],
-                eras: [{"name":"AD","start":null,"offset":0}],
+                AM: ["Safe", "safe", "SAFE"],
+                PM: ["Yamma", "yamma", "YAMMA"],
+                eras: [{"name": "AD", "start": null, "offset": 0}],
                 patterns: {
                     d: "d/M/yyyy"
                 }
@@ -23445,27 +23476,27 @@
         language: "zh-CHS",
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             },
             currency: {
-                pattern: ["$-n","$n"],
+                pattern: ["$-n", "$n"],
                 symbol: "¥"
             }
         },
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
-                    namesAbbr: ["周日","周一","周二","周三","周四","周五","周六"],
-                    namesShort: ["日","一","二","三","四","五","六"]
+                    names: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+                    namesAbbr: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+                    namesShort: ["日", "一", "二", "三", "四", "五", "六"]
                 },
                 months: {
-                    names: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""],
-                    namesAbbr: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""]
+                    names: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""],
+                    namesAbbr: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""]
                 },
-                AM: ["上午","上午","上午"],
-                PM: ["下午","下午","下午"],
-                eras: [{"name":"公元","start":null,"offset":0}],
+                AM: ["上午", "上午", "上午"],
+                PM: ["下午", "下午", "下午"],
+                eras: [{"name": "公元", "start": null, "offset": 0}],
                 patterns: {
                     d: "yyyy/M/d",
                     D: "yyyy'年'M'月'd'日'",
@@ -23487,7 +23518,7 @@
         language: "zh-CHT",
         numberFormat: {
             percent: {
-                pattern: ["-n%","n%"]
+                pattern: ["-n%", "n%"]
             },
             currency: {
                 symbol: "HK$"
@@ -23496,17 +23527,17 @@
         calendars: {
             standard: $.extend(true, {}, standard, {
                 days: {
-                    names: ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
-                    namesAbbr: ["週日","週一","週二","週三","週四","週五","週六"],
-                    namesShort: ["日","一","二","三","四","五","六"]
+                    names: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+                    namesAbbr: ["週日", "週一", "週二", "週三", "週四", "週五", "週六"],
+                    namesShort: ["日", "一", "二", "三", "四", "五", "六"]
                 },
                 months: {
-                    names: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""],
-                    namesAbbr: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月",""]
+                    names: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""],
+                    namesAbbr: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ""]
                 },
-                AM: ["上午","上午","上午"],
-                PM: ["下午","下午","下午"],
-                eras: [{"name":"公元","start":null,"offset":0}],
+                AM: ["上午", "上午", "上午"],
+                PM: ["下午", "下午", "下午"],
+                eras: [{"name": "公元", "start": null, "offset": 0}],
                 patterns: {
                     d: "d/M/yyyy",
                     D: "yyyy'年'M'月'd'日'",

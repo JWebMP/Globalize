@@ -1,12 +1,12 @@
 define([
-	"./week-days"
-], function( dateWeekDays ) {
+    "./week-days"
+], function (dateWeekDays) {
 
-/**
- * firstDayOfWeek
- */
-return function( cldr ) {
-	return dateWeekDays.indexOf( cldr.supplemental.weekData.firstDay() );
-};
+    /**
+     * firstDayOfWeek
+     */
+    return function (cldr) {
+        return dateWeekDays.indexOf(cldr.supplemental.weekData.firstDay());
+    };
 
 });

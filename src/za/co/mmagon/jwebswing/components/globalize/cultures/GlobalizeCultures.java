@@ -386,7 +386,6 @@ public enum GlobalizeCultures
 	private GlobalizeCultures()
 	{
 		JavascriptReference newReference = new JavascriptReference("lozalizationReference", 1.0, "bower_components/globalize-languages/" + toString() + ".js", 301);
-		//JavascriptReference reference = new JavascriptReference("lozalizationReference", Double.NaN, "javascript/jquery.globalize/cultures/" + toString() + (Page.getRunningEnvironment() == DevelopmentEnvironments.Production ? ".min.js" : ".js"), 301);
 		this.reference = newReference;
 	}
 

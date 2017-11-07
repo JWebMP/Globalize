@@ -17,6 +17,7 @@
 package za.co.mmagon.jwebswing.components.globalize.cultures;
 
 import za.co.mmagon.jwebswing.base.references.JavascriptReference;
+import za.co.mmagon.jwebswing.utilities.StaticStrings;
 
 /**
  * A list of all the cultures loaded from jquery.globalize (http://github.com/nje/jquery-glob , http://weblogs.asp.net/scottgu/jquery-globalization-plugin-from-microsoft)
@@ -383,7 +384,7 @@ public enum GlobalizeCultures
 	private static final JavascriptReference coreReference = new JavascriptReference("Globalize Core Reference", 1.11, "bower_components/globalize/dist/globalize.js", 300);
 	private final JavascriptReference reference;
 
-	private GlobalizeCultures()
+	GlobalizeCultures()
 	{
 		JavascriptReference newReference = new JavascriptReference("lozalizationReference", 1.0, "bower_components/globalize-languages/" + toString() + ".js", 301);
 		this.reference = newReference;
@@ -392,7 +393,7 @@ public enum GlobalizeCultures
 	@Override
 	public String toString()
 	{
-		return name().replace('_', '-');
+		return name().replace(StaticStrings.CHAR_UNDERSCORE, '-');
 	}
 
 	/**

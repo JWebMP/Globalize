@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.components.globalize.cultures;
+package za.co.mmagon.jwebswing.plugins.globalize.cultures;
 
 import za.co.mmagon.jwebswing.base.references.JavascriptReference;
 import za.co.mmagon.jwebswing.utilities.StaticStrings;
@@ -382,12 +382,9 @@ public enum GlobalizeCultures
 	zu,;
 
 	private static final JavascriptReference coreReference = new JavascriptReference("Globalize Core Reference", 1.11, "bower_components/globalize/dist/globalize.js", 300);
-	private final JavascriptReference reference;
-
 	GlobalizeCultures()
 	{
 		JavascriptReference newReference = new JavascriptReference("lozalizationReference", 1.0, "bower_components/globalize-languages/" + toString() + ".js", 301);
-		this.reference = newReference;
 	}
 
 	@Override
@@ -401,18 +398,8 @@ public enum GlobalizeCultures
 	 *
 	 * @return
 	 */
-	public JavascriptReference getJavascriptCoreReference()
+	public static JavascriptReference getJavascriptReference()
 	{
 		return coreReference;
-	}
-
-	/**
-	 * Gets the specific localization file
-	 *
-	 * @return
-	 */
-	public JavascriptReference getJavascriptReference()
-	{
-		return this.reference;
 	}
 }

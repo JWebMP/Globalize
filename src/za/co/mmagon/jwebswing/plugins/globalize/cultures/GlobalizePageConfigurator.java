@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.components.globalize.cultures;
+package za.co.mmagon.jwebswing.plugins.globalize.cultures;
 
 import za.co.mmagon.jwebswing.Page;
 import za.co.mmagon.jwebswing.PageConfigurator;
@@ -47,6 +47,10 @@ public class GlobalizePageConfigurator extends PageConfigurator
 	@Override
 	public Page configure(Page page)
 	{
+		if (!page.isConfigured())
+		{
+			page.getBody().addJavaScriptReference(GlobalizeCultures.getJavascriptReference());
+		}
 		return page;
 	}
 

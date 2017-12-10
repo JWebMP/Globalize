@@ -382,10 +382,6 @@ public enum GlobalizeCultures
 	zu,;
 
 	private static final JavascriptReference coreReference = new JavascriptReference("Globalize Core Reference", 1.11, "bower_components/globalize/dist/globalize.js", 300);
-	GlobalizeCultures()
-	{
-		JavascriptReference newReference = new JavascriptReference("lozalizationReference", 1.0, "bower_components/globalize-languages/" + toString() + ".js", 301);
-	}
 
 	@Override
 	public String toString()

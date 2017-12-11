@@ -19,6 +19,8 @@ package za.co.mmagon.jwebswing.plugins.globalize.cultures;
 import za.co.mmagon.jwebswing.base.references.JavascriptReference;
 import za.co.mmagon.jwebswing.utilities.StaticStrings;
 
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
+
 /**
  * A list of all the cultures loaded from jquery.globalize (http://github.com/nje/jquery-glob , http://weblogs.asp.net/scottgu/jquery-globalization-plugin-from-microsoft)
  *
@@ -386,7 +388,7 @@ public enum GlobalizeCultures
 	@Override
 	public String toString()
 	{
-		return name().replace(StaticStrings.CHAR_UNDERSCORE, '-');
+		return name().replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH);
 	}
 
 	/**

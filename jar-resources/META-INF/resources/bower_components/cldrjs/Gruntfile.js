@@ -23,7 +23,7 @@ module.exports = function (grunt) {
             .replace(/@VERSION/g, pkg.version)
 
             // Replace Date yyyy-mm-ddThh:mmZ
-            .replace(/@DATE/g, ( new Date() ).toISOString().replace(/:\d+\.\d+Z$/, "Z"));
+            .replace(/@DATE/g, (new Date()).toISOString().replace(/:\d+\.\d+Z$/, "Z"));
     }
 
     grunt.initConfig({

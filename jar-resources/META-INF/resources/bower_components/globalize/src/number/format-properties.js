@@ -48,7 +48,7 @@ define([
         // Have runtime code to refer to numberRound() instead of including it explicitly.
         roundFn = numberRound(options.round);
         roundFn.generatorString = function () {
-            return "numberRound(" + ( options.round ? "\"" + options.round + "\"" : "" ) + ")";
+            return "numberRound(" + (options.round ? "\"" + options.round + "\"" : "") + ")";
         };
 
         properties = numberPatternProperties(positivePattern).concat([
@@ -76,11 +76,11 @@ define([
 
         // Normalize number of digits if only one of either minimumFractionDigits or
         // maximumFractionDigits is passed in as an option
-        if ("minimumFractionDigits" in options && !( "maximumFractionDigits" in options )) {
+        if ("minimumFractionDigits" in options && !("maximumFractionDigits" in options)) {
 
             // maximumFractionDigits = Math.max( minimumFractionDigits, maximumFractionDigits );
             properties[4] = Math.max(properties[3], properties[4]);
-        } else if (!( "minimumFractionDigits" in options ) &&
+        } else if (!("minimumFractionDigits" in options) &&
             "maximumFractionDigits" in options) {
 
             // minimumFractionDigits = Math.min( minimumFractionDigits, maximumFractionDigits );

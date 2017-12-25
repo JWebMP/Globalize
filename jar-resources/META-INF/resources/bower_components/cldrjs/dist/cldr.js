@@ -157,7 +157,7 @@
             return cldr.get("supplemental/likelySubtags/und").split(sep);
         } else {
             // [3.1.1]
-            return;
+
         }
     };
 
@@ -221,7 +221,7 @@
         aux = locale.split("-u-");
         if (aux[1]) {
             aux[1] = aux[1].split("-t-");
-            locale = aux[0] + ( aux[1][1] ? "-t-" + aux[1][1] : "");
+            locale = aux[0] + (aux[1][1] ? "-t-" + aux[1][1] : "");
             subtags[4 /* unicodeLocaleExtensions */] = aux[1][0];
         }
 
@@ -230,8 +230,8 @@
         unicodeLanguageId = locale.split("-t-")[0];
 
         // unicode_language_id = "root"
-        //   | unicode_language_subtag         
-        //     (sep unicode_script_subtag)? 
+        //   | unicode_language_subtag
+        //     (sep unicode_script_subtag)?
         //     (sep unicode_region_subtag)?
         //     (sep unicode_variant_subtag)* ;
         //
@@ -319,7 +319,7 @@
     var createError = function (code, attributes) {
         var error, message;
 
-        message = code + ( attributes && JSON ? ": " + JSON.stringify(attributes) : "" );
+        message = code + (attributes && JSON ? ": " + JSON.stringify(attributes) : "");
         error = new Error(message);
         error.code = code;
 
@@ -433,7 +433,7 @@
         // -> { a: { b: 3, c: 2, d: 4 } }
         //
         // @arguments JSON's
-        // 
+        //
         var merge = function () {
             var destination = {},
                 sources = [].slice.call(arguments, 0);
@@ -595,7 +595,7 @@
         };
 
         // Unicode locale extensions.
-        unicodeLocaleExtensions && ( "-" + unicodeLocaleExtensions ).replace(/-[a-z]{3,8}|(-[a-z]{2})-([a-z]{3,8})/g, function (attribute, key, type) {
+        unicodeLocaleExtensions && ("-" + unicodeLocaleExtensions).replace(/-[a-z]{3,8}|(-[a-z]{2})-([a-z]{3,8})/g, function (attribute, key, type) {
 
             if (key) {
 

@@ -51,7 +51,7 @@
         validateParameterType(
             value,
             name,
-            value === undefined || typeof value === "string" && ( /^[A-Za-z]{3}$/ ).test(value),
+            value === undefined || typeof value === "string" && (/^[A-Za-z]{3}$/).test(value),
             "3-letter currency code string as defined by ISO 4217"
         );
     };
@@ -258,7 +258,7 @@
                         insertBetween = currencySpacing[i].insertBetween;
                     }
 
-                    return ( i ? insertBetween : "" ) + part + ( i ? "" : insertBetween );
+                    return (i ? insertBetween : "") + part + (i ? "" : insertBetween);
                 }).join("'" + symbol + "'");
             }).join(";");
 
@@ -331,7 +331,7 @@
                 code: currencyCodeProperties,
                 name: currencyNameProperties,
                 symbol: currencySymbolProperties
-            }[style] )(currency, cldr, options);
+            }[style])(currency, cldr, options);
             cldr.off("get", validateRequiredCldr);
 
             // options = options minus style, plus raw pattern.

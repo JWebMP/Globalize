@@ -49,7 +49,7 @@ define([
                 }
 
                 // If the exp is not an integer, return NaN.
-                if (!( typeof exp === "number" && exp % 1 === 0 )) {
+                if (!(typeof exp === "number" && exp % 1 === 0)) {
                     return NaN;
                 }
 
@@ -74,14 +74,14 @@ define([
             // Shift & Round
             value = value.toString().split("e");
             value[0] = +value[0] / increment;
-            value[1] = value[1] ? ( +value[1] - exp ) : -exp;
-            value = method(+( value[0] + "e" + value[1] ));
+            value[1] = value[1] ? (+value[1] - exp) : -exp;
+            value = method(+(value[0] + "e" + value[1]));
 
             // Shift back
             value = value.toString().split("e");
             value[0] = +value[0] * increment;
-            value[1] = value[1] ? ( +value[1] + exp ) : exp;
-            return +( value[0] + "e" + value[1] );
+            value[1] = value[1] ? (+value[1] + exp) : exp;
+            return +(value[0] + "e" + value[1]);
         };
     };
 

@@ -82,7 +82,7 @@
 
         while (index > currentGroupingSize) {
             ret = number[0].slice(index - currentGroupingSize, index) +
-                ( ret.length ? sep : "" ) + ret;
+                (ret.length ? sep : "") + ret;
             index -= currentGroupingSize;
             if (switchToSecondary) {
                 currentGroupingSize = secondaryGroupingSize;
@@ -90,7 +90,7 @@
             }
         }
 
-        number[0] = number[0].slice(0, index) + ( ret.length ? sep : "" ) + ret;
+        number[0] = number[0].slice(0, index) + (ret.length ? sep : "") + ret;
         return number.join(".");
     };
 
@@ -204,9 +204,9 @@
         number = +atMinimum === +atMaximum ? atMinimum : atMaximum;
 
         // Expand integer numbers, eg. 123e5 to 12300.
-        number = ( +number ).toString(10);
+        number = (+number).toString(10);
 
-        if (( /e/ ).test(number)) {
+        if ((/e/).test(number)) {
             throw createErrorUnsupportedFeature({
                 feature: "integers out of (1e21, 1e-7)"
             });
@@ -612,7 +612,7 @@
                 }
 
                 // If the exp is not an integer, return NaN.
-                if (!( typeof exp === "number" && exp % 1 === 0 )) {
+                if (!(typeof exp === "number" && exp % 1 === 0)) {
                     return NaN;
                 }
 
@@ -637,14 +637,14 @@
             // Shift & Round
             value = value.toString().split("e");
             value[0] = +value[0] / increment;
-            value[1] = value[1] ? ( +value[1] - exp ) : -exp;
-            value = method(+( value[0] + "e" + value[1] ));
+            value[1] = value[1] ? (+value[1] - exp) : -exp;
+            value = method(+(value[0] + "e" + value[1]));
 
             // Shift back
             value = value.toString().split("e");
             value[0] = +value[0] * increment;
-            value[1] = value[1] ? ( +value[1] + exp ) : exp;
-            return +( value[0] + "e" + value[1] );
+            value[1] = value[1] ? (+value[1] + exp) : exp;
+            return +(value[0] + "e" + value[1]);
         };
     };
 

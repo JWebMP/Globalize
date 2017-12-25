@@ -59,13 +59,13 @@ define([
                 // hourFormat containing H only, e.g., `+H;-H`
                 if (aux.length < 8) {
                     token.value =
-                        ( aux[1] ? -numberParser(aux[1]) : numberParser(aux[4]) ) * 60;
+                        (aux[1] ? -numberParser(aux[1]) : numberParser(aux[4])) * 60;
 
                     // hourFormat containing H and m, e.g., `+HHmm;-HHmm`
                 } else {
                     token.value =
-                        ( aux[1] ? -numberParser(aux[1]) : numberParser(aux[7]) ) * 60 +
-                        ( aux[1] ? -numberParser(aux[4]) : numberParser(aux[10]) );
+                        (aux[1] ? -numberParser(aux[1]) : numberParser(aux[7])) * 60 +
+                        (aux[1] ? -numberParser(aux[4]) : numberParser(aux[10]));
                 }
 
                 return true;
@@ -187,7 +187,7 @@ define([
                 case "G":
                     lookup([
                         "gregorian/eras",
-                        length <= 3 ? "eraAbbr" : ( length === 4 ? "eraNames" : "eraNarrow" )
+                        length <= 3 ? "eraAbbr" : (length === 4 ? "eraNames" : "eraNarrow")
                     ]);
                     break;
 
@@ -353,7 +353,7 @@ define([
 
                     // Unicode equivalent to /\d{length+5}/
                     numeric = true;
-                    tokenRe = new RegExp("(" + regexpN.source + "){" + ( length + 5 ) + "}");
+                    tokenRe = new RegExp("(" + regexpN.source + "){" + (length + 5) + "}");
                     break;
 
                 // Zone
@@ -393,7 +393,7 @@ define([
                     // xx or xxxx: hourFormat("+HHmm;-HHmm")
                     // xxx or xxxxx: hourFormat("+HH:mm;-HH:mm")
                     tokenRe = hourFormatRe(
-                        length === 1 ? "+HH;-HH" : ( length % 2 ? "+HH:mm;-HH:mm" : "+HHmm;-HHmm" )
+                        length === 1 ? "+HH;-HH" : (length % 2 ? "+HH:mm;-HH:mm" : "+HHmm;-HHmm")
                     );
                     if (!hourFormatParse(tokenRe)) {
                         return null;

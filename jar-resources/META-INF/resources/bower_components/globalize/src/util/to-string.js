@@ -7,8 +7,8 @@ define(function () {
      * Ref: http://jsperf.com/my-stringify
      */
     return function (variable) {
-        return typeof variable === "string" ? variable : ( typeof variable === "number" ? "" +
-            variable : JSON.stringify(variable) );
+        return typeof variable === "string" ? variable : (typeof variable === "number" ? "" +
+            variable : JSON.stringify(variable));
     };
 
 });

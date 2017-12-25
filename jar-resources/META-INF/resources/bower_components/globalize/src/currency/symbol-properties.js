@@ -62,7 +62,7 @@ define([
                         insertBetween = currencySpacing[i].insertBetween;
                     }
 
-                    return ( i ? insertBetween : "" ) + part + ( i ? "" : insertBetween );
+                    return (i ? insertBetween : "") + part + (i ? "" : insertBetween);
                 }).join("'" + symbol + "'");
             }).join(";");
 

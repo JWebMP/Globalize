@@ -23,7 +23,7 @@ module.exports = function (grunt) {
             .replace(/@VERSION/g, pkg.version)
 
             // Replace Date yyyy-mm-ddThh:mmZ
-            .replace(/@DATE/g, ( new Date() ).toISOString().replace(/:\d+\.\d+Z$/, "Z"));
+            .replace(/@DATE/g, (new Date()).toISOString().replace(/:\d+\.\d+Z$/, "Z"));
     }
 
     grunt.initConfig({
@@ -140,7 +140,7 @@ module.exports = function (grunt) {
                         name = camelCase(id.replace(/util\/|common\//, ""));
 
                     // MakePlural
-                    if (( /make-plural/ ).test(id)) {
+                    if ((/make-plural/).test(id)) {
                         return contents
 
                         // Remove browserify wrappers.
@@ -186,7 +186,7 @@ module.exports = function (grunt) {
                             ].join("\n"));
 
                         // messageformat
-                    } else if (( /messageformat/ ).test(id)) {
+                    } else if ((/messageformat/).test(id)) {
                         return contents
 
                         // Remove browserify wrappers.
@@ -234,7 +234,7 @@ module.exports = function (grunt) {
                             ].join("\n"));
 
                         // message-runtime
-                    } else if (( /message-runtime/ ).test(id)) {
+                    } else if ((/message-runtime/).test(id)) {
                         messageformat = require("./external/messageformat/messageformat");
                         delete messageformat.prototype.runtime.fmt;
                         delete messageformat.prototype.runtime.pluralFuncs;
@@ -257,7 +257,7 @@ module.exports = function (grunt) {
                     /* 3 */
 
                     // Type a (single return)
-                    if (( /\// ).test(id)) {
+                    if ((/\//).test(id)) {
                         contents = contents
                             .replace(/\nreturn/, "\nvar " + name + " =");
                     }

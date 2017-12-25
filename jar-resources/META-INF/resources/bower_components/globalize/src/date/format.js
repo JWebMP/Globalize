@@ -98,7 +98,7 @@ define([
                 // Quarter
                 case "Q":
                 case "q":
-                    ret = Math.ceil(( date.getMonth() + 1 ) / 3);
+                    ret = Math.ceil((date.getMonth() + 1) / 3);
                     if (length > 2) {
                         ret = properties.quarters[chr][length][ret];
                     }
@@ -120,8 +120,8 @@ define([
                     // woy = ceil( ( doy + dow of 1/1 ) / 7 ) - minDaysStuff ? 1 : 0.
                     // TODO should pad on ww? Not documented, but I guess so.
                     ret = dateDayOfWeek(dateStartOf(date, "year"), properties.firstDay);
-                    ret = Math.ceil(( dateDayOfYear(date) + ret ) / 7) -
-                        ( 7 - ret >= properties.minDays ? 0 : 1 );
+                    ret = Math.ceil((dateDayOfYear(date) + ret) / 7) -
+                        (7 - ret >= properties.minDays ? 0 : 1);
                     break;
 
                 case "W":
@@ -129,8 +129,8 @@ define([
                     // Week of Month.
                     // wom = ceil( ( dom + dow of `1/month` ) / 7 ) - minDaysStuff ? 1 : 0.
                     ret = dateDayOfWeek(dateStartOf(date, "month"), properties.firstDay);
-                    ret = Math.ceil(( date.getDate() + ret ) / 7) -
-                        ( 7 - ret >= properties.minDays ? 0 : 1 );
+                    ret = Math.ceil((date.getDate() + ret) / 7) -
+                        (7 - ret >= properties.minDays ? 0 : 1);
                     break;
 
                 // Day
@@ -172,7 +172,7 @@ define([
 
                 // Hour
                 case "h": // 1-12
-                    ret = ( date.getHours() % 12 ) || 12;
+                    ret = (date.getHours() % 12) || 12;
                     break;
 
                 case "H": // 0-23
@@ -238,7 +238,7 @@ define([
                     // x: hourFormat("+HH;-HH")
                     // xx or xxxx: hourFormat("+HHmm;-HHmm")
                     // xxx or xxxxx: hourFormat("+HH:mm;-HH:mm")
-                    ret = length === 1 ? "+HH;-HH" : ( length % 2 ? "+HH:mm;-HH:mm" : "+HHmm;-HHmm" );
+                    ret = length === 1 ? "+HH;-HH" : (length % 2 ? "+HH:mm;-HH:mm" : "+HHmm;-HHmm");
                     ret = dateTimezoneHourFormat(date, ret, ":");
                     break;
 

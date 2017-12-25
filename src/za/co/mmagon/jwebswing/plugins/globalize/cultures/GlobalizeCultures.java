@@ -383,13 +383,7 @@ public enum GlobalizeCultures
 	zu_ZA,
 	zu,;
 
-	private static final JavascriptReference coreReference = new JavascriptReference("Globalize Core Reference", 1.11, "bower_components/globalize/dist/globalize.js", 300);
-
-	@Override
-	public String toString()
-	{
-		return name().replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH);
-	}
+	private static final JavascriptReference coreReference = new JavascriptReference("Globalize Core Reference", 1.11, "bower_components/globalize/dist/globalize.min.js", 300);
 
 	/**
 	 * Returns the core reference
@@ -399,5 +393,11 @@ public enum GlobalizeCultures
 	public static JavascriptReference getJavascriptReference()
 	{
 		return coreReference;
+	}
+
+	@Override
+	public String toString()
+	{
+		return name().replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH);
 	}
 }

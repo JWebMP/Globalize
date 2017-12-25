@@ -15,7 +15,7 @@ define(function () {
         aux = locale.split("-u-");
         if (aux[1]) {
             aux[1] = aux[1].split("-t-");
-            locale = aux[0] + ( aux[1][1] ? "-t-" + aux[1][1] : "");
+            locale = aux[0] + (aux[1][1] ? "-t-" + aux[1][1] : "");
             subtags[4 /* unicodeLocaleExtensions */] = aux[1][0];
         }
 

@@ -75,7 +75,7 @@ define([
                 result = cldr.main([
                     "dates/calendars/gregorian",
                     "date" in options ? "dateFormats" : "timeFormats",
-                    ( options.date || options.time )
+                    (options.date || options.time)
                 ]);
                 break;
 

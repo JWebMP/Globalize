@@ -240,7 +240,7 @@ define([
 
         // 12-hour format needs AM or PM, 24-hour format doesn't, ie. return null
         // if amPm && !hour12 || !amPm && hour12.
-        if (hour && !( !amPm ^ hour12 )) {
+        if (hour && !(!amPm ^ hour12)) {
             return null;
         }
 

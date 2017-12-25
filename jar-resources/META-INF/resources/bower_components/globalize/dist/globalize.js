@@ -42,8 +42,8 @@
      * Ref: http://jsperf.com/my-stringify
      */
     var toString = function (variable) {
-        return typeof variable === "string" ? variable : ( typeof variable === "number" ? "" +
-            variable : JSON.stringify(variable) );
+        return typeof variable === "string" ? variable : (typeof variable === "number" ? "" +
+            variable : JSON.stringify(variable));
     };
 
 
@@ -95,7 +95,7 @@
     var createError = function (code, message, attributes) {
         var error;
 
-        message = code + ( message ? ": " + formatMessage(message, attributes) : "" );
+        message = code + (message ? ": " + formatMessage(message, attributes) : "");
         error = new Error(message);
         error.code = code;
 
@@ -109,7 +109,7 @@
     var stringHash = function (str) {
         return [].reduce.call(str, function (hash, i) {
             var chr = i.charCodeAt(0);
-            hash = ( ( hash << 5 ) - hash ) + chr;
+            hash = ((hash << 5) - hash) + chr;
             return hash | 0;
         }, 0);
     };
@@ -284,7 +284,7 @@
             str = String(str);
         }
         for (length = str.length; length < count; length += 1) {
-            str = ( right ? ( str + "0" ) : ( "0" + str ) );
+            str = (right ? (str + "0") : ("0" + str));
         }
         return str;
     };
@@ -305,7 +305,7 @@
      * Create a Globalize instance.
      */
     function Globalize(locale) {
-        if (!( this instanceof Globalize )) {
+        if (!(this instanceof Globalize)) {
             return new Globalize(locale);
         }
 

@@ -16,7 +16,7 @@
 (function (root, factory) {
 
     // UMD returnExports
-    if (typeof define === "function" && define.amd) {
+    if (typeof define === "function" && define.amd) { 
 
         // AMD
         define([

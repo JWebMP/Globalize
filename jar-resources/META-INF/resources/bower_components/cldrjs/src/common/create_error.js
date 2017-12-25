@@ -6,7 +6,7 @@ define([
     return function (code, attributes) {
         var error, message;
 
-        message = code + ( attributes && JSON ? ": " + JSON.stringify(attributes) : "" );
+        message = code + (attributes && JSON ? ": " + JSON.stringify(attributes) : "");
         error = new Error(message);
         error.code = code;
 

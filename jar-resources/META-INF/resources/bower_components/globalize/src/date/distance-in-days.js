@@ -7,7 +7,7 @@ define(function () {
      */
     return function (from, to) {
         var inDays = 864e5;
-        return ( to.getTime() - from.getTime() ) / inDays;
+        return (to.getTime() - from.getTime()) / inDays;
     };
 
 });

@@ -23,7 +23,7 @@ define(function () {
 
         while (index > currentGroupingSize) {
             ret = number[0].slice(index - currentGroupingSize, index) +
-                ( ret.length ? sep : "" ) + ret;
+                (ret.length ? sep : "") + ret;
             index -= currentGroupingSize;
             if (switchToSecondary) {
                 currentGroupingSize = secondaryGroupingSize;
@@ -31,7 +31,7 @@ define(function () {
             }
         }
 
-        number[0] = number[0].slice(0, index) + ( ret.length ? sep : "" ) + ret;
+        number[0] = number[0].slice(0, index) + (ret.length ? sep : "") + ret;
         return number.join(".");
     };
 

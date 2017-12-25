@@ -46,7 +46,7 @@ define([
                 case "G":
                     cldr.main([
                         "dates/calendars/gregorian/eras",
-                        length <= 3 ? "eraAbbr" : ( length === 4 ? "eraNames" : "eraNarrow" )
+                        length <= 3 ? "eraAbbr" : (length === 4 ? "eraNames" : "eraNarrow")
                     ]);
                     break;
 

@@ -30,7 +30,7 @@
 
         // Extend global
         factory(root.Globalize);
-    } 
+    }
 }(this, function (Globalize) {
 
     var runtimeKey = Globalize._runtimeKey,

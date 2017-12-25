@@ -66,7 +66,7 @@
      * - return 2 if territory is EG (week starts on "sat");
      */
     var dateDayOfWeek = function (date, firstDay) {
-        return ( date.getDay() - firstDay + 7 ) % 7;
+        return (date.getDay() - firstDay + 7) % 7;
     };
 
 
@@ -77,7 +77,7 @@
      */
     var dateDistanceInDays = function (from, to) {
         var inDays = 864e5;
-        return ( to.getTime() - from.getTime() ) / inDays;
+        return (to.getTime() - from.getTime()) / inDays;
     };
 
 
@@ -135,7 +135,7 @@
     };
 
 
-    var datePatternRe = ( /([a-z])\1*|'([^']|'')+'|''|./ig );
+    var datePatternRe = (/([a-z])\1*|'([^']|'')+'|''|./ig);
 
 
     /**
@@ -272,7 +272,7 @@
                 // Quarter
                 case "Q":
                 case "q":
-                    ret = Math.ceil(( date.getMonth() + 1 ) / 3);
+                    ret = Math.ceil((date.getMonth() + 1) / 3);
                     if (length > 2) {
                         ret = properties.quarters[chr][length][ret];
                     }
@@ -294,8 +294,8 @@
                     // woy = ceil( ( doy + dow of 1/1 ) / 7 ) - minDaysStuff ? 1 : 0.
                     // TODO should pad on ww? Not documented, but I guess so.
                     ret = dateDayOfWeek(dateStartOf(date, "year"), properties.firstDay);
-                    ret = Math.ceil(( dateDayOfYear(date) + ret ) / 7) -
-                        ( 7 - ret >= properties.minDays ? 0 : 1 );
+                    ret = Math.ceil((dateDayOfYear(date) + ret) / 7) -
+                        (7 - ret >= properties.minDays ? 0 : 1);
                     break;
 
                 case "W":
@@ -303,8 +303,8 @@
                     // Week of Month.
                     // wom = ceil( ( dom + dow of `1/month` ) / 7 ) - minDaysStuff ? 1 : 0.
                     ret = dateDayOfWeek(dateStartOf(date, "month"), properties.firstDay);
-                    ret = Math.ceil(( date.getDate() + ret ) / 7) -
-                        ( 7 - ret >= properties.minDays ? 0 : 1 );
+                    ret = Math.ceil((date.getDate() + ret) / 7) -
+                        (7 - ret >= properties.minDays ? 0 : 1);
                     break;
 
                 // Day
@@ -346,7 +346,7 @@
 
                 // Hour
                 case "h": // 1-12
-                    ret = ( date.getHours() % 12 ) || 12;
+                    ret = (date.getHours() % 12) || 12;
                     break;
 
                 case "H": // 0-23
@@ -412,7 +412,7 @@
                     // x: hourFormat("+HH;-HH")
                     // xx or xxxx: hourFormat("+HHmm;-HHmm")
                     // xxx or xxxxx: hourFormat("+HH:mm;-HH:mm")
-                    ret = length === 1 ? "+HH;-HH" : ( length % 2 ? "+HH:mm;-HH:mm" : "+HHmm;-HHmm" );
+                    ret = length === 1 ? "+HH;-HH" : (length % 2 ? "+HH:mm;-HH:mm" : "+HHmm;-HHmm");
                     ret = dateTimezoneHourFormat(date, ret, ":");
                     break;
 
@@ -740,7 +740,7 @@
 
         // 12-hour format needs AM or PM, 24-hour format doesn't, ie. return null
         // if amPm && !hour12 || !amPm && hour12.
-        if (hour && !( !amPm ^ hour12 )) {
+        if (hour && !(!amPm ^ hour12)) {
             return null;
         }
 
@@ -850,13 +850,13 @@
                 // hourFormat containing H only, e.g., `+H;-H`
                 if (aux.length < 8) {
                     token.value =
-                        ( aux[1] ? -numberParser(aux[1]) : numberParser(aux[4]) ) * 60;
+                        (aux[1] ? -numberParser(aux[1]) : numberParser(aux[4])) * 60;
 
                     // hourFormat containing H and m, e.g., `+HHmm;-HHmm`
                 } else {
                     token.value =
-                        ( aux[1] ? -numberParser(aux[1]) : numberParser(aux[7]) ) * 60 +
-                        ( aux[1] ? -numberParser(aux[4]) : numberParser(aux[10]) );
+                        (aux[1] ? -numberParser(aux[1]) : numberParser(aux[7])) * 60 +
+                        (aux[1] ? -numberParser(aux[4]) : numberParser(aux[10]));
                 }
 
                 return true;
@@ -978,7 +978,7 @@
                 case "G":
                     lookup([
                         "gregorian/eras",
-                        length <= 3 ? "eraAbbr" : ( length === 4 ? "eraNames" : "eraNarrow" )
+                        length <= 3 ? "eraAbbr" : (length === 4 ? "eraNames" : "eraNarrow")
                     ]);
                     break;
 
@@ -1144,7 +1144,7 @@
 
                     // Unicode equivalent to /\d{length+5}/
                     numeric = true;
-                    tokenRe = new RegExp("(" + regexpN.source + "){" + ( length + 5 ) + "}");
+                    tokenRe = new RegExp("(" + regexpN.source + "){" + (length + 5) + "}");
                     break;
 
                 // Zone
@@ -1184,7 +1184,7 @@
                     // xx or xxxx: hourFormat("+HHmm;-HHmm")
                     // xxx or xxxxx: hourFormat("+HH:mm;-HH:mm")
                     tokenRe = hourFormatRe(
-                        length === 1 ? "+HH;-HH" : ( length % 2 ? "+HH:mm;-HH:mm" : "+HHmm;-HHmm" )
+                        length === 1 ? "+HH;-HH" : (length % 2 ? "+HH:mm;-HH:mm" : "+HHmm;-HHmm")
                     );
                     if (!hourFormatParse(tokenRe)) {
                         return null;

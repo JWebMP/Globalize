@@ -51,7 +51,7 @@ define([
                     minimumFractionDigits = match;
                 });
                 if (minimumFractionDigits) {
-                    roundIncrement = +( "0." + minimumFractionDigits );
+                    roundIncrement = +("0." + minimumFractionDigits);
                     minimumFractionDigits = minimumFractionDigits.length;
                 } else {
                     minimumFractionDigits = 0;
@@ -83,7 +83,7 @@ define([
         }
 
         // Grouping
-        if (( aux1 = integerFractionOrSignificantPattern.lastIndexOf(",") ) !== -1) {
+        if ((aux1 = integerFractionOrSignificantPattern.lastIndexOf(",")) !== -1) {
 
             // Primary grouping size is the interval between the last group separator and the end of
             // the integer (or the end of the significant pattern).
@@ -91,7 +91,7 @@ define([
             primaryGroupingSize = aux2.length - aux1 - 1;
 
             // Secondary grouping size is the interval between the last two group separators.
-            if (( aux2 = integerFractionOrSignificantPattern.lastIndexOf(",", aux1 - 1) ) !== -1) {
+            if ((aux2 = integerFractionOrSignificantPattern.lastIndexOf(",", aux1 - 1)) !== -1) {
                 secondaryGroupingSize = aux1 - 1 - aux2;
             }
         }

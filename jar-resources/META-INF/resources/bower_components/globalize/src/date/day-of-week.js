@@ -14,7 +14,7 @@ define(function () {
      * - return 2 if territory is EG (week starts on "sat");
      */
     return function (date, firstDay) {
-        return ( date.getDay() - firstDay + 7 ) % 7;
+        return (date.getDay() - firstDay + 7) % 7;
     };
 
 });

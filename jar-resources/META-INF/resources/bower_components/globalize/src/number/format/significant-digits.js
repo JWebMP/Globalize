@@ -32,9 +32,9 @@ define([
         number = +atMinimum === +atMaximum ? atMinimum : atMaximum;
 
         // Expand integer numbers, eg. 123e5 to 12300.
-        number = ( +number ).toString(10);
+        number = (+number).toString(10);
 
-        if (( /e/ ).test(number)) {
+        if ((/e/).test(number)) {
             throw createErrorUnsupportedFeature({
                 feature: "integers out of (1e21, 1e-7)"
             });

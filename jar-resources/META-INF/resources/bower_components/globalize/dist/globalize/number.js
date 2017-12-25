@@ -98,7 +98,7 @@
 
         while (index > currentGroupingSize) {
             ret = number[0].slice(index - currentGroupingSize, index) +
-                ( ret.length ? sep : "" ) + ret;
+                (ret.length ? sep : "") + ret;
             index -= currentGroupingSize;
             if (switchToSecondary) {
                 currentGroupingSize = secondaryGroupingSize;
@@ -106,7 +106,7 @@
             }
         }
 
-        number[0] = number[0].slice(0, index) + ( ret.length ? sep : "" ) + ret;
+        number[0] = number[0].slice(0, index) + (ret.length ? sep : "") + ret;
         return number.join(".");
     };
 
@@ -220,9 +220,9 @@
         number = +atMinimum === +atMaximum ? atMinimum : atMaximum;
 
         // Expand integer numbers, eg. 123e5 to 12300.
-        number = ( +number ).toString(10);
+        number = (+number).toString(10);
 
-        if (( /e/ ).test(number)) {
+        if ((/e/).test(number)) {
             throw createErrorUnsupportedFeature({
                 feature: "integers out of (1e21, 1e-7)"
             });
@@ -485,7 +485,7 @@
      * 11: suffix
      * 12: -
      */
-    var numberPatternRe = ( /^(('([^']|'')*'|[^*#@0,.E])*)(\*.)?((([#,]*[0,]*0+)(\.0*[0-9]*#*)?)|([#,]*@+#*))(E\+?0+)?(('[^']+'|''|[^*#@0,.E])*)$/ );
+    var numberPatternRe = (/^(('([^']|'')*'|[^*#@0,.E])*)(\*.)?((([#,]*[0,]*0+)(\.0*[0-9]*#*)?)|([#,]*@+#*))(E\+?0+)?(('[^']+'|''|[^*#@0,.E])*)$/);
 
 
     /**
@@ -536,7 +536,7 @@
                     minimumFractionDigits = match;
                 });
                 if (minimumFractionDigits) {
-                    roundIncrement = +( "0." + minimumFractionDigits );
+                    roundIncrement = +("0." + minimumFractionDigits);
                     minimumFractionDigits = minimumFractionDigits.length;
                 } else {
                     minimumFractionDigits = 0;
@@ -568,7 +568,7 @@
         }
 
         // Grouping
-        if (( aux1 = integerFractionOrSignificantPattern.lastIndexOf(",") ) !== -1) {
+        if ((aux1 = integerFractionOrSignificantPattern.lastIndexOf(",")) !== -1) {
 
             // Primary grouping size is the interval between the last group separator and the end of
             // the integer (or the end of the significant pattern).
@@ -576,7 +576,7 @@
             primaryGroupingSize = aux2.length - aux1 - 1;
 
             // Secondary grouping size is the interval between the last two group separators.
-            if (( aux2 = integerFractionOrSignificantPattern.lastIndexOf(",", aux1 - 1) ) !== -1) {
+            if ((aux2 = integerFractionOrSignificantPattern.lastIndexOf(",", aux1 - 1)) !== -1) {
                 secondaryGroupingSize = aux1 - 1 - aux2;
             }
         }
@@ -723,7 +723,7 @@
                 }
 
                 // If the exp is not an integer, return NaN.
-                if (!( typeof exp === "number" && exp % 1 === 0 )) {
+                if (!(typeof exp === "number" && exp % 1 === 0)) {
                     return NaN;
                 }
 
@@ -748,14 +748,14 @@
             // Shift & Round
             value = value.toString().split("e");
             value[0] = +value[0] / increment;
-            value[1] = value[1] ? ( +value[1] - exp ) : -exp;
-            value = method(+( value[0] + "e" + value[1] ));
+            value[1] = value[1] ? (+value[1] - exp) : -exp;
+            value = method(+(value[0] + "e" + value[1]));
 
             // Shift back
             value = value.toString().split("e");
             value[0] = +value[0] * increment;
-            value[1] = value[1] ? ( +value[1] + exp ) : exp;
-            return +( value[0] + "e" + value[1] );
+            value[1] = value[1] ? (+value[1] + exp) : exp;
+            return +(value[0] + "e" + value[1]);
         };
     };
 
@@ -800,7 +800,7 @@
         // Have runtime code to refer to numberRound() instead of including it explicitly.
         roundFn = numberRound(options.round);
         roundFn.generatorString = function () {
-            return "numberRound(" + ( options.round ? "\"" + options.round + "\"" : "" ) + ")";
+            return "numberRound(" + (options.round ? "\"" + options.round + "\"" : "") + ")";
         };
 
         properties = numberPatternProperties(positivePattern).concat([
@@ -828,11 +828,11 @@
 
         // Normalize number of digits if only one of either minimumFractionDigits or
         // maximumFractionDigits is passed in as an option
-        if ("minimumFractionDigits" in options && !( "maximumFractionDigits" in options )) {
+        if ("minimumFractionDigits" in options && !("maximumFractionDigits" in options)) {
 
             // maximumFractionDigits = Math.max( minimumFractionDigits, maximumFractionDigits );
             properties[4] = Math.max(properties[3], properties[4]);
-        } else if (!( "minimumFractionDigits" in options ) &&
+        } else if (!("minimumFractionDigits" in options) &&
             "maximumFractionDigits" in options) {
 
             // minimumFractionDigits = Math.min( minimumFractionDigits, maximumFractionDigits );

@@ -63,7 +63,7 @@ define([
                 code: currencyCodeProperties,
                 name: currencyNameProperties,
                 symbol: currencySymbolProperties
-            }[style] )(currency, cldr, options);
+            }[style])(currency, cldr, options);
             cldr.off("get", validateRequiredCldr);
 
             // options = options minus style, plus raw pattern.

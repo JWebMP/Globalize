@@ -73,7 +73,7 @@ define([
         ret = stripPluralGarbage(ret);
 
         // Compound Unit, eg. "foot-per-second" or "foot/second".
-        if (!ret && ( /-per-/ ).test(unit)) {
+        if (!ret && (/-per-/).test(unit)) {
 
             // "Some units already have 'precomputed' forms, such as kilometer-per-hour;
             // where such units exist, they should be used in preference" UTS#35.

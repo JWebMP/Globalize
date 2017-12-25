@@ -113,7 +113,7 @@ define([
         };
 
         // Unicode locale extensions.
-        unicodeLocaleExtensions && ( "-" + unicodeLocaleExtensions ).replace(/-[a-z]{3,8}|(-[a-z]{2})-([a-z]{3,8})/g, function (attribute, key, type) {
+        unicodeLocaleExtensions && ("-" + unicodeLocaleExtensions).replace(/-[a-z]{3,8}|(-[a-z]{2})-([a-z]{3,8})/g, function (attribute, key, type) {
 
             if (key) {
 

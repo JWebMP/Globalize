@@ -39,7 +39,7 @@ define([
      * Create a Globalize instance.
      */
     function Globalize(locale) {
-        if (!( this instanceof Globalize )) {
+        if (!(this instanceof Globalize)) {
             return new Globalize(locale);
         }
 

@@ -42,7 +42,7 @@ document.getElementById("demo").style.display = "block";
 
 // Refresh elapsed time
 setInterval(function () {
-    var elapsedTime = +( ( startTime - new Date() ) / 1000 ).toFixed(0);
+    var elapsedTime = +((startTime - new Date()) / 1000).toFixed(0);
     document.getElementById("date").textContent = dateFormatter(new Date());
     document.getElementById("relative-time").textContent = relativeTimeFormatter(elapsedTime);
     document.getElementById("message-1").textContent = Globalize.formatMessage("message-1", {

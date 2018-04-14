@@ -14,11 +14,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.globalize.cultures;
+package com.jwebmp.plugins.globalize.cultures;
 
-import za.co.mmagon.jwebswing.Page;
-import za.co.mmagon.jwebswing.PageConfigurator;
-import za.co.mmagon.jwebswing.plugins.PluginInformation;
+import com.jwebmp.Page;
+import com.jwebmp.PageConfigurator;
+import com.jwebmp.plugins.PluginInformation;
 
 /**
  * @author GedMarc
@@ -37,9 +37,9 @@ import za.co.mmagon.jwebswing.plugins.PluginInformation;
 		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/GlobalizePlugin.jar/download",
 		pluginIconUrl = "bower_components/globalize/icon.png",
 		pluginIconImageUrl = "bower_components/globalize/example.png",
-		pluginLastUpdatedDate = "2017/03/04"
-)
-public class GlobalizePageConfigurator extends PageConfigurator
+		pluginLastUpdatedDate = "2017/03/04")
+public class GlobalizePageConfigurator
+		extends PageConfigurator
 {
 
 	private static final long serialVersionUID = 1L;
@@ -49,7 +49,8 @@ public class GlobalizePageConfigurator extends PageConfigurator
 	{
 		if (!page.isConfigured())
 		{
-			page.getBody().addJavaScriptReference(GlobalizeCultures.getJavascriptReference());
+			page.getBody()
+			    .addJavaScriptReference(GlobalizeCultures.getJavascriptReference());
 		}
 		return page;
 	}

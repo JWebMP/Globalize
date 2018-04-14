@@ -14,12 +14,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.globalize.cultures;
+package com.jwebmp.plugins.globalize.cultures;
 
-import za.co.mmagon.jwebswing.base.references.JavascriptReference;
-import za.co.mmagon.jwebswing.utilities.StaticStrings;
+import com.jwebmp.base.references.JavascriptReference;
+import com.jwebmp.utilities.StaticStrings;
 
-import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
+import static com.jwebmp.utilities.StaticStrings.CHAR_DASH;
 
 /**
  * A list of all the cultures loaded from jquery.globalize (http://github.com/nje/jquery-glob , http://weblogs.asp.net/scottgu/jquery-globalization-plugin-from-microsoft)

@@ -19,7 +19,7 @@ package com.jwebmp.plugins.globalize.cultures;
 import com.jwebmp.base.references.JavascriptReference;
 import com.jwebmp.utilities.StaticStrings;
 
-import static com.jwebmp.utilities.StaticStrings.CHAR_DASH;
+import static com.jwebmp.utilities.StaticStrings.*;
 
 /**
  * A list of all the cultures loaded from jquery.globalize (http://github.com/nje/jquery-glob , http://weblogs.asp.net/scottgu/jquery-globalization-plugin-from-microsoft)
@@ -381,7 +381,8 @@ public enum GlobalizeCultures
 	zh_TW,
 	zh,
 	zu_ZA,
-	zu,;
+	zu,
+	;
 
 	private static final JavascriptReference coreReference = new JavascriptReference("Globalize Core Reference", 1.11, "bower_components/globalize/dist/globalize.min.js", 300);
 

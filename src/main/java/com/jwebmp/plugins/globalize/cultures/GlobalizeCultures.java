@@ -16,10 +16,10 @@
  */
 package com.jwebmp.plugins.globalize.cultures;
 
-import com.jwebmp.base.references.JavascriptReference;
-import com.jwebmp.utilities.StaticStrings;
+import com.jwebmp.core.base.references.JavascriptReference;
+import com.jwebmp.core.utilities.StaticStrings;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * A list of all the cultures loaded from jquery.globalize (http://github.com/nje/jquery-glob , http://weblogs.asp.net/scottgu/jquery-globalization-plugin-from-microsoft)

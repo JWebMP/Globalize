@@ -1,3 +1,6 @@
+import com.jwebmp.core.services.IPageConfigurator;
+import com.jwebmp.plugins.globalize.cultures.GlobalizePageConfigurator;
+
 module com.jwebmp.plugins.globalize.cultures {
 	exports com.jwebmp.plugins.globalize.cultures;
 
@@ -7,4 +10,7 @@ module com.jwebmp.plugins.globalize.cultures {
 
 	requires java.validation;
 	requires java.logging;
+
+	provides IPageConfigurator with GlobalizePageConfigurator;
+
 }

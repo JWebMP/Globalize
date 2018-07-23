@@ -17,8 +17,8 @@
 package com.jwebmp.plugins.globalize.cultures;
 
 import com.jwebmp.core.Page;
-import com.jwebmp.core.PageConfigurator;
 import com.jwebmp.core.plugins.PluginInformation;
+import com.jwebmp.core.services.IPageConfigurator;
 
 /**
  * @author GedMarc
@@ -39,11 +39,8 @@ import com.jwebmp.core.plugins.PluginInformation;
 		pluginIconImageUrl = "bower_components/globalize/example.png",
 		pluginLastUpdatedDate = "2017/03/04")
 public class GlobalizePageConfigurator
-		extends PageConfigurator
+		implements IPageConfigurator
 {
-
-	private static final long serialVersionUID = 1L;
-
 	@Override
 	public Page configure(Page page)
 	{

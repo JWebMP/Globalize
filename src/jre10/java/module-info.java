@@ -12,5 +12,5 @@ module com.jwebmp.plugins.globalize.cultures {
 	requires java.logging;
 
 	provides IPageConfigurator with GlobalizePageConfigurator;
-
+	opens com.jwebmp.plugins.globalize.cultures to com.fasterxml.jackson.databind,com.jwebmp.core;
 }

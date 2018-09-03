@@ -43,6 +43,36 @@ import javax.validation.constraints.NotNull;
 public class GlobalizePageConfigurator
 		implements IPageConfigurator
 {
+	/**
+	 * If this configurator is enabled
+	 */
+	private static boolean enabled = true;
+
+	/**
+	 * Method isEnabled returns the enabled of this AngularAnimatedChangePageConfigurator object.
+	 * <p>
+	 * If this configurator is enabled
+	 *
+	 * @return the enabled (type boolean) of this AngularAnimatedChangePageConfigurator object.
+	 */
+	public static boolean isEnabled()
+	{
+		return GlobalizePageConfigurator.enabled;
+	}
+
+	/**
+	 * Method setEnabled sets the enabled of this AngularAnimatedChangePageConfigurator object.
+	 * <p>
+	 * If this configurator is enabled
+	 *
+	 * @param mustEnable
+	 * 		the enabled of this AngularAnimatedChangePageConfigurator object.
+	 */
+	public static void setEnabled(boolean mustEnable)
+	{
+		GlobalizePageConfigurator.enabled = mustEnable;
+	}
+
 	@NotNull
 	@Override
 	public Page configure(Page page)
@@ -53,6 +83,12 @@ public class GlobalizePageConfigurator
 			    .addJavaScriptReference(GlobalizeCultures.getJavascriptReference());
 		}
 		return page;
+	}
+
+	@Override
+	public boolean enabled()
+	{
+		return GlobalizePageConfigurator.enabled;
 	}
 
 }

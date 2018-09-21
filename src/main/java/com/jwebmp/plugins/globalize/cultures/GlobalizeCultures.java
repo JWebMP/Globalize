@@ -16,7 +16,6 @@
  */
 package com.jwebmp.plugins.globalize.cultures;
 
-import com.jwebmp.core.base.references.JavascriptReference;
 import com.jwebmp.core.utilities.StaticStrings;
 
 import static com.jwebmp.core.utilities.StaticStrings.*;
@@ -383,18 +382,6 @@ public enum GlobalizeCultures
 	zu_ZA,
 	zu,
 	;
-
-	private static final JavascriptReference coreReference = new JavascriptReference("Globalize Core Reference", 1.11, "bower_components/globalize/dist/globalize.min.js", 300);
-
-	/**
-	 * Returns the core reference
-	 *
-	 * @return
-	 */
-	public static JavascriptReference getJavascriptReference()
-	{
-		return coreReference;
-	}
 
 	@Override
 	public String toString()

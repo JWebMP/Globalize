@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.globalize.cultures;
 
 import com.jwebmp.core.Page;
+import com.jwebmp.core.base.references.JavascriptReference;
 import com.jwebmp.core.plugins.PluginInformation;
 import com.jwebmp.core.services.IPageConfigurator;
 
@@ -43,6 +44,10 @@ import javax.validation.constraints.NotNull;
 public class GlobalizePageConfigurator
 		implements IPageConfigurator
 {
+	/**
+	 * The core java script reference
+	 */
+	private static final JavascriptReference coreReference = new JavascriptReference("Globalize Core Reference", 1.11, "bower_components/globalize/dist/globalize.min.js", 300);
 	/**
 	 * If this configurator is enabled
 	 */
@@ -73,6 +78,14 @@ public class GlobalizePageConfigurator
 		GlobalizePageConfigurator.enabled = mustEnable;
 	}
 
+	/**
+	 * Method configure ...
+	 *
+	 * @param page
+	 * 		of type Page
+	 *
+	 * @return Page
+	 */
 	@NotNull
 	@Override
 	public Page configure(Page page)
@@ -80,11 +93,26 @@ public class GlobalizePageConfigurator
 		if (!page.isConfigured())
 		{
 			page.getBody()
-			    .addJavaScriptReference(GlobalizeCultures.getJavascriptReference());
+			    .addJavaScriptReference(getJavascriptReference());
 		}
 		return page;
 	}
 
+	/**
+	 * Returns the core reference
+	 *
+	 * @return JavascriptReference
+	 */
+	public static JavascriptReference getJavascriptReference()
+	{
+		return coreReference;
+	}
+
+	/**
+	 * If this page configurator is enabled
+	 *
+	 * @return if the configuration must run
+	 */
 	@Override
 	public boolean enabled()
 	{

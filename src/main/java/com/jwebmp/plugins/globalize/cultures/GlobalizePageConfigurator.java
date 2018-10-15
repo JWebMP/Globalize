@@ -34,15 +34,15 @@ import javax.validation.constraints.NotNull;
 		pluginCategories = "internalization, globalization, globalize",
 		pluginSubtitle = "A JavaScript library for internationalization and localization that leverage the official Unicode CLDR JSON data. The library works both for the browser and as a Node.js module.",
 		pluginGitUrl = "https://github.com/globalizejs/globalize",
-		pluginSourceUrl = "https://github.com/GedMarc/JWebSwing-GlobalizePlugin",
-		pluginWikiUrl = "https://github.com/GedMarc/JWebSwing-GlobalizePlugin/wiki",
+		pluginSourceUrl = "https://github.com/GedMarc/JWebMP-GlobalizePlugin",
+		pluginWikiUrl = "https://github.com/GedMarc/JWebMP-GlobalizePlugin/wiki",
 		pluginOriginalHomepage = "https://github.com/globalizejs/globalize",
 		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/GlobalizePlugin.jar/download",
 		pluginIconUrl = "bower_components/globalize/icon.png",
 		pluginIconImageUrl = "bower_components/globalize/example.png",
 		pluginLastUpdatedDate = "2017/03/04")
 public class GlobalizePageConfigurator
-		implements IPageConfigurator
+		implements IPageConfigurator<GlobalizePageConfigurator>
 {
 	/**
 	 * The core java script reference

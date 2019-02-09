@@ -90,22 +90,12 @@ public class GlobalizePageConfigurator
 	@Override
 	public Page configure(Page page)
 	{
-		if (!page.isConfigured())
+		if (!page.isConfigured() && enabled())
 		{
 			page.getBody()
 			    .addJavaScriptReference(getJavascriptReference());
 		}
 		return page;
-	}
-
-	/**
-	 * Returns the core reference
-	 *
-	 * @return JavascriptReference
-	 */
-	public static JavascriptReference getJavascriptReference()
-	{
-		return coreReference;
 	}
 
 	/**
@@ -117,6 +107,16 @@ public class GlobalizePageConfigurator
 	public boolean enabled()
 	{
 		return GlobalizePageConfigurator.enabled;
+	}
+
+	/**
+	 * Returns the core reference
+	 *
+	 * @return JavascriptReference
+	 */
+	public static JavascriptReference getJavascriptReference()
+	{
+		return coreReference;
 	}
 
 }

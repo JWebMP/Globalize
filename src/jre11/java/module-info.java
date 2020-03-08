@@ -11,7 +11,6 @@ module com.jwebmp.plugins.globalize.cultures {
 
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.globalize.cultures.GlobalizePageConfigurator;
 
-	provides com.guicedee.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.globalize.cultures.implementations.GlobalizeExclusionsModule;
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.globalize.cultures.implementations.GlobalizeExclusionsModule;
 
 	opens com.jwebmp.plugins.globalize.cultures to com.fasterxml.jackson.databind, com.jwebmp.core;

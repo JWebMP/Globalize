@@ -70,7 +70,7 @@
     "url": "http://github.com/jquery/globalize/issues"
   },
   "dependencies": {
-    "cldrjs": "^0.4.6"
+    "cldrjs": "^0.5.1"
   },
   "devDependencies": {
     "cldr-data-downloader": "^0.2.5",

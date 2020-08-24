@@ -16,9 +16,8 @@
  */
 package com.jwebmp.plugins.globalize.cultures;
 
-import com.jwebmp.core.utilities.StaticStrings;
-
-import static com.jwebmp.core.utilities.StaticStrings.*;
+import static com.guicedee.guicedinjection.json.StaticStrings.CHAR_DASH;
+import static com.guicedee.guicedinjection.json.StaticStrings.CHAR_UNDERSCORE;
 
 /**
  * A list of all the cultures loaded from jquery.globalize (http://github.com/nje/jquery-glob , http://weblogs.asp.net/scottgu/jquery-globalization-plugin-from-microsoft)
@@ -386,6 +385,6 @@ public enum GlobalizeCultures
 	@Override
 	public String toString()
 	{
-		return name().replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH);
+		return name().replace(CHAR_UNDERSCORE, CHAR_DASH);
 	}
 }

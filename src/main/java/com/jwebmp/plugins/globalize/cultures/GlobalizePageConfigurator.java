@@ -19,6 +19,7 @@ package com.jwebmp.plugins.globalize.cultures;
 import com.jwebmp.core.Page;
 import com.jwebmp.core.base.references.JavascriptReference;
 import com.jwebmp.core.plugins.PluginInformation;
+import com.jwebmp.core.plugins.PluginStatus;
 import com.jwebmp.core.services.IPageConfigurator;
 
 import jakarta.validation.constraints.NotNull;
@@ -37,17 +38,22 @@ import jakarta.validation.constraints.NotNull;
 		pluginSourceUrl = "https://github.com/GedMarc/JWebMP-GlobalizePlugin",
 		pluginWikiUrl = "https://github.com/GedMarc/JWebMP-GlobalizePlugin/wiki",
 		pluginOriginalHomepage = "https://github.com/globalizejs/globalize",
-		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/GlobalizePlugin.jar/download",
+		pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.javascript/jwebmp-globalize",
 		pluginIconUrl = "bower_components/globalize/icon.png",
 		pluginIconImageUrl = "bower_components/globalize/example.png",
-		pluginLastUpdatedDate = "2017/03/04")
+		pluginLastUpdatedDate = "2017/03/04",
+		pluginGroupId = "com.jwebmp.plugins.javascript",
+		pluginArtifactId = "jwebmp-globalize",
+		pluginModuleName = "com.jwebmp.plugins.globalize.cultures",
+		pluginStatus = PluginStatus.Released
+)
 public class GlobalizePageConfigurator
 		implements IPageConfigurator<GlobalizePageConfigurator>
 {
 	/**
 	 * The core java script reference
 	 */
-	private static final JavascriptReference coreReference = new JavascriptReference("Globalize Core Reference", 1.11, "bower_components/globalize/dist/globalize.min.js", 300);
+	private static final JavascriptReference coreReference = new JavascriptReference("Globalize Core Reference", 1.22, "bower_components/globalize/dist/globalize.min.js", 300);
 	/**
 	 * If this configurator is enabled
 	 */

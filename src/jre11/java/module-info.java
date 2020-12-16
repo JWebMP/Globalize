@@ -1,3 +1,5 @@
+import com.jwebmp.plugins.globalize.cultures.implementations.GlobalizeModuleInclusions;
+
 module com.jwebmp.plugins.globalize.cultures {
 	exports com.jwebmp.plugins.globalize.cultures;
 
@@ -11,6 +13,7 @@ module com.jwebmp.plugins.globalize.cultures {
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.globalize.cultures.GlobalizePageConfigurator;
 
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.globalize.cultures.implementations.GlobalizeExclusionsModule;
+	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleInclusions with GlobalizeModuleInclusions;
 
 	opens com.jwebmp.plugins.globalize.cultures to com.fasterxml.jackson.databind, com.jwebmp.core;
 }

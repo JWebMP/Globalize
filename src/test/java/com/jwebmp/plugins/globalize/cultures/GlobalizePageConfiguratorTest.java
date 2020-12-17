@@ -9,7 +9,7 @@ public class GlobalizePageConfiguratorTest
 	@Test
 	public void enabled()
 	{
-		Page p = new Page();
+		Page<?> p = new Page();
 		GlobalizePageConfigurator.setEnabled(true);
 
 

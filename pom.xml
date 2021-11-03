@@ -10,7 +10,7 @@
     <groupId>com.jwebmp.plugins.javascript</groupId>
     <artifactId>jwebmp-globalize</artifactId>
     <packaging>jar</packaging>
-
+    <version>0.0.0_0-SNAPSHOT</version>
     <name>Globalize</name>
     <description>The JWebSwing implementation for a full Globalization</description>
     <url>https://github.com/GedMarc/JWebSwing-Globalize</url>

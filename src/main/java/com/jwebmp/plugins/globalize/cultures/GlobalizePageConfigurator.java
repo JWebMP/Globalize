@@ -17,6 +17,8 @@
 package com.jwebmp.plugins.globalize.cultures;
 
 import com.jwebmp.core.Page;
+import com.jwebmp.core.base.angular.client.annotations.angularconfig.*;
+import com.jwebmp.core.base.angular.client.annotations.typescript.*;
 import com.jwebmp.core.base.references.JavascriptReference;
 import com.jwebmp.core.plugins.PluginInformation;
 import com.jwebmp.core.plugins.PluginStatus;
@@ -47,13 +49,18 @@ import jakarta.validation.constraints.NotNull;
 		pluginModuleName = "com.jwebmp.plugins.globalize.cultures",
 		pluginStatus = PluginStatus.Released
 )
+@TsDependency(value = "globalize",version = "*")
+@NgScript(value = "globalize/dist/globalize-runtime.js",sortOrder = 5)
+@NgScript(value = "globalize/dist/globalize-runtime/currency.js",sortOrder = 6)
+@NgScript(value = "globalize/dist/globalize-runtime/date.js",sortOrder = 7)
+@NgScript(value = "globalize/dist/globalize-runtime/message.js",sortOrder = 8)
+@NgScript(value = "globalize/dist/globalize-runtime/number.js",sortOrder = 9)
+@NgScript(value = "globalize/dist/globalize-runtime/plural.js",sortOrder = 10)
+@NgScript(value = "globalize/dist/globalize-runtime/relative-time.js",sortOrder = 11)
+@NgScript(value = "globalize/dist/globalize-runtime/unit.js",sortOrder = 12)
 public class GlobalizePageConfigurator
 		implements IPageConfigurator<GlobalizePageConfigurator>
 {
-	/**
-	 * The core java script reference
-	 */
-	private static final JavascriptReference coreReference = new JavascriptReference("Globalize Core Reference", 1.22, "bower_components/globalize/dist/globalize.min.js", 300);
 	/**
 	 * If this configurator is enabled
 	 */
@@ -98,8 +105,7 @@ public class GlobalizePageConfigurator
 	{
 		if (!page.isConfigured() && enabled())
 		{
-			page.getBody()
-			    .addJavaScriptReference(getJavascriptReference());
+
 		}
 		return page;
 	}
@@ -114,15 +120,4 @@ public class GlobalizePageConfigurator
 	{
 		return GlobalizePageConfigurator.enabled;
 	}
-
-	/**
-	 * Returns the core reference
-	 *
-	 * @return JavascriptReference
-	 */
-	public static JavascriptReference getJavascriptReference()
-	{
-		return coreReference;
-	}
-
 }

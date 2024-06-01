@@ -16,39 +16,36 @@
  */
 package com.jwebmp.plugins.globalize.cultures;
 
-import com.jwebmp.core.Page;
-import com.jwebmp.core.base.angular.client.annotations.angularconfig.*;
-import com.jwebmp.core.base.angular.client.annotations.typescript.*;
-import com.jwebmp.core.base.references.JavascriptReference;
+import com.jwebmp.core.base.angular.client.annotations.angularconfig.NgScript;
+import com.jwebmp.core.base.angular.client.annotations.typescript.TsDependency;
 import com.jwebmp.core.plugins.PluginInformation;
 import com.jwebmp.core.plugins.PluginStatus;
 import com.jwebmp.core.services.IPage;
 import com.jwebmp.core.services.IPageConfigurator;
 
-import jakarta.validation.constraints.NotNull;
 
 /**
  * @author GedMarc
  */
 @PluginInformation(pluginName = "Globalize",
-        pluginUniqueName = "globalize",
-        pluginDescription = "A JavaScript library for internationalization and localization that leverages the official Unicode CLDR JSON data ",
-        pluginVersion = "1.2.2",
-        pluginDependancyUniqueIDs = "jquery",
-        pluginCategories = "internalization, globalization, globalize",
-        pluginSubtitle = "A JavaScript library for internationalization and localization that leverage the official Unicode CLDR JSON data. The library works both for the browser and as a Node.js module.",
-        pluginGitUrl = "https://github.com/globalizejs/globalize",
-        pluginSourceUrl = "https://github.com/GedMarc/JWebMP-GlobalizePlugin",
-        pluginWikiUrl = "https://github.com/GedMarc/JWebMP-GlobalizePlugin/wiki",
-        pluginOriginalHomepage = "https://github.com/globalizejs/globalize",
-        pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.javascript/jwebmp-globalize",
-        pluginIconUrl = "bower_components/globalize/icon.png",
-        pluginIconImageUrl = "bower_components/globalize/example.png",
-        pluginLastUpdatedDate = "2017/03/04",
-        pluginGroupId = "com.jwebmp.plugins.javascript",
-        pluginArtifactId = "jwebmp-globalize",
-        pluginModuleName = "com.jwebmp.plugins.globalize.cultures",
-        pluginStatus = PluginStatus.Released
+                   pluginUniqueName = "globalize",
+                   pluginDescription = "A JavaScript library for internationalization and localization that leverages the official Unicode CLDR JSON data ",
+                   pluginVersion = "1.2.2",
+                   pluginDependancyUniqueIDs = "jquery",
+                   pluginCategories = "internalization, globalization, globalize",
+                   pluginSubtitle = "A JavaScript library for internationalization and localization that leverage the official Unicode CLDR JSON data. The library works both for the browser and as a Node.js module.",
+                   pluginGitUrl = "https://github.com/globalizejs/globalize",
+                   pluginSourceUrl = "https://github.com/GedMarc/JWebMP-GlobalizePlugin",
+                   pluginWikiUrl = "https://github.com/GedMarc/JWebMP-GlobalizePlugin/wiki",
+                   pluginOriginalHomepage = "https://github.com/globalizejs/globalize",
+                   pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.javascript/jwebmp-globalize",
+                   pluginIconUrl = "bower_components/globalize/icon.png",
+                   pluginIconImageUrl = "bower_components/globalize/example.png",
+                   pluginLastUpdatedDate = "2017/03/04",
+                   pluginGroupId = "com.jwebmp.plugins.javascript",
+                   pluginArtifactId = "jwebmp-globalize",
+                   pluginModuleName = "com.jwebmp.plugins.globalize.cultures",
+                   pluginStatus = PluginStatus.Released
 )
 @TsDependency(value = "globalize", version = "*")
 @NgScript(value = "globalize/dist/globalize-runtime.js", sortOrder = 5)
@@ -97,7 +94,6 @@ public class GlobalizePageConfigurator
      * @param page of type Page
      * @return Page
      */
-    @NotNull
     @Override
     public IPage<?> configure(IPage<?> page)
     {

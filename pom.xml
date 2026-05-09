@@ -7,23 +7,16 @@
         <version>2.0.0-SNAPSHOT</version>
     </parent>
 
-
     <groupId>com.jwebmp.plugins</groupId>
     <artifactId>globalize</artifactId>
     <packaging>jar</packaging>
     <version>2.0.0-SNAPSHOT</version>
     <name>Globalize</name>
-    <description>The JWebSwing implementation for a full Globalization</description>
-
-
-    <issueManagement>
-        <system>Github</system>
-        <url>https://github.com/GedMarc/JWebSwing-Globalize/issues</url>
-    </issueManagement>
+    <description>Globalize internationalization and localization plugin for JWebMP — provides Unicode CLDR culture support required by jQuery UI</description>
 
     <dependencies>
         <dependency>
-            <groupId>com.jwebmp.client</groupId>
+            <groupId>com.jwebmp</groupId>
             <artifactId>jwebmp-client</artifactId>
         </dependency>
 
@@ -62,9 +55,8 @@
                 <artifactId>jwebmp-bom</artifactId>
                 <type>pom</type>
                 <scope>import</scope>
-                <version>${guicedee.version}</version>
+                <version>${jwebmp.version}</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 
@@ -73,6 +65,10 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>flatten-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

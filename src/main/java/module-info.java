@@ -13,6 +13,6 @@ module com.jwebmp.plugins.globalize.cultures {
     provides IPageConfigurator with GlobalizePageConfigurator;
     provides IGuiceScanModuleInclusions with GlobalizeModuleInclusions;
 
-    opens com.jwebmp.plugins.globalize.cultures to com.fasterxml.jackson.databind, com.jwebmp.core, com.google.guice, com.jwebmp.core.angular;
+    opens com.jwebmp.plugins.globalize.cultures to tools.jackson.databind, com.jwebmp.core, com.google.guice, com.jwebmp.core.angular;
     opens com.jwebmp.plugins.globalize.cultures.implementations to com.google.guice;
 }
